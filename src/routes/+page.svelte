@@ -3,31 +3,16 @@
   import Planet from '$lib/Planet.svelte';
   import Portfolio from '$lib/Portfolio.svelte';
 
-  
-  let planets = [
-    { id: 1, gravity: 20, label: 'SaaS-tier design' },
-    { id: 2, gravity: 30, label: 'Need Design' },
-    { id: 3, gravity: 25, label: 'Planet 3' }
-  ];
-  
-  function updateGravity(id, newGravity) {
-    const planetIndex = planets.findIndex(p => p.id === id);
-    if (planetIndex !== -1) {
-      planets[planetIndex].gravity = newGravity;
-    }
-  }
-  
 
   onMount(() => {
-    // Any logic you need to execute when the component is first mounted
-    // This could include fetching data, setting up state, etc.
+    // Additional setup if needed
   });
-
-  // If you need to handle resizing or other interactions for the 'Planet',
-  // you would add that logic here, otherwise, the 'Planet' component will
-  // manage its own state and behavior.
+  
 </script>
 
+<Planet initialGravity={10} color={"blue"} label={"test1"} />
+
+<!-- <Planet initialGravity={40} color="green" label="test2" /> -->
 
 
 <div class="container mx-auto px-4">
@@ -43,18 +28,6 @@
   </header>
 </div>
 
-<!-- Assuming this is another section where you want to display planets dynamically -->
-<section class="py-8 px-8 md:px-8">
-  <div class="max-w-xl mx-auto text-center">
-    <h3 class="text-xl font-bold mb-4">Dynamic Planets</h3>
-    {#each planets as planet (planet.id)}
-      <div class="mb-8">
-        <Planet initialGravity={planet.gravity} color="#fffff" label={planet.label}
-                on:gravityChange={(event) => updateGravity(planet.id, event.detail.newGravity)} />
-      </div>
-    {/each}
-  </div>
-</section>
 
 <!-- hero -->
 <section class="hero mt-16 py-8 flex justify-center items-center">
@@ -78,6 +51,7 @@
   </div>
 </section>
 
+
   <!-- logos -->
   <section class="py-8 text-center mb-4">
     <h3 class="mb-4 text-xs text-gray-700">We come in peace from tech</h3>
@@ -99,7 +73,7 @@
   <section class="py-8 px-8 md:px-8 bg-lighterBg">
     <div class="flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12">
       <div class="w-full md:w-1/2 p-4 relative">
-        <!-- <Planet initialGravity={20} color="blue" label="SaaS-tier design"/> -->
+        <!-- <Planet initialGravity={10} color="blue" label="SaaS"/> -->
       </div>
       <div class="w-full md:w-1/2">
         <h3 class="text-2xl font-bold mb-3">Words & design for the space industry</h3>
@@ -115,6 +89,11 @@
   <div class="max-w-xl mx-auto text-center">
     <h3 class="text-xl font-bold mb-4">Rate the gravity of the situation</h3>
     <p class="text-xl mb-8">Aerospace needs UX posthaste</p>
+    
+    <!-- Single Planet Component -->
+    <div class="mb-8">
+      <!-- <Planet initialGravity={30} color="blue" label="UX Importance"/> -->
+    </div>
   </div>
 </section>      
 
