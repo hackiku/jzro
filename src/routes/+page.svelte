@@ -1,7 +1,9 @@
 <script>
   import { onMount } from 'svelte';
   import Planet from '$lib/Planet.svelte';
-
+  import Portfolio from '$lib/Portfolio.svelte';
+  
+  let gravity = 2
   onMount(() => {
     // Any logic you need to execute when the component is first mounted
     // This could include fetching data, setting up state, etc.
@@ -64,7 +66,6 @@
   <section class="h-12 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8 flex justify-center items-center">
       <h3 class="text-md font-mono text-gray-400 mb-4 text-center">◀ Work</h3>
   </section>
-  <!-- <div class="h-14 bg-gradient-to-b from-darkBg to-lighterBg"></div> -->
 
   <!-- Zigzag Sections -->
 
@@ -80,41 +81,32 @@
     </div>
   </section>
 
+  <Portfolio />
+
+  <!-- ========= GRAVITY SITUATION =========  -->
+  <section class="py-8 px-8 md:px-8">
+    <div class="max-w-xl mx-auto text-center">
   
-  <!-- portfolio -->
-  <section class="py-8 px-8 md:px-8 bg-lighterBg">
-    <div class="text-center">
-      <h4 class="text-3xl font-bold mb-8">Portfolio</h4>
+      <!-- Heading and Subheading -->
+      <h3 class="text-xl font-bold mb-4">Rate the gravity of the situation</h3>
+      <p class="text-xl mb-8">Aerospace needs UX posthaste</p>
   
-      <div class="flex flex-wrap justify-center items-center space-x-4">
+      <!-- Mock Slider UI Element -->
+      <div class="flex justify-center items-center">
+        <label for="gravity-slider" class="mr-4">Gravity:</label>
+        <input type="range" id="gravity-slider" name="gravity-slider" min="0" max="100" bind:value={gravity} class="w-full max-w-md">
+      </div>
   
-        <!-- Portfolio Item 1: Website Copywriting -->
-        <div class="p-4 max-w-xs text-center hover:scale-110 transition-transform duration-300">
-          <img src="/path-to-copywriting-image.jpg" alt="Website Copywriting" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-          <h5 class="text-xl font-bold mb-2">Website Copywriting</h5>
-          <p>Engaging and persuasive content tailored for space startups.</p>
-        </div>
-  
-        <!-- Portfolio Item 2: UI/UX Design -->
-        <div class="p-4 max-w-xs text-center hover:scale-110 transition-transform duration-300">
-          <img src="/path-to-uiux-design-image.jpg" alt="UI/UX Design" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-          <h5 class="text-xl font-bold mb-2">UI/UX Design</h5>
-          <p>Innovative design solutions for aerospace interfaces.</p>
-        </div>
-  
-        <!-- Portfolio Item 3: Coding -->
-        <div class="p-4 max-w-xs text-center hover:scale-110 transition-transform duration-300">
-          <img src="/path-to-coding-image.jpg" alt="Coding" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-          <h5 class="text-xl font-bold mb-2">Coding</h5>
-          <p>Robust and efficient coding for aerospace applications.</p>
-        </div>
-  
+      <!-- Planet Component -->
+      <div class="mb-8">
+        <Planet verticalLabelOffset={1} gravity={gravity}>I need UX</Planet>
       </div>
     </div>
   </section>
-  <div class="h-8 bg-gradient-to-t from-darkBg to-lighterBg"></div>
+    
 
 
+  <!--------------------------------------------------------->
   <section class="mt-8 py-8 px-8 md:px-8 max-w-2xl mx-auto">
     <div class="flex flex-wrap items-center">
       <div class="w-full md:w-1/2 p-4">

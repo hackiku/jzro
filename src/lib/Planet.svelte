@@ -1,8 +1,8 @@
 <script>
+  export let gravity = 4; // default value
+
   export let horizontalLabelOffset = 1;
   export let verticalLabelOffset = 1.4;
-
-  const gravity = 20; // Example scaling factor
 
   // Calculate circle area based on viewport and gravity
   function calculateArea() {
