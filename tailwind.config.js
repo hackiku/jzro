@@ -6,6 +6,7 @@ export default {
       colors: {
         darkBg: '#09050E',
         brandBlue: '#1400FF',
+        lighterBg: '#0D0615',
       }
     },
   },
