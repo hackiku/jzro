@@ -2,8 +2,22 @@
   import { onMount } from 'svelte';
   import Planet from '$lib/Planet.svelte';
   import Portfolio from '$lib/Portfolio.svelte';
+
   
-  let gravity = 2
+  let planets = [
+    { id: 1, gravity: 20, label: 'SaaS-tier design' },
+    { id: 2, gravity: 30, label: 'Need Design' },
+    { id: 3, gravity: 25, label: 'Planet 3' }
+  ];
+  
+  function updateGravity(id, newGravity) {
+    const planetIndex = planets.findIndex(p => p.id === id);
+    if (planetIndex !== -1) {
+      planets[planetIndex].gravity = newGravity;
+    }
+  }
+  
+
   onMount(() => {
     // Any logic you need to execute when the component is first mounted
     // This could include fetching data, setting up state, etc.
@@ -29,11 +43,24 @@
   </header>
 </div>
 
+<!-- Assuming this is another section where you want to display planets dynamically -->
+<section class="py-8 px-8 md:px-8">
+  <div class="max-w-xl mx-auto text-center">
+    <h3 class="text-xl font-bold mb-4">Dynamic Planets</h3>
+    {#each planets as planet (planet.id)}
+      <div class="mb-8">
+        <Planet initialGravity={planet.gravity} color="#fffff" label={planet.label}
+                on:gravityChange={(event) => updateGravity(planet.id, event.detail.newGravity)} />
+      </div>
+    {/each}
+  </div>
+</section>
+
 <!-- hero -->
 <section class="hero mt-16 py-8 flex justify-center items-center">
   <div class="max-w-md text-center">
     <h2 class="text-5xl  text-white mb-4">Aerospace UX</h2>
-    <p class="text-xl text-gray-500 mb-8">jzro is a space-race-paced boutique user experience design lab.</p>
+    <p class="text-xl text-gray-500 mb-8">jzro is a space-race-paced user experience design lab for aero+space innovators.</p>
     <div class="flex justify-center items-center space-x-4">
       <!-- Take me to Orbit Button -->
       <button class="bg-brandBlue rounded-full text-white px-6 py-3 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300">
@@ -72,7 +99,7 @@
   <section class="py-8 px-8 md:px-8 bg-lighterBg">
     <div class="flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12">
       <div class="w-full md:w-1/2 p-4 relative">
-        <Planet>SaaS design</Planet>
+        <!-- <Planet initialGravity={20} color="blue" label="SaaS-tier design"/> -->
       </div>
       <div class="w-full md:w-1/2">
         <h3 class="text-2xl font-bold mb-3">Words & design for the space industry</h3>
@@ -83,28 +110,13 @@
 
   <Portfolio />
 
-  <!-- ========= GRAVITY SITUATION =========  -->
-  <section class="py-8 px-8 md:px-8">
-    <div class="max-w-xl mx-auto text-center">
-  
-      <!-- Heading and Subheading -->
-      <h3 class="text-xl font-bold mb-4">Rate the gravity of the situation</h3>
-      <p class="text-xl mb-8">Aerospace needs UX posthaste</p>
-  
-      <!-- Mock Slider UI Element -->
-      <div class="flex justify-center items-center">
-        <label for="gravity-slider" class="mr-4">Gravity:</label>
-        <input type="range" id="gravity-slider" name="gravity-slider" min="0" max="100" bind:value={gravity} class="w-full max-w-md">
-      </div>
-  
-      <!-- Planet Component -->
-      <div class="mb-8">
-        <Planet verticalLabelOffset={1} gravity={gravity}>I need UX</Planet>
-      </div>
-    </div>
-  </section>
-    
-
+<!-- ========= GRAVITY SITUATION =========  -->
+<section class="py-8 px-8 md:px-8">
+  <div class="max-w-xl mx-auto text-center">
+    <h3 class="text-xl font-bold mb-4">Rate the gravity of the situation</h3>
+    <p class="text-xl mb-8">Aerospace needs UX posthaste</p>
+  </div>
+</section>      
 
   <!--------------------------------------------------------->
   <section class="mt-8 py-8 px-8 md:px-8 max-w-2xl mx-auto">
@@ -123,32 +135,7 @@
   </section>
   <!-- <Planet horizontalLabelOffset={1} verticalLabelOffset={1}>My Planet Label</Planet> -->
 
-
-  <!-- Centered Section -->
-  <section class="py-8">
-    <div class="text-center">
-      <h2 class="text-4xl font-bold mb-4">Why Choose Jzro?</h2>
-      <p class="text-xl mb-8">Leading the frontier in aerospace UX design.</p>
-      <div class="flex justify-center space-x-4">
-        <div class="max-w-sm">
-          <img src="/placeholder-icon-1.svg" alt="Icon 1" class="mx-auto">
-          <h4 class="font-bold mt-2">Innovation</h4>
-          <p>Pushing the boundaries of what's possible.</p>
-        </div>
-        <div class="max-w-sm">
-          <img src="/placeholder-icon-2.svg" alt="Icon 2" class="mx-auto">
-          <h4 class="font-bold mt-2">Reliability</h4>
-          <p>Systems you can trust, in the most critical moments.</p>
-        </div>
-        <div class="max-w-sm">
-          <img src="/placeholder-icon-3.svg" alt="Icon 3" class="mx-auto">
-          <h4 class="font-bold mt-2">User-Centric</h4>
-          <p>Designs focused on user experience and interface.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
+  <!--------------------------footer-------------------------->  
   <footer class="border-t border-gray-800 text-center p-12 text-gray-600">
     <form class="flex justify-center items-center">
       <input type="email" placeholder="email away" class="border border-gray-300 rounded-l px-4 py-2 focus:outline-none focus:ring-2 focus:ring-gray-300" />

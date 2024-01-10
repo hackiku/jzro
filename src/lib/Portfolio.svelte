@@ -18,14 +18,7 @@
           <h5 class="text-xl font-bold mb-2">UI/UX Design</h5>
           <p>Innovative design solutions for aerospace interfaces.</p>
         </div>
-  
-        <!-- Portfolio Item 3: Coding -->
-        <div class="p-4 max-w-xs text-center hover:scale-110 transition-transform duration-300">
-          <img src="/path-to-coding-image.jpg" alt="Coding" class="mx-auto rounded-full w-32 h-32 object-cover mb-4">
-          <h5 class="text-xl font-bold mb-2">Coding</h5>
-          <p>Robust and efficient coding for aerospace applications.</p>
-        </div>
-  
+    
       </div>
     </div>
   </section>
