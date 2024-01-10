@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import Planet from '$lib/Planet.svelte';
   import Portfolio from '$lib/Portfolio.svelte';
+    import Testimonials from '$lib/Testimonials.svelte';
 
 
   onMount(() => {
@@ -10,7 +11,7 @@
   
 </script>
 
-<Planet initialGravity={10} color={"blue"} label={"test1"} />
+<Planet initialGravity={90} horizontalLabelOffset={0.1} color={"lightblue"} label={"test1ss"} />
 
 <!-- <Planet initialGravity={40} color="green" label="test2" /> -->
 
@@ -33,7 +34,7 @@
 <section class="hero mt-16 py-8 flex justify-center items-center">
   <div class="max-w-md text-center">
     <h2 class="text-5xl  text-white mb-4">Aerospace UX</h2>
-    <p class="text-xl text-gray-500 mb-8">jzro is a space-race-paced user experience design lab for aero+space innovators.</p>
+    <p class="text-xl text-gray-500 mb-8">JZRO is a space-race-paced user experience lab for those who make things fly.</p>
     <div class="flex justify-center items-center space-x-4">
       <!-- Take me to Orbit Button -->
       <button class="bg-brandBlue rounded-full text-white px-6 py-3 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300">
@@ -58,7 +59,9 @@
     <div class="grayscale	flex flex-wrap justify-center items-center space-x-4">
       <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Northrop_Grumman_logo_blue-on-clear_2020.svg" alt="Logo 1" class="w-24 h-8">
       <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/European_Space_Agency_logo.svg" alt="Logo 2" class="w-24 h-8">
+      <p class="text-gray-700">Logo</p>
       <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Lockheed_Martin_logo.svg" alt="Logo 3" class="w-24 h-8">
+      <p class="text-gray-700">Logo</p>
       <p class="text-gray-700">Logo</p>
     </div>
   </section>
@@ -68,34 +71,35 @@
       <h3 class="text-md font-mono text-gray-400 mb-4 text-center">◀ Work</h3>
   </section>
 
-  <!-- Zigzag Sections -->
-
-  <section class="py-8 px-8 md:px-8 bg-lighterBg">
-    <div class="flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12">
-      <div class="w-full md:w-1/2 p-4 relative">
-        <!-- <Planet initialGravity={10} color="blue" label="SaaS"/> -->
+  <!------------------------ services ------------------------>
+  <section class="mt-8 py-8 px-8 md:px-8 max-w-2xl mx-auto">
+    <div class="flex flex-wrap items-center">
+      <div class="w-full md:w-1/2 p-4">
+        <h3 class="text-2xl mb-3">Copywriting & design for the space industry</h3>
+        <p class="mb-4">Bringing the lessons of human-centered design from tech to space tech.</p>
       </div>
-      <div class="w-full md:w-1/2">
-        <h3 class="text-2xl font-bold mb-3">Words & design for the space industry</h3>
-        <p class="mb-4">We bring the best lessons from SaaS and big tech design to the industry.</p>
-      </div>  
+      <div class="w-full p-8 md:w-1/2">
+        <Planet initialGravity={80} color="#a84e32" label="SaaS"/>
+      </div>
     </div>
   </section>
 
   <Portfolio />
 
-<!-- ========= GRAVITY SITUATION =========  -->
-<section class="py-8 px-8 md:px-8">
-  <div class="max-w-xl mx-auto text-center">
-    <h3 class="text-xl font-bold mb-4">Rate the gravity of the situation</h3>
-    <p class="text-xl mb-8">Aerospace needs UX posthaste</p>
-    
-    <!-- Single Planet Component -->
-    <div class="mb-8">
-      <!-- <Planet initialGravity={30} color="blue" label="UX Importance"/> -->
+  <section class="py-8 px-8 md:px-8 bg-lighterBg">
+    <div class="flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12">
+      <div class="w-full md:w-1/2 p-4 relative">
+        <Planet initialGravity={40} color="blue" label="SaaS"/>
+      </div>
+      <div class="w-full md:w-2/5">
+        <h5 class="mb-3">Bringing the lessons of human-centered design from tech to space tech</h5>
+      </div>  
     </div>
-  </div>
-</section>      
+  </section>
+  
+  <img class="h-12" src="https://latvijasalfabets.lv/assets/images/ribbons/awwwards_honorable_white_right@2x.png" alt="">
+  
+  <Testimonials />
 
   <!--------------------------------------------------------->
   <section class="mt-8 py-8 px-8 md:px-8 max-w-2xl mx-auto">
@@ -112,7 +116,20 @@
       </div>
     </div>
   </section>
-  <!-- <Planet horizontalLabelOffset={1} verticalLabelOffset={1}>My Planet Label</Planet> -->
+
+  <!-- ========= GRAVITY SITUATION =========  -->
+<section class="py-8 px-8 md:px-8">
+  <div class="max-w-xl mx-auto text-center">
+    <h3 class="text-xl font-bold mb-4">Rate the gravity of the situation</h3>
+    <p class="text-xl mb-8">Aerospace needs UX posthaste</p>
+    <Planet initialGravity={30} color={"lightblue"} label={"gravity level"} />
+    <!-- Single Planet Component -->
+    <div class="mb-8">
+      <!-- <Planet initialGravity={30} color="blue" label="UX Importance"/> -->
+    </div>
+  </div>
+</section>      
+
 
   <!--------------------------footer-------------------------->  
   <footer class="border-t border-gray-800 text-center p-12 text-gray-600">

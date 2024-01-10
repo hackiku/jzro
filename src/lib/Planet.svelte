@@ -6,11 +6,10 @@
   let gravity = initialGravity;
   export let color = 'red'; // New prop for color customization
   export let label = '';
-  export let horizontalLabelOffset = 1;
-  export let verticalLabelOffset = 1.4;
+  export let horizontalLabelOffset = 22; // px change later
+  export let verticalLabelOffset = 28; // px change later
   
   function calculateDiameter() {
-    // Adjust this calculation as needed to maintain the proportionality
     return Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 100);
   }
 
@@ -42,11 +41,9 @@
     <svg style="width: {diameter}px; height: {diameter}px;">
       <circle cx={diameter / 2} cy={diameter / 2} r={diameter / 2} fill={color}/>
     </svg>
-    <span class="label">
+    <span class="label" style="left: {diameter / 2 + horizontalLabelOffset}px; top: {diameter / 2 - verticalLabelOffset}px;">
       {label}
     </span>
-    <p>grav {gravity}</p>
-    <p> | dia {diameter}</p>
   </div>
 
   <div class="gravity-slider">
@@ -55,10 +52,6 @@
 </div>
 
 <style>
-  :root {
-    --planet-color: red; /* default color */
-  }
-
   .planet-container {
     text-align: center;
     margin: 1rem 0;
@@ -69,13 +62,11 @@
     max-width: 200px; /* Adjust as needed */
   }
 
-  .planet circle {
-    fill: var(--planet-color);
-  }
-  
   .label {
     /* Styles for the label text */
     color: white;
+    position: absolute;
+    transform: translate(0%, 0%);
     font-family: 'font-mono', monospace;
     font-size: 0.8rem;
     white-space: nowrap;
