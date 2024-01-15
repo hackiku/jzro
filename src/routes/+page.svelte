@@ -27,15 +27,16 @@
         <li><a href="#" class="text-white hover:text-gray-300">Work</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">Play</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
-        <li><a href="./grav-simultator" class="text-white hover:text-gray-300">Grav</a></li>
+        <li><a href="./grav-sym" class="text-white hover:text-gray-300">Grav</a></li>
       </ul>
     </nav>
   </header>
 </div>
 
 <!-- PARTICLE SELECTOR -->
+<!-- <div class="fixed p-6 bottom-12 w-1/5 rounded-full flex justify-center items-center bg-gray-800 bg-opacity-10 left-0 right-0 mx-auto"> -->
 
-<div class="fixed p-4 bottom-12 flex justify-center items-center bg-gray-800 bg-opacity-20 left-1/2 transform -translate-x-1/2">
+<div class="fixed p-6 bottom-12 rounded-full flex justify-center items-center bg-gray-800 bg-opacity-10 left-1/2 transform -translate-x-1/2">
   <div class="relative flex justify-center group hover:opacity-100 transition-opacity opacity-0">
     <span class="absolute bottom-full mb-2">
     <!-- <span class="absolute bottom-full mb-2 transition-opacity"> -->
