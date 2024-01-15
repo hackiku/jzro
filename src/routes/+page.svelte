@@ -9,6 +9,8 @@
     // Additional setup if needed
   });
   
+  let particleNumber = 50; // default value for slider
+
 </script>
 
 <!-- <Planet initialGravity={90} horizontalLabelOffset={0.1} color={"lightblue"} label={"test1ss"} /> -->
@@ -31,6 +33,21 @@
   </header>
 </div>
 
+<!-- PARTICLE SELECTOR -->
+
+<div class="fixed p-4 bottom-12 flex justify-center items-center bg-gray-800 bg-opacity-20 left-1/2 transform -translate-x-1/2">
+  <div class="relative flex justify-center group hover:opacity-100 transition-opacity opacity-0">
+    <span class="absolute bottom-full mb-2">
+    <!-- <span class="absolute bottom-full mb-2 transition-opacity"> -->
+      Particle Number: {particleNumber}
+    </span>
+
+    <!-- Slider -->
+    <input type="range" min="1" max="100" value={particleNumber}
+           class="slider w-full" id="particleNumber"
+           on:input={(e) => particleNumber = e.target.value} />
+  </div>
+</div>
 
 <!-- hero -->
 <section class="hero mt-16 py-8 flex justify-center items-center">
