@@ -2,8 +2,8 @@
   import { onMount } from 'svelte';
   import Planet from '$lib/Planet.svelte';
   import Portfolio from '$lib/Portfolio.svelte';
-    import Testimonials from '$lib/Testimonials.svelte';
-
+  import Testimonials from '$lib/Testimonials.svelte';
+  import Spaceship from '$lib/Spaceship.svelte';
 
   onMount(() => {
     // Additional setup if needed
@@ -11,10 +11,11 @@
   
 </script>
 
-<Planet initialGravity={90} horizontalLabelOffset={0.1} color={"lightblue"} label={"test1ss"} />
+<!-- <Planet initialGravity={90} horizontalLabelOffset={0.1} color={"lightblue"} label={"test1ss"} /> -->
 
 <!-- <Planet initialGravity={40} color="green" label="test2" /> -->
 
+<Spaceship />
 
 <div class="container mx-auto px-4">
   <header class="flex justify-between items-center py-4">
@@ -24,6 +25,7 @@
         <li><a href="#" class="text-white hover:text-gray-300">Work</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">Play</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
+        <li><a href="./grav-simultator" class="text-white hover:text-gray-300">Grav</a></li>
       </ul>
     </nav>
   </header>
@@ -34,12 +36,10 @@
 <section class="hero mt-16 py-8 flex justify-center items-center">
   <div class="max-w-md text-center">
     <h2 class="text-5xl  text-white mb-4">Aerospace UX</h2>
-    <p class="text-xl text-gray-500 mb-8">JZRO is a space-race-paced user experience lab for those who make things fly.</p>
+    <p class="text-xl text-gray-500 mb-8">Space race-paced user experience lab for those who make things fly.</p>
     <div class="flex justify-center items-center space-x-4">
       <!-- Take me to Orbit Button -->
-      <button class="bg-brandBlue rounded-full text-white px-6 py-3 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300">
-        Take me to Orbit
-      </button>
+      <button class="btn">Take me to Orbit</button>
 
       <!-- GitHub Button -->
       <button class="bg-black rounded-full text-white px-6 py-3 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300">
@@ -79,17 +79,18 @@
         <p class="mb-4">Bringing the lessons of human-centered design from tech to space tech.</p>
       </div>
       <div class="w-full p-8 md:w-1/2">
-        <Planet initialGravity={80} color="#a84e32" label="SaaS"/>
+        <!-- <Planet initialGravity={80} color="#a84e32" label="SaaS"/> -->
       </div>
     </div>
   </section>
 
   <Portfolio />
 
+  <!-- zigzag right -->
   <section class="py-8 px-8 md:px-8 bg-lighterBg">
     <div class="flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12">
       <div class="w-full md:w-1/2 p-4 relative">
-        <Planet initialGravity={40} color="blue" label="SaaS"/>
+        <!-- <Planet initialGravity={40} color="blue" label="SaaS"/> -->
       </div>
       <div class="w-full md:w-2/5">
         <h5 class="mb-3">Bringing the lessons of human-centered design from tech to space tech</h5>
@@ -102,19 +103,18 @@
   <Testimonials />
 
   <!--------------------------------------------------------->
-  <section class="mt-8 py-8 px-8 md:px-8 max-w-2xl mx-auto">
-    <div class="flex flex-wrap items-center">
+  <section class="zigzag-section">
+    <div class="zigzag-content">
       <div class="w-full md:w-1/2 p-4">
         <h3 class="text-2xl font-bold mb-3">Understanding the gravity of the situation</h3>
         <p class="mb-4">We bring the best lessons from SaaS and big tech design to the industry.</p>
         <button class="border-brandBlue border-2 rounded-full text-brandBlue px-6 py-2 hover:bg-gray-400 focus:ring-gray-300">
           Choose violence →
         </button>
-  
       </div>
-        <div class="w-full p-8 md:w-1/2">
+      <div class="w-full p-8 md:w-1/2">
+      image
       </div>
-    </div>
   </section>
 
   <!-- ========= GRAVITY SITUATION =========  -->
@@ -122,7 +122,7 @@
   <div class="max-w-xl mx-auto text-center">
     <h3 class="text-xl font-bold mb-4">Rate the gravity of the situation</h3>
     <p class="text-xl mb-8">Aerospace needs UX posthaste</p>
-    <Planet initialGravity={30} color={"lightblue"} label={"gravity level"} />
+    <!-- <Planet initialGravity={30} color={"lightblue"} label={"gravity level"} /> -->
     <!-- Single Planet Component -->
     <div class="mb-8">
       <!-- <Planet initialGravity={30} color="blue" label="UX Importance"/> -->
@@ -141,4 +141,14 @@
 
   <!------------------------------>
   <style>
+    .btn {
+      @apply bg-brandBlue rounded-full text-white px-6 py-3 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300;
+    }
+    .zigzag-section {
+      @apply py-8 px-8 md:px-8 bg-lighterBg;
+    }
+    .zigzag-content {
+      @apply flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12;
+    }
+
   </style>
