@@ -12,7 +12,7 @@
   
   const dispatch = createEventDispatcher();
   
-  const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 20);
+  const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 24);
   
   onMount(() => {
     diameter = calculateDiameter(); // Initialize diameter on the client side
@@ -38,7 +38,9 @@
       {label}
     </span>
   </div>
-  <div class="mt-6 relative z-20">
-    <input type="range" min="2" max="100" bind:value={gravity} class="w-full max-w-xs">
+  <div class="mt-6 ml-16 relative z-20">
+    <input
+      type="range" min="0" max="100" bind:value={gravity} class="w-1/2 max-w-1/4"
+      >
   </div>
 </div>

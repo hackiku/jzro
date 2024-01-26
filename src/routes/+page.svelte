@@ -81,7 +81,7 @@ onMount(() => {
     <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
     <p class="text-2xl text-gray-500 mb-8">I write and design user experiences for those who make machines fly.</p>
     <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-    <Planet initialGravity={20} color="#F4191D" label="Fly me to Orbit" />
+    <Planet initialGravity={4} color="#F4191D" label="Fly me to Orbit" />
     <div class="flex justify-center items-center space-x-4">
     </div>
   </div>
@@ -100,8 +100,10 @@ onMount(() => {
   </div>
 </section>
 
-<!-- gradient -->
-<!-- <section class="h-12 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8 flex justify-center items-center"></section> -->
+<svg class="absolute top-0 right-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
+  <!-- Orbit Path -->
+  <path d="M 100,0 Q 50,50 0,100" stroke="white" stroke-width="0.1" fill="none"/>
+</svg>
 
 
   <!------------------------ services ------------------------>
@@ -112,7 +114,7 @@ onMount(() => {
         <p class="text-md mb-4">I write wireframes that storytell and sell, and save you time on design.</p>
       </div>
       <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
-        <Planet initialGravity={80} color="#1ABCFE" label="Work"/>
+        <Planet initialGravity={22} color="#1ABCFE" label="Work"/>
       </div>
     </div>
   </section>
