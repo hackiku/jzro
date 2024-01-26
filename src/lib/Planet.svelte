@@ -1,24 +1,20 @@
 <!-- Planet.svelte -->
 <script>
-  import { onMount, onDestroy } from 'svelte';
+  import { onMount } from 'svelte';
   import { createEventDispatcher } from 'svelte';
   
   export let initialGravity = 20;
   let gravity = initialGravity;
   export let color = 'red'; // Customizable color prop
   export let label = '';
-  let verticalLabelOffset = 24;
-  let horizontalLabelOffset = 24;
 
-  let isClient = false;
   let diameter;
   
   const dispatch = createEventDispatcher();
   
-  const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 50);
+  const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 20);
   
   onMount(() => {
-    isClient = true;
     diameter = calculateDiameter(); // Initialize diameter on the client side
 
     const updateDiameter = () => diameter = calculateDiameter();
@@ -33,40 +29,16 @@
   }
 </script>
 
-{#if isClient}
-  <div class="planet-container">
-    <div class="planet" style="position: relative; display: inline-flex; align-items: center;">
-      <svg style="width: {diameter}px; height: {diameter}px;">
-        <circle cx={diameter / 2} cy={diameter / 2} r={diameter / 2} fill={color}/>
-      </svg>
-      <span class="label" style="left: {diameter / 2 + horizontalLabelOffset}px; top: {diameter / 2 - verticalLabelOffset}px;">
-        {label}
-      </span>
-    </div>
-    <div class="gravity-slider">
-      <input type="range" min="0" max="100" bind:value={gravity}>
-    </div>
+<div class="text-center my-4">
+  <div class="inline-block relative z-0">
+    <svg class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" style="width: {diameter}px; height: {diameter}px;">
+      <circle cx="50%" cy="50%" r={diameter / 2} fill={color}/>
+    </svg>
+    <span class="absolute top-1/2 left-full transform -translate-y-1/2 ml-6 text-white font-mono text-sm whitespace-nowrap z-10">
+      {label}
+    </span>
   </div>
-{/if}
-
-
-<style>
-  .planet-container {
-    text-align: center;
-    margin: 1rem 0;
-  }
-
-  .gravity-slider input[type=range] {
-    width: 100%;
-    max-width: 200px;
-  }
-
-  .label {
-    color: white;
-    position: absolute;
-    transform: translate(0%, 0%);
-    font-family: 'font-mono', monospace;
-    font-size: 0.8rem;
-    white-space: nowrap;
-  }
-</style>
+  <div class="mt-6 relative z-20">
+    <input type="range" min="2" max="100" bind:value={gravity} class="w-full max-w-xs">
+  </div>
+</div>

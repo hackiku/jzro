@@ -79,7 +79,7 @@ onMount(() => {
 <section class="hero mt-24 py-8 flex justify-center items-center">
   <div class="max-w-md text-center">
     <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
-    <p class="text-2xl text-gray-500 mb-8">Space race-paced user experience design for those who make machines fly.</p>
+    <p class="text-2xl text-gray-500 mb-8">I write and design user experiences for those who make machines fly.</p>
     <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
     <Planet initialGravity={20} color="#F4191D" label="Fly me to Orbit" />
     <div class="flex justify-center items-center space-x-4">
