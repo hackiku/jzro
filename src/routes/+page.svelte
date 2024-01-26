@@ -17,13 +17,15 @@
 
 <!-- <Planet initialGravity={40} color="green" label="test2" /> -->
 
-<Spaceship />
+<!-- <Spaceship /> -->
 
 <div class="container mx-auto px-4">
   <header class="flex justify-between items-center py-4">
     <h1 class="text-sm text-white font-mono">jzro</h1>
     <nav>
       <ul class="flex space-x-4">
+        <Planet initialGravity={40} color="green" label="test2" />
+
         <li><a href="#" class="text-white hover:text-gray-300">Work</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">Play</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
