@@ -29,14 +29,23 @@ onMount(() => {
 
 </script>
 
-<!-- <Planet initialGravity={90} horizontalLabelOffset={0.1} color={"lightblue"} label={"test1ss"} /> -->
-
 <!-- <Spaceship /> -->
 
+<!-- <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
+  <circle class="opacity-20" cx="1em" cy="-36" r="32" fill="darkblue" />
+</svg>   -->
+
+<svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
+  <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
+</svg>
+
+<svg class="absolute top-0 left-0 w-full h-full" style="pointer-events: none;">
+  <circle class="opacity-20" cx="80vw" cy="-22vh" r="18vw" fill="darkblue" />
+</svg>
+
+<!-- --------------------- nav --------------------- -->
+
 <div class="container mx-auto px-4">
-  <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100">
-    <circle class="opacity-20" cx="100" cy="-22" r="32" fill="darkblue" />
-  </svg>  
   <header class="flex justify-between items-center py-4 px-20
   ">
     <h1 class="text-sm text-white font-mono">jzro</h1>
@@ -46,15 +55,12 @@ onMount(() => {
         <li><a href="#" class="text-white hover:text-gray-300">Play</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
         <li><a href="./grav-sym" class="text-white hover:text-gray-300">Grav</a></li>
-        <!-- <li><Planet initialGravity={80} color="#F4191D" label="SaaS"/></li> -->
       </ul>
     </nav>
   </header>
 </div>
 
 <!-- PARTICLE SELECTOR -->
-<!-- <div class="fixed p-6 bottom-12 w-1/5 rounded-full flex justify-center items-center bg-gray-800 bg-opacity-10 left-0 right-0 mx-auto"> -->
-
 <div class="fixed p-6 bottom-12 rounded-full flex justify-center items-center bg-gray-800 bg-opacity-10 left-1/2 transform -translate-x-1/2">
   <div class="relative flex justify-center group hover:opacity-100 transition-opacity opacity-0">
     <span class="absolute bottom-full mb-2">
@@ -69,68 +75,64 @@ onMount(() => {
   </div>
 </div>
 
-<!-- hero -->
-<section class="hero mt-16 py-8 flex justify-center items-center">
+<!-- --------------------- hero --------------------- -->
+<section class="hero mt-24 py-8 flex justify-center items-center">
   <div class="max-w-md text-center">
-    <h2 class="text-5xl  text-white mb-4">Aerospace UX</h2>
-    <p class="text-xl text-gray-500 mb-8">Space race-paced user experience design <br> for those who make machines that fly.</p>
+    <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
+    <p class="text-2xl text-gray-500 mb-8">Space race-paced user experience design for those who make machines fly.</p>
+    <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
+    <Planet initialGravity={20} color="#F4191D" label="Fly me to Orbit" />
     <div class="flex justify-center items-center space-x-4">
-      <!-- Take me to Orbit Button -->
-      <!-- <button class="btn">Take me to Orbit</button> -->
-      <!-- <Planet initialGravity={40} color="#F4191D" label="Fly To Orbit" /> -->
     </div>
   </div>
 </section>
 
 
-  <!-- logos -->
-  <section class="py-8 text-center mb-4">
-    <h3 class="mb-4 text-xs text-gray-700">We come in peace from tech</h3>
-    <div class="grayscale	flex flex-wrap justify-center items-center space-x-4">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Northrop_Grumman_logo_blue-on-clear_2020.svg" alt="Logo 1" class="w-24 h-8">
-      <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/European_Space_Agency_logo.svg" alt="Logo 2" class="w-24 h-8">
-      <p class="text-gray-700">Logo</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Lockheed_Martin_logo.svg" alt="Logo 3" class="w-24 h-8">
-      <p class="text-gray-700">Logo</p>
-      <p class="text-gray-700">Logo</p>
-    </div>
-  </section>
-  
 
-  <section class="h-12 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8 flex justify-center items-center">
-      <h3 class="text-md font-mono text-gray-400 mb-4 text-center">◀ Work</h3>
-  </section>
+<!-- logos -->
+<section class="text-center mb-2">
+  <div class="grayscale	flex flex-wrap justify-center items-center space-x-8">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Northrop_Grumman_logo_blue-on-clear_2020.svg" alt="Logo 1" class="w-32">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/European_Space_Agency_logo.svg" alt="Logo 2" class="w-32">
+    <p class="text-gray-700">Logo</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Lockheed_Martin_logo.svg" alt="Logo 3" class="w-32">
+    <p class="text-gray-700">Logo</p>
+  </div>
+</section>
+
+<!-- gradient -->
+<!-- <section class="h-12 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8 flex justify-center items-center"></section> -->
+
 
   <!------------------------ services ------------------------>
-  <section class="mt-8 py-8 px-8 md:px-8 max-w-2xl mx-auto">
+  <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
     <div class="flex flex-wrap items-center">
-      <div class="w-full md:w-1/2 p-4">
-        <h3 class="text-2xl mb-3">Website copywriting and UI/UX design</h3>
-        <p class="mb-4">I write wireframes that storytell and sell, and save you time on design. Bringing the lessons of SaaS human-centered to space tech.</p>
+      <div class="w-full md:w-1/2 p-4"> <!-- left -->
+        <h3 class="text-3xl mb-3">Product copy and UI/UX design</h3>
+        <p class="text-md mb-4">I write wireframes that storytell and sell, and save you time on design.</p>
       </div>
-      <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
-        <Planet initialGravity={80} color="#F4191D" label="SaaS"/>
+      <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
+        <Planet initialGravity={80} color="#1ABCFE" label="Work"/>
       </div>
     </div>
   </section>
 
+  <div class="h-6 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8 flex justify-center items-center"></div>
+  
   <Portfolio />
-
+  
   <!-- zigzag right -->
   <section class="py-8 px-8 md:px-8 bg-lighterBg">
     <div class="flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12">
       <div class="w-full md:w-1/2 p-4 relative">
         <!-- <Planet initialGravity={40} color="blue" label="SaaS"/> -->
       </div>
-      <div class="w-full md:w-2/5">
-        <h5 class="mb-3">Bringing the lessons of human-centered design from tech to space tech</h5>
-      </div>  
     </div>
   </section>
   
   <img class="h-12" src="https://latvijasalfabets.lv/assets/images/ribbons/awwwards_honorable_white_right@2x.png" alt="">
   
-  <!-- <Testimonials /> -->
+  <Testimonials />
 
   <!--------------------------------------------------------->
   <section class="zigzag-section">

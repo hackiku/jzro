@@ -7,17 +7,23 @@
   let gravity = initialGravity;
   export let color = 'red'; // Customizable color prop
   export let label = '';
-  export let horizontalLabelOffset = 22; // px
-  export let verticalLabelOffset = 28; // px
-  
-  const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 100);
-  let diameter = calculateDiameter();
+  let verticalLabelOffset = 24;
+  let horizontalLabelOffset = 24;
 
+  let isClient = false;
+  let diameter;
+  
   const dispatch = createEventDispatcher();
   
+  const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 50);
+  
   onMount(() => {
+    isClient = true;
+    diameter = calculateDiameter(); // Initialize diameter on the client side
+
     const updateDiameter = () => diameter = calculateDiameter();
     window.addEventListener('resize', updateDiameter);
+
     return () => window.removeEventListener('resize', updateDiameter);
   });
 
@@ -27,19 +33,22 @@
   }
 </script>
 
-<div class="planet-container">
-  <div class="planet" style="position: relative; display: inline-flex; align-items: center;">
-    <svg style="width: {diameter}px; height: {diameter}px;">
-      <circle cx={diameter / 2} cy={diameter / 2} r={diameter / 2} fill={color}/>
-    </svg>
-    <span class="label" style="left: {diameter / 2 + horizontalLabelOffset}px; top: {diameter / 2 - verticalLabelOffset}px;">
-      {label}
-    </span>
+{#if isClient}
+  <div class="planet-container">
+    <div class="planet" style="position: relative; display: inline-flex; align-items: center;">
+      <svg style="width: {diameter}px; height: {diameter}px;">
+        <circle cx={diameter / 2} cy={diameter / 2} r={diameter / 2} fill={color}/>
+      </svg>
+      <span class="label" style="left: {diameter / 2 + horizontalLabelOffset}px; top: {diameter / 2 - verticalLabelOffset}px;">
+        {label}
+      </span>
+    </div>
+    <div class="gravity-slider">
+      <input type="range" min="0" max="100" bind:value={gravity}>
+    </div>
   </div>
-  <div class="gravity-slider">
-    <input type="range" min="0" max="100" bind:value={gravity}>
-  </div>
-</div>
+{/if}
+
 
 <style>
   .planet-container {
