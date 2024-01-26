@@ -1,35 +1,52 @@
+<!-- homepage.svelte -->
 <script>
-  import { onMount } from 'svelte';
-  import Planet from '$lib/Planet.svelte';
-  import Portfolio from '$lib/Portfolio.svelte';
-  import Testimonials from '$lib/Testimonials.svelte';
-  import Spaceship from '$lib/Spaceship.svelte';
+import { onMount } from 'svelte';
+import { writable } from 'svelte/store';
+import Planet from '$lib/Planet.svelte';
+import Portfolio from '$lib/Portfolio.svelte';
+import Testimonials from '$lib/Testimonials.svelte';
+import Spaceship from '$lib/Spaceship.svelte';
 
-  onMount(() => {
-    // Additional setup if needed
-  });
+onMount(() => {
+  // Additional setup if needed
+});
+
+let particleNumber = 50; // default value for slider
+
+  // A store to hold the scroll position as a percentage
+export const scrollPosition = writable(0);
+
+onMount(() => {
+  const updateScrollPosition = () => {
+    const scrollY = window.scrollY;
+    const totalHeight = document.body.offsetHeight - window.innerHeight;
+    scrollPosition.set(scrollY / totalHeight * 100);
+  };
   
-  let particleNumber = 50; // default value for slider
+  window.addEventListener('scroll', updateScrollPosition);
+  return () => window.removeEventListener('scroll', updateScrollPosition);
+});
 
 </script>
 
 <!-- <Planet initialGravity={90} horizontalLabelOffset={0.1} color={"lightblue"} label={"test1ss"} /> -->
 
-<!-- <Planet initialGravity={40} color="green" label="test2" /> -->
-
 <!-- <Spaceship /> -->
 
 <div class="container mx-auto px-4">
-  <header class="flex justify-between items-center py-4">
+  <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100">
+    <circle class="opacity-20" cx="100" cy="-22" r="32" fill="darkblue" />
+  </svg>  
+  <header class="flex justify-between items-center py-4 px-20
+  ">
     <h1 class="text-sm text-white font-mono">jzro</h1>
     <nav>
-      <ul class="flex space-x-4">
-        <Planet initialGravity={40} color="green" label="test2" />
-
+      <ul class="flex space-x-4 items-center relative">
         <li><a href="#" class="text-white hover:text-gray-300">Work</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">Play</a></li>
         <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
         <li><a href="./grav-sym" class="text-white hover:text-gray-300">Grav</a></li>
+        <!-- <li><Planet initialGravity={80} color="#F4191D" label="SaaS"/></li> -->
       </ul>
     </nav>
   </header>
@@ -56,18 +73,11 @@
 <section class="hero mt-16 py-8 flex justify-center items-center">
   <div class="max-w-md text-center">
     <h2 class="text-5xl  text-white mb-4">Aerospace UX</h2>
-    <p class="text-xl text-gray-500 mb-8">Space race-paced user experience lab for those who make things fly.</p>
+    <p class="text-xl text-gray-500 mb-8">Space race-paced user experience design <br> for those who make machines that fly.</p>
     <div class="flex justify-center items-center space-x-4">
       <!-- Take me to Orbit Button -->
-      <button class="btn">Take me to Orbit</button>
-
-      <!-- GitHub Button -->
-      <button class="bg-black rounded-full text-white px-6 py-3 hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-gray-300">
-        <svg class="h-6 w-6 inline-block mr-2 -mt-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-          <path d="M12 2C6.48 2 2 6.48 2 12c1.26 1.96 3.35 3.27 5.7 3.45 0.42 0.07 0.57-0.18 0.57-0.4v-1.59c-2.28 0.5-2.76-1.1-2.76-1.1-0.5-1.27-1.22-1.6-1.22-1.6-1-0.68 0.07-0.67 0.07-0.67 1.1 0.08 1.68 1.13 1.68 1.13 0.98 1.68 2.56 1.2 3.19 0.92 0.1-0.71 0.38-1.2 0.69-1.47-1.82-0.21-3.73-0.91-3.73-4.05 0-0.9 0.32-1.63 0.84-2.2-0.08-0.21-0.36-1.05 0.08-2.19 0 0 0.69-0.22 2.25 0.82 0.65-0.18 1.35-0.27 2.05-0.27s1.4 0.09 2.05 0.27c1.56-1.04 2.25-0.82 2.25-0.82 0.44 1.14 0.16 1.98 0.08 2.19 0.52 0.57 0.84 1.3 0.84 2.2 0 3.14-1.91 3.84-3.73 4.05 0.39 0.34 0.74 1 0.74 2.01v2.99c0 0.22 0.15 0.48 0.57 0.4 2.35-0.18 4.44-1.49 5.7-3.45 0 0 0.02-4.52-1.98-8.52C18 6.48 17.52 2 12 2z"/>
-        </svg>
-        GitHub
-      </button>
+      <!-- <button class="btn">Take me to Orbit</button> -->
+      <!-- <Planet initialGravity={40} color="#F4191D" label="Fly To Orbit" /> -->
     </div>
   </div>
 </section>
@@ -95,11 +105,11 @@
   <section class="mt-8 py-8 px-8 md:px-8 max-w-2xl mx-auto">
     <div class="flex flex-wrap items-center">
       <div class="w-full md:w-1/2 p-4">
-        <h3 class="text-2xl mb-3">Copywriting & design for the space industry</h3>
-        <p class="mb-4">Bringing the lessons of human-centered design from tech to space tech.</p>
+        <h3 class="text-2xl mb-3">Website copywriting and UI/UX design</h3>
+        <p class="mb-4">I write wireframes that storytell and sell, and save you time on design. Bringing the lessons of SaaS human-centered to space tech.</p>
       </div>
-      <div class="w-full p-8 md:w-1/2">
-        <!-- <Planet initialGravity={80} color="#a84e32" label="SaaS"/> -->
+      <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
+        <Planet initialGravity={80} color="#F4191D" label="SaaS"/>
       </div>
     </div>
   </section>
@@ -120,7 +130,7 @@
   
   <img class="h-12" src="https://latvijasalfabets.lv/assets/images/ribbons/awwwards_honorable_white_right@2x.png" alt="">
   
-  <Testimonials />
+  <!-- <Testimonials /> -->
 
   <!--------------------------------------------------------->
   <section class="zigzag-section">

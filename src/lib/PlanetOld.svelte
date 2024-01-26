@@ -1,32 +1,41 @@
-<!-- Planet.svelte -->
 <script>
   import { onMount, onDestroy } from 'svelte';
   import { createEventDispatcher } from 'svelte';
   
   export let initialGravity = 20;
   let gravity = initialGravity;
-  export let color = 'red'; // Customizable color prop
+  export let color = 'red'; // New prop for color customization
   export let label = '';
-  export let horizontalLabelOffset = 22; // px
-  export let verticalLabelOffset = 28; // px
+  export let horizontalLabelOffset = 22; // px change later
+  export let verticalLabelOffset = 28; // px change later
   
-  const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 100);
-  let diameter = calculateDiameter();
+  function calculateDiameter() {
+    return Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 100);
+  }
 
-  const dispatch = createEventDispatcher();
+  $: diameter = calculateDiameter();
   
-  onMount(() => {
-    const updateDiameter = () => diameter = calculateDiameter();
-    window.addEventListener('resize', updateDiameter);
-    return () => window.removeEventListener('resize', updateDiameter);
-  });
-
-  $: if (gravity !== initialGravity) {
-    dispatch('gravityChange', { newGravity: gravity });
+  function updateDiameter() {
     diameter = calculateDiameter();
   }
+
+  const dispatch = createEventDispatcher();
+  $: if (gravity !== initialGravity) {
+    dispatch('gravityChange', { newGravity: gravity });
+    updateDiameter();
+  }
+
+  onMount(() => {
+    window.addEventListener('resize', updateDiameter);
+  });
+
+  onDestroy(() => {
+    window.removeEventListener('resize', updateDiameter);
+  });
+
 </script>
 
+<!-- Component Markup -->
 <div class="planet-container">
   <div class="planet" style="position: relative; display: inline-flex; align-items: center;">
     <svg style="width: {diameter}px; height: {diameter}px;">
@@ -36,6 +45,7 @@
       {label}
     </span>
   </div>
+
   <div class="gravity-slider">
     <input type="range" min="0" max="100" bind:value={gravity}>
   </div>
@@ -49,10 +59,11 @@
 
   .gravity-slider input[type=range] {
     width: 100%;
-    max-width: 200px;
+    max-width: 200px; /* Adjust as needed */
   }
 
   .label {
+    /* Styles for the label text */
     color: white;
     position: absolute;
     transform: translate(0%, 0%);
