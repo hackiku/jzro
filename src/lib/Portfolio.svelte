@@ -1,22 +1,57 @@
+<!-- Portfolio.svelte -->
 <script>
-  import Testimonials from "$lib/Testimonials.svelte";
-  let phi = 1.61803399 // golden ratio
-  let assetWidth = 18
-  let assetHeight = assetWidth / phi
+  import { onMount } from 'svelte';
+  import PortfolioItem from '$lib/PortfolioItem.svelte';
+
+  let scrollContainer;
+
+  let portfolioData = [
+    {
+      id: 1,
+      logo: 'assets/svelte-logo.svg',
+      image: 'portfolio/pipistrel-portfolio.png',
+      description: 'Interactive airfoil design for Pipistrel Virus SW 121',
+      link: 'https://pipistrel.streamlit.app'
+    },
+    {
+      id: 2,
+      logo: 'assets/figma-logo.svg',
+      image: 'portfolio/mars-weather-portfolio.png',
+      description: 'Mars weather aviation style with METARs and TAFs',
+      link: '#'
+    },
+  ];  
+
+  onMount(() => {
+    const halfContainerWidth = scrollContainer.offsetWidth / 2;
+    const halfContentWidth = scrollContainer.scrollWidth / 2;
+    const startPosition = halfContentWidth - halfContainerWidth;
+    
+    scrollContainer.scrollLeft = startPosition;
+  });
 </script>
 
 
-<!-- copywriting -->
-<section class="py-8 px-8 md:px-8 bg-lighterBg">
-  <div class="flex flex-wrap items-center max-w-xl mx-auto mt-8">
-    <div class="w-full md:w-1/2 relative">
-      <svg width="{assetWidth}em" height="{assetHeight}em" class="mx-auto mb-4">
-        <rect x="0" y="0" width="100%" height="100%" rx="20" ry="20" fill="#141414" />
-      </svg>
+<section class="p-8 px-4 md:px-6 bg-gray-900">
+  <div class="flex flex-wrap items-center max-w-full mx-auto">
+    <div class="w-full relative">
+      <!-- Scrollable container for portfolio items -->
+      <div class="flex overflow-x-auto space-x-2" bind:this={scrollContainer}>
+        {#each portfolioData as item}
+          <PortfolioItem item={item} />
+        {/each}
+      </div>
     </div>
-    <div class="w-full md:w-2/5">
-      <h5 class="mb-3">Portfolio</h5>
-    </div>  
   </div>
-</section>    
+</section>
 
+<style>
+  /* Hide scrollbar (optional, remove if you want the scrollbar visible) */
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+</style>

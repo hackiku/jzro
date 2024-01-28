@@ -1,51 +1,57 @@
 <script>
-  import { writable } from 'svelte/store';
+  import { onMount } from 'svelte';
+  import { testimonialData } from '$lib/testimonialData'; // Import your testimonial data and images
 
-  const testimonials = {
-    writers: [
-      { 
-        name: 'Adam Altman', 
-        text: 'I might be drawing weird sketches on LinkedIn to catch clients, but I know a good wireframing product when I see one. Pipewriter is great.', 
-        role: 'Copywriter' 
-      },
-      // ... other testimonials
-    ],
-    clients: [
-      // ... client testimonials
-    ]
-  };
+  let currentTestimonialIndex = 0;
+  const totalTestimonials = testimonialData.length;
 
-  const currentTestimonialType = writable('writers');
+  function nextTestimonial() {
+    currentTestimonialIndex = (currentTestimonialIndex + 1) % totalTestimonials;
+  }
 
-  function selectTestimonialType(type) {
-    currentTestimonialType.set(type);
+  function previousTestimonial() {
+    currentTestimonialIndex = 
+      (currentTestimonialIndex - 1 + totalTestimonials) % totalTestimonials;
   }
 </script>
 
-<div class="text-center space-y-4">
-  <div class="flex justify-center space-x-4">
-    <button on:click={() => selectTestimonialType('writers')} class="font-bold">Writers</button>
-    <button on:click={() => selectTestimonialType('clients')} class="font-bold">Clients</button>
+<section class="flex items-center justify-center py-8 px-4 md:px-6">
+  <!-- Left navigation button -->
+  <button
+    class="p-4"
+    on:click={previousTestimonial}
+  > 
+    <!-- This is a simple left arrow icon -->
+    <svg viewBox="0 0 24 24" class="h-8 w-8 fill-current text-white">
+      <path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/>
+    </svg>
+  </button>
+  
+  <!-- Testimonial content -->
+  <div class="max-w-lg text-center">
+    <blockquote class="mb-4">
+      "{testimonialData[currentTestimonialIndex].quote}"
+    </blockquote>
+    <div class="flex items-center justify-center">
+      <img
+        src={testimonialData[currentTestimonialIndex].image}
+        alt={testimonialData[currentTestimonialIndex].name}
+        class="h-10 w-10 rounded-full mr-2"
+      />
+      <cite class="not-italic">
+        {testimonialData[currentTestimonialIndex].name} @ {testimonialData[currentTestimonialIndex].company}
+      </cite>
+    </div>
   </div>
 
-  {#if $currentTestimonialType === 'writers'}
-    {#each testimonials.writers as testimonial}
-      <div class="testimonial">
-        <p class="text-lg">{testimonial.text}</p>
-        <div class="flex items-center justify-center space-x-2">
-          <!-- Replace this with actual image and details -->
-          <button class="bg-gray-700 text-white py-2 px-4 rounded transition duration-300 ease-in-out hover:bg-blue-700">
-            Hire {testimonial.name.split(' ')[0]} 👉
-          </button>
-        </div>
-      </div>
-    {/each}
-  {:else}
-    {#each testimonials.clients as testimonial}
-      <div class="testimonial">
-        <p class="text-lg">{testimonial.text}</p>
-        <!-- Replace this with actual image and details -->
-      </div>
-    {/each}
-  {/if}
-</div>
+  <!-- Right navigation button -->
+  <button
+    class="border-none p-4"
+    on:click={nextTestimonial}
+  >
+    <svg viewBox="0 0 24 24" class="h-8 w-8 fill-current"> <!-- This is a simple right arrow icon -->
+      <!-- You can replace this SVG with any other icon you prefer -->
+      <path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"/>
+    </svg>
+  </button>
+</section>
