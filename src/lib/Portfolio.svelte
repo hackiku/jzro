@@ -32,7 +32,7 @@
 </script>
 
 
-<section class="p-8 px-4 md:px-6 bg-gray-900">
+<section class="p-8 px-4 md:px-6 bg-lighterBg">
   <div class="flex flex-wrap items-center max-w-full mx-auto">
     <div class="w-full relative">
       <!-- Scrollable container for portfolio items -->
