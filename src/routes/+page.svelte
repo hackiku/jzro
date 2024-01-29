@@ -6,9 +6,10 @@ import Planet from '$lib/Planet.svelte';
 import Coin from '$lib/Coin.svelte';
 import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
-import OrbitSvg from '$lib/OrbitSvg.svelte';
+// import OrbitSvg from '$lib/OrbitSvg.svelte';
 // import Orbit from '$lib/Orbit.svelte';
 // import Spaceship from '$lib/Spaceship.svelte';
+// import { scrollPosition } from './stores/scrollStore';
 
 onMount(() => {
   // Additional setup if needed
@@ -16,8 +17,7 @@ onMount(() => {
 
 let particleNumber = 50; // default value for slider
 
-  // A store to hold the scroll position as a percentage
-export const scrollPosition = writable(0);
+// export const scrollPosition = writable(0);
 
 onMount(() => {
   const updateScrollPosition = () => {
@@ -36,7 +36,7 @@ onMount(() => {
 
 <!-- svgs -->
 
-<OrbitSvg />
+<!-- <OrbitSvg /> -->
 
 <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
   <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
@@ -118,7 +118,7 @@ onMount(() => {
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
       <p class="text-md mb-4">Copywriting & UI/UX</p>
-      <h3 class="text-4xl mb-3">Words and vectors <br> that sell software</h3>
+      <h3 class="text-4xl mb-3">Words and vectors <br> that sell <span style="color: #1ABCFE">software</span></h3>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
       <Planet initialGravity={22} color="#1ABCFE" label="Work"/>

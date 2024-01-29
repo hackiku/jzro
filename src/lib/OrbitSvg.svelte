@@ -1,8 +1,8 @@
 <!-- OrbitSvg.svelte -->
 <script>
-    import { scrollPosition } from './homepage.svelte';
     import { onMount } from 'svelte';
-  
+    import { scrollPosition } from 'stores/scrollStore';
+
     let pathD; // Path data for the SVG
     let height = 0; // Height of the document
     let width = 0; // Width of the viewport
