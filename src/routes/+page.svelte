@@ -1,6 +1,6 @@
 <!-- homepage.svelte -->
 <script>
-import { onMount } from 'svelte';
+import { onMount , onDestroy } from 'svelte';
 import { writable } from 'svelte/store';
 import Planet from '$lib/Planet.svelte';
 import Coin from '$lib/Coin.svelte';
@@ -9,34 +9,30 @@ import Testimonials from '$lib/Testimonials.svelte';
 // import OrbitSvg from '$lib/OrbitSvg.svelte';
 // import Orbit from '$lib/Orbit.svelte';
 // import Spaceship from '$lib/Spaceship.svelte';
-// import { scrollPosition } from './stores/scrollStore';
+
+import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
+
 
 onMount(() => {
-  // Additional setup if needed
-});
+    window.addEventListener('scroll', updateScrollPosition);
+    updateScrollPosition(); // To set initial scroll position
+
+    onDestroy(() => {
+      window.removeEventListener('scroll', updateScrollPosition);
+    });
+  });
 
 let particleNumber = 50; // default value for slider
 
-// export const scrollPosition = writable(0);
-
-onMount(() => {
-  const updateScrollPosition = () => {
-    const scrollY = window.scrollY;
-    const totalHeight = document.body.offsetHeight - window.innerHeight;
-    scrollPosition.set(scrollY / totalHeight * 100);
-  };
-  
-  window.addEventListener('scroll', updateScrollPosition);
-  return () => window.removeEventListener('scroll', updateScrollPosition);
-});
 
 </script>
 
 
 
-<!-- svgs -->
+<!-- --------------------- svgs --------------------- -->
 
 <!-- <OrbitSvg /> -->
+<div class="scroll-display">Scroll Position: {$scrollPosition}%</div>
 
 <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
   <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
@@ -184,5 +180,17 @@ onMount(() => {
   .zigzag-content {
     @apply flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12;
   }
+
+  .scroll-display {
+    position: fixed; /* Or any other positioning you prefer */
+    bottom: 20px;
+    right: 20px;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    z-index: 1000; /* Ensure it's above other content */
+  }
+
 
 </style>
