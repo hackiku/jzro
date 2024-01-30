@@ -1,0 +1,82 @@
+{
+  ".svelte-kit/generated/server/internal.js": {
+    "file": "internal.js",
+    "imports": [
+      "_internal.js"
+    ],
+    "isEntry": true,
+    "src": ".svelte-kit/generated/server/internal.js"
+  },
+  "_exports.js": {
+    "file": "chunks/exports.js"
+  },
+  "_index.js": {
+    "file": "chunks/index.js",
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "_internal.js": {
+    "file": "chunks/internal.js",
+    "imports": [
+      "_ssr.js"
+    ]
+  },
+  "_ssr.js": {
+    "file": "chunks/ssr.js"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/components/error.svelte": {
+    "file": "entries/fallbacks/error.svelte.js",
+    "imports": [
+      "_ssr.js",
+      "_exports.js"
+    ],
+    "isEntry": true,
+    "src": "node_modules/@sveltejs/kit/src/runtime/components/error.svelte"
+  },
+  "node_modules/@sveltejs/kit/src/runtime/server/index.js": {
+    "file": "index.js",
+    "imports": [
+      "_internal.js",
+      "_exports.js",
+      "_index.js"
+    ],
+    "isEntry": true,
+    "src": "node_modules/@sveltejs/kit/src/runtime/server/index.js"
+  },
+  "src/routes/+layout.svelte": {
+    "assets": [
+      "_app/immutable/assets/Aeonik-Regular.mkad02YY.ttf",
+      "_app/immutable/assets/Aeonik-Bold.nhgb6yHA.ttf"
+    ],
+    "css": [
+      "_app/immutable/assets/_layout.A96GUCbu.css"
+    ],
+    "file": "entries/pages/_layout.svelte.js",
+    "imports": [
+      "_ssr.js"
+    ],
+    "isEntry": true,
+    "src": "src/routes/+layout.svelte"
+  },
+  "src/routes/+page.svelte": {
+    "css": [
+      "_app/immutable/assets/_page.Ijr8-rJj.css"
+    ],
+    "file": "entries/pages/_page.svelte.js",
+    "imports": [
+      "_ssr.js",
+      "_index.js"
+    ],
+    "isEntry": true,
+    "src": "src/routes/+page.svelte"
+  },
+  "static/fonts/Aeonik-Bold.ttf": {
+    "file": "_app/immutable/assets/Aeonik-Bold.nhgb6yHA.ttf",
+    "src": "static/fonts/Aeonik-Bold.ttf"
+  },
+  "static/fonts/Aeonik-Regular.ttf": {
+    "file": "_app/immutable/assets/Aeonik-Regular.mkad02YY.ttf",
+    "src": "static/fonts/Aeonik-Regular.ttf"
+  }
+}
