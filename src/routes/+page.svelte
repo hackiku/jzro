@@ -52,7 +52,7 @@ let particleNumber = 50; // default value for slider
 <div class="container mx-auto px-4">
   <header class="flex justify-between items-center py-4 px-20
   ">
-    <h1 class="text-sm text-white font-mono">jzro</h1>
+    <h1 class="text-sm text-white font-mono">🚁 jzro</h1>
     <nav>
       <ul class="flex space-x-4 items-center relative">
         <li><a href="/orbit-test" class="text-white hover:text-gray-300">Orbit</a></li>
@@ -127,19 +127,25 @@ let particleNumber = 50; // default value for slider
 
 <Testimonials />
 
+<!-- --------------------------------------------- -->
 
 <div class="h-6 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8 flex justify-center items-center"></div>
-<section class="py-8 px-6 md:px-6 bg-lighterBg"> <!-- Reduced px from 8 to 6 for less whitespace -->
-  <div class="flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12">
-    <div class="w-full md:w-1/2 p-4 md:order-1"> <!-- Planet to the left -->
-      <Planet initialGravity={40} color="#540087" label="For Fun"/>
-    </div>
-    <div class="w-full md:w-1/2 p-4 md:order-2"> <!-- Text to the right -->
+
+<section class="relative bg-lighterBg">  <div class="flex justify-end mr-64">
+    <div class="max-w-3xl">
       <p class="text-sm mb-4 font-mono">Engineering & Code</p>
-      <h3 class="text-3xl mb-3">Aerospace app interfaces</h3>
+      <h3 class="text-3xl mb-3">Aerospacey interfaces</h3>
     </div>
   </div>
+
+  <div class="absolute" style="left: 16vw;">
+    <Planet initialGravity={40} color="#540087" label="For Fun"/>
+  </div>
 </section>
+
+<div class="h-6 bg-gradient-to-b from-lighterBg to-darkBg mt-8 py-8 flex justify-center items-center"></div>
+
+<!-- --------------------------------------------- -->
 
 <Portfolio />
 
