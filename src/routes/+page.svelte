@@ -131,14 +131,17 @@ let particleNumber = 50; // default value for slider
 
 <div class="h-6 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8 flex justify-center items-center"></div>
 
-<section class="relative bg-lighterBg">  <div class="flex justify-end mr-64">
-    <div class="max-w-3xl">
+<section class="relative bg-lighterBg">
+  <!-- Text aligned with padding, responsive for smaller screens -->
+  <div class="flex justify-end mr-16 md:mr-32 lg:mr-64">
+    <div class="max-w-xl lg:max-w-3xl">
       <p class="text-sm mb-4 font-mono">Engineering & Code</p>
-      <h3 class="text-3xl mb-3">Aerospacey interfaces</h3>
+      <h3 class="text-3xl mb-4">Aerospacey interfaces</h3>
     </div>
   </div>
 
-  <div class="absolute" style="left: 16vw;">
+  <!-- Planet with responsive positioning -->
+  <div class="absolute left-[10%] md:left-[10%] lg:left-[10%]">
     <Planet initialGravity={40} color="#540087" label="For Fun"/>
   </div>
 </section>
