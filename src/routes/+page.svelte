@@ -86,7 +86,7 @@ let particleNumber = 50; // default value for slider
     <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
     <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
     <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-    <Planet initialGravity={4} color="#F4191D" label="Fly me to Orbit" />
+    <Planet initialGravity={4} color="#F4191D" label="Take me to Orbit" />
     <div class="flex justify-center items-center space-x-4">
     </div>
   </div>
@@ -114,7 +114,7 @@ let particleNumber = 50; // default value for slider
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
       <p class="text-md mb-4">Copywriting & UI/UX</p>
-      <h3 class="text-4xl mb-3">Words and vectors <br> that sell <span style="color: #1ABCFE">software</span></h3>
+      <h2 class="text-4xl mb-3">Words and vectors <br> that sell <span style="color: #1ABCFE">software</span></h2>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
       <Planet initialGravity={22} color="#1ABCFE" label="Work"/>
@@ -155,7 +155,7 @@ let particleNumber = 50; // default value for slider
 <section class="mt-20 py-8 px-8 md:px-8 max-w-3xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
-      <h3 class="text-xl mb-3">Aerospace engineer in training building fun apps. Special thanks ChatGPT and r/ProgrammerHumor.</h3>
+      <h2 class="text-xl mb-3">Building apps for engineers that try to be smart as a DART 🛰️ (I wish) and more fun than Fortran.</h2>
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
@@ -169,7 +169,23 @@ let particleNumber = 50; // default value for slider
   <!-- <Coin /> -->
 </div>
 
-<!-- <img class="h-12" src="https://latvijasalfabets.lv/assets/images/ribbons/awwwards_honorable_white_right@2x.png" alt=""> -->
+
+<section class="mt-20 py-8 px-8 md:px-8 max-w-3xl mx-auto">
+  <div class="flex flex-wrap items-center">
+     <!-- left -->
+    <div class="w-full md:w-1/2 p-4">
+      <h2 class="text-4xl mb-3">Oye Dusters 👋</h2>
+      <p class="text-md mb-4">I’m Ivan, longtime tech copywriter midlife-crisising into an aerospace engineer, pilot and HTML programmer.</p>
+      <p class="text-md mb-4">Im doing it because space exploration is the OG and we should make more of it happen.</p>
+      <p class="text-md mb-4">If you feel this way too, maybe we can test in prod together and design a more human-centered space race.</p>
+    </div> 
+    <!-- left -->
+    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
+      <div class="h-40 w-40 opacity-40 bg-slate-600"></div>
+    </div>
+  </div>
+</section>
+
 
 
 <!--------------------------footer-------------------------->
