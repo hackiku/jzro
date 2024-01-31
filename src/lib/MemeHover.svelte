@@ -1,44 +1,45 @@
 <script>
-    import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
+  export let selectedMeme = null;
 
-    let memes = []; // Your database of memes
+  // Memes data is encapsulated inside the component
+  let memes = [
+    { id: 'choppa', url: 'memes/choppa.png' },
+    { id: 'morty', url: 'memes/morty.png' },
+    { id: 'fellow-engineers', url: 'memes/fellow-engineers.png' },
+  ];
 
-    let selectedMeme = null;
 
-    function handleHover(meme) {
-        selectedMeme = meme;
-    }
+  function handleHover(meme) {
+    selectedMeme = meme;
+  }
 
-    function handleLeave() {
-        selectedMeme = null;
-    }
+  function handleLeave() {
+    selectedMeme = null;
+  }
 
-    onMount(() => {
-        // Fetch memes from the database
-        memes = [
-            { id: 'choppa', url: 'memes/choppa.png' },
-            { id: 'morty', url: 'memes/morty.png' },
-            { id: 'fellow-engineers', url: 'memes/fellow-engineers.png' },
-        ];
-    });
+  onMount(() => {
+    // Optional: If you need to fetch memes dynamically in the future
+  });
 </script>
 
+
 <style>
-    .tilted-image {
-        transform: rotate(-15deg);
-    }
+  .tilted-image {
+    transform: rotate(-10deg);
+  }
+  .meme-hover-text {
+    cursor: pointer;
+    /* Add more styles if needed */
+  }
 </style>
 
-<main>
-    <h1>Main Page</h1>
+{#each memes as meme}
+<span class="meme-hover-text" on:mouseenter={() => handleHover(meme)} on:mouseleave={handleLeave}>
+  Hover over me to see meme /{meme.id}
+</span>
+{/each}
 
-    {#each memes as meme}
-        <span on:mouseenter={() => handleHover(meme)} on:mouseleave={handleLeave}>
-            Hover over me to see meme {meme.id}
-        </span>
-    {/each}
-
-    {#if selectedMeme}
-        <img src={selectedMeme.url} alt="Selected Meme" class="tilted-image" />
-    {/if}
-</main>
+{#if selectedMeme}
+<img src={selectedMeme.url} alt="Selected Meme" class="tilted-image" />
+{/if}

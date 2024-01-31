@@ -1,4 +1,4 @@
-<!-- homepage.svelte -->
+<!-- homepage +page.svelte -->
 <script>
 import { onMount , onDestroy } from 'svelte';
 import { writable } from 'svelte/store';
@@ -24,9 +24,7 @@ onMount(() => {
 
 let particleNumber = 50; // default value for slider
 
-
 </script>
-
 
 
 <!-- --------------------- svgs --------------------- -->
@@ -55,10 +53,10 @@ let particleNumber = 50; // default value for slider
     <h1 class="text-sm text-white font-mono">🚁 jzro</h1>
     <nav>
       <ul class="flex space-x-4 items-center relative">
-        <li><a href="/orbit-test" class="text-white hover:text-gray-300">Orbit</a></li>
-        <li><a href="#" class="text-white hover:text-gray-300">Play</a></li>
-        <li><a href="#" class="text-white hover:text-gray-300">About</a></li>
-        <li><a href="./grav-sym" class="text-white hover:text-gray-300">Grav</a></li>
+        <li><a href="/fiddle" class="text-white hover:text-blue-500">fiddle</a></li>
+        <li><a href="/orbit-test" class="text-white hover:text-blue-500">orbit</a></li>
+      <li><a href="/cta" class="text-white hover:text-blue-500">cta</a></li>
+        <li><a href="./grav-sym" class="text-[#F21D26] hover:text-blue-500">grav</a></li>
       </ul>
     </nav>
   </header>
@@ -169,15 +167,18 @@ let particleNumber = 50; // default value for slider
   <!-- <Coin /> -->
 </div>
 
-
+<!------------------------ about ------------------------>
 <section class="mt-20 py-8 px-8 md:px-8 max-w-3xl mx-auto">
   <div class="flex flex-wrap items-center">
      <!-- left -->
     <div class="w-full md:w-1/2 p-4">
       <h2 class="text-4xl mb-3">Oye Dusters 👋</h2>
-      <p class="text-md mb-4">I’m Ivan, longtime tech copywriter midlife-crisising into an aerospace engineer, pilot and HTML programmer.</p>
-      <p class="text-md mb-4">Im doing it because space exploration is the OG and we should make more of it happen.</p>
-      <p class="text-md mb-4">If you feel this way too, maybe we can test in prod together and design a more human-centered space race.</p>
+      <p class="text-md mb-4"
+      >I’m Ivan, longtime tech copywriter midlife-crisising into an aerospace engineer, pilot and HTML programmer.</p>
+      <p class="text-md mb-4"
+      >Im doing it because space exploration is the OG and we should make more of it happen.</p>
+      <p class="text-md mb-4"
+      >If you feel this way too, maybe we can test in prod together and design a more human-centered space race.</p>
     </div> 
     <!-- left -->
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
@@ -186,9 +187,42 @@ let particleNumber = 50; // default value for slider
   </div>
 </section>
 
+<!-------------------------- cta -------------------------->
+<!-- CTA Section -->
+<section class="relative flex items-center justify-between px-20 py-12 bg-darkBg text-white">
+  <!-- Memes Images -->
+  <div class="flex flex-col items-start space-y-4">
+    <img src="memes/hello-friend.png" alt="Hello Friend Meme" 
+         class="transform rotate-[15deg]">
+    <img src="memes/choppa.png" alt="Get to the Choppa Meme" 
+         class="transform rotate-[-15deg]">
+  </div>
+
+  <!-- Contact and Slider Section -->
+  <div class="flex flex-col items-end space-y-4">
+    <!-- SVG Circle -->
+    <div class="rounded-full bg-blue-600 p-6 text-center">
+      <p class="text-2xl font-semibold text-white">Let's Talk</p>
+      <a href="mailto:ivan@jzro.co" class="text-lg">ivan@jzro.co</a>
+      <!-- Simple Slider -->
+      <input type="range" min="1" max="100" value={particleNumber} 
+             class="slider mt-4 w-full" id="particleNumber" 
+             on:input={(e) => particleNumber = e.target.value} />
+      <!-- WhatsApp Icon -->
+      <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
+        <svg viewBox="0 0 24 24" class="h-8 w-8 fill-current text-green-500">
+          <!-- WhatsApp SVG Path -->
+        </svg>
+      </a>
+    </div>
+  </div>
+</section>
 
 
-<!--------------------------footer-------------------------->
+<!-------------------------- jzro -------------------------->
+
+
+<!-------------------------- footer -------------------------->
 
 <footer class="relative text-center flex justify-center items-end h-[100px]"> <!-- Adjust the height and padding as necessary -->
   <p class="z-10 text-darkBg text-xs">Copyalright © 2024 Ivan Karaman | Privacy | Terms</p>
