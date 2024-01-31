@@ -5,31 +5,15 @@
   import Planet from '$lib/Planet.svelte';
   import { writable } from 'svelte/store';
 
-  let gravity = writable(100); // Assuming this controls the diameter
-  let diameter = 400; // You can replace this with a store if you want dynamic updates
+  let diameter = 340;
 
 </script>
 
 <!-- ------------------------------------- -->
 
-<div class="mx-50 w-20">
-  <img src="memes/hello-friend.png" alt="Hello Friend Meme" 
-  class="transform rotate-[15deg]">
-  <img src="memes/choppa.png" alt="Get to the Choppa Meme" 
-  class="transform rotate-[-15deg]">
-</div>
-
-
-
-
-
-
-
-
-
-<section class="relative px-20 py-12 bg-darkBg text-white">
+<section class="flex flex-row mr-12 px-20 py-12 bg-darkBg text-white">
   <!-- Memes Images -->
-  <div class="flex flex-col items-start space-y-4">
+  <div class="flex flex-col items-end space-y-4 p-14">
     <img src="memes/hello-friend.png" alt="Hello Friend Meme" 
     class="transform rotate-[15deg]">
     <img src="memes/choppa.png" alt="Get to the Choppa Meme" 
@@ -39,21 +23,19 @@
   <!-- Contact Form inside Planet SVG -->
   <div class="flex justify-center items-center text-white">
     <!-- SVG Circle with Contact Content -->
-    <svg class="relative z-10" width="{diameter}" height="{diameter}" viewBox="0 0 {diameter} {diameter}">
+    <svg class="z-10" width="{diameter}" height="{diameter}" viewBox="0 0 {diameter} {diameter}">
       <circle cx="{diameter / 2}" cy="{diameter / 2}" r="{diameter / 2}" fill="#1B0087" />
       
       <!-- Contact Content inside SVG -->
-      <foreignObject x="0" y="0" width="{diameter}" height="{diameter}" class="flex flex-col items-center justify-center">
-        <div xmlns="http://www.w3.org/1999/xhtml" class="flex flex-col items-center justify-center text-center">
-          <p class="text-4xl text-white mb-4">Let's Talk</p>
-          <a href="mailto:ivan@jzro.co" class="text-2xl mb-4">ivan@jzro.co</a>
-          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer" class="mb-4">
-            <!-- Insert WhatsApp SVG here -->
+      <foreignObject x="0" y="0" width="{diameter}" height="{diameter}">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+          <h3 class="text-4xl text-white mb-4">Let's Talk</h3>
+          <a href="mailto:ivan@jzro.co" class="text-xl underline mb-4">ivan@jzro.co</a>
+          <input type="range" min="1" max="100" class="slider w-48 mb-4" id="ctaSlider" />
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
+            <img class="h-24" src="assets/WhatsApp.svg" alt="WhatsApp">
           </a>
-          <input type="range" min="1" max="100" class="slider w-64" id="ctaSlider" />
         </div>
       </foreignObject>
-    </svg>
   </div>
-  
 </section>

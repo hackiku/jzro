@@ -6,12 +6,14 @@ import Planet from '$lib/Planet.svelte';
 import Coin from '$lib/Coin.svelte';
 import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
+import Controls from '$lib/Controls.svelte';
 // import OrbitSvg from '$lib/OrbitSvg.svelte';
 // import Orbit from '$lib/Orbit.svelte';
 // import Spaceship from '$lib/Spaceship.svelte';
 
 import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
 
+let diameter = 300;
 
 onMount(() => {
     window.addEventListener('scroll', updateScrollPosition);
@@ -22,10 +24,11 @@ onMount(() => {
     });
   });
 
-let particleNumber = 50; // default value for slider
+
 
 </script>
 
+<Controls />
 
 <!-- --------------------- svgs --------------------- -->
 
@@ -61,22 +64,6 @@ let particleNumber = 50; // default value for slider
     </nav>
   </header>
 </div>
-
-<!-- PARTICLE SELECTOR -->
-<div class="fixed p-6 bottom-12 rounded-full flex justify-center items-center bg-gray-800 bg-opacity-10 left-1/2 transform -translate-x-1/2">
-  <div class="relative flex justify-center group hover:opacity-100 transition-opacity opacity-0">
-    <span class="absolute bottom-full mb-2">
-    <!-- <span class="absolute bottom-full mb-2 transition-opacity"> -->
-      Particle Number: {particleNumber}
-    </span>
-
-    <!-- Slider -->
-    <input type="range" min="1" max="100" value={particleNumber}
-           class="slider w-full" id="particleNumber"
-           on:input={(e) => particleNumber = e.target.value} />
-  </div>
-</div>
-
 
 <!-- --------------------- hero --------------------- -->
 <section class="hero mt-24 py-8 flex justify-center items-center">
@@ -188,33 +175,32 @@ let particleNumber = 50; // default value for slider
 </section>
 
 <!-------------------------- cta -------------------------->
-<!-- CTA Section -->
-<section class="relative flex items-center justify-between px-20 py-12 bg-darkBg text-white">
+<section class="flex flex-row mx-20 px-20 py-12 bg-darkBg text-white">
   <!-- Memes Images -->
-  <div class="flex flex-col items-start space-y-4">
+  <div class="flex flex-col items-end space-y-4 p-14">
     <img src="memes/hello-friend.png" alt="Hello Friend Meme" 
-         class="transform rotate-[15deg]">
+    class="transform rotate-[15deg]">
     <img src="memes/choppa.png" alt="Get to the Choppa Meme" 
-         class="transform rotate-[-15deg]">
+    class="h-48 transform rotate-[-15deg]">
   </div>
 
-  <!-- Contact and Slider Section -->
-  <div class="flex flex-col items-end space-y-4">
-    <!-- SVG Circle -->
-    <div class="rounded-full bg-blue-600 p-6 text-center">
-      <p class="text-2xl font-semibold text-white">Let's Talk</p>
-      <a href="mailto:ivan@jzro.co" class="text-lg">ivan@jzro.co</a>
-      <!-- Simple Slider -->
-      <input type="range" min="1" max="100" value={particleNumber} 
-             class="slider mt-4 w-full" id="particleNumber" 
-             on:input={(e) => particleNumber = e.target.value} />
-      <!-- WhatsApp Icon -->
-      <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
-        <svg viewBox="0 0 24 24" class="h-8 w-8 fill-current text-green-500">
-          <!-- WhatsApp SVG Path -->
-        </svg>
-      </a>
-    </div>
+  <!-- Contact Form inside Planet SVG -->
+  <div class="flex justify-center items-center text-white">
+    <!-- SVG Circle with Contact Content -->
+    <svg class="relative z-10" width="{diameter}" height="{diameter}" viewBox="0 0 {diameter} {diameter}">
+      <circle cx="{diameter / 2}" cy="{diameter / 2}" r="{diameter / 2}" fill="#1B0087" />
+      
+      <!-- Contact Content inside SVG -->
+      <foreignObject x="0" y="0" width="{diameter}" height="{diameter}">
+        <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+          <h3 class="text-4xl text-white mb-4">Let's Talk</h3>
+          <a href="mailto:ivan@jzro.co" class="text-xl underline mb-4">ivan@jzro.co</a>
+          <input type="range" min="1" max="100" class="slider w-48 mb-4" id="ctaSlider" />
+          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
+            <img class="h-24" src="assets/WhatsApp.svg" alt="WhatsApp">
+          </a>
+        </div>
+      </foreignObject>
   </div>
 </section>
 
