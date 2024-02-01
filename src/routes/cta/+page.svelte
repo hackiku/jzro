@@ -2,14 +2,16 @@
 <!-- test page for call to action section -->
 
 <script>
-  import Planet from '$lib/Planet.svelte';
   import { writable } from 'svelte/store';
-
+  import Planet from '$lib/Planet.svelte';
+  import Jzro from '$lib/Jzro.svelte';
   let diameter = 340;
 
 </script>
 
 <!-- ------------------------------------- -->
+
+<Jzro />
 
 <section class="flex flex-row mr-12 px-20 py-12 bg-darkBg text-white">
   <!-- Memes Images -->

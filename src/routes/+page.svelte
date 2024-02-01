@@ -7,13 +7,19 @@ import Coin from '$lib/Coin.svelte';
 import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
 import Controls from '$lib/Controls.svelte';
+import Jzro from '$lib/Jzro.svelte';
 // import OrbitSvg from '$lib/OrbitSvg.svelte';
 // import Orbit from '$lib/Orbit.svelte';
 // import Spaceship from '$lib/Spaceship.svelte';
 
 import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
 
-let diameter = 300;
+// temp cta slider
+// let diameter = 400;
+let sliderValue = writable(50);
+$: diameter = $sliderValue * 8;
+
+
 
 onMount(() => {
     window.addEventListener('scroll', updateScrollPosition);
@@ -58,8 +64,9 @@ onMount(() => {
       <ul class="flex space-x-4 items-center relative">
         <li><a href="/fiddle" class="text-white hover:text-blue-500">fiddle</a></li>
         <li><a href="/orbit-test" class="text-white hover:text-blue-500">orbit</a></li>
-      <li><a href="/cta" class="text-white hover:text-blue-500">cta</a></li>
+        <li><a href="/cta" class="text-white hover:text-blue-500">cta</a></li>
         <li><a href="./grav-sym" class="text-[#F21D26] hover:text-blue-500">grav</a></li>
+        <li><a href="/mars-metar" class="text-white hover:text-blue-500">jzro</a></li>
       </ul>
     </nav>
   </header>
@@ -195,8 +202,9 @@ onMount(() => {
         <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
           <h3 class="text-4xl text-white mb-4">Let's Talk</h3>
           <a href="mailto:ivan@jzro.co" class="text-xl underline mb-4">ivan@jzro.co</a>
-          <input type="range" min="1" max="100" class="slider w-48 mb-4" id="ctaSlider" />
-          <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
+          <input type="range" min="10" max="100" class="slider w-48 mb-4"
+          id="ctaSlider" bind:value={$sliderValue}/>
+            <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
             <img class="h-24" src="assets/WhatsApp.svg" alt="WhatsApp">
           </a>
         </div>
@@ -206,8 +214,9 @@ onMount(() => {
 
 
 <!-------------------------- jzro -------------------------->
-
-
+<div class="flex flex-row justify-center mt-8">
+	<p class="text-2xl font-mono text-white"><span class="red">JZRO</span> 03<span class="red">2151</span>Z 26004KT CLEAR <span class="red">-6</span>/-14 Q<span class="red">127</span></p>
+</div>
 <!-------------------------- footer -------------------------->
 
 <footer class="relative text-center flex justify-center items-end h-[100px]"> <!-- Adjust the height and padding as necessary -->
