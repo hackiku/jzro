@@ -4,14 +4,14 @@
 <script>
   import { writable } from 'svelte/store';
   import Planet from '$lib/Planet.svelte';
-  import Jzro from '$lib/Jzro.svelte';
+  import Nav from '$lib/Nav.svelte';
+
   let diameter = 340;
 
 </script>
 
 <!-- ------------------------------------- -->
-
-<Jzro />
+<Nav />
 
 <section class="flex flex-row mr-12 px-20 py-12 bg-darkBg text-white">
   <!-- Memes Images -->

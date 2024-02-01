@@ -8,6 +8,8 @@ import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
 import Controls from '$lib/Controls.svelte';
 import Jzro from '$lib/Jzro.svelte';
+import Nav from '$lib/Nav.svelte';
+
 // import OrbitSvg from '$lib/OrbitSvg.svelte';
 // import Orbit from '$lib/Orbit.svelte';
 // import Spaceship from '$lib/Spaceship.svelte';
@@ -36,6 +38,7 @@ onMount(() => {
 
 <Controls />
 
+<Nav />
 <!-- --------------------- svgs --------------------- -->
 
 <!-- <OrbitSvg /> -->
@@ -54,23 +57,6 @@ onMount(() => {
   </svg>
 </div>
 
-<!-- --------------------- nav --------------------- -->
-
-<div class="container mx-auto px-4">
-  <header class="flex justify-between items-center py-4 px-20
-  ">
-    <h1 class="text-sm text-white font-mono">🚁 jzro</h1>
-    <nav>
-      <ul class="flex space-x-4 items-center relative">
-        <li><a href="/fiddle" class="text-white hover:text-blue-500">fiddle</a></li>
-        <li><a href="/orbit-test" class="text-white hover:text-blue-500">orbit</a></li>
-        <li><a href="/cta" class="text-white hover:text-blue-500">cta</a></li>
-        <li><a href="./grav-sym" class="text-[#F21D26] hover:text-blue-500">grav</a></li>
-        <li><a href="/mars-metar" class="text-white hover:text-blue-500">jzro</a></li>
-      </ul>
-    </nav>
-  </header>
-</div>
 
 <!-- --------------------- hero --------------------- -->
 <section class="hero mt-24 py-8 flex justify-center items-center">
