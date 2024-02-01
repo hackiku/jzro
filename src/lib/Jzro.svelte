@@ -17,26 +17,24 @@
   ];
 </script>
 
-<div class="flex justify-center mt-8">
-  <div class="flex space-x-2">
-    {#each metarData as segment}
-      <div class="relative font-mono">
-        <span class="{segment.color}">{segment.code}</span>
-        <div class="absolute left-0 mt-1 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-          <div class="bg-darkBg p-2 rounded whitespace-nowrap">
-            <span class="text-white text-xs">{segment.explanation.replace('\n', '<br>')}</span>
-          </div>
-        </div>
+<div class="flex justify-center mt-8 text-2xl font-mono text-white">
+  {#each metarData as segment}
+    <div class="group relative mx-1">
+      <span class="{segment.color}">{segment.code}</span>
+      <div class="absolute left-0 right-0 bottom-0 mb-6 hidden group-hover:block bg-darkBg p-2 rounded">
+        <span class="text-white text-xs whitespace-pre">{segment.explanation}</span>
       </div>
-    {/each}
-  </div>
+    </div>
+  {/each}
 </div>
 
 <style>
   /* Ensure explanations are hidden initially and only appear on hover */
+
   .group-hover\:opacity-100:hover .group-hover\:opacity-100 {
     opacity: 1;
   }
+	
   .text-red-600 {
     color: #F4191D;
   }

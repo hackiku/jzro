@@ -214,8 +214,11 @@ onMount(() => {
 
 
 <!-------------------------- jzro -------------------------->
-<div class="flex flex-row justify-center mt-8">
-	<p class="text-2xl font-mono text-white"><span class="red">JZRO</span> 03<span class="red">2151</span>Z 26004KT CLEAR <span class="red">-6</span>/-14 Q<span class="red">127</span></p>
+<div class="flex flex-row justify-center mt-8 mb-10">
+	<div class="flex flex-col justify-start">
+    <p class="font-mono text-xs mb-3">47 hours ago</p>
+    <p class="text-2xl font-mono text-white"><span class="red">JZRO</span> 03<span class="red">2151</span>Z 26004KT CLEAR <span class="red">-6</span>/-14 Q<span class="red">127</span></p>
+  </div>
 </div>
 <!-------------------------- footer -------------------------->
 
@@ -225,14 +228,9 @@ onMount(() => {
 </footer>
 
 <style>
-  .btn {
-    @apply bg-brandBlue rounded-full text-white px-6 py-3 hover:bg-gray-400 focus:outline-none focus:ring-2 focus:ring-gray-300;
-  }
-  .zigzag-section {
-    @apply py-8 px-8 md:px-8 bg-lighterBg;
-  }
-  .zigzag-content {
-    @apply flex flex-wrap items-center max-w-xl mx-auto mt-8 py-12;
+
+  .red {
+    color: #F21D26;
   }
 
   .scroll-display {
@@ -245,6 +243,5 @@ onMount(() => {
     border-radius: 5px;
     z-index: 1000; /* Ensure it's above other content */
   }
-
 
 </style>
