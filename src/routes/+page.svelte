@@ -81,10 +81,6 @@ onMount(() => {
   </div>
 </section>
 
-<svg class="absolute top-0 right-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
-  <!-- Orbit Path -->
-  <path d="M 100,0 Q 50,50 0,100" stroke="white" stroke-width="0.1" fill="none"/>
-</svg>
 
 
 <!------------------------ services zigzag ------------------------>
