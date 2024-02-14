@@ -1,11 +1,35 @@
 <!-- routes/boing/+page.svelte -->
 <script>
-  let velocity = 50; // Placeholder for future use
-  let angle = 45; // Placeholder angle, unused in this simplified example
+  let velocity = 50; // Initial velocity
 
-  // Updated trajectory path to start from the rocket's position and display correctly
-  let trajectoryPath = "M1 640C52.6667 427 252.8 1 640 1C1027.2 1 1227.33 427 1279 640";
+  // Function to calculate the trajectory path based on velocity
+  function calculateTrajectory(velocity) {
+    // Adjust these values to match the starting point to the rocket's position
+    const startX = 50; // Example starting X coordinate (adjust based on layout)
+    const startY = 600; // Example starting Y coordinate (adjust based on layout and rocket image size)
+    
+    // Constants for the shape and scale of the parabola (adjust as needed)
+    const baseHeight = startY;
+    const baseLength = 1279; // Adjust if necessary for your layout
+    
+    // Modifiers for the trajectory path based on velocity
+    const heightModifier = (velocity / 50) * 300;
+    const lengthModifier = (velocity / 50) * 300;
+    
+    const peakHeight = baseHeight - heightModifier;
+    const totalLength = baseLength + lengthModifier;
+    
+    // Return the new trajectory path starting from the rocket's position
+    return `M${startX} ${startY}C${startX + totalLength / 4} ${peakHeight}, ${startX + 3 * totalLength / 4} ${peakHeight}, ${startX + totalLength} ${baseHeight}`;
+  }
+
+  // Initialize trajectory path
+  let trajectoryPath = calculateTrajectory(velocity);
+
+  // Reactive statement to update the path when velocity changes
+  $: trajectoryPath = calculateTrajectory(velocity);
 </script>
+
 
 <div class="flex flex-col items-center justify-start h-screen">
   <div class="relative w-full h-full">
