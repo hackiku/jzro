@@ -8,9 +8,8 @@
   
   let MotionPathPlugin;
 
-  let velocity = 26; // Initial velocity
+  let velocity = 43;
   let trajectoryPath = '';
-  let rocketLaunched = false; // State to control rocket animation
 
   let hitTarget = false;
   let hitMessage = 'Srecan Svetski Trifun i hvala, uvek, na tough love';
@@ -115,7 +114,7 @@ if (browser) {
   <div>
     <!-- Target area -->
     <div class="absolute" style="right: 10vw; top: 10vh;" width="100" height="100">
-      <Planet initialGravity={5} color="#F4191D" label="Jao Bre" />
+      <Planet initialGravity={40} color="#F4191D" label="Jao Bre" />
     </div> 
     <!-- <svg class="absolute" style="right: 10vw; top: 10vh;" width="100" height="100"> -->
       <!-- <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /> -->
