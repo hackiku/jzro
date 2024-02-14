@@ -127,7 +127,7 @@ onMount(() => {
 
 <Portfolio />
 
-<section class="mt-20 py-8 px-8 md:px-8 max-w-3xl mx-auto">
+<section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
       <h2 class="text-xl mb-3">Building apps for engineers that try to be smart as a DART 🛰️ (I wish) and more fun than Fortran.</h2>
