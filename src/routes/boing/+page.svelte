@@ -1,37 +1,48 @@
 <!-- routes/boing/+page.svelte -->
 <script>
-  let velocity = 50; // Initial velocity
+  import { onMount } from 'svelte';
+  import { browser } from '$app/environment'; // Import browser variable
 
-  // Function to calculate the trajectory path based on velocity
-  function calculateTrajectory(velocity) {
-    // Adjust these values to match the starting point to the rocket's position
-    const startX = 50; // Example starting X coordinate (adjust based on layout)
-    const startY = 600; // Example starting Y coordinate (adjust based on layout and rocket image size)
-    
-    // Constants for the shape and scale of the parabola (adjust as needed)
-    const baseHeight = startY;
-    const baseLength = 1279; // Adjust if necessary for your layout
-    
-    // Modifiers for the trajectory path based on velocity
-    const heightModifier = (velocity / 50) * 300;
-    const lengthModifier = (velocity / 50) * 300;
-    
-    const peakHeight = baseHeight - heightModifier;
-    const totalLength = baseLength + lengthModifier;
-    
-    // Return the new trajectory path starting from the rocket's position
-    return `M${startX} ${startY}C${startX + totalLength / 4} ${peakHeight}, ${startX + 3 * totalLength / 4} ${peakHeight}, ${startX + totalLength} ${baseHeight}`;
+  let velocity = 30; // Initial velocity
+  let trajectoryPath = ''; // Initialize empty string for the path
+
+  function calculateTrajectory(velocity, width, height) {
+    const startX = width * 0.01; // 5% from the left of the viewport
+    const startY = height * 1; // Adjusted for the rocket's position
+
+    const heightModifier = (velocity / 50) * height * 0.8;
+    const lengthModifier = (velocity / 50) * width * 1.6;
+
+    const peakHeight = startY - heightModifier;
+    const totalLength = startX + lengthModifier;
+
+    return `M${startX},${startY} C${startX + totalLength / 4},${peakHeight} ${startX + 3 * totalLength / 4},${peakHeight} ${totalLength},${startY}`;
   }
 
-  // Initialize trajectory path
-  let trajectoryPath = calculateTrajectory(velocity);
+  // Only run this code client-side, after the component has mounted
+  if (browser) {
+    onMount(() => {
+      const width = window.innerWidth;
+      const height = window.innerHeight;
 
-  // Reactive statement to update the path when velocity changes
-  $: trajectoryPath = calculateTrajectory(velocity);
+      trajectoryPath = calculateTrajectory(velocity, width, height);
+
+      // Recalculate path on viewport resize
+      window.addEventListener('resize', () => {
+        trajectoryPath = calculateTrajectory(velocity, window.innerWidth, window.innerHeight);
+      });
+    });
+  }
+
+  // Reactive statement to update the path when velocity changes, guarded for client-side execution
+  $: if (browser && velocity) {
+    trajectoryPath = calculateTrajectory(velocity, window.innerWidth, window.innerHeight);
+  }
 </script>
 
 
-<div class="flex flex-col items-center justify-start h-screen">
+
+<div class=" flex-col items-center justify-start h-screen">
   <div class="relative w-full h-full">
     <!-- Rocket positioned at a fixed point -->
     <img src="game/rocket.png" alt="rocket" class="absolute" style="left: 5vw; bottom: 20vh;" />
