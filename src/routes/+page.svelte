@@ -75,10 +75,10 @@ onMount(() => {
 <!-- logos -->
 <section class="text-center mb-2">
   <div class="grayscale	flex flex-wrap justify-center items-center space-x-8">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/3/36/Northrop_Grumman_logo_blue-on-clear_2020.svg" alt="Logo 1" class="w-32">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/European_Space_Agency_logo.svg" alt="Logo 2" class="w-32">
     <p class="text-gray-700">Logo</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/9/99/Lockheed_Martin_logo.svg" alt="Logo 3" class="w-32">
+    <p class="text-gray-700">Logo</p>
+    <p class="text-gray-700">Logo</p>
+    <p class="text-gray-700">Logo</p>
     <p class="text-gray-700">Logo</p>
   </div>
 </section>
