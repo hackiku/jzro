@@ -1,3 +1,4 @@
+<!-- boing -->
 <!-- routes/boing/+page.svelte -->
 <script>
   import { onMount } from 'svelte';

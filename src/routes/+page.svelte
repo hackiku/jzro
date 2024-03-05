@@ -10,6 +10,7 @@ import Testimonials from '$lib/Testimonials.svelte';
 import Controls from '$lib/Controls.svelte';
 import Jzro from '$lib/Jzro.svelte';
 import Nav from '$lib/Nav.svelte';
+import Logos from '$lib/Logos.svelte';
 
 // import OrbitSvg from '$lib/OrbitSvg.svelte';
 // import Orbit from '$lib/Orbit.svelte';
@@ -72,17 +73,13 @@ onMount(() => {
   </div>
 </section>
 
+
 <!-- logos -->
-<section class="text-center mb-2">
-  <div class="grayscale	flex flex-wrap justify-center items-center space-x-8">
-    <p class="text-gray-700">Logo</p>
-    <p class="text-gray-700">Logo</p>
-    <p class="text-gray-700">Logo</p>
-    <p class="text-gray-700">Logo</p>
-    <p class="text-gray-700">Logo</p>
+<section class="flex justify-center">
+  <div class="px-20 w-full max-w-4xl">
+    <Logos />
   </div>
 </section>
-
 
 
 <!------------------------ services zigzag ------------------------>
@@ -150,9 +147,9 @@ onMount(() => {
   <div class="flex flex-wrap items-center">
      <!-- left -->
     <div class="w-full md:w-1/2 p-4">
-      <h2 class="text-4xl mb-3">Oye Dusters 👋</h2>
+      <h2 class="text-4xl mb-3">I'm Ivan 👋</h2>
       <p class="text-md mb-4"
-      >I’m Ivan, longtime tech copywriter midlife-crisising into an aerospace engineer, pilot and HTML programmer.</p>
+      >Oye, Dusters. I'm a longtime tech copywriter midlife-crisising into aerospace engineer, pilot, and HTML programmer.</p>
       <p class="text-md mb-4"
       >Im doing it because space exploration is the OG and we should make more of it happen.</p>
       <p class="text-md mb-4"
