@@ -75,7 +75,7 @@ onMount(() => {
 
 
 <!-- logos -->
-<section class="flex justify-center">
+<section class="flex justify-center opacity-30 hover:opacity-100">
   <div class="px-20 w-full max-w-4xl">
     <Logos />
   </div>
@@ -90,7 +90,7 @@ onMount(() => {
       <h2 class="text-4xl mb-3">Words and vectors <br> that sell <span style="color: #1ABCFE">software</span></h2>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
-      <Planet initialGravity={22} color="#1ABCFE" label="Work"/>
+      <Planet initialGravity={22} color="#1ABCFE" label="for work"/>
     </div>
   </div>
 </section>
@@ -115,7 +115,7 @@ onMount(() => {
 
   <!-- Planet with responsive positioning -->
   <div class="absolute left-[10%] md:left-[10%] lg:left-[10%]">
-    <Planet initialGravity={40} color="#540087" label="For Fun"/>
+    <Planet initialGravity={40} color="#540087" label="for fun"/>
   </div>
 </section>
 
@@ -128,7 +128,7 @@ onMount(() => {
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
-      <h2 class="text-xl mb-3">Building apps for engineers that try to be smart as a DART 🛰️ (I wish) and more fun than Fortran.</h2>
+      <h3 class="text-xl mb-3">I also *really* like building engineery apps that ain't smart as a DART 🛰️ but sure are more fun than Fortran</h3>
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
