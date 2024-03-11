@@ -89,7 +89,6 @@ if (browser) {
   });
 }
 
-
   // make sure client-side execution only
   $: if (browser && velocity) {
     trajectoryPath = calculateTrajectory(velocity, window.innerWidth, window.innerHeight);
@@ -113,6 +112,7 @@ if (browser) {
   </div>
       
   <div>
+    
     <!-- Target area -->
     <div class="absolute" style="right: 10vw; top: 10vh;" width="100" height="100">
       <Planet initialGravity={40} color="#F4191D" label="Jao Bre" />
@@ -124,6 +124,7 @@ if (browser) {
   </div>
 
   <!-- Velocity slider -->
+
   <div class="z-50 fixed p-6 bottom-6 rounded-full backdrop-blur-md flex justify-center items-center bg-gray-500 bg-opacity-10 left-1/2 transform -translate-x-1/2">
     <button class="text-5xl mr-6 hover:bg-red-500 rounded-full" on:click={launchRocket}>💥</button>
     <div class="relative space-between-12 flex flex-col justify-center group hover:opacity-100 transition-opacity">
@@ -145,8 +146,6 @@ if (browser) {
       </div>
   </div>
   {/if}
-
-
 
 
 </section>
