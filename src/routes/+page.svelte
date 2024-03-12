@@ -162,11 +162,12 @@ onMount(() => {
 <section class="flex flex-col md:flex-row justify-center items-center mx-auto
   py-12 h-screen max-w-3xl">
   <!-- Memes Images -->
-  <div class="flex relative flex-col w-full md:w-1/2 items-center md:items-end space-y-4">
+  <div class="flex relative flex-col w-full md:w-1/2
+    items-center md:items-end space-y-4">
     <img src="memes/hello-friend.png" alt="Hello Friend Meme" 
     class="absolute bottom-0 transform rotate-[15deg]">
     <img src="memes/choppa.png" alt="Get to the Choppa Meme" 
-    class="absolute top-0 transform rotate-[-15deg]">
+    class="absolute top-0 transform scale-75 rotate-[-15deg]">
   </div>
 
   <div class="flex justify-center p-12 items-center w-full md:w-1/2">
