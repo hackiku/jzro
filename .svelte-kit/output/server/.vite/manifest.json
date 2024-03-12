@@ -7,19 +7,14 @@
     "isEntry": true,
     "src": ".svelte-kit/generated/server/internal.js"
   },
-  "_Controls.js": {
-    "css": [
-      "_app/immutable/assets/Controls.OLGBOKY4.css"
-    ],
-    "file": "chunks/Controls.js",
-    "imports": [
-      "_ssr.js"
-    ]
-  },
   "_GravityLauncher.js": {
+    "css": [
+      "_app/immutable/assets/GravityLauncher.OLGBOKY4.css"
+    ],
     "file": "chunks/GravityLauncher.js",
     "imports": [
-      "_ssr.js"
+      "_ssr.js",
+      "_index.js"
     ]
   },
   "_Jzro.svelte_svelte_type_style_lang.js": {
@@ -28,12 +23,6 @@
   },
   "_Nav.js": {
     "file": "chunks/Nav.js",
-    "imports": [
-      "_ssr.js"
-    ]
-  },
-  "_Planet.js": {
-    "file": "chunks/Planet.js",
     "imports": [
       "_ssr.js"
     ]
@@ -100,8 +89,6 @@
       "_ssr.js",
       "_index.js",
       "_Nav.js",
-      "_Controls.js",
-      "_Planet.js",
       "_GravityLauncher.js"
     ],
     "isEntry": true,
@@ -124,8 +111,7 @@
     ],
     "file": "entries/pages/boing/_page.svelte.js",
     "imports": [
-      "_ssr.js",
-      "_Planet.js"
+      "_ssr.js"
     ],
     "isEntry": true,
     "src": "src/routes/boing/+page.svelte"
@@ -145,9 +131,7 @@
     ],
     "file": "entries/pages/fiddle/_page.svelte.js",
     "imports": [
-      "_ssr.js",
-      "_Planet.js",
-      "_GravityLauncher.js"
+      "_ssr.js"
     ],
     "isEntry": true,
     "src": "src/routes/fiddle/+page.svelte"
@@ -157,8 +141,6 @@
     "imports": [
       "_ssr.js",
       "_Nav.js",
-      "_Controls.js",
-      "_Planet.js",
       "_GravityLauncher.js"
     ],
     "isEntry": true,

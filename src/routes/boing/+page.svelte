@@ -6,7 +6,7 @@
   import { browser } from '$app/environment';
   // import { navigate } from 'svelte-routing';
   import gsap from 'gsap';
-  import Planet from '$lib/grav/Planet.svelte';
+  // import Planet from '$lib/grav/Planet.svelte';
   // import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
   // <GravityLauncher />
 
@@ -119,7 +119,7 @@ if (browser) {
 
     <!-- Target area -->
     <div class="absolute" style="right: 10vw; top: 10vh;" width="100" height="100">
-      <Planet initialGravity={40} color="#F4191D" label="Jao Bre" />
+      <!-- <Planet initialGravity={40} color="#F4191D" label="Jao Bre" /> -->
     </div> 
     <!-- <svg class="absolute" style="right: 10vw; top: 10vh;" width="100" height="100"> -->
       <!-- <circle cx="50" cy="50" r="40" stroke="black" stroke-width="3" fill="red" /> -->

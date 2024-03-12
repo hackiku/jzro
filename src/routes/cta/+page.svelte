@@ -2,8 +2,6 @@
 <!-- test page for call to action section -->
 
 <script>
-  import { writable } from 'svelte/store';
-  import Planet from '$lib/grav/Planet.svelte';
   import Nav from '$lib/Nav.svelte';
 
   let diameter = 340;

@@ -1,4 +1,5 @@
-import { writable, get } from 'svelte/store';
+// lib/physicsStore.js
+import { writable } from 'svelte/store';
 
 // Define the initial state for your physics, including velocity and planet gravity.
 const initialState = {
@@ -10,49 +11,55 @@ const initialState = {
     { id: 'github', gravity: 1.5, isActive: false },
     { id: 'contact', gravity: 1.5, isActive: false },
   ],
-  // More physics-related properties can be added here
+  trajectoryPath: '',
 };
 
-const createPhysicsStore = () => {
-  const { subscribe, set, update } = writable(initialState);
+const physicsStore = writable(initialState);
+// const physicsStore = writable({...initialState, trajectoryPath: calculateTrajectory(initialState.velocity, initialGravity)});
 
-  // Define your physics calculations as methods
-  const methods = {
-    setVelocity: (newVelocity) => {
-      update(state => {
-        return { ...state, velocity: newVelocity };
-      });
-    },
-    togglePlanetActive: (planetId) => {
-      update(state => {
-        const planets = state.planets.map(planet => {
-          if (planet.id === planetId) {
-            return { ...planet, isActive: !planet.isActive };
-          }
-          return planet;
-        });
-        return { ...state, planets };
-      });
-    },
-    calculateTrajectory: () => {
-      // A simplified placeholder for your trajectory calculation
-      // This would be a function that uses current state to calculate the new trajectory
-      const trajectory = {}; // Complex calculation based on current velocity and planet gravities
 
-      // Here, you could also check for collisions based on the trajectory and planet positions
+// calculate trajectory based on velocity and gravity
+function calculateTrajectory(velocity, gravity) {
+  // Placeholder calculation - replace with actual physics logic.
+  const normalizedGravityEffect = 50 - gravity; // Simulating gravity's pull.
+  const normalizedVelocityEffect = Math.min(velocity / 10, 10); // Simulating velocity's effect.
 
-      return trajectory;
-    },
-    // Add more methods for different calculations as needed
-  };
+  const controlX1 = 50 + normalizedVelocityEffect * 5;
+  const controlY1 = 75 - normalizedGravityEffect * 2;
+  const controlX2 = 50 + normalizedVelocityEffect * 10;
+  const controlY2 = 25 + normalizedGravityEffect;
+  const endX = 80 - normalizedGravityEffect;
+  const endY = 0;
 
-  return {
-    subscribe,
-    set,
-    ...methods
-  };
+  return `M40,100 C${controlX1},${controlY1} ${controlX2},${controlY2} ${endX},${endY}`;
 }
+
+// Adding methods to the store.
+const customPhysicsStore = {
+  subscribe: physicsStore.subscribe,
+  setVelocity: (newVelocity) => {
+    physicsStore.update(state => {
+      // Perform your calculation with the new velocity.
+      const newTrajectoryPath = calculateTrajectory(newVelocity, state.planets[0].gravity);
+      return { ...state, velocity: newVelocity, trajectoryPath: newTrajectoryPath };
+    });
+  },
+  togglePlanetActive: (planetId) => {
+    physicsStore.update(state => {
+      const planets = state.planets.map(planet => {
+        if (planet.id === planetId) {
+          return { ...planet, isActive: !planet.isActive };
+        }
+        return planet;
+      });
+      // Recalculate trajectory in case the active planet's gravity has changed.
+      const newTrajectoryPath = calculateTrajectory(state.velocity, planets[0].gravity);
+      return { ...state, planets, trajectoryPath: newTrajectoryPath };
+    });
+  },
+  // Other methods can be added here as needed.
+};
 
 console.log('physicsStore.js: physicsStore created');
 
-export const physicsStore = createPhysicsStore();
+export default customPhysicsStore;

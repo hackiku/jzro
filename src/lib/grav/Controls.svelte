@@ -1,13 +1,34 @@
-<!-- /grav/Controls.svelte -->
 <!-- game controls sticky to the center bottom of screen -->
+<!-- /grav/Controls.svelte -->
 
 <script>
-  export let velocity = 17; // Voyager 1 speed
-  function launchRocket() {
-    console.log('Rocket launched at', velocity, 'km/s');
-  }
-</script>
+  
+  import physicsStore from '$lib/grav/physicsStore.js'; // new
 
+  import { onDestroy } from 'svelte';
+
+  let localVelocity;
+
+  // Subscribe to the physics store and update localVelocity accordingly
+  const unsubscribe = physicsStore.subscribe(($physicsStore) => {
+    localVelocity = $physicsStore.velocity;
+  });
+
+  function launchRocket() {
+    console.log('Rocket launched at', localVelocity, 'km/s');
+    // action
+  }
+
+  function handleVelocityChange(e) {
+    localVelocity = parseFloat(e.target.value);
+    physicsStore.setVelocity(localVelocity);
+  }
+
+  // Clean up the subscription when the component is destroyed
+  onDestroy(() => {
+    unsubscribe();
+  });
+</script>
 
 <div class="z-50 fixed p-6 bottom-6 rounded-full backdrop-blur-md
   flex justify-center items-center bg-gray-500 bg-opacity-10 left-1/2 transform -translate-x-1/2
@@ -18,19 +39,16 @@
   <!-- velocity container -->
   <div class="relative w-1/2 flex flex-col space-y-2 items-start
   group transition-opacity">
-    
     <!-- velocity value -->
     <div class="flex flex-row items-center space-x-3 justify-center">
-      <!-- <img class="h-8" src="game/rocket.png" alt=""> -->
-      <p>v = <span class="velocity">{velocity}</span> km/s</p>
+      <p>v = <span class="velocity">{localVelocity}</span> km/s</p>
     </div>
     
     <!-- slider -->
-    <input type="range" min="1" max="100" value={velocity}
-      class="slider w-full" id="particleNumber"
-      on:input={(e) => velocity = e.target.value} />
-  
-    </div>
+    <input type="range" min="1" max="100" value={localVelocity}
+      class="slider w-full" id="velocitySlider"
+      on:input={handleVelocityChange} />
+  </div>
 </div>
 
 <style>

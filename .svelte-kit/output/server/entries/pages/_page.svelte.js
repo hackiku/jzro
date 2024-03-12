@@ -1,10 +1,8 @@
-import { c as create_ssr_component, b as add_attribute, e as escape, d as each, v as validate_component, a as subscribe } from "../../chunks/ssr.js";
+import { c as create_ssr_component, b as add_attribute, e as escape, d as each, v as validate_component, f as createEventDispatcher, o as onDestroy, a as subscribe } from "../../chunks/ssr.js";
 import { w as writable } from "../../chunks/index.js";
 /* empty css                                              */
 import { N as Nav } from "../../chunks/Nav.js";
-import { C as Controls, L as Logos } from "../../chunks/Controls.js";
-import { P as Planet } from "../../chunks/Planet.js";
-import { G as GravityLauncher } from "../../chunks/GravityLauncher.js";
+import { c as customPhysicsStore, G as GravityLauncher, C as Controls, L as Logos } from "../../chunks/GravityLauncher.js";
 const scrollPosition = writable(0);
 const css$1 = {
   code: ".portfolio-item.svelte-1s5m09b{max-width:340px}.portfolio-image-wrapper.svelte-1s5m09b{padding-top:56.25%;position:relative}.portfolio-image.svelte-1s5m09b{position:absolute;top:0;right:0;bottom:0;left:0}",
@@ -52,6 +50,32 @@ const testimonialData = [
 const Testimonials = create_ssr_component(($$result, $$props, $$bindings, slots) => {
   let currentTestimonialIndex = 0;
   return `<section class="flex items-center justify-center py-8 px-4 md:px-6"> <button class="p-4" data-svelte-h="svelte-4v0pzy"> <svg viewBox="0 0 24 24" class="h-8 w-8 fill-current text-white"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"></path></svg></button>  <div class="max-w-lg text-center"><blockquote class="mb-4">&quot;${escape(testimonialData[currentTestimonialIndex].quote)}&quot;</blockquote> <div class="flex items-center justify-center"><img${add_attribute("src", testimonialData[currentTestimonialIndex].image, 0)}${add_attribute("alt", testimonialData[currentTestimonialIndex].name, 0)} class="h-10 w-10 rounded-full mr-2"> <cite class="not-italic">${escape(testimonialData[currentTestimonialIndex].name)} @ ${escape(testimonialData[currentTestimonialIndex].company)}</cite></div></div>  <button class="border-none p-4" data-svelte-h="svelte-1k4x4gi"><svg viewBox="0 0 24 24" class="h-8 w-8 fill-current"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6z"></path></svg></button></section>`;
+});
+const Planet = create_ssr_component(($$result, $$props, $$bindings, slots) => {
+  let { id } = $$props;
+  let { color = "red" } = $$props;
+  let { label = "" } = $$props;
+  let diameter;
+  let gravity;
+  createEventDispatcher();
+  const unsubscribe = customPhysicsStore.subscribe(($physicsStore) => {
+    const planet = $physicsStore.planets.find((p) => p.id === id);
+    if (planet) {
+      gravity = planet.gravity;
+      diameter = calculateDiameter(planet.gravity);
+    }
+  });
+  const calculateDiameter = (gravity2) => Math.sqrt(gravity2) * (Math.min(window.innerWidth, window.innerHeight) / 24);
+  onDestroy(() => {
+    unsubscribe();
+  });
+  if ($$props.id === void 0 && $$bindings.id && id !== void 0)
+    $$bindings.id(id);
+  if ($$props.color === void 0 && $$bindings.color && color !== void 0)
+    $$bindings.color(color);
+  if ($$props.label === void 0 && $$bindings.label && label !== void 0)
+    $$bindings.label(label);
+  return `  <div class="text-center my-4"><div class="inline-block relative z-0"><svg class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" style="${"width: " + escape(diameter, true) + "px; height: " + escape(diameter, true) + "px;"}"><circle cx="50%" cy="50%"${add_attribute("r", diameter / 2, 0)}${add_attribute("fill", color, 0)}></circle></svg> <span class="absolute top-1/2 left-full transform -translate-y-1/2 ml-6 text-white font-mono text-sm whitespace-nowrap z-10">${escape(label)}</span></div> <div class="mt-6 ml-16 relative z-20"><input type="range" min="0" max="100"${add_attribute("value", gravity, 0)} class="w-1/2 max-w-1/4"></div></div>`;
 });
 const css = {
   code: ".red.svelte-bs9zae{color:#F21D26}.scroll-display.svelte-bs9zae{position:fixed;bottom:20px;right:20px;background-color:rgba(0, 0, 0, 0.7);color:white;padding:10px;border-radius:5px;z-index:1000}",
