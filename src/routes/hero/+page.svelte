@@ -15,13 +15,11 @@
     // 
     });
   
-  </script>
+</script>
   
 <!-- ======================HTML====================== -->
 
-<div class="fixed w-[100vw]">
-    <GravityLauncher />
-  </div>
+  <GravityLauncher />
  
 
   <Controls />
@@ -31,7 +29,7 @@
   
   
   <!-- mock Earth top right -->
-  <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
+  <svg class="fixed top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
     <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
   </svg>
 
