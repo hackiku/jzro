@@ -3,6 +3,9 @@
 
 <script>
   let velocity = 17; // Voyager 1 speed
+  function launchRocket() {
+    console.log('Rocket launched at', velocity, 'km/s');
+  }
 </script>
 
 

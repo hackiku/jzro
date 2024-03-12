@@ -5,11 +5,14 @@
   
   export let initialGravity = 20;
   let gravity = initialGravity;
-  export let color = 'red'; // Customizable color prop
+  
+  export let color = 'red';
   export let label = '';
 
   let diameter;
-  
+  // Initial call for SSR-friendly environments
+  // let diameter = calculateDiameter(initialGravity);
+
   const dispatch = createEventDispatcher();
   
   const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 24);

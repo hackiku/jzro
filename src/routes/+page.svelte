@@ -3,21 +3,25 @@
 <script>
 import { onMount , onDestroy } from 'svelte';
 import { writable } from 'svelte/store';
+import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
+
 import Planet from '$lib/Planet.svelte';
 import Coin from '$lib/Coin.svelte';
 import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
-import Controls from '$lib/grav/Controls.svelte';
 
 import Jzro from '$lib/Jzro.svelte';
 import Nav from '$lib/Nav.svelte';
 import Logos from '$lib/Logos.svelte';
 
+// grav
+import Controls from '$lib/grav/Controls.svelte';
+import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
+
 // import OrbitSvg from '$lib/OrbitSvg.svelte';
 // import Orbit from '$lib/Orbit.svelte';
 // import Spaceship from '$lib/Spaceship.svelte';
 
-import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
 
 // temp cta slider
 // let diameter = 400;
@@ -38,10 +42,13 @@ onMount(() => {
 </script>
 
 
+<GravityLauncher />
+
 <Controls />
 
 <Nav />
 <!-- --------------------- svgs --------------------- -->
+
 
 <!-- <OrbitSvg /> -->
 <div class="scroll-display">Scroll Position: {$scrollPosition}%</div>

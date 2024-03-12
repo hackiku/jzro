@@ -48,9 +48,9 @@
       <line x1="90" y1="100" x2="90" y2="0" stroke="#ff3d00" stroke-width="0.2" stroke-dasharray="2,2"/>
     </svg>
 
-    <!-- <div class="absolute" style="right: 10vw; top: 10vh;" width="100" height="100">
-      <Planet initialGravity={70} color="red" label="Voyager 1" />
-    </div>  -->
+    <div class="absolute" style="right: 25vw; top: 10vh;" width="100" height="100">
+      <Planet initialGravity={17} color="indigo" label="GravityLauncher" />
+    </div> 
 
   </div>
 
