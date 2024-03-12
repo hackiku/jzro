@@ -7,6 +7,7 @@
   // import { navigate } from 'svelte-routing';
   import gsap from 'gsap';
   import Planet from '$lib/Planet.svelte';
+
   
   let MotionPathPlugin;
 
@@ -102,6 +103,7 @@ if (browser) {
 
 
 <section class="flex-col items-center justify-start h-screen">
+  
   <div class="relative w-full h-full">
     <!-- Rocket positioned at a fixed point -->
     <img src="game/bananica.png" alt="rocket" class="rocket" />

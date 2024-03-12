@@ -8,6 +8,7 @@ import Coin from '$lib/Coin.svelte';
 import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
 import Controls from '$lib/grav/Controls.svelte';
+
 import Jzro from '$lib/Jzro.svelte';
 import Nav from '$lib/Nav.svelte';
 import Logos from '$lib/Logos.svelte';
@@ -22,7 +23,6 @@ import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
 // let diameter = 400;
 let sliderValue = writable(50);
 $: diameter = $sliderValue * 8;
-
 
 
 onMount(() => {

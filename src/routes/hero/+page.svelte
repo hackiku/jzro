@@ -1,4 +1,4 @@
-<!-- hero dev -->
+<!-- hero only to launch to prod jzro.co -->
 <!-- hero/+page.svelte -->
 
 <script>
@@ -16,8 +16,8 @@
   
   // temp cta slider
   // let diameter = 400;
-  let sliderValue = writable(50);
-  $: diameter = $sliderValue * 8;
+  // let sliderValue = writable(50);
+  // $: diameter = $sliderValue * 8;
   
   
   onMount(() => {
@@ -30,6 +30,11 @@
     });
   
   </script>
+  
+  <div class="fixed w-[100vw]">
+    <GravityLauncher />
+  </div>
+ 
   
 <main>
   <Controls />
@@ -44,11 +49,8 @@
     <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
   </svg>
 
-  <GravityLauncher />
+  <!-- <div class="fixed inset-0 z-[-1] pointer-events-none"> -->
 
-  <!-- mock orbit for visual reference -->
-  <img class="absolute z-0" src="assets/orbit.svg">
-  
   
   <!-- --------------------- hero --------------------- -->
   <section class="hero mt-24 py-8 flex justify-center items-center">
