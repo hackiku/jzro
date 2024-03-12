@@ -4,14 +4,12 @@
   import { createEventDispatcher } from 'svelte';
   
   export let initialGravity = 20;
-  let gravity = initialGravity;
+  export let gravity = initialGravity;
   
   export let color = 'red';
   export let label = '';
 
   let diameter;
-  // Initial call for SSR-friendly environments
-  // let diameter = calculateDiameter(initialGravity);
 
   const dispatch = createEventDispatcher();
   

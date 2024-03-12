@@ -3,7 +3,6 @@
 
 <script>
   import { onMount , onDestroy } from 'svelte';
-  import { writable } from 'svelte/store';
   import Planet from '$lib/Planet.svelte';
   import Nav from '$lib/Nav.svelte';
   import Logos from '$lib/Logos.svelte';
@@ -11,36 +10,24 @@
   // grav
   import Controls from '$lib/grav/Controls.svelte';
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
-    
-  import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
-  
-  // temp cta slider
-  // let diameter = 400;
-  // let sliderValue = writable(50);
-  // $: diameter = $sliderValue * 8;
-  
-  
+      
   onMount(() => {
-      window.addEventListener('scroll', updateScrollPosition);
-      updateScrollPosition(); // To set initial scroll position
-  
-      onDestroy(() => {
-        window.removeEventListener('scroll', updateScrollPosition);
-      });
+    // 
     });
   
   </script>
   
-  <div class="fixed w-[100vw]">
+<!-- ======================HTML====================== -->
+
+<div class="fixed w-[100vw]">
     <GravityLauncher />
   </div>
  
-  
-<main>
+
+<main class="overflow-none">
   <Controls />
   
   <Nav />
-  <!-- --------------------- svgs --------------------- -->
   
   <!-- mock Earth top right -->
   <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
@@ -53,8 +40,7 @@
     <div class="max-w-md text-center">
       <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
       <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
-      <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-      <Planet initialGravity={10} color="#F4191D" label="Take me to Morty" />
+        <!-- <Planet initialGravity={10} color="#F4191D" label="Fly me to Orbit" /> -->
       <div class="flex justify-center items-center space-x-4">
       </div>
     </div>
@@ -62,7 +48,7 @@
   
   
   <!-- logos -->
-  <section class="flex justify-center opacity-30 hover:opacity-100">
+  <section class="flex justify-center mt-44 opacity-30 hover:opacity-100">
     <div class="px-20 w-full max-w-4xl">
       <Logos />
     </div>

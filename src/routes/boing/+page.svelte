@@ -8,8 +8,9 @@
   import gsap from 'gsap';
   import Planet from '$lib/Planet.svelte';
 
-  import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
-  
+  // import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
+  // <GravityLauncher />
+
   let MotionPathPlugin;
 
   let velocity = 43;

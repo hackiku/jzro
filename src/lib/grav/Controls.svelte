@@ -2,7 +2,7 @@
 <!-- game controls sticky to the center bottom of screen -->
 
 <script>
-  let velocity = 17; // Voyager 1 speed
+  export let velocity = 17; // Voyager 1 speed
   function launchRocket() {
     console.log('Rocket launched at', velocity, 'km/s');
   }
