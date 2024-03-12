@@ -20,28 +20,28 @@ function calculateTrajectory(velocity, planet) {
   const { gravity, x: planetX, y: planetY } = planet;
   const startX = 80;
   const startY = 0;
-  const straightPathEndY = 100; // The end of the velocity vector, going straight down
+  const initialAngle = 270;
 
-  // Adjust gravity effect for visualization, might need fine-tuning
-  const gravityEffect = gravity * 4; 
+  // Calculate adjustments for gravity and initial velocity
+  // This section needs more precise physics for realistic orbits, simplified here
+  const gravityEffect = gravity; // Directly use gravity for this example
+  const velocityEffect = velocity / 2; // Simplify the effect of velocity
 
-  // Calculate the semi-major and semi-minor axes, simplified for the demonstration
-  const distanceToPlanet = Math.sqrt((planetX - startX) ** 2 + (planetY - startY) ** 2);
-  const semiMajorAxis = distanceToPlanet / 2 + gravityEffect;
-  const semiMinorAxis = semiMajorAxis * 0.75; // Simplification for elliptical shape
+  // Estimate ellipse parameters based on gravity and velocity
+  // These are placeholders and need adjustment for realistic orbital dynamics
+  const semiMajorAxis = velocityEffect + gravityEffect; // Simplify for demo
+  const semiMinorAxis = semiMajorAxis * 0.5; // Arbitrary for now
 
-  // Assuming the planet is always to the left for simplification
-  const ellipseCenterX = startX;
-  const ellipseCenterY = planetY; // Align with the end of the straight path
+  // Calculate ellipse position (focus at planet position, adjust accordingly)
+  // The ellipse's center and the planet's position do not coincide in a realistic orbit
+  // For simplification, treat them as if they do
+  const ellipseCenterX = (startX + planetX) / 2;
+  const ellipseCenterY = (startY + planetY) / 2;
 
-  // Construct the SVG path
-  let path = `M ${startX} ${startY} L ${startX} ${straightPathEndY}`; // The initial straight path
-
-  // Add the elliptical orbit. This needs adjustment for proper orientation and positioning
-  // The ellipse is drawn to ensure it's oriented towards the planet and tangent to the velocity vector
-  path += ` M ${ellipseCenterX} ${ellipseCenterY}`;
-  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 0 ${startX - semiMajorAxis * 2} ${ellipseCenterY}`;
-  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 0 ${ellipseCenterX} ${ellipseCenterY}`;
+  // Construct SVG path for the orbit
+  let path = `M ${startX} ${startY}`;
+  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 1 ${planetX} ${planetY}`;
+  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 1 ${startX} ${startY}`;
 
   return path;
 }

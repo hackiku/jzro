@@ -49,12 +49,7 @@ onMount(() => {
 
 <!-- <img class="absolute z-0" src="assets/orbit.svg"> -->
 
-<div class="absolute top-0 left-0 w-full z-0 pointer-events-none">
-  <svg width="100%" height="100%" viewBox="0 0 1171 6191" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path opacity="0.7" d="M1021 0C1021 494.043 704.871 535.527 474.836 636.5C-0.164276 845 539.757 1346.07 877.336 1440C1421.84 1591.5 1193.83 2670 307.335 2843.5C-145.124 2932.05 -111.35 3674.12 508.962 3966.33C1129.27 4258.53 796.869 6158.19 701.336 6190" stroke="#1ABCFE" stroke-dasharray="2 7"/>
-  </svg>
-</div>
-
+<main>
 
 <!-- --------------------- hero --------------------- -->
 <section class="hero mt-24 py-8 flex justify-center items-center">
@@ -163,20 +158,18 @@ onMount(() => {
 </section>
 
 
-
-
 <!-------------------------- cta -------------------------->
-<section class="flex flex-row mx-20 px-20 py-12 bg-darkBg text-white">
+<section class="flex flex-col md:flex-row justify-center items-center mx-auto
+  py-12 h-screen max-w-3xl">
   <!-- Memes Images -->
-  <div class="flex flex-col items-end space-y-4 p-14">
+  <div class="flex relative flex-col w-full md:w-1/2 items-center md:items-end space-y-4">
     <img src="memes/hello-friend.png" alt="Hello Friend Meme" 
-    class="transform rotate-[15deg]">
+    class="absolute bottom-0 transform rotate-[15deg]">
     <img src="memes/choppa.png" alt="Get to the Choppa Meme" 
-    class="h-48 transform rotate-[-15deg]">
+    class="absolute top-0 transform rotate-[-15deg]">
   </div>
 
-
-  <div class="flex justify-center items-center text-white">
+  <div class="flex justify-center p-12 items-center w-full md:w-1/2">
     <Planet id="contact" color="#1B0087" label="say hi"/>
   </div>
   <!-- Contact Form inside Planet SVG -->
@@ -190,6 +183,8 @@ onMount(() => {
     <p class="text-2xl font-mono text-white"><span class="red">JZRO</span> 03<span class="red">2151</span>Z 26004KT CLEAR <span class="red">-6</span>/-14 Q<span class="red">127</span></p>
   </div>
 </div>
+
+</main>
 <!-------------------------- footer -------------------------->
 
 <footer class="relative text-center flex justify-center items-end h-[100px]"> <!-- Adjust the height and padding as necessary -->

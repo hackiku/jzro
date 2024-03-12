@@ -3,9 +3,9 @@
   export let logos = [
     { src: 'portfolio/redocly-logo.svg', alt: 'Redocly' },
     { src: 'portfolio/uploadcare-logo.svg', alt: 'Uploadcare' },
-    { src: 'portfolio/highfive-logo.svg', alt: 'HighFive' },
+    { src: 'portfolio/lenovo-logo.svg', alt: 'Lenovo' },
     { src: 'portfolio/linguado-logo.jpg', alt: 'Linguado' },
-    { src: 'portfolio/uploadcare-logo.svg', alt: 'Uploadcare' },
+    { src: 'portfolio/stoovo-logo.svg', alt: 'Stoovo' },
   ];
 
   let grayscaleLogos = true;
