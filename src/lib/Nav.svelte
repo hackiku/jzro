@@ -8,6 +8,7 @@
       <a class="text-md font-mono"  href="/">🚁 jzro</a>
       <nav>
         <ul class="flex space-x-4 items-center relative">
+          <li><a href="/hero" class="text-white hover:text-blue-500">hero</a></li>
           <li><a href="/boing" class="text-white hover:text-blue-500">boing</a></li>
           <li><a href="/fiddle" class="text-white hover:text-blue-500">fiddle</a></li>
           <li><a href="/orbit-test" class="text-white hover:text-blue-500">orbit</a></li>

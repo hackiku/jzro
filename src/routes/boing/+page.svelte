@@ -1,8 +1,9 @@
 <!-- boing -->
 <!-- routes/boing/+page.svelte -->
+
 <script>
   import { onMount } from 'svelte';
-  import { browser } from '$app/environment'; // Import browser variable
+  import { browser } from '$app/environment';
   // import { navigate } from 'svelte-routing';
   import gsap from 'gsap';
   import Planet from '$lib/Planet.svelte';
@@ -112,7 +113,7 @@ if (browser) {
   </div>
       
   <div>
-    
+
     <!-- Target area -->
     <div class="absolute" style="right: 10vw; top: 10vh;" width="100" height="100">
       <Planet initialGravity={40} color="#F4191D" label="Jao Bre" />
@@ -132,6 +133,7 @@ if (browser) {
       <input type="range" min="1" max="100" value={velocity} class="slider w-full" id="particleNumber" on:input={(e) => velocity = e.target.value} />
     </div>
   </div>
+
   <img src="assets/footer.svg" alt="" class="fixed inset-x-0 bottom-0 w-full z-0 mb-0">
 
 

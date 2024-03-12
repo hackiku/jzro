@@ -7,7 +7,7 @@ import Planet from '$lib/Planet.svelte';
 import Coin from '$lib/Coin.svelte';
 import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
-import Controls from '$lib/Controls.svelte';
+import Controls from '$lib/grav/Controls.svelte';
 import Jzro from '$lib/Jzro.svelte';
 import Nav from '$lib/Nav.svelte';
 import Logos from '$lib/Logos.svelte';
@@ -33,7 +33,6 @@ onMount(() => {
       window.removeEventListener('scroll', updateScrollPosition);
     });
   });
-
 
 
 </script>
@@ -67,7 +66,7 @@ onMount(() => {
     <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
     <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
     <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-    <Planet initialGravity={4} color="#F4191D" label="Take me to Orbit" />
+    <Planet initialGravity={44} color="#F4191D" label="Take me to Orbit" />
     <div class="flex justify-center items-center space-x-4">
     </div>
   </div>

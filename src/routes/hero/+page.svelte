@@ -5,9 +5,12 @@
   import { onMount , onDestroy } from 'svelte';
   import { writable } from 'svelte/store';
   import Planet from '$lib/Planet.svelte';
-  import Controls from '$lib/Controls.svelte';
   import Nav from '$lib/Nav.svelte';
   import Logos from '$lib/Logos.svelte';
+
+  // grav
+  import Controls from '$lib/grav/Controls.svelte';
+  import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
     
   import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
   
@@ -15,7 +18,6 @@
   // let diameter = 400;
   let sliderValue = writable(50);
   $: diameter = $sliderValue * 8;
-  
   
   
   onMount(() => {
@@ -42,6 +44,9 @@
     <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
   </svg>
 
+  <GravityLauncher />
+
+  <!-- mock orbit for visual reference -->
   <img class="absolute z-0" src="assets/orbit.svg">
   
   
@@ -51,7 +56,7 @@
       <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
       <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
       <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-      <Planet initialGravity={14} color="#F4191D" label="Take me to Orbit" />
+      <Planet initialGravity={14} color="#F4191D" label="Take me to Morty" />
       <div class="flex justify-center items-center space-x-4">
       </div>
     </div>
