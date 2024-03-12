@@ -1,4 +1,4 @@
-// lib/physicsStore.js
+// lib/grav/physicsStore.js
 import { writable } from 'svelte/store';
 
 // Define the initial state for your physics, including velocity and planet gravity.
@@ -15,10 +15,14 @@ const initialState = {
 };
 
 const physicsStore = writable(initialState);
-// const physicsStore = writable({...initialState, trajectoryPath: calculateTrajectory(initialState.velocity, initialGravity)});
+
+// physicsStore.update(state => {
+//   const defaultGravity = 50;
+//   const newTrajectoryPath = calculateTrajectory(state.velocity, defaultGravity);
+//   return { ...state, trajectoryPath: newTrajectoryPath };
+// });
 
 
-// calculate trajectory based on velocity and gravity
 function calculateTrajectory(velocity, gravity) {
   // Placeholder calculation - replace with actual physics logic.
   const normalizedGravityEffect = 50 - gravity; // Simulating gravity's pull.
@@ -39,25 +43,17 @@ const customPhysicsStore = {
   subscribe: physicsStore.subscribe,
   setVelocity: (newVelocity) => {
     physicsStore.update(state => {
-      // Perform your calculation with the new velocity.
-      const newTrajectoryPath = calculateTrajectory(newVelocity, state.planets[0].gravity);
+      const newTrajectoryPath = calculateTrajectory(newVelocity, 50); // Assuming a default or currently active planet's gravity
       return { ...state, velocity: newVelocity, trajectoryPath: newTrajectoryPath };
     });
   },
-  togglePlanetActive: (planetId) => {
+  calculateTrajectory: () => { // This method now properly reflects on the customPhysicsStore object.
     physicsStore.update(state => {
-      const planets = state.planets.map(planet => {
-        if (planet.id === planetId) {
-          return { ...planet, isActive: !planet.isActive };
-        }
-        return planet;
-      });
-      // Recalculate trajectory in case the active planet's gravity has changed.
-      const newTrajectoryPath = calculateTrajectory(state.velocity, planets[0].gravity);
-      return { ...state, planets, trajectoryPath: newTrajectoryPath };
+      const activePlanetGravity = state.planets.find(planet => planet.isActive)?.gravity || 50; // Assuming a default gravity if none is active
+      const newTrajectoryPath = calculateTrajectory(state.velocity, activePlanetGravity);
+      return { ...state, trajectoryPath: newTrajectoryPath };
     });
-  },
-  // Other methods can be added here as needed.
+  }
 };
 
 console.log('physicsStore.js: physicsStore created');
