@@ -1,3 +1,4 @@
+<!-- lib/grav/GravityLauncher.svelte -->
 <script>
   import { onMount } from 'svelte';
   import { writable } from 'svelte/store';
@@ -13,7 +14,6 @@
   let velocity = 43;
   // let trajectoryPath = '';
   let hitTarget = false;
-
 
 
   if (browser) {
@@ -33,11 +33,9 @@
     });
   };
 
-
 </script>
 
 <!-- ========================================= -->
-
 
 <section class="flex-col items-center justify-start h-screen z-0">
 

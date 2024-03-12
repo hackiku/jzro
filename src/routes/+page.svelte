@@ -73,7 +73,7 @@ onMount(() => {
     <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
     <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
     <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-    <Planet initialGravity={44} color="#F4191D" label="Take me to Orbit" />
+    <Planet initialGravity={14} color="#F4191D" label="Take me to Orbit" />
     <div class="flex justify-center items-center space-x-4">
     </div>
   </div>

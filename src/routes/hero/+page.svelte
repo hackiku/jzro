@@ -42,23 +42,19 @@
   <Nav />
   <!-- --------------------- svgs --------------------- -->
   
-  <!-- <OrbitSvg /> -->
-  
   <!-- mock Earth top right -->
   <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
     <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
   </svg>
 
-  <!-- <div class="fixed inset-0 z-[-1] pointer-events-none"> -->
 
-  
   <!-- --------------------- hero --------------------- -->
   <section class="hero mt-24 py-8 flex justify-center items-center">
     <div class="max-w-md text-center">
       <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
       <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
       <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-      <Planet initialGravity={14} color="#F4191D" label="Take me to Morty" />
+      <Planet initialGravity={10} color="#F4191D" label="Take me to Morty" />
       <div class="flex justify-center items-center space-x-4">
       </div>
     </div>
