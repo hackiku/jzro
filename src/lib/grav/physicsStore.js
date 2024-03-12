@@ -2,7 +2,7 @@
 import { writable } from 'svelte/store';
 
 const initialState = {
-  velocity: 10,
+  velocity: 17,
   planets: [
     { id: 'cta', gravity: 10, isActive: false },
     { id: 'work', gravity: 30, isActive: false },
@@ -14,6 +14,12 @@ const initialState = {
 };
 
 const physicsStore = writable(initialState);
+physicsStore.update(state => {
+  // Use the first planet's gravity or a sensible default for the initial trajectory
+  const defaultGravity = state.planets[0].gravity; // Adjust as necessary
+  const initialVelocity = state.velocity;
+  return { ...state, trajectoryPath: calculateTrajectory(initialVelocity, defaultGravity) };
+});
 
 function calculateTrajectory(velocity, gravity) {
   // Your trajectory calculation logic

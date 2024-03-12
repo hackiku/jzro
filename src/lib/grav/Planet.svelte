@@ -45,11 +45,26 @@
   });
 </script>
 
+<!-- ================================================ -->
 
 <div class="text-center my-4">
   <div class="inline-block relative z-0">
     <svg class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" style="width: {diameter}px; height: {diameter}px;">
       <circle cx="50%" cy="50%" r={diameter / 2} fill={color}/>
+      
+      
+      {#if gravity > 99}
+        <foreignObject x="0" y="0" width="{diameter}" height="{diameter}">
+          <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
+            <h3 class="text-4xl text-white mb-4">Let's Fly</h3>
+            <a href="mailto:ivan@pipewriter.io" class="text-xl underline mb-4">ivan@pipewriter.io</a>
+              <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
+              <img class="h-24" src="assets/WhatsApp.svg" alt="WhatsApp">
+            </a>
+          </div>
+        </foreignObject>
+      {/if}
+
     </svg>
     <span class="absolute top-1/2 left-full transform -translate-y-1/2 ml-6 text-white font-mono text-sm whitespace-nowrap z-10">
       {label}

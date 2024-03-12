@@ -164,7 +164,7 @@ onMount(() => {
 </section>
 
 
-<Planet id="contact" color="#1B0087" label="for fun"/>
+
 
 <!-------------------------- cta -------------------------->
 <section class="flex flex-row mx-20 px-20 py-12 bg-darkBg text-white">
@@ -178,7 +178,7 @@ onMount(() => {
 
 
   <div class="flex justify-center items-center text-white">
-    
+    <Planet id="contact" color="#1B0087" label="say hi"/>
   </div>
   <!-- Contact Form inside Planet SVG -->
 </section>
