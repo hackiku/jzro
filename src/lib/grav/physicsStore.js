@@ -17,28 +17,35 @@ const initialState = {
 };
 
 function calculateTrajectory(velocity, planet) {
-  // Destructure the planet's properties for clarity
   const { gravity, x: planetX, y: planetY } = planet;
-  
-  // Define starting point (e.g., top right corner)
-  const startX = 80, startY = 0;
-  
-  // Placeholder for end coordinates (could be dynamically calculated based on physics)
-  const endX = startX, endY = 100;
-  
-  // Calculate the distance to the planet's center to adjust the gravity effect
-  // This is a simplified version; you might need a more complex formula for accurate simulation
-  const dx = planetX - startX;
-  const dy = planetY - startY;
-  const distance = Math.sqrt(dx*dx + dy*dy);
-  const gravityEffect = gravity / (distance / 2); // Simplified gravity effect based on distance
-  
-  // Adjust the control point based on gravity effect and distance to planet
-  const controlX = startX + (dx * gravityEffect);
-  const controlY = startY + (dy * gravityEffect);
+  const startX = 80;
+  const startY = 0;
+  const straightPathEndY = 100; // The end of the velocity vector, going straight down
 
-  return `M${startX},${startY} Q${controlX},${controlY} ${endX},${endY}`;
+  // Adjust gravity effect for visualization, might need fine-tuning
+  const gravityEffect = gravity * 4; 
+
+  // Calculate the semi-major and semi-minor axes, simplified for the demonstration
+  const distanceToPlanet = Math.sqrt((planetX - startX) ** 2 + (planetY - startY) ** 2);
+  const semiMajorAxis = distanceToPlanet / 2 + gravityEffect;
+  const semiMinorAxis = semiMajorAxis * 0.75; // Simplification for elliptical shape
+
+  // Assuming the planet is always to the left for simplification
+  const ellipseCenterX = startX;
+  const ellipseCenterY = planetY; // Align with the end of the straight path
+
+  // Construct the SVG path
+  let path = `M ${startX} ${startY} L ${startX} ${straightPathEndY}`; // The initial straight path
+
+  // Add the elliptical orbit. This needs adjustment for proper orientation and positioning
+  // The ellipse is drawn to ensure it's oriented towards the planet and tangent to the velocity vector
+  path += ` M ${ellipseCenterX} ${ellipseCenterY}`;
+  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 0 ${startX - semiMajorAxis * 2} ${ellipseCenterY}`;
+  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 0 ${ellipseCenterX} ${ellipseCenterY}`;
+
+  return path;
 }
+
 
 const physicsStore = writable(initialState);
 physicsStore.update(state => {
@@ -47,13 +54,6 @@ physicsStore.update(state => {
   state.trajectoryPath = calculateTrajectory(state.velocity, planet);
   return state;
 });
-
-// physicsStore.update(state => {
-//   const defaultGravity = state.planets[0].gravity; // Default to first planet's gravity
-//   const initialVelocity = state.velocity;
-//   state.trajectoryPath = calculateTrajectory(initialVelocity, defaultGravity);
-//   return state;
-// });
 
 const setVelocity = (newVelocity) => {
   physicsStore.update(state => {
