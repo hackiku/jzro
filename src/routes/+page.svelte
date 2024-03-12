@@ -18,13 +18,6 @@ import Controls from '$lib/grav/Controls.svelte';
 import Planet from '$lib/grav/Planet.svelte';
 import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
 
-// import OrbitSvg from '$lib/OrbitSvg.svelte';
-// import Orbit from '$lib/Orbit.svelte';
-// import Spaceship from '$lib/Spaceship.svelte';
-
-
-// temp cta slider
-// let diameter = 400;
 let sliderValue = writable(50);
 $: diameter = $sliderValue * 8;
 
@@ -42,12 +35,9 @@ onMount(() => {
 </script>
 
 
-<GravityLauncher />
-
 <Controls />
 
 <Nav />
-<!-- --------------------- svgs --------------------- -->
 
 
 <!-- <OrbitSvg /> -->
@@ -72,8 +62,12 @@ onMount(() => {
   <div class="max-w-md text-center">
     <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
     <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
+    
+    
+    <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
     <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-    <Planet initialGravity={14} color="#F4191D" label="Take me to Orbit" />
+    <!-- <Planet initialGravity={14} color="#F4191D" label="Take me to Orbit" /> -->
+    
     <div class="flex justify-center items-center space-x-4">
     </div>
   </div>
@@ -96,7 +90,7 @@ onMount(() => {
       <h2 class="text-4xl mb-3">Words and vectors <br> that sell <span style="color: #1ABCFE">software</span></h2>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
-      <Planet initialGravity={22} color="#1ABCFE" label="for work"/>
+      <Planet id="work" color="#1ABCFE" label="for work"/>
     </div>
   </div>
 </section>
@@ -121,7 +115,7 @@ onMount(() => {
 
   <!-- Planet with responsive positioning -->
   <div class="absolute left-[10%] md:left-[10%] lg:left-[10%]">
-    <Planet initialGravity={40} color="#540087" label="for fun"/>
+    <Planet id="fun" color="#540087" label="for fun"/>
   </div>
 </section>
 
@@ -138,7 +132,8 @@ onMount(() => {
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
-      <Planet initialGravity={8} color="#F1F1F1" label="GitHub"/>
+      <Planet id="github" color="#F1F1F1" label="GitHub"/>
+
     </div>
   </div>
 </section>
@@ -168,6 +163,9 @@ onMount(() => {
   </div>
 </section>
 
+
+<Planet id="contact" color="#1B0087" label="for fun"/>
+
 <!-------------------------- cta -------------------------->
 <section class="flex flex-row mx-20 px-20 py-12 bg-darkBg text-white">
   <!-- Memes Images -->
@@ -178,25 +176,11 @@ onMount(() => {
     class="h-48 transform rotate-[-15deg]">
   </div>
 
-  <!-- Contact Form inside Planet SVG -->
+
   <div class="flex justify-center items-center text-white">
-    <!-- SVG Circle with Contact Content -->
-    <svg class="relative z-10" width="{diameter}" height="{diameter}" viewBox="0 0 {diameter} {diameter}">
-      <circle cx="{diameter / 2}" cy="{diameter / 2}" r="{diameter / 2}" fill="#1B0087" />
-      
-      <!-- Contact Content inside SVG -->
-      <foreignObject x="0" y="0" width="{diameter}" height="{diameter}">
-        <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-          <h3 class="text-4xl text-white mb-4">Let's Fly</h3>
-          <a href="mailto:ivan@pipewriter.io" class="text-xl underline mb-4">ivan@pipewriter.io</a>
-          <input type="range" min="10" max="100" class="slider w-48 mb-4"
-          id="ctaSlider" bind:value={$sliderValue}/>
-            <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
-            <img class="h-24" src="assets/WhatsApp.svg" alt="WhatsApp">
-          </a>
-        </div>
-      </foreignObject>
+    
   </div>
+  <!-- Contact Form inside Planet SVG -->
 </section>
 
 

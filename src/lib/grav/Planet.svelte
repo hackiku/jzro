@@ -32,8 +32,8 @@
   // Update gravity in the store when the user changes it via the slider
   function handleGravityChange(e) {
     const newGravity = parseFloat(e.target.value);
-    // Ensure this update logic correctly matches your store's capabilities
-    // Potentially refactor to use a specific method for updating planet gravity if needed
+    physicsStore.updatePlanetGravity(id, newGravity); // Use the new method to update gravity
+    gravity = newGravity; 
   }
 
   onMount(() => {
