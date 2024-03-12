@@ -1,11 +1,12 @@
 <!-- lib/grav/GravityLauncher.svelte -->
 <script>
   import { onMount } from 'svelte';
+  
   import gsap from 'gsap';
   import { browser } from '$app/environment';
-  import Planet from '$lib/Planet.svelte';
+  // import Planet from '$lib/grav/Planet.svelte';
 
-  export let gravity = 50;
+  export let gravity = 80;
 
   let trajectoryPath;
 
@@ -65,8 +66,5 @@
   </svg>
 
   <!-- Centered Planet -->
-  <div class="z-10">
-      <Planet initialGravity={9} color="#F4191D" label="Take me to Morty" />
-  </div>
 
 </section>

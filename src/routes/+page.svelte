@@ -5,7 +5,6 @@ import { onMount , onDestroy } from 'svelte';
 import { writable } from 'svelte/store';
 import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
 
-import Planet from '$lib/Planet.svelte';
 import Coin from '$lib/Coin.svelte';
 import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
@@ -16,6 +15,7 @@ import Logos from '$lib/Logos.svelte';
 
 // grav
 import Controls from '$lib/grav/Controls.svelte';
+import Planet from '$lib/grav/Planet.svelte';
 import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
 
 // import OrbitSvg from '$lib/OrbitSvg.svelte';

@@ -1,4 +1,4 @@
-<!-- Planet.svelte -->
+<!-- /grav/Planet.svelte -->
 <script>
   import { onMount } from 'svelte';
   import { createEventDispatcher } from 'svelte';
@@ -12,6 +12,7 @@
   let diameter;
 
   const dispatch = createEventDispatcher();
+  
   
   const calculateDiameter = () => Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 24);
   

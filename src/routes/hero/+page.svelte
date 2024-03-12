@@ -3,11 +3,11 @@
 
 <script>
   import { onMount , onDestroy } from 'svelte';
-  import Planet from '$lib/Planet.svelte';
   import Nav from '$lib/Nav.svelte';
   import Logos from '$lib/Logos.svelte';
-
+  
   // grav
+  import Planet from '$lib/grav/Planet.svelte';
   import Controls from '$lib/grav/Controls.svelte';
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
       
@@ -40,7 +40,7 @@
     <div class="max-w-md text-center">
       <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
       <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
-        <!-- <Planet initialGravity={10} color="#F4191D" label="Fly me to Orbit" /> -->
+        <Planet initialGravity={10} color="#F4191D" label="Fly me to Orbit" />
       <div class="flex justify-center items-center space-x-4">
       </div>
     </div>
@@ -48,7 +48,7 @@
   
   
   <!-- logos -->
-  <section class="flex justify-center mt-44 opacity-30 hover:opacity-100">
+  <section class="flex justify-center opacity-30 hover:opacity-100">
     <div class="px-20 w-full max-w-4xl">
       <Logos />
     </div>

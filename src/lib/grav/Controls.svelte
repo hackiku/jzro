@@ -33,7 +33,6 @@
     </div>
 </div>
 
-
 <style>
   .velocity {
     color: #FF3D00;

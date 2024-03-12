@@ -6,8 +6,7 @@
   import { browser } from '$app/environment';
   // import { navigate } from 'svelte-routing';
   import gsap from 'gsap';
-  import Planet from '$lib/Planet.svelte';
-
+  import Planet from '$lib/grav/Planet.svelte';
   // import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
   // <GravityLauncher />
 
