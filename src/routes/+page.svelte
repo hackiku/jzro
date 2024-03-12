@@ -50,7 +50,7 @@ onMount(() => {
 <!-- <img class="absolute z-0" src="assets/orbit.svg"> -->
 
 <!-- Replace the <img> tag with an inline SVG and apply Tailwind classes -->
-<div class="fixed top-0 left-0 w-full h-full z-0 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full z-0 pointer-events-none">
   <svg width="100%" height="100%" viewBox="0 0 1171 6191" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path opacity="0.7" d="M1021 0C1021 494.043 704.871 535.527 474.836 636.5C-0.164276 845 539.757 1346.07 877.336 1440C1421.84 1591.5 1193.83 2670 307.335 2843.5C-145.124 2932.05 -111.35 3674.12 508.962 3966.33C1129.27 4258.53 796.869 6158.19 701.336 6190" stroke="#1ABCFE" stroke-dasharray="2 7"/>
   </svg>

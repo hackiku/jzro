@@ -24,10 +24,11 @@
   </div>
  
 
-<main class="overflow-none">
   <Controls />
-  
   <Nav />
+  
+<main class="overflow-none">
+  
   
   <!-- mock Earth top right -->
   <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
@@ -50,7 +51,7 @@
   
   
   <!-- logos -->
-  <section class="flex justify-center opacity-30 hover:opacity-100">
+  <section class="flex justify-center opacity-20 hover:opacity-100">
     <div class="px-20 w-full max-w-4xl">
       <Logos />
     </div>
