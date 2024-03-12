@@ -53,4 +53,6 @@ const createPhysicsStore = () => {
   };
 }
 
+console.log('physicsStore.js: physicsStore created');
+
 export const physicsStore = createPhysicsStore();

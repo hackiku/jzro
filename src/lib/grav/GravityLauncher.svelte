@@ -1,10 +1,13 @@
 <!-- lib/grav/GravityLauncher.svelte -->
 <script>
   import { onMount } from 'svelte';
-  
+  import { physicsStore } from './physicsStore.js';
+
   import gsap from 'gsap';
   import { browser } from '$app/environment';
   // import Planet from '$lib/grav/Planet.svelte';
+
+  // $: trajectoryPath = $physicsStore.calculateTrajectory();
 
   export let gravity = 80;
 
