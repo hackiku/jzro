@@ -8,16 +8,16 @@
   export let color = 'red';
   export let label = '';
 
-  let diameter = 100; // Provide a default fallback for SSR
+  let diameter = 100;
   let gravity;
 
   const dispatch = createEventDispatcher();
 
-  // Function to calculate diameter based on gravity
+  
   const calculateDiameter = (gravity) => {
-    // Guard against SSR where window dimensions are not available
+    // protection for SSR where window dimensions are not available
     if (!browser) return 100; // Default fallback diameter for SSR
-    return Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 24);
+    return Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / 20);
   };
 
   // Subscribe to the physicsStore to react to changes in planet gravity
@@ -25,14 +25,14 @@
     const planet = $physicsStore.planets.find(p => p.id === id);
     if (planet) {
       gravity = planet.gravity;
-      diameter = calculateDiameter(planet.gravity); // Calculate initial diameter
+      diameter = calculateDiameter(planet.gravity);
     }
   });
 
-  // Update gravity in the store when the user changes it via the slider
+  // update gravity when user moves slider
   function handleGravityChange(e) {
     const newGravity = parseFloat(e.target.value);
-    physicsStore.updatePlanetGravity(id, newGravity); // Use the new method to update gravity
+    physicsStore.updatePlanetGravity(id, newGravity);
     gravity = newGravity; 
   }
 
@@ -45,35 +45,53 @@
   });
 </script>
 
-<!-- ================================================ -->
+<!-- ========================== HTML ========================== -->
 
-<div class="text-center my-4">
+<div class="text-center">
   <div class="inline-block relative z-0">
-    <svg class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" style="width: {diameter}px; height: {diameter}px;">
-      <circle cx="50%" cy="50%" r={diameter / 2} fill={color}/>
-      
-      <!-- contact form -->
-      {#if gravity > 99}
-        <foreignObject x="0" y="0" width="{diameter}" height="{diameter}">
-          <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
-            <h3 class="text-4xl text-white mb-4">Let's Fly</h3>
-            <a href="mailto:ivan@pipewriter.io" class="text-xl underline mb-4">ivan@pipewriter.io</a>
-              <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer">
-              <img class="h-24" src="assets/WhatsApp.svg" alt="WhatsApp">
-            </a>
+    <svg class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10"
+      style="width: {diameter * 1.4}px; height: {diameter * 1.2}px;">
+      <defs>
+        <radialGradient id="atmosphere-{id}" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+          <stop offset="80%" stop-color={color} stop-opacity="0.4"/>
+          <stop offset="100%" stop-color={color} stop-opacity="0.15"/>
+        </radialGradient>
+      </defs>
+      <circle cx="50%" cy="50%" r="{diameter * 0.6}" fill={`url(#atmosphere-${id})`}/>
+      <circle cx="50%" cy="50%" r="{diameter / 2}" fill={color}/>
+
+      {#if gravity >= 100}
+        <foreignObject x="0" y="0" width="100%" height="100%">
+          <div xmlns="http://www.w3.org/1999/xhtml"
+            class="h-full flex flex-col justify-center items-center">
+            <div class="text-center mb-[12%] mt-[20%]">
+              <h3 class="text-4xl mb-2">Let's Fly</h3>
+              <a href="mailto:ivan@pipewriter.io" class="text-xl underline">ivan@pipewriter.io</a>
+            </div>
+            <div class="w-full flex justify-center">
+              <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer"
+                class=""> <!-- Adjust this margin as needed -->
+                <img class="h-[4em] mb-[35%]" src="assets/WhatsApp.svg" alt="WhatsApp">
+              </a>
+            </div>
           </div>
         </foreignObject>
       {/if}
-
+    
     </svg>
+
+    <!-- message -->
     <span class="absolute top-1/2 left-full transform -translate-y-1/2 ml-6 text-white font-mono text-sm whitespace-nowrap z-10">
-      {label}
+      {#if gravity < 99}
+        {label}
+      {/if}
     </span>
+  
   </div>
   <div class="mt-6 relative z-20">
     <input
       type="range" min="0" max="100" value={gravity}
-      class="w-1/2 max-w-1/4"
+      class="w-[25vw] ml-[5em] max-w-[10em]"
       on:input={handleGravityChange}
     >
   </div>

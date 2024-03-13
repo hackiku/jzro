@@ -1,5 +1,4 @@
 import { c as create_ssr_component, d as each, e as escape, i as null_to_empty, v as validate_component } from "../../../chunks/ssr.js";
-/* empty css                                                 */
 import { N as Nav } from "../../../chunks/Nav.js";
 const css = {
   code: ".text-red-600.svelte-qapxe5{color:#F4191D}",

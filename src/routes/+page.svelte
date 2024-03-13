@@ -29,14 +29,12 @@
 
 
 
-<!-- <img class="absolute z-0" src="assets/orbit.svg"> -->
-
 <main>
 
 <!-- --------------------- hero --------------------- -->
 
 
-  <section class="relative flex border border-gray-800 flex-col justify-center items-center h-screen">
+  <section class="relative flex flex-col justify-center items-center h-screen">
     
     <div class="text-center px-4 mb-8 -mt-[14vh]">
       <h2 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h2>

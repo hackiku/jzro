@@ -62,7 +62,7 @@
         lg:mt-0 lg:flex-row lg:flex-grow lg:justify-end lg:space-x-6">
         {#each navItems as { href, label }}
           <li class="w-100 border-b border-gray-800 lg:border-none">
-            <a href={href} class="block py-2 hover:text-[#F4191D]" on:click={toggleMenu}>
+            <a href={href} class="block py-2 text-gray-600 hover:text-[#F4191D]" on:click={toggleMenu}>
               {label}
             </a>
           </li>
