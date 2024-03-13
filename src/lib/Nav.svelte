@@ -1,13 +1,13 @@
 <!-- $lib/Nav.svelte -->
 <script>
   import { onMount } from 'svelte';
-  let isOpen = true;
+  let isOpen = false;
 
   const navItems = [
     { href: '/hero', label: 'hero' },
     { href: '/fiddle', label: 'fiddle' },
     { href: '/cta', label: 'cta' },
-    { href: '/mars-metar', label: '🟠 jzro' },
+    { href: '/mars-metar', label: 'mars' },
   ];
 
   const toggleMenu = () => {
@@ -29,10 +29,10 @@
   });
 </script>
 
-<div class="fixed top-4 rounded-[1.8em] bg-gray-900 bg-opacity-75 z-50
-  inset-x-[6vw] md:inset-x-[20vw] px-6 lg:px-10">
+<div class="fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50
+  inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6">
   
-  <header class="flex flex-col py-6 
+  <header class="flex flex-col py-4 
     lg:flex-row lg:items-center ">
     
     <div class="flex justify-between">
@@ -54,9 +54,10 @@
         {/if}
       </button>
     </div>
-
+    
     <nav class={`${isOpen ? 'flex' : 'hidden'} flex-col gap-6
-      lg:flex-row lg:w-full`}>
+      lg:flex lg:flex-row lg:w-full`}>
+
       <ul class="flex flex-col mt-6 
         lg:mt-0 lg:flex-row lg:flex-grow lg:justify-end lg:space-x-6">
         {#each navItems as { href, label }}
@@ -67,7 +68,7 @@
           </li>
         {/each}
       </ul>
-      <button class="px-6 py-2 rounded-full bg-[#F4191D]">say hi</button>
+      <button class="px-6 py-2 rounded-full bg-[#F4191D]">say hi 👋</button>
     </nav>
 
   </header>

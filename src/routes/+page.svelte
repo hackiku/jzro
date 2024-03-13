@@ -30,10 +30,6 @@ import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
 
 
 
-<svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
-  <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
-</svg>
-
 <!-- <img class="absolute z-0" src="assets/orbit.svg"> -->
 
 <main>
@@ -42,14 +38,14 @@ import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
 
 
 <!-- <section class="flex flex-col justify-center items-center h-screen bg-gray-900 relative"> -->
-<section class="flex flex-col justify-center items-center h-screen relative">
-  <div class="text-center space-y-6">
+<section class="relative flex flex-col justify-center space-y-4 items-center h-screen">
+  <div class="text-center space-y-4">
     <h2 class="text-6xl">Aerospace UX</h2>
-    <p class="text-2xl">User experience writing & design <br> that makes products fly.</p>
-    
-    <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
+    <p class="text-2xl">User experience writing & design <br> that makes products fly.</p>  
   </div>
-
+  
+  <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
+  
   <!-- logos, centered within hero -->
   <div class="absolute bottom-28 mx-auto px-20 w-full max-w-4xl">
     <Logos />
