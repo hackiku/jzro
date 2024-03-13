@@ -22,7 +22,6 @@
 
 <Nav />
 
-<GravityLauncher />
 
 <!-- scroll % -->
 <div class="scroll-display opacity-20 fixed bottom-0 right-0 m-4 p-2 bg-gray-700 text-white rounded-lg">
@@ -30,6 +29,7 @@
 </div>
 
 
+<!-- <GravityLauncher /> -->
 
 <main>
 

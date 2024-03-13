@@ -19,17 +19,17 @@ function calculateTrajectory(velocity, planet) {
   const { gravity, x: planetX, y: planetY } = planet;
   
   // define origin point
-  const fixedY = planetY + 80 - (gravity **1.4) / 60;
+  const fixedY = planetY + 100 - (gravity **1.4) / 60;
   
   // approx parabola bend
-  const bend = 140 - gravity**1.2 + velocity;
+  const bend = 120 - gravity**1.1 + velocity;
   // mirror left & right 
   const leftX = 80 + bend;
   const rightX = 100 - leftX;
   
   let path = `M ${leftX},0    Q 50,${fixedY}   ${rightX},0`
 
-  
+
   // let path = `M${startX},${fixedY} Q${planetX},${bendY} ${endX},${endY}`;
   // let path = `M${startX},${fixedY} Q${planetX},${bendY} ${endX},${endY}`;
   console.log(path)
