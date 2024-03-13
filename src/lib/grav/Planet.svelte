@@ -18,7 +18,7 @@
     
     if (!browser) return 100; // fallback diameter for SSR protection
 
-    let multiple = window.innerWidth < 600 ? 14 : 24;
+    let multiple = window.innerWidth < 500 ? 14 : 22;
 
     console.log(window.innerHeight, window.innerWidth);
     return Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / multiple);
@@ -68,9 +68,15 @@
         <foreignObject x="0" y="0" width="100%" height="100%">
           <div xmlns="http://www.w3.org/1999/xhtml"
             class="h-full flex flex-col justify-center items-center">
-            <div class="text-center mb-[12%] mt-[20%]">
-              <h3 class="text-4xl mb-2">Let's Fly</h3>
-              <a href="mailto:ivan@pipewriter.io" class="text-xl underline">ivan@pipewriter.io</a>
+            <div class="text-center mb-[12%] mt-[12%]">
+              <div class="opacity-60 inline-flex items-center justify-center px-2 py-1 
+                bg-gray-300 border border-gray-300 rounded-full gap-2 mb-3">
+                <div class="text-[0.5em]">🟢</div>
+                <div class="text-xs text-gray-600">for hire</div>
+              </div>
+
+              <h3 class="text-4xl mb-2">Chit the Chat</h3>
+              <a href="mailto:ivan@pipewriter.io" class="text-xl underline mb-4">ivan@pipewriter.io</a>
             </div>
             <div class="w-full flex justify-center">
               <a href="https://wa.me/yourphonenumber" target="_blank" rel="noopener noreferrer"

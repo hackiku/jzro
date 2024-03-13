@@ -6,7 +6,7 @@ import { writable } from 'svelte/store';
 const initialState = {
   velocity: 17,
   planets: [
-    { id: 'cta', gravity: 10, x: 50, y: 50 },
+    { id: 'cta', gravity: 7, x: 50, y: 50 },
     // Ensure all planets have `x` and `y` properties
     { id: 'work', gravity: 30, x: 60, y: 40 },
     { id: 'fun', gravity: 40, x: 20, y: 80 },
