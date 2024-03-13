@@ -18,30 +18,31 @@ const initialState = {
 
 function calculateTrajectory(velocity, planet) {
   const { gravity, x: planetX, y: planetY } = planet;
-  const startX = 80;
-  const startY = 0;
-  const initialAngle = 270;
+  
+  // Use gravity and velocity to influence the semi-major and semi-minor axes
+  // For simplicity, we'll make the orbit more dramatic based on these values
+  const gravityEffect = gravity;
+  const velocityEffect = velocity;
 
-  // Calculate adjustments for gravity and initial velocity
-  // This section needs more precise physics for realistic orbits, simplified here
-  const gravityEffect = gravity; // Directly use gravity for this example
-  const velocityEffect = velocity / 2; // Simplify the effect of velocity
+  // Adjust these factors to suit the visual effect you're going for
+  const orbitFactor = 0.5; // Adjust this to change the size of the orbit
+  const semiMajorAxis = (velocityEffect + gravityEffect) * orbitFactor;
+  const semiMinorAxis = semiMajorAxis * 3; // Adjust the ratio for ellipticity
+  
+  // For the second focus, we'll assume it's vertically aligned with the first
+  // Since it's outside the viewport, we don't need its exact position for the path
+  // We only need to ensure the path looks visually correct
 
-  // Estimate ellipse parameters based on gravity and velocity
-  // These are placeholders and need adjustment for realistic orbital dynamics
-  const semiMajorAxis = velocityEffect + gravityEffect; // Simplify for demo
-  const semiMinorAxis = semiMajorAxis * 0.5; // Arbitrary for now
-
-  // Calculate ellipse position (focus at planet position, adjust accordingly)
-  // The ellipse's center and the planet's position do not coincide in a realistic orbit
-  // For simplification, treat them as if they do
-  const ellipseCenterX = (startX + planetX) / 2;
-  const ellipseCenterY = (startY + planetY) / 2;
-
-  // Construct SVG path for the orbit
-  let path = `M ${startX} ${startY}`;
-  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 1 ${planetX} ${planetY}`;
-  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 1 ${startX} ${startY}`;
+  // Assuming the planet is one of the foci, we'll draw an ellipse centered on the planet
+  // This simplification ignores the accurate orbital mechanics where the center and foci differ
+  // but provides a visually appealing path
+  
+  // The SVG arc command needs a flag to decide the sweep direction and another to decide
+  // whether to take the longer or shorter way around the ellipse. These are set to 1, 0
+  // respectively for a visually appealing orbit
+  let path = `M ${planetX - semiMajorAxis} ${planetY}`; // Start from the left-most point of the orbit
+  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 0 ${planetX + semiMajorAxis} ${planetY}`; // Arc to the right-most point
+  path += ` A ${semiMajorAxis} ${semiMinorAxis} 0 1 0 ${planetX - semiMajorAxis} ${planetY}`; // And back to start for a full orbit
 
   return path;
 }

@@ -41,7 +41,7 @@ onMount(() => {
 
 
 <!-- <OrbitSvg /> -->
-<div class="scroll-display">Scroll Position: {$scrollPosition}%</div>
+<div class="opacity-20 scroll-display">scroll: {$scrollPosition}%</div>
 
 <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
   <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />
@@ -52,29 +52,22 @@ onMount(() => {
 <main>
 
 <!-- --------------------- hero --------------------- -->
-<section class="hero mt-24 py-8 flex justify-center items-center">
-  <div class="max-w-md text-center">
-    <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
-    <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
-    
+
+
+<!-- <section class="flex flex-col justify-center items-center h-screen bg-gray-900 relative"> -->
+<section class="flex flex-col justify-center items-center h-screen relative">
+  <div class="text-center space-y-6">
+    <h2 class="text-6xl">Aerospace UX</h2>
+    <p class="text-2xl">User experience writing & design <br> that makes products fly.</p>
     
     <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
-    <!-- <Planet initialGravity={40} color="#F4191D" label="Fly me to Orbit" /> -->
-    <!-- <Planet initialGravity={14} color="#F4191D" label="Take me to Orbit" /> -->
-    
-    <div class="flex justify-center items-center space-x-4">
-    </div>
   </div>
-</section>
 
-
-<!-- logos -->
-<section class="flex justify-center opacity-30 hover:opacity-100">
-  <div class="px-20 w-full max-w-4xl">
+  <!-- logos, centered within hero -->
+  <div class="absolute bottom-28 mx-auto px-20 w-full max-w-4xl">
     <Logos />
   </div>
 </section>
-
 
 <!------------------------ services zigzag ------------------------>
 <section class="mt-20 py-8 px-8 md:px-8 max-w-3xl mx-auto">
