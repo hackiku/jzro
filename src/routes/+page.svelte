@@ -1,47 +1,34 @@
 <!-- homepage -->
 <!-- +page.svelte -->
 <script>
-import { onMount , onDestroy } from 'svelte';
-import { writable } from 'svelte/store';
-import { scrollPosition, updateScrollPosition } from '$lib/scrollStore';
-
-import Coin from '$lib/Coin.svelte';
+// import { scrollStore } from '$lib/grav/scrollStore.js';
+//ui
+import Nav from '$lib/Nav.svelte';
+import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
+// content
 import Portfolio from '$lib/Portfolio.svelte';
 import Testimonials from '$lib/Testimonials.svelte';
-
-import Jzro from '$lib/Jzro.svelte';
-import Nav from '$lib/Nav.svelte';
 import Logos from '$lib/Logos.svelte';
-
 // grav
 import Controls from '$lib/grav/Controls.svelte';
 import Planet from '$lib/grav/Planet.svelte';
 import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
 
-let sliderValue = writable(50);
-$: diameter = $sliderValue * 8;
-
-
-onMount(() => {
-    window.addEventListener('scroll', updateScrollPosition);
-    updateScrollPosition(); // To set initial scroll position
-
-    onDestroy(() => {
-      window.removeEventListener('scroll', updateScrollPosition);
-    });
-  });
-
 
 </script>
 
-
+<ScreenSizeDebug />
 <Controls />
 
 <Nav />
 
 
 <!-- <OrbitSvg /> -->
-<div class="opacity-20 scroll-display">scroll: {$scrollPosition}%</div>
+<div class="scroll-display opacity-20 fixed bottom-0 right-0 m-4 p-2 bg-gray-700 text-white rounded-lg">
+  <!-- Scroll: {scrollPercent.toFixed(0)}% -->
+</div>
+
+
 
 <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 100 100" style="pointer-events: none;">
   <circle class="opacity-20" cx="8vw" cy="-2vh" r="2vw" fill="darkblue" />

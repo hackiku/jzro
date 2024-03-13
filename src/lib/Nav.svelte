@@ -1,57 +1,63 @@
 <!-- $lib/Nav.svelte -->
-
 <script>
   import { onMount } from 'svelte';
-  import { writable } from 'svelte/store';
+  let isOpen = false;
 
-  const isVisible = writable(true); // Nav is initially visible
-  let lastScrollY = 0;
+  const navItems = [
+    { href: '/fiddle', label: 'Fiddle' },
+    { href: '/orbit-test', label: 'Orbit' },
+    { href: '/cta', label: 'CTA' },
+    { href: '/grav-sym', label: 'Grav' },
+    { href: '/mars-metar', label: 'JZRO' },
+  ];
+
+  const toggleMenu = () => {
+    isOpen = !isOpen;
+    console.log("Menu toggled, isOpen:", isOpen);
+  };
 
   onMount(() => {
-    const handleScroll = () => {
-      const currentScrollY = window.scrollY;
-      isVisible.set(currentScrollY < lastScrollY || currentScrollY <= 0);
-      lastScrollY = currentScrollY;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        toggleMenu();
+      }
     };
-
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('keydown', handleKeyDown);
 
     return () => {
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('keydown', handleKeyDown);
     };
   });
-
-  // Compute the classes based on isVisible
-  $: navClasses = `container mx-auto px-4 ${$isVisible ? 'fixed top-0 opacity-100' : 'opacity-0'} transition-opacity duration-300`;
 </script>
 
-<div class="{navClasses}">
-  <header class="flex justify-between items-center py-4 px-20">
-    <a class="text-md font-mono" href="/">🚁 jzro</a>
-    <nav>
-      <ul class="flex space-x-4 items-center relative">
-        <li><a href="/hero" class="text-white hover:text-blue-500">hero</a></li>
-        <li><a href="/boing" class="text-white hover:text-blue-500">boing</a></li>
-        <li><a href="/fiddle" class="text-white hover:text-blue-500">fiddle</a></li>
-        <li><a href="/orbit-test" class="text-white hover:text-blue-500">orbit</a></li>
-        <li><a href="/cta" class="text-white hover:text-blue-500">cta</a></li>
-        <li><a href="/grav-sym" class="text-[#F21D26] hover:text-blue-500">grav</a></li>
-        <li><a href="/mars-metar" class="text-white hover:text-blue-500">jzro</a></li>
+<div class="absolute top-4 rounded-full bg-gray-900 bg-opacity-75 z-50
+  inset-x-[8vw] md:inset-x-[20vw] px-6 py-4  lg:px-10 ">
+  <header class="flex justify-between items-center">
+    <a href="/" class="text-lg font-mono text-white hover:text-blue-500">🚁 jzro</a>
+    
+    <button class="lg:hidden text-white focus:outline-none" on:click={toggleMenu}>
+      <span class="sr-only">Open menu</span>
+      <!-- Hamburger icon -->
+      <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+      </svg>
+    </button>
+
+    <nav class={`lg:block ${isOpen ? 'block' : 'hidden'}`}>
+      <ul class="flex flex-col lg:flex-row lg:space-x-4 items-center text-white">
+        {#each navItems as { href, label }}
+          <li><a href={href} class="block px-3 py-2 rounded-md text-base font-medium hover:text-[#F4191D]" on:click={toggleMenu}>{label}</a></li>
+        {/each}
       </ul>
     </nav>
   </header>
 </div>
 
 <style>
-  .fixed {
+  /* Ensure the nav doesn't affect the positioning of other elements */
+  .nav-container {
     position: fixed;
     width: 100%;
-    z-index: 50; /* Adjust as necessary */
-    background-color: rgba(0, 0, 0, 0.8); /* Or your desired background */
+    z-index: 10; /* Adjust z-index as needed */
   }
 </style>
-
-
-
-
-
