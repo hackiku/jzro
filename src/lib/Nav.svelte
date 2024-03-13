@@ -30,7 +30,7 @@
 </script>
 
 <div class="fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50
-  inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6">
+  backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6">
   
   <header class="flex flex-col py-4 
     lg:flex-row lg:items-center ">

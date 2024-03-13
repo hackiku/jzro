@@ -22,7 +22,7 @@
 <Nav />
 
 
-<!-- <OrbitSvg /> -->
+<!-- scroll % -->
 <div class="scroll-display opacity-20 fixed bottom-0 right-0 m-4 p-2 bg-gray-700 text-white rounded-lg">
   <!-- Scroll: {scrollPercent.toFixed(0)}% -->
 </div>
@@ -36,17 +36,18 @@
 <!-- --------------------- hero --------------------- -->
 
 
-  <section class="relative flex flex-col justify-center items-center h-screen">
+  <section class="relative flex border border-gray-800 flex-col justify-center items-center h-screen">
     
-    <div class="text-center px-4 mb-12 -mt-12">
+    <div class="text-center px-4 mb-8 -mt-[14vh]">
       <h2 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h2>
-      <p class="text-2xl">User experience writing & design <br class="hidden sm:block">that makes products fly.</p>  
+      <p class="text-2xl">User experience writing & design <br >that makes products fly.</p>  
     </div>
     
     <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
   
   <!-- logos, centered within hero -->
-  <div class="absolute bottom-28 mx-auto px-20 w-full max-w-4xl">
+  <div class="absolute bottom-0 my-20 max-w-xl
+    sm:my-32 lg:max-w-2xl ">
     <Logos />
   </div>
 </section>

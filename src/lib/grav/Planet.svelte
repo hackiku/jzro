@@ -52,7 +52,7 @@
     <svg class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-10" style="width: {diameter}px; height: {diameter}px;">
       <circle cx="50%" cy="50%" r={diameter / 2} fill={color}/>
       
-      
+      <!-- contact form -->
       {#if gravity > 99}
         <foreignObject x="0" y="0" width="{diameter}" height="{diameter}">
           <div xmlns="http://www.w3.org/1999/xhtml" style="height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center;">
@@ -70,7 +70,7 @@
       {label}
     </span>
   </div>
-  <div class="mt-6 ml-16 relative z-20">
+  <div class="mt-6 relative z-20">
     <input
       type="range" min="0" max="100" value={gravity}
       class="w-1/2 max-w-1/4"

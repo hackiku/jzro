@@ -30,9 +30,13 @@
   });
 </script>
 
-<div class="z-50 fixed p-6 bottom-6 rounded-full backdrop-blur-md
-  flex justify-center items-center bg-gray-500 bg-opacity-10 left-1/2 transform -translate-x-1/2
-  opacity-10 hover:opacity-100">
+<div class="z-50 fixed bottom-6 mx-auto p-4 rounded-full backdrop-blur-md
+  bg-gray-500 bg-opacity-10 opacity-10 hover:opacity-100 flex justify-center items-center
+  w-3/4 sm:w-2/5 lg:w-1/4 xl:w-1/5 inset-x-10">
+
+<!-- <div class="z-50 fixed p-4 bottom-6 rounded-full backdrop-blur-md
+  inset-x-12 flex justify-center items-center bg-gray-500 bg-opacity-10
+  opacity-10 hover:opacity-100"> -->
   
   <button class="text-5xl mr-6 hover:bg-red-500 rounded-full" on:click={launchRocket}>💥</button>
   
