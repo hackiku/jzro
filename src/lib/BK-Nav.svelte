@@ -4,10 +4,12 @@
   let isOpen = true;
 
   const navItems = [
-    { href: '/hero', label: 'hero' },
-    { href: '/fiddle', label: 'fiddle' },
-    { href: '/cta', label: 'cta' },
-    { href: '/mars-metar', label: '🟠 jzro' },
+    { href: '/hero', label: 'Hero' },
+    { href: '/fiddle', label: 'Fiddle' },
+    { href: '/orbit-test', label: 'Orbit' },
+    { href: '/cta', label: 'CTA' },
+    { href: '/grav-sym', label: 'Grav' },
+    { href: '/mars-metar', label: 'JZRO' },
   ];
 
   const toggleMenu = () => {
@@ -29,21 +31,20 @@
   });
 </script>
 
-<div class="fixed top-4 rounded-[1.8em] bg-gray-900 bg-opacity-75 z-50
-  inset-x-[6vw] md:inset-x-[20vw] px-6 lg:px-10">
-  
-  <header class="flex flex-col py-6 
-    lg:flex-row lg:items-center ">
+<div class="fixed top-4 rounded-[1.5em] bg-gray-900 bg-opacity-75 z-50
+  inset-x-[8vw] md:inset-x-[20vw] px-6 py-4 lg:px-10 ">
+  <header class="flex flex-col">
     
     <div class="flex justify-between">
-      <a href="/" class="font-mono hover:text-[#F4191D] shrink-0">
+      
+      <a href="/" class="text-lg font-mono text-white hover:text-[#F4191D]">
         🚁 jzro</a>
-
-        <button class="lg:hidden" on:click={toggleMenu}>
+      
+      <button class="" on:click={toggleMenu}>
         <span class="sr-only">{isOpen ? 'Close menu' : 'Open menu'}</span>
         {#if isOpen}
           <!-- Close icon -->
-          <svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <svg class="h-6 w-6 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
           </svg>
         {:else}
@@ -55,20 +56,27 @@
       </button>
     </div>
 
-    <nav class={`${isOpen ? 'flex' : 'hidden'} flex-col gap-6
-      lg:flex-row lg:w-full`}>
-      <ul class="flex flex-col mt-6 
-        lg:mt-0 lg:flex-row lg:flex-grow lg:justify-end lg:space-x-6">
+    <nav class={`${isOpen ? 'flex' : 'hidden'} flex-col w-full rounded-b-full lg:rounded-none`}>
+      <ul class="flex flex-col lg:flex-row lg:space-x-4 items-center text-white w-full">
         {#each navItems as { href, label }}
-          <li class="w-100 border-b border-gray-800 lg:border-none">
+          <li class="w-full border-b border-gray-800 lg:border-none">
             <a href={href} class="block py-2 hover:text-[#F4191D]" on:click={toggleMenu}>
               {label}
             </a>
           </li>
         {/each}
       </ul>
-      <button class="px-6 py-2 rounded-full bg-[#F4191D]">say hi</button>
+      <button>Say hi</button>
     </nav>
-
+  
   </header>
 </div>
+
+<style>
+  /* Ensure the nav doesn't affect the positioning of other elements */
+  .nav-container {
+    position: fixed;
+    width: 100%;
+    z-index: 10; /* Adjust z-index as needed */
+  }
+</style>
