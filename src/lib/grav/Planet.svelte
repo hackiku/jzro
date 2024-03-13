@@ -15,10 +15,13 @@
 
   
   const calculateDiameter = (gravity) => {
-    // protection for SSR where window dimensions are not available
-    if (!browser) return 100; // Default fallback diameter for SSR
+    
+    if (!browser) return 100; // fallback diameter for SSR protection
+
+    let multiple = window.innerWidth < 600 ? 14 : 24;
+
     console.log(window.innerHeight, window.innerWidth);
-    return Math.sqrt(gravity) * (Math.max(window.innerWidth, window.innerHeight) / 24);
+    return Math.sqrt(gravity) * (Math.min(window.innerWidth, window.innerHeight) / multiple);
   };
 
   // Subscribe to the physicsStore to react to changes in planet gravity
