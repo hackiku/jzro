@@ -3,16 +3,15 @@
 <script>
 // import { scrollStore } from '$lib/grav/scrollStore.js';
 //ui
-import Nav from '$lib/Nav.svelte';
-import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
-// content
-import Portfolio from '$lib/Portfolio.svelte';
-import Testimonials from '$lib/Testimonials.svelte';
-import Logos from '$lib/Logos.svelte';
-// grav
-import Controls from '$lib/grav/Controls.svelte';
-import Planet from '$lib/grav/Planet.svelte';
-import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
+  import Nav from '$lib/Nav.svelte';
+  import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
+  // content
+  import Portfolio from '$lib/Portfolio.svelte';
+  import Testimonials from '$lib/Testimonials.svelte';
+  import Logos from '$lib/portfolio/Logos.svelte';
+  // grav
+  import Controls from '$lib/grav/Controls.svelte';
+  import Planet from '$lib/grav/Planet.svelte';
 
 
 </script>
@@ -37,14 +36,14 @@ import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
 <!-- --------------------- hero --------------------- -->
 
 
-<!-- <section class="flex flex-col justify-center items-center h-screen bg-gray-900 relative"> -->
-<section class="relative flex flex-col justify-center space-y-4 items-center h-screen">
-  <div class="text-center space-y-4">
-    <h2 class="text-6xl">Aerospace UX</h2>
-    <p class="text-2xl">User experience writing & design <br> that makes products fly.</p>  
-  </div>
-  
-  <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
+  <section class="relative flex flex-col justify-center items-center h-screen">
+    
+    <div class="text-center px-4 mb-12 -mt-12">
+      <h2 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h2>
+      <p class="text-2xl">User experience writing & design <br class="hidden sm:block">that makes products fly.</p>  
+    </div>
+    
+    <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
   
   <!-- logos, centered within hero -->
   <div class="absolute bottom-28 mx-auto px-20 w-full max-w-4xl">

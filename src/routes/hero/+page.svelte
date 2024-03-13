@@ -4,7 +4,7 @@
 <script>
   import { onMount , onDestroy } from 'svelte';
   import Nav from '$lib/Nav.svelte';
-  import Logos from '$lib/Logos.svelte';
+  import Logos from '$lib/portfolio/Logos.svelte';
   
   // grav
   import Planet from '$lib/grav/Planet.svelte';
@@ -34,25 +34,23 @@
   </svg>
 
 
-  <!-- --------------------- hero --------------------- -->
-  <section class="hero mt-24 py-8 flex justify-center items-center">
-    <div class="max-w-md text-center">
-      <h2 class="text-6xl  text-white mb-4">Aerospace UX</h2>
-      <p class="text-2xl text-gray-500 mb-8">User experience writing & design <br> that makes products fly.</p>
+<!-- --------------------- hero --------------------- -->
 
-        <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
-        
-      <div class="flex justify-center items-center space-x-4">
-      </div>
+
+<!-- <section class="flex flex-col justify-center items-center h-screen bg-gray-900 relative"> -->
+  <section class="relative flex flex-col justify-center items-center h-screen">
+    
+    <div class="text-center space-y-4 -mt-[12vh]">
+      <h2 class="text-6xl">Aerospace UX</h2>
+      <p class="text-2xl">User experience writing & design <br> that makes products fly.</p>  
     </div>
-  </section>
-  
+    
+    <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
   
   <!-- logos -->
-  <section class="flex justify-center opacity-20 hover:opacity-100">
-    <div class="px-20 w-full max-w-4xl">
-      <Logos />
-    </div>
-  </section>
+  <div class="absolute bottom-28 mx-auto px-20 w-full max-w-4xl">
+    <Logos />
+  </div>
+</section>
   
 </main>
