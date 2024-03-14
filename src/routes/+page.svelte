@@ -12,7 +12,7 @@
   // grav
   import Controls from '$lib/grav/Controls.svelte';
   import Planet from '$lib/grav/Planet.svelte';
-    import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
+  import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
 
 
 </script>
@@ -56,7 +56,7 @@
 <section class="mt-20 py-8 px-8 md:px-8 max-w-3xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
-      <p class="text-md mb-4">Copywriting & UI/UX</p>
+      <p class="text-md font-mono mb-4">Copywriting & UI/UX</p>
       <h2 class="text-4xl mb-3">Words and vectors <br> that sell <span style="color: #1ABCFE">software</span></h2>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
@@ -78,7 +78,7 @@
   <!-- Text aligned with padding, responsive for smaller screens -->
   <div class="flex justify-end mr-16 md:mr-32 lg:mr-64">
     <div class="max-w-xl lg:max-w-3xl">
-      <p class="text-sm mb-4 font-mono">Engineering & Code</p>
+      <p class="text-md font-mono mb-4">Engineering & Code</p>
       <h3 class="text-3xl mb-4">Aerospacey interfaces</h3>
     </div>
   </div>
