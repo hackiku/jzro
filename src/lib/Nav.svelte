@@ -4,10 +4,10 @@
   let isOpen = false;
 
   const navItems = [
-    { href: '/hero', label: 'hero' },
-    { href: '/fiddle', label: 'fiddle' },
-    { href: '/cta', label: 'cta' },
-    { href: '/mars-metar', label: 'mars' },
+    // { href: '/hero', label: 'hero' },
+    // { href: '/fiddle', label: 'fiddle' },
+    // { href: '/cta', label: 'cta' },
+    { href: '/mars-metar', label: 'mars (wip)' },
   ];
 
   const toggleMenu = () => {
