@@ -2,23 +2,47 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @font-face {
+  font-family: 'Neue Regrade';
+  src: url('fonts/Neue-Regrade/Neue-Regrade-Regular.otf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Jetbrains Mono';
+  src: local('Jetbrains Mono'), local('jetbrains'), url('fonts/jetbrains-mono/JetBrainsMono-Thin.woff2') format('truetype');
+  font-weight: 600;
+  font-style: mono;
+}
+
+
+@font-face {
+  font-family: 'Neue Regrade';
+  src: url('/static/fonts/Neue-Regrade/Neue-Regrade-Bold.otf') format('truetype');
+  font-weight: bold;
+  font-style: bold;
+}
+
+
+/* @font-face {
   font-family: "Aeonik";
   src: url('/static/fonts/Aeonik-Regular.ttf') format('truetype');
   font-weight: 300;
   font-style: normal;
-}
+} */
 
-@font-face {
+/* @font-face {
   font-family: "Aeonik";
   src: url('/static/fonts/Aeonik-Bold.ttf') format('truetype');
   font-weight: 700;
   font-style: normal;
-}
+} */
 
 html, body {
   @apply bg-darkBg text-white;
-  font-family: 'Aeonik', sans-serif;
+  font-family: 'Neue Regrade', sans-serif;
   width: 100vw;
   height: 100vh;
   padding: 0;
