@@ -4,11 +4,11 @@
   // opacity to balance colors on hover opacity
   export let logos = [
     { src: 'portfolio/logos/redocly-logo.svg', alt: 'Redocly', opacity: 1 },
-    { src: 'portfolio/logos/uploadcare-logo.svg', alt: 'Uploadcare', opacity: 0.2 },
-    { src: 'portfolio/logos/lenovo-logo.svg', alt: 'Lenovo', opacity: 1 },
+    { src: 'portfolio/logos/uploadcare-logo.svg', alt: 'Uploadcare', opacity: 0.3 },
+    { src: 'portfolio/logos/lenovo-logo.svg', alt: 'Lenovo', opacity: 0.8 },
     // { src: 'portfolio/logos/uploadcare-logo.svg', alt: 'extra', opacity: 0.2 },
-    { src: 'portfolio/logos/linguado-logo.jpg', alt: 'Linguado', opacity: 0.2 },
-    { src: 'portfolio/logos/stoovo-logo.svg', alt: 'Stoovo', opacity: 0.2 },
+    { src: 'portfolio/logos/linguado-logo.jpg', alt: 'Linguado', opacity: 0.4 },
+    { src: 'portfolio/logos/stoovo-logo.svg', alt: 'Stoovo', opacity: 0.3 },
   ];
 </script>
 
@@ -16,8 +16,8 @@
   
 
   <div class="flex flex-wrap justify-center items-center gap-8
-    grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-800 ease-in-out
-    sm:flex-nowrap sm:gap-12 opacity-75 ">
+    grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-800 ease-in-out
+    sm:flex-nowrap sm:gap-12  ">
     {#each logos as logo}
       <div 
         class="inline-block logo-item filter"
