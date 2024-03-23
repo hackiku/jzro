@@ -62,10 +62,9 @@
 
 <main>
 
-<!-- --------------------- hero --------------------- -->
+<!-- --------------------- 1. HERO --------------------- -->
 
-
-  <section class="relative flex flex-col justify-center items-center h-screen">
+<section class="relative flex flex-col justify-center items-center h-screen">
     
     <div class="text-center px-4 mb-8 -mt-[14vh]">
       <h1 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h1>
@@ -81,7 +80,7 @@
   </div>
 </section>
 
-<!------------------------ WORK ------------------------>
+<!------------------------ 2. WORK ------------------------>
 <section class="relative py-12 h-[75vh]">
   
  <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
@@ -110,6 +109,28 @@
 
 </section>
 
+
+
+<!------------------------ PIPEWRITER ------------------------>
+
+
+<!-- <section class="relative flex flex-col justify-center items-center h-screen"> -->
+
+<section class="relative flex flex-col items-center md:flex-row
+  px-8 md:px-44 space-x-12 h-full">
+  
+  <div class="w-full md:w-2/3">
+    <PipewriterDemo />
+  </div>
+
+  <div class="w-full md:w-2/5"> <!-- left -->
+    <h3 class="text-xl mb-3">Longtime tech copywriter on a mission to bring SaaS design to aerospace.</h3>
+    <p class="text-md mb-4 font-mono text-blue-700">Explore Pipewriter →</p>
+  </div> 
+
+</section>
+
+
 <!------------------------ TESTIMONIALS ------------------------>
 
 <section class="relative md:px-44 py-12">
@@ -123,28 +144,12 @@
     <!-- <Coin /> -->
   </div>
 
-</section>
-
-<!------------------------ PIPEWRITER ------------------------>
-
-
-
-<section class="relative md:px-44 py-12">
-  
-  <PipewriterDemo />
-
-
-  <div class="w-full md:w-1/2 p-4"> <!-- left -->
-    <h3 class="text-xl mb-3">Longtime tech copywriter on a mission to bring SaaS design to aerospace.</h3>
-    <p class="text-md mb-4 font-mono text-blue-700">Explore Pipewriter →</p>
-  </div> 
-
   <!-- gradient -->
   
   <div class="absolute bottom-0 left-0 w-full h-16
     z-0 bg-gradient-to-b from-darkBg to-lighterBg"></div>
-</section>
 
+</section>
 
 <!------------------------ FUN ------------------------>
 
@@ -244,7 +249,7 @@
 <style>
 
   section {
-    @apply border border-gray-900;
+    @apply border border-dashed border-gray-900;
   }
 
   .red {

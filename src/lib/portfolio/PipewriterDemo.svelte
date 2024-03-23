@@ -31,25 +31,34 @@
   });
 </script>
 
+<div class="inset-0 flex justify-between p-4">
+  <img class="h-10" src="portfolio/tool-icons/whatsapp.svg" alt="Docs Logo">
+  <img class="h-10" src="portfolio/tool-icons/figma.svg" alt="Figma Logo">
+</div>
+
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 <div class="relative shadow-xl shadow-blue-500/20 flex items-center justify-center text-center"
   on:mousedown={() => (isDragging = true)} 
   on:mousemove={handleMouseMove}>
 
-  <div class="inset-0 flex justify-between p-4">
-    <img class="h-10" src="portfolio/tool-icons/whatsapp.svg" alt="Docs Logo">
-    <img class="h-10" src="portfolio/tool-icons/figma.svg" alt="Figma Logo">
-  </div>
 
-  <div class="w-full h-72">
+  <div class="relative w-full aspect-video">
       <!-- Wireframe Image -->
-      <div class="absolute inset-0 bg-no-repeat bg-cover rounded-3xl" 
-           style="background-image: url({highlight.wire}); clip-path: polygon(0 0, {sliderPosition}% 0, {sliderPosition}% 100%, 0% 100%);">
+      <div class="absolute bg-no-repeat bg-cover inset-0
+      rounded-lg md:rounded-3xl lg:rounded-4xl" 
+          style="background-image: url({highlight.wire});
+          background-size: contain;
+          background-position: left center;
+          clip-path: polygon(0 0, {sliderPosition}% 0, {sliderPosition}% 100%, 0% 100%);">
       </div>
       
       <!-- UI Image -->
-      <div class="absolute inset-0 bg-no-repeat bg-cover rounded-3xl" 
-           style="background-image: url({highlight.ui}); clip-path: polygon({sliderPosition}% 0, 100% 0, 100% 100%, {sliderPosition}% 100%);">
+      <div class="absolute bg-no-repeat bg-cover inset-0
+        rounded-lg md:rounded-3xl lg:rounded-4xl" 
+           style="background-image: url({highlight.ui});
+           background-size: contain;
+           background-position: right center; 
+           clip-path: polygon({sliderPosition}% 0, 100% 0, 100% 100%, {sliderPosition}% 100%);">
       </div>
       
       <!-- Slider Handle -->
