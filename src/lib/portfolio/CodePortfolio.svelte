@@ -1,19 +1,15 @@
 <!-- lib/portfolio/codePortfolio.js -->
 <script>
   import { codePortfolioData } from '$lib/portfolio/codePortfolioData.js';
-  import { onMount } from 'svelte';
 
-  let displayedItems = codePortfolioData.slice(0, 4);
+  let displayedItems = codePortfolioData.slice(0, 2);
   let showMore = false;
 
   function toggleShowMore() {
     showMore = !showMore;
-    displayedItems = showMore ? codePortfolioData : codePortfolioData.slice(0, 4);
+    displayedItems = showMore ? codePortfolioData : codePortfolioData.slice(0, 2);
   }
 
-  onMount(() => {
-    // Optionally, do something when the component mounts
-  });
 </script>
 
 <div class="py-8">

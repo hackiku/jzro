@@ -14,11 +14,12 @@
   import Controls from '$lib/grav/Controls.svelte';
   import Planet from '$lib/grav/Planet.svelte';
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
-
+  import Coin from '$lib/Coin.svelte';
 
 </script>
 
 <ScreenSizeDebug />
+
 <Controls />
 
 <!-- <Nav /> -->
@@ -55,7 +56,7 @@
 
 <!------------------------ WORK ------------------------>
 <section class="border border-gray-800
- mt-20 py-8 px-8 md:px-8">
+ mt-20 py-8 px-8 md:px-8 h-screen">
   
  <div class="flex flex-wrap max-w-3xl mx-auto items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
@@ -71,18 +72,32 @@
 
 </section>
 
+<!------------------------ TESTIMONIALS ------------------------>
 
-<Testimonials />
+<section class="border border-gray-800
+ relative px-2 md:px-44 h-[50vh]">
 
+  <div class="">
+    <Testimonials />
+  </div>
+  
+  <div class="max-w-xs">
+    <img class="h-20" src="grav/asteroid.png" alt="">  
+    <!-- <Coin /> -->
+  </div>
+
+  <!-- <div class="border border-red-950 absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-darkBg to-lighterBg"></div> -->
+
+  <!-- <div class="h-12 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8"></div> -->
+</section>
 
 <!-- ---------- GRADIENT ---------- -->
-<div class="h-6 bg-gradient-to-b from-darkBg to-lighterBg py-8 flex justify-center items-center"></div>
 
 <!------------------------ FUN ------------------------>
 
 <!-- <section class="relative flex flex-col justify-center items-center h-screen"> -->
 <!-- <section class="bg-lighterBg py-8 px-8 md:px-8 max-w-3xl mx-auto h-screen"> -->
-  <section class="border border-gray-800
+<section class="border border-gray-800
   bg-lighterBg py-8 px-8 md:px-8 h-screen">
   <div class="flex flex-wrap max-w-3xl mx-auto items-center">
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
@@ -105,7 +120,7 @@
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
-      <h3 class="text-xl mb-3">I also *really* like building engineery apps that ain't smart as a DART 🛰️ but sure are more fun than Fortran</h3>
+      <h3 class="text-xl mb-3">For fun, school and profit, I also *really* like building engineery apps that ain't smart as a DART 🛰️ but sure are more fun than Fortran</h3>
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
@@ -116,7 +131,7 @@
 </section>
 
 <div class="flex w-auto max-w-xl mx-auto justify-center">
-  <img class="h-40" src="assets/dangerous-go-alone.png" alt="">  
+  <img class="h-40" src="grav/dangerous-go-alone.png" alt="">  
   <!-- <Coin /> -->
 </div>
 
