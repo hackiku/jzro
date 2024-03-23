@@ -1,37 +1,79 @@
 <!-- PortfolioItem.svelte -->
 <script>
-    export let item;
-  </script>
-  
-  <div class="portfolio-item rounded-lg shadow-lg overflow-hidden flex flex-col p-4 space-y-4">
-    <img src={item.logo} alt="Logo" class="portfolio-logo w-12 h-12 object-contain" />
-    <div class="portfolio-image-wrapper flex-grow">
-        <img src={item.image} alt="Portfolio Image" class="portfolio-image w-full h-full object-cover" />
-    </div>
-    <div class="flex justify-between items-center">
-      <p class="portfolio-description text-sm">{item.description}</p>
-      <a href={item.link} class="portfolio-link text-indigo-500 hover:text-indigo-400 transition duration-300 text-sm self-start mt-2">App →</a>
+  // Assuming Uploadcare's images are the focus
+  let uploadcareExample = {
+    ui: 'portfolio/uploadcare-ui.png',
+    wire: 'portfolio/uploadcare-wire.png',
+  };
+
+  let tilt = 5;
+  let sliderPosition = 50;
+  let isDragging = false;
+
+  function handleMouseMove(event) {
+    if (isDragging) {
+      const slider = event.currentTarget.getBoundingClientRect();
+      const x = event.clientX - slider.left;
+      sliderPosition = Math.max(0, Math.min(100, (x / slider.width) * 100));
+    }
+  }
+
+  function handleMouseUp() {
+    isDragging = false;
+  }
+
+  // Listen for mouseup events on the whole window to ensure dragging state is correctly reset
+  onMount(() => {
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  });
+</script>
+
+<style>
+  .hide-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .hide-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .full-width-slider {
+    width: 100vw;
+    position: relative;
+    margin-left: calc(-50vw + 50%);
+  }
+</style>
+
+<div class="full-width-slider overflow-x-auto hide-scrollbar snap-x snap-mandatory">
+  <div class="flex justify-center items-center h-full" on:mousemove={handleMouseMove}>
+    <div class="relative w-full max-w-4xl mx-auto"
+         on:mousedown={() => (isDragging = true)}
+         style:transform={`rotate(${tilt}deg)`}>
+      <div class="slider-container bg-white rounded-3xl shadow-xl shadow-blue-500/20 overflow-hidden">
+        <div class="relative w-full aspect-w-16 aspect-h-9">
+          <!-- Wireframe Image -->
+          <div class="absolute bg-no-repeat bg-cover inset-0 rounded-3xl"
+               style="background-image: url(${uploadcareExample.wire});
+                      background-size: contain;
+                      background-position: left center;
+                      clip-path: polygon(0 0, {sliderPosition}% 0, {sliderPosition}% 100%, 0% 100%);">
+          </div>
+          <!-- UI Image -->
+          <div class="absolute inset-0 bg-no-repeat bg-cover rounded-3xl"
+               style="background-image: url(${uploadcareExample.ui});
+                      background-size: contain;
+                      background-position: right center;
+                      clip-path: polygon({sliderPosition}% 0, 100% 0, 100% 100%, {sliderPosition}% 100%);">
+          </div>
+          <!-- Slider Handle -->
+          <div class="absolute top-0 bg-blue-500 h-full w-1 cursor-col-resize"
+               style="left: {sliderPosition}%;">
+          </div>
+        </div>
+      </div>
     </div>
   </div>
-  
-  <style>
-    .portfolio-item {
-      /* Adjust the maximum width to control the size of the card */
-      max-width: 340px;
-    }
-    
-    .portfolio-image-wrapper {
-      /* This value controls the aspect ratio of the image container */
-      padding-top: 56.25%; /* 16:9 Aspect Ratio */
-      position: relative;
-    }
-  
-    .portfolio-image {
-      position: absolute;
-      top: 0;
-      right: 0;
-      bottom: 0;
-      left: 0;
-    }
-  </style>
-  
+</div>

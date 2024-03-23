@@ -12,7 +12,7 @@
   // proof
   import Logos from '$lib/portfolio/Logos.svelte';
   import Portfolio from '$lib/portfolio/Portfolio.svelte';
-  // import PortfolioSlider from '$lib/portfolio/PipewriterDemo.svelte';
+  import PipewriterDemo from '$lib/portfolio/PipewriterDemo.svelte';
 
   import CodePortfolio from '$lib/portfolio/CodePortfolio.svelte';
   import Testimonials from '$lib/portfolio/Testimonials.svelte';
@@ -24,7 +24,7 @@
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
   import Coin from '$lib/Coin.svelte';
 
-  let deliverables = ['software', 'deep tech', 'agency gigs'];
+  let deliverables = ['software', 'space tech', 'services', ];
   let currentDeliverableIndex = 0;
   let visibleDeliverable = deliverables[currentDeliverableIndex];
 
@@ -127,11 +127,16 @@
 
 <!------------------------ PIPEWRITER ------------------------>
 
+
+
 <section class="relative md:px-44 py-12">
+  
+  <PipewriterDemo />
+
 
   <div class="w-full md:w-1/2 p-4"> <!-- left -->
     <h3 class="text-xl mb-3">Longtime tech copywriter on a mission to bring SaaS design to aerospace.</h3>
-    <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
+    <p class="text-md mb-4 font-mono text-blue-700">Explore Pipewriter →</p>
   </div> 
 
   <!-- gradient -->

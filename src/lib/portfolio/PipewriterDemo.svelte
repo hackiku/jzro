@@ -1,71 +1,60 @@
 <!-- $lib/portfolio/PipewriterDemo.svelte -->
 <script>
-  import { onMount, onDestroy } from 'svelte';
-  import PortfolioItem from '$lib/content/PortfolioItem.svelte';
-  import PortfolioTestimonial from '$lib/content/PortfolioTestimonial.svelte';
-  import ButtonDoc from '$lib/ui/ButtonDoc.svelte';
-  import { portfolioItems } from '$lib/content/portfolioData.js';
+  import { onMount } from 'svelte';
 
-  export let tilt;
-  let currentIndex = 1;
+  export let highlight = {
+    wire: 'portfolio/uploadcare-wire.png',
+    ui: 'portfolio/uploadcare-ui.png',
+  };
 
-  // Calculate the index for the previous and next items with wrap-around
-  $: previousIndex = currentIndex === 0 ? portfolioItems.length - 1 : currentIndex - 1;
-  $: nextIndex = (currentIndex + 1) % portfolioItems.length;
+  // export let tilt = 0;
+  let sliderPosition = 50;
+  let isDragging = false;
 
-  function navigate(direction) {
-    currentIndex = direction === 'next' ? nextIndex : previousIndex;
+  function handleMouseMove(event) {
+    if (isDragging) {
+      const slider = event.currentTarget.getBoundingClientRect();
+      const x = event.clientX - slider.left;
+      sliderPosition = Math.max(0, Math.min(100, (x / slider.width) * 100));
+    }
   }
+
+  function handleMouseUp() {
+    isDragging = false;
+  }
+
+  onMount(() => {
+    window.addEventListener('mouseup', handleMouseUp);
+    return () => {
+      window.removeEventListener('mouseup', handleMouseUp);
+    };
+  });
 </script>
 
-<style>
-  /* :global(body) {
-    overflow-x: hidden;
-  } */
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div class="relative shadow-xl shadow-blue-500/20 flex items-center justify-center text-center"
+  on:mousedown={() => (isDragging = true)} 
+  on:mousemove={handleMouseMove}>
 
-  .full-width-slider {
-    width: 100vw;
-    position: relative;
-    margin-left: calc(-50vw + 50%);}
-  
-  .hide-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  .hide-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
-</style>
-
-
-<div class="full-width-slider flex snap-x snap-mandatory
-  overflow-x-clip overflow-x-clip hide-scrollbar">
-
-  <!-- Previous item (always visible with wrap-around) -->
-  <div class="portfolio-item  opacity-10 hover:opacity-100" style="width: 20%;">
-    <PortfolioItem item={portfolioItems[previousIndex]} bind:tilt/>
+  <div class="inset-0 flex justify-between p-4">
+    <img class="h-10" src="portfolio/tool-icons/whatsapp.svg" alt="Docs Logo">
+    <img class="h-10" src="portfolio/tool-icons/figma.svg" alt="Figma Logo">
   </div>
-  
-  <!-- Current item (fully visible) -->
-  <div class="space-y-20" style="width: 80%;">
-    <div class="flex relative">
-      <PortfolioItem item={portfolioItems[currentIndex]} bind:tilt/>      
-      <div class="absolute right-0 bottom-0 mr-4">
-        <ButtonDoc docName="See {portfolioItems[currentIndex].client} doc&nbsp;"/>
+
+  <div class="w-full h-72">
+      <!-- Wireframe Image -->
+      <div class="absolute inset-0 bg-no-repeat bg-cover rounded-3xl" 
+           style="background-image: url({highlight.wire}); clip-path: polygon(0 0, {sliderPosition}% 0, {sliderPosition}% 100%, 0% 100%);">
       </div>
-    </div>
-    
-    <PortfolioTestimonial
-      testimonial={portfolioItems[currentIndex].testimonial}
-      person={portfolioItems[currentIndex].person}
-      personPic={portfolioItems[currentIndex].personPic}
-      client={portfolioItems[currentIndex].client}
-      on:navigate={e => navigate(e.detail)}
-    />
-  </div>
-
-  <!-- Next item (always visible with wrap-around) -->
-  <div class="portfolio-item opacity-10 hover:opacity-100" style="width: 20%;">
-    <PortfolioItem item={portfolioItems[nextIndex]} bind:tilt/>
+      
+      <!-- UI Image -->
+      <div class="absolute inset-0 bg-no-repeat bg-cover rounded-3xl" 
+           style="background-image: url({highlight.ui}); clip-path: polygon({sliderPosition}% 0, 100% 0, 100% 100%, {sliderPosition}% 100%);">
+      </div>
+      
+      <!-- Slider Handle -->
+      <div class="absolute top-0 bg-blue-500 h-full w-1 cursor-col-resize" 
+           style="left: {sliderPosition}%;">
+      </div>
   </div>
 </div>
