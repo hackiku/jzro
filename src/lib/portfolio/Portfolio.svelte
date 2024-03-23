@@ -1,7 +1,7 @@
 <!-- Portfolio.svelte -->
 <script>
   import { onMount } from 'svelte';
-  import PortfolioItem from '$lib/PortfolioItem.svelte';
+  import PortfolioItem from '$lib/portfolio/PortfolioItem.svelte';
 
   let scrollContainer;
 

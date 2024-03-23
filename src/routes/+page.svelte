@@ -6,8 +6,9 @@
   import Nav from '$lib/Nav.svelte';
   import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
   // content
-  import Portfolio from '$lib/Portfolio.svelte';
-  import Testimonials from '$lib/Testimonials.svelte';
+  import Portfolio from '$lib/portfolio/Portfolio.svelte';
+  import CodePortfolio from '$lib/portfolio/CodePortfolio.svelte';
+  import Testimonials from '$lib/portfolio/Testimonials.svelte';
   import Logos from '$lib/portfolio/Logos.svelte';
   // grav
   import Controls from '$lib/grav/Controls.svelte';
@@ -57,7 +58,7 @@
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
       <p class="text-md font-mono mb-4">Copywriting & UI/UX</p>
-      <h2 class="text-4xl mb-3">Words and vectors <br> that sell <span style="color: #1ABCFE">software</span></h2>
+      <h2 class="text-4xl mb-3">Words and vectors<br> to sell your <span style="color: #1ABCFE">software</span></h2>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
       <Planet id="work" color="#1ABCFE" label="for work"/>
@@ -78,7 +79,7 @@
   <!-- Text aligned with padding, responsive for smaller screens -->
   <div class="flex justify-end mr-16 md:mr-32 lg:mr-64">
     <div class="max-w-xl lg:max-w-3xl">
-      <p class="text-md font-mono mb-4">Engineering & Code</p>
+      <p class="text-md font-mono mb-4">Code + Engineering</p>
       <h3 class="text-3xl mb-4">Aerospacey interfaces</h3>
     </div>
   </div>
@@ -93,7 +94,7 @@
 
 <!-- --------------------------------------------- -->
 
-<Portfolio />
+<CodePortfolio />
 
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">

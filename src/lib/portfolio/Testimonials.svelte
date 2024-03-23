@@ -1,6 +1,7 @@
+<!-- lib/portfolio/Testimonials.svelte -->
 <script>
   import { onMount } from 'svelte';
-  import { testimonialData } from '$lib/testimonialData';
+  import { testimonialData } from '$lib/portfolio/testimonialData';
 
   let currentTestimonialIndex = 0;
   const totalTestimonials = testimonialData.length;
