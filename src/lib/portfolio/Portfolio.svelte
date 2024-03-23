@@ -1,49 +1,57 @@
-<!-- Portfolio.svelte -->
+<!-- lib/portfolio/Portfolio.svelte -->
 <script>
+  import { portfolioData } from '$lib/portfolio/portfolioData.js';
   import { onMount } from 'svelte';
-  import PortfolioItem from '$lib/portfolio/PortfolioItem.svelte';
 
   let scrollContainer;
 
-  let portfolioData = [
-    {
-      id: 1,
-      logo: 'assets/svelte-logo.svg',
-      image: 'portfolio/pipistrel-portfolio.png',
-      description: 'Interactive airfoil design for Pipistrel Virus SW 121',
-      link: 'https://pipistrel.streamlit.app'
-    },
-    {
-      id: 2,
-      logo: 'assets/figma-logo.svg',
-      image: 'portfolio/mars-weather-portfolio.png',
-      description: 'Mars weather aviation style with METARs and TAFs',
-      link: '#'
-    },
-  ];  
+  // Function to enable dragging
+  function enableDragging(element) {
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+
+    element.addEventListener('mousedown', (e) => {
+      isDown = true;
+      startX = e.pageX - element.offsetLeft;
+      scrollLeft = element.scrollLeft;
+    });
+
+    element.addEventListener('mouseleave', () => {
+      isDown = false;
+    });
+
+    element.addEventListener('mouseup', () => {
+      isDown = false;
+    });
+
+    element.addEventListener('mousemove', (e) => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - element.offsetLeft;
+      const walk = (x - startX) * 3; //scroll-fast
+      element.scrollLeft = scrollLeft - walk;
+    });
+  }
 
   onMount(() => {
-    const halfContainerWidth = scrollContainer.offsetWidth / 2;
-    const halfContentWidth = scrollContainer.scrollWidth / 2;
-    const startPosition = halfContentWidth - halfContainerWidth;
-    
-    scrollContainer.scrollLeft = startPosition;
+    enableDragging(scrollContainer);
   });
 </script>
 
-
-<section class="p-8 px-4 md:px-6 bg-lighterBg">
-  <div class="flex flex-wrap items-center max-w-full mx-auto">
+  <div class="border border-gray-900
+    flex items-center max-w-full mx-auto">
     <div class="w-full relative">
-      <!-- Scrollable container for portfolio items -->
-      <div class="flex overflow-x-auto space-x-2" bind:this={scrollContainer}>
+
+      <div class="flex overflow-x-auto space-x-12 scrollbar-hide" bind:this={scrollContainer}>
         {#each portfolioData as item}
-          <PortfolioItem item={item} />
+          <div class="flex-shrink-0 w-72 h-48 bg-cover bg-center shadow-lg rounded-3xl overflow-hidden">
+            <img src={item.image} alt={item.description} class="min-w-full min-h-full object-cover" />
+          </div>
         {/each}
       </div>
     </div>
   </div>
-</section>
 
 <style>
   /* Hide scrollbar (optional, remove if you want the scrollbar visible) */
@@ -51,7 +59,7 @@
     display: none;
   }
   .scrollbar-hide {
-    -ms-overflow-style: none;  /* IE and Edge */
-    scrollbar-width: none;  /* Firefox */
+    -ms-overflow-style: none; 
+    scrollbar-width: none;
   }
 </style>

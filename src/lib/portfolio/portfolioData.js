@@ -22,7 +22,7 @@ export let resultsData = [
 export let portfolioData = [
   {
     id: 'wordagents',
-    image: 'portfolio/wordagents-wire.png',
+    image: 'portfolio/omicron-hero.png',
     description: 'Oldtime SEO content agency website copy',
     link: 'https://wordagents.com',
     result: 'conversion',

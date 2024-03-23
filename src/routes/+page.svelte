@@ -56,7 +56,7 @@
 
 <!------------------------ WORK ------------------------>
 <section class="border border-gray-800
- mt-20 py-8 px-8 md:px-8 h-screen">
+ mt-20 py-8 h-[90vh]">
   
  <div class="flex flex-wrap max-w-3xl mx-auto items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
@@ -69,6 +69,9 @@
   </div>
 
   <Portfolio />
+
+  <!-- <Testimonials /> -->
+
 
 </section>
 
@@ -86,7 +89,7 @@
     <!-- <Coin /> -->
   </div>
 
-  <!-- <div class="border border-red-950 absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-darkBg to-lighterBg"></div> -->
+  <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-darkBg to-lighterBg"></div>
 
   <!-- <div class="h-12 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8"></div> -->
 </section>
@@ -97,7 +100,7 @@
 
 <!-- <section class="relative flex flex-col justify-center items-center h-screen"> -->
 <!-- <section class="bg-lighterBg py-8 px-8 md:px-8 max-w-3xl mx-auto h-screen"> -->
-<section class="border border-gray-800
+<section class="
   bg-lighterBg py-8 px-8 md:px-8 h-screen">
   <div class="flex flex-wrap max-w-3xl mx-auto items-center">
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
