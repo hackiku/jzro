@@ -24,7 +24,7 @@
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
   import Coin from '$lib/Coin.svelte';
 
-  let deliverables = ['software', 'space tech', 'services', ];
+  let deliverables = ['SaaS & B2B', 'space tech', 'agency gigs', ];
   let currentDeliverableIndex = 0;
   let visibleDeliverable = deliverables[currentDeliverableIndex];
 
@@ -88,7 +88,7 @@
     <div class="w-full"> 
       <p class="text-md font-mono mb-4">Copywriting & UI/UX</p>
       
-      <h2 class="text-4xl mb-3">Words and user flows<br>to sell more
+      <h2 class="text-4xl mb-3">Words and user flows<br>that sell more of your <br>
         <span transition:fade={{ duration: 500 }} class="text-[#1ABCFE] glowing-text">
           {visibleDeliverable}
         </span>
