@@ -49,10 +49,11 @@
 
 <Controls />
 
-<!-- <Nav /> -->
+<Nav />
 
 
 <!-- scroll % -->
+
 <div class="scroll-display opacity-20 fixed bottom-0 right-0 m-4 p-2 bg-gray-700 text-white rounded-lg">
   <!-- Scroll: {scrollPercent.toFixed(0)}% -->
 </div>
@@ -66,6 +67,7 @@
 
 <section class="relative flex flex-col justify-center items-center h-screen">
     
+  
     <div class="text-center px-4 mb-8 -mt-[14vh]">
       <h1 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h1>
       <p class="text-2xl">User experience engineered to <br >make products fly.</p>  

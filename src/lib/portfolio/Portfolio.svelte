@@ -40,7 +40,9 @@
 </script>
 
   <div class="border border-dashed border-gray-800
-    flex items-center max-w-full">
+    flex items-center max-w-full"
+    style="cursor: url(https://cdn.custom-cursor.com/db/cursor/32/NASA_Cursor.png) , default !important"
+    >
     <div class="w-full relative">
 
       <div class="flex overflow-x-auto space-x-8 scrollbar-hide" bind:this={scrollContainer}>

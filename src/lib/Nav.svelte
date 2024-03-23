@@ -2,6 +2,8 @@
 <script>
   import { onMount } from 'svelte';
   let isOpen = false;
+  let lastScrollY = 0;
+  let navVisible = true; // Start with nav visible
 
   const navItems = [
     { href: '/hero', label: 'hero' },
@@ -16,6 +18,14 @@
   };
 
   onMount(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      navVisible = scrollY < lastScrollY; // Nav is visible when scrolling up
+      lastScrollY = scrollY;
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
     const handleKeyDown = (e) => {
       if (e.key === 'Escape' && isOpen) {
         toggleMenu();
@@ -24,13 +34,16 @@
     window.addEventListener('keydown', handleKeyDown);
 
     return () => {
+      window.removeEventListener('scroll', handleScroll);
       window.removeEventListener('keydown', handleKeyDown);
     };
   });
 </script>
 
-<div class="fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50
-  backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6">
+<div class={`fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6 ${navVisible ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+
+  <!-- <div class="fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50
+  backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6"> -->
   
   <header class="flex flex-col py-4 
     lg:flex-row lg:items-center ">
