@@ -1,5 +1,6 @@
-<!-- homepage -->
+<!-- jzro homepage -->
 <!-- +page.svelte -->
+
 <script>
   // import { scrollStore } from '$lib/grav/scrollStore.js';
   import { onMount } from 'svelte';
@@ -8,11 +9,14 @@
   //ui
   import Nav from '$lib/Nav.svelte';
   import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
-  // content
+  // proof
+  import Logos from '$lib/portfolio/Logos.svelte';
   import Portfolio from '$lib/portfolio/Portfolio.svelte';
+  // import PortfolioSlider from '$lib/portfolio/PipewriterDemo.svelte';
+
   import CodePortfolio from '$lib/portfolio/CodePortfolio.svelte';
   import Testimonials from '$lib/portfolio/Testimonials.svelte';
-  import Logos from '$lib/portfolio/Logos.svelte';
+
   // grav
   import Controls from '$lib/grav/Controls.svelte';
   import Planet from '$lib/grav/Planet.svelte';
@@ -20,9 +24,9 @@
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
   import Coin from '$lib/Coin.svelte';
 
-  let deliverables = ['software', 'company', 'agency gig'];
+  let deliverables = ['software', 'deep tech', 'agency gigs'];
   let currentDeliverableIndex = 0;
-  let visibleDeliverable = deliverables[currentDeliverableIndex]; // for transition
+  let visibleDeliverable = deliverables[currentDeliverableIndex];
 
   onMount(() => {
     const interval = setInterval(() => {
@@ -65,7 +69,7 @@
     
     <div class="text-center px-4 mb-8 -mt-[14vh]">
       <h1 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h1>
-      <p class="text-2xl">User experience writing & design <br >that makes products fly.</p>  
+      <p class="text-2xl">User experience engineered to <br >make products fly.</p>  
     </div>
     
     <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
@@ -78,15 +82,14 @@
 </section>
 
 <!------------------------ WORK ------------------------>
-<section class="border border-gray-800
- relative py-12 h-[80vh]">
+<section class="relative py-12 h-[75vh]">
   
  <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
  <div class="flex flex-wrap mx-auto md:max-w-3xl items-center px-8">
     <div class="w-full"> 
       <p class="text-md font-mono mb-4">Copywriting & UI/UX</p>
       
-      <h2 class="text-4xl mb-3">Words and vectors<br> to sell your
+      <h2 class="text-4xl mb-3">Words and user flows<br>to sell more
         <span transition:fade={{ duration: 500 }} class="text-[#1ABCFE] glowing-text">
           {visibleDeliverable}
         </span>
@@ -109,8 +112,7 @@
 
 <!------------------------ TESTIMONIALS ------------------------>
 
-<section class="border border-gray-800
- relative md:px-44 h-[70vh]">
+<section class="relative md:px-44 py-12">
 
   <div class="">
     <Testimonials />
@@ -121,8 +123,21 @@
     <!-- <Coin /> -->
   </div>
 
-  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-darkBg to-lighterBg"></div>
+</section>
 
+<!------------------------ PIPEWRITER ------------------------>
+
+<section class="relative md:px-44 py-12">
+
+  <div class="w-full md:w-1/2 p-4"> <!-- left -->
+    <h3 class="text-xl mb-3">Longtime tech copywriter on a mission to bring SaaS design to aerospace.</h3>
+    <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
+  </div> 
+
+  <!-- gradient -->
+  
+  <div class="absolute bottom-0 left-0 w-full h-16
+    z-0 bg-gradient-to-b from-darkBg to-lighterBg"></div>
 </section>
 
 
@@ -154,9 +169,8 @@
       <h3 class="text-xl mb-3">For fun, school and profit, I also *really* like building engineery apps that ain't smart as a DART 🛰️ but sure are more fun than Fortran</h3>
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
     </div> 
-    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
+    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
       <Planet id="github" color="#F1F1F1" label="GitHub"/>
-
     </div>
   </div>
 </section>
@@ -224,27 +238,30 @@
 
 <style>
 
+  section {
+    @apply border border-gray-900;
+  }
+
   .red {
     color: #F21D26;
   }
 
   .scroll-display {
-    position: fixed; /* Or any other positioning you prefer */
+    position: fixed;
     bottom: 20px;
     right: 20px;
     background-color: rgba(0, 0, 0, 0.7);
     color: white;
     padding: 10px;
     border-radius: 5px;
-    z-index: 1000; /* Ensure it's above other content */
+    z-index: 1000;
   }
 
   
   .glowing-text {
+    /* @apply transition-all duration-1000 ease-in-out; */
     transition: text-shadow 0.5s ease-in-out, color 0.3s ease-in-out;
     text-shadow: 0 0 8px #1ABCFE;
-    /* @apply transition-all duration-1000 ease-in-out;
-    text-shadow: 0 0 0.5em #1ABCFE; */
   }
   .glowing-text:hover {
     text-shadow: 0 0 0.8em #1ABCFE;
