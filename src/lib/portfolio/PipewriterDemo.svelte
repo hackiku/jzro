@@ -32,12 +32,12 @@
 </script>
 
 <div class="inset-0 flex justify-between p-4">
-  <img class="h-10" src="portfolio/tool-icons/whatsapp.svg" alt="Docs Logo">
-  <img class="h-10" src="portfolio/tool-icons/figma.svg" alt="Figma Logo">
+  <img class="h-8" src="portfolio/tool-icons/docs.svg" alt="Docs Logo">
+  <img class="h-8" src="portfolio/tool-icons/figma.svg" alt="Figma Logo">
 </div>
 
 <!-- svelte-ignore a11y-no-static-element-interactions -->
-<div class="relative shadow-xl shadow-blue-500/20 flex items-center justify-center text-center"
+<div class="relative shadow-2xl shadow-blue-600/30 flex items-center justify-center"
   on:mousedown={() => (isDragging = true)} 
   on:mousemove={handleMouseMove}>
 
@@ -62,7 +62,7 @@
       </div>
       
       <!-- Slider Handle -->
-      <div class="absolute top-0 bg-blue-500 h-full w-1 cursor-col-resize" 
+      <div class="absolute top-0 bg-blue-800 h-full w-1 cursor-col-resize" 
            style="left: {sliderPosition}%;">
       </div>
   </div>

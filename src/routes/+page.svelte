@@ -114,19 +114,19 @@
 <!------------------------ PIPEWRITER ------------------------>
 
 
-<!-- <section class="relative flex flex-col justify-center items-center h-screen"> -->
 
 <section class="relative flex flex-col items-center md:flex-row
-  px-8 md:px-44 space-x-12 h-full">
-  
-  <div class="w-full md:w-2/3">
+  py-16 px-8 md:px-44 space-x-12 ">
+    
+  <div class="w-4/5 sm:w-3/5">
     <PipewriterDemo />
   </div>
 
   <div class="w-full md:w-2/5"> <!-- left -->
-    <h3 class="text-xl mb-3">Longtime tech copywriter on a mission to bring SaaS design to aerospace.</h3>
+    <h3 class="text-xl mb-3">8+ years tech copywriter, on a mission to bring SaaS design to aerospace. My product Pipewriter is for writers to draw wireframes in Google Docs</h3>
     <p class="text-md mb-4 font-mono text-blue-700">Explore Pipewriter →</p>
   </div> 
+
 
 </section>
 

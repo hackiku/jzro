@@ -9,7 +9,7 @@ export const testimonialData = [
       image: "portfolio/headshots/tommy-joiner.png",
     },
     {
-      quote: "Ivan's wireframe Docs are a collaboration godsend. We iterated website copy and UX for every Stoovo pivot in a matter of hours and went straight to design with a clear vision.",
+      quote: "Ivan's wireframe docs are gret for collab. We iterated copy and structure, for multiple Stoovo pivots, in a matter of hours.",
       name: "Hantz Févry",
       company: "Stoovo",
       role: "Co-Founder & CEO",

@@ -40,7 +40,7 @@
 </script>
 
   <div class="border border-dashed border-gray-800
-    flex items-center max-w-full mx-auto">
+    flex items-center max-w-full">
     <div class="w-full relative">
 
       <div class="flex overflow-x-auto space-x-8 scrollbar-hide" bind:this={scrollContainer}>
