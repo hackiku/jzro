@@ -19,6 +19,13 @@ export let resultsData = [
   },
 ];
 
+export let workTags = [
+  {
+    tag: 'website copy',
+    name: 'All',
+  },
+];
+
 export let portfolioData = [
   {
     id: 'wordagents',
@@ -26,7 +33,8 @@ export let portfolioData = [
     description: 'Oldtime SEO content agency website copy',
     link: 'https://wordagents.com',
     result: 'conversion',
-    award: null
+    award: null,
+    tags: ['website copy', 'landing page copy'],
   },
   {
     id: 'uploadcare',

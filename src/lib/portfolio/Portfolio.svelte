@@ -39,14 +39,15 @@
   });
 </script>
 
-  <div class="border border-gray-900
+  <div class="border border-dashed border-gray-800
     flex items-center max-w-full mx-auto">
     <div class="w-full relative">
 
-      <div class="flex overflow-x-auto space-x-12 scrollbar-hide" bind:this={scrollContainer}>
+      <div class="flex overflow-x-auto space-x-8 scrollbar-hide" bind:this={scrollContainer}>
         {#each portfolioData as item}
-          <div class="flex-shrink-0 w-72 h-48 bg-cover bg-center shadow-lg rounded-3xl overflow-hidden">
+          <div class="flex-shrink-0 w-4/6 sm:w-3/5 md:w-2/5 lg:w-1/3 xl:w-1/4 bg-cover bg-center shadow-lg rounded-3xl overflow-hidden">
             <img src={item.image} alt={item.description} class="min-w-full min-h-full object-cover" />
+            <p>{item.tags}</p>
           </div>
         {/each}
       </div>
@@ -54,7 +55,6 @@
   </div>
 
 <style>
-  /* Hide scrollbar (optional, remove if you want the scrollbar visible) */
   .scrollbar-hide::-webkit-scrollbar {
     display: none;
   }

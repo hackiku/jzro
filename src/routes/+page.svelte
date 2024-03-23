@@ -1,8 +1,11 @@
 <!-- homepage -->
 <!-- +page.svelte -->
 <script>
-// import { scrollStore } from '$lib/grav/scrollStore.js';
-//ui
+  // import { scrollStore } from '$lib/grav/scrollStore.js';
+  import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
+
+  //ui
   import Nav from '$lib/Nav.svelte';
   import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
   // content
@@ -13,10 +16,30 @@
   // grav
   import Controls from '$lib/grav/Controls.svelte';
   import Planet from '$lib/grav/Planet.svelte';
+  
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
   import Coin from '$lib/Coin.svelte';
 
+  let deliverables = ['software', 'company', 'agency gig'];
+  let currentDeliverableIndex = 0;
+  let visibleDeliverable = deliverables[currentDeliverableIndex]; // for transition
+
+  onMount(() => {
+    const interval = setInterval(() => {
+      currentDeliverableIndex = (currentDeliverableIndex + 1) % deliverables.length;
+      visibleDeliverable = deliverables[currentDeliverableIndex]; // Trigger transition
+    }, 2500);
+
+    return () => {
+      clearInterval(interval);
+    };
+  });
+
+
 </script>
+
+<!-- -------------------------------------------------- -->
+
 
 <ScreenSizeDebug />
 
@@ -41,7 +64,7 @@
   <section class="relative flex flex-col justify-center items-center h-screen">
     
     <div class="text-center px-4 mb-8 -mt-[14vh]">
-      <h2 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h2>
+      <h1 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h1>
       <p class="text-2xl">User experience writing & design <br >that makes products fly.</p>  
     </div>
     
@@ -56,29 +79,38 @@
 
 <!------------------------ WORK ------------------------>
 <section class="border border-gray-800
- mt-20 py-8 h-[90vh]">
+ relative py-12 h-[80vh]">
   
- <div class="flex flex-wrap max-w-3xl mx-auto items-center">
-    <div class="w-full md:w-1/2 p-4"> <!-- left -->
+ <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
+ <div class="flex flex-wrap mx-auto md:max-w-3xl items-center px-8">
+    <div class="w-full"> 
       <p class="text-md font-mono mb-4">Copywriting & UI/UX</p>
-      <h2 class="text-4xl mb-3">Words and vectors<br> to sell your <span style="color: #1ABCFE">software</span></h2>
+      
+      <h2 class="text-4xl mb-3">Words and vectors<br> to sell your
+        <span transition:fade={{ duration: 500 }} class="text-[#1ABCFE] glowing-text">
+          {visibleDeliverable}
+        </span>
+      </h2>
+
     </div> 
-    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
+    <!-- <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> -->
+    <div class="absolute right-[15vw] top-52 md:top-[18vh]">
       <Planet id="work" color="#1ABCFE" label="for work"/>
     </div>
   </div>
 
-  <Portfolio />
-
-  <!-- <Testimonials /> -->
-
+  
+  <div class="absolute bottom-0 w-full">
+    <Portfolio />
+    <!-- <Testimonials /> -->
+  </div>
 
 </section>
 
 <!------------------------ TESTIMONIALS ------------------------>
 
 <section class="border border-gray-800
- relative px-2 md:px-44 h-[50vh]">
+ relative md:px-44 h-[70vh]">
 
   <div class="">
     <Testimonials />
@@ -89,17 +121,13 @@
     <!-- <Coin /> -->
   </div>
 
-  <div class="absolute bottom-0 left-0 w-full h-20 bg-gradient-to-b from-darkBg to-lighterBg"></div>
+  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-b from-darkBg to-lighterBg"></div>
 
-  <!-- <div class="h-12 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8"></div> -->
 </section>
 
-<!-- ---------- GRADIENT ---------- -->
 
 <!------------------------ FUN ------------------------>
 
-<!-- <section class="relative flex flex-col justify-center items-center h-screen"> -->
-<!-- <section class="bg-lighterBg py-8 px-8 md:px-8 max-w-3xl mx-auto h-screen"> -->
 <section class="
   bg-lighterBg py-8 px-8 md:px-8 h-screen">
   <div class="flex flex-wrap max-w-3xl mx-auto items-center">
@@ -211,4 +239,16 @@
     z-index: 1000; /* Ensure it's above other content */
   }
 
+  
+  .glowing-text {
+    transition: text-shadow 0.5s ease-in-out, color 0.3s ease-in-out;
+    text-shadow: 0 0 8px #1ABCFE;
+    /* @apply transition-all duration-1000 ease-in-out;
+    text-shadow: 0 0 0.5em #1ABCFE; */
+  }
+  .glowing-text:hover {
+    text-shadow: 0 0 0.8em #1ABCFE;
+  }
 </style>
+
+
