@@ -21,7 +21,7 @@
 <ScreenSizeDebug />
 <Controls />
 
-<Nav />
+<!-- <Nav /> -->
 
 
 <!-- scroll % -->
@@ -53,48 +53,54 @@
   </div>
 </section>
 
-<!------------------------ services zigzag ------------------------>
-<section class="mt-20 py-8 px-8 md:px-8 max-w-3xl mx-auto">
-  <div class="flex flex-wrap items-center">
+<!------------------------ WORK ------------------------>
+<section class="border border-gray-800
+ mt-20 py-8 px-8 md:px-8">
+  
+ <div class="flex flex-wrap max-w-3xl mx-auto items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
       <p class="text-md font-mono mb-4">Copywriting & UI/UX</p>
       <h2 class="text-4xl mb-3">Words and vectors<br> to sell your <span style="color: #1ABCFE">software</span></h2>
     </div> 
-    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
+    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
       <Planet id="work" color="#1ABCFE" label="for work"/>
     </div>
   </div>
+
+  <Portfolio />
+
 </section>
 
-
-<Portfolio />
 
 <Testimonials />
 
-<!-- --------------------------------------------- -->
 
-<div class="h-6 bg-gradient-to-b from-darkBg to-lighterBg mt-8 py-8 flex justify-center items-center"></div>
+<!-- ---------- GRADIENT ---------- -->
+<div class="h-6 bg-gradient-to-b from-darkBg to-lighterBg py-8 flex justify-center items-center"></div>
 
-<section class="relative bg-lighterBg">
-  <!-- Text aligned with padding, responsive for smaller screens -->
-  <div class="flex justify-end mr-16 md:mr-32 lg:mr-64">
-    <div class="max-w-xl lg:max-w-3xl">
-      <p class="text-md font-mono mb-4">Code + Engineering</p>
-      <h3 class="text-3xl mb-4">Aerospacey interfaces</h3>
+<!------------------------ FUN ------------------------>
+
+<!-- <section class="relative flex flex-col justify-center items-center h-screen"> -->
+<!-- <section class="bg-lighterBg py-8 px-8 md:px-8 max-w-3xl mx-auto h-screen"> -->
+  <section class="border border-gray-800
+  bg-lighterBg py-8 px-8 md:px-8 h-screen">
+  <div class="flex flex-wrap max-w-3xl mx-auto items-center">
+    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
+      <Planet id="fun" color="#540087" label="for fun"/>
     </div>
+    <div class="w-full md:w-1/2 p-4"> <!-- right -->
+      <p class="text-md font-mono mb-4">Code + Engineering</p>
+      <h2 class="text-4xl mb-3">Aerospacey Interfaces </h2>
+    </div> 
   </div>
-
-  <!-- Planet with responsive positioning -->
-  <div class="absolute left-[10%] md:left-[10%] lg:left-[10%]">
-    <Planet id="fun" color="#540087" label="for fun"/>
-  </div>
+  <CodePortfolio />
 </section>
+
 
 <div class="h-6 bg-gradient-to-b from-lighterBg to-darkBg mt-8 py-8 flex justify-center items-center"></div>
 
 <!-- --------------------------------------------- -->
 
-<CodePortfolio />
 
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
