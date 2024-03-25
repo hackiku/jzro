@@ -14,10 +14,9 @@
     return acc;
   }, {});
 
-  // Filter displayedItems based on selectedItem
-  $: displayedItems = selectedItem === 'all'
-    ? portfolioData
-    : portfolioData.filter(item => item.tags.includes(portfolioTags[selectedItem]));
+    // Filter displayedItems based on selectedItem, duplicating for seamless scrolling
+    $: displayedItems = (selectedItem === 'all' ? 
+    [...portfolioData, ...portfolioData] : [...portfolioData.filter(item => item.tags.includes(portfolioTags[selectedItem])), ...portfolioData.filter(item => item.tags.includes(portfolioTags[selectedItem]))]);
 
 
   function continuousScroll() {
@@ -44,32 +43,34 @@
   }
 
   function enableDragging(element) {
-    let isDown = false;
-    let startX;
-    let scrollLeft;
+  let startX;
+  let scrollLeft;
 
-    element.addEventListener('mousedown', (e) => {
-      isDown = true;
-      startX = e.pageX - element.offsetLeft;
-      scrollLeft = element.scrollLeft;
-    });
+  element.addEventListener('mousedown', (e) => {
+    isDragging = true;
+    startX = e.pageX - element.offsetLeft;
+    scrollLeft = element.scrollLeft;
+  });
 
-    element.addEventListener('mouseleave', () => {
-      isDown = false;
-    });
+  const stopDragging = () => {
+    if (isDragging) {
+      isDragging = false;
+      animationFrameId = requestAnimationFrame(continuousScroll); // Resume scrolling
+    }
+  };
 
-    element.addEventListener('mouseup', () => {
-      isDown = false;
-    });
+  element.addEventListener('mouseleave', stopDragging);
+  element.addEventListener('mouseup', stopDragging);
+  element.addEventListener('mousemove', (e) => {
+    if (!isDragging) return;
+    e.preventDefault();
+    const x = e.pageX - element.offsetLeft;
+    const walk = (x - startX) * 3; // Adjust scroll sensitivity as needed
+    element.scrollLeft = scrollLeft - walk;
+    cancelAnimationFrame(animationFrameId); // Pause scrolling
+  });
+}
 
-    element.addEventListener('mousemove', (e) => {
-      if (!isDown) return;
-      e.preventDefault();
-      const x = e.pageX - element.offsetLeft;
-      const walk = (x - startX) * 3;
-      element.scrollLeft = scrollLeft - walk;
-    });
-  }
 </script>
 
   
