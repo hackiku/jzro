@@ -1,5 +1,4 @@
-<!-- jzro homepage -->
-<!-- +page.svelte -->
+
 <script>
   
   import { onMount } from 'svelte';
@@ -54,11 +53,8 @@
 
 <Nav {y} />
 
-<!-- <h1 class="absolute bottom-12 right-0 text-2xl">{y}</h1> -->
-<!-- scroll % -->
-
-<div class="scroll-display opacity-20 fixed bottom-0 right-0 m-4 p-2 bg-gray-700 text-white rounded-lg">
-  <!-- Scroll: {scrollPercent.toFixed(0)}% -->
+<div class="scroll-display opacity-60 fixed bottom-0 right-0 m-4 p-2 bg-gray-700 text-white rounded-lg">
+  {y}
 </div>
 
 
