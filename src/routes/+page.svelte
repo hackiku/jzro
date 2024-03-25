@@ -120,14 +120,13 @@
   <div class="w-full md:w-2/5"> <!-- left -->
     <p class="text-md font-mono mb-4">/ Product design /</p>
     <h3 class="text-xl mb-3">
-      Prototypes are wholesome. They're the first real shot at life any idea gets.
-      And I'm kinda doubly obsessed.
+    <h3 class="text-xl mb-3">Prototypes are wholesome. They're the first real shot at life any idea gets.</h3>
+      I prototype digital products for people, and run have built a wireframing app to make it easier for websites.
       </h3>
       
       <p>
-      The main shtick is website copy that converts, in a wireframe format that makes design easy.
-      Made an app for it, too, to do it in Google Docs.
-    into aerospace</p>
+        Prototypes are wholesome. They're the first real shot at life any idea gets.
+        I'm trying to take the best from tech into aerospace.</p>
     
     <!-- <a href="https:pipewriter.io" class="text-md my-4 font-mono text-blue-700 hover:font-underline">
       Pipewriter: Wireframing App in Google Docs →</a> -->

@@ -1,10 +1,12 @@
 <!-- lib/portfolio/Portfolio.svelte -->
 <script>
   import { portfolioData, portfolioTags } from '$lib/portfolio/portfolioData.js';
-  import { onMount } from 'svelte';
+  import { onMount , onDestroy } from 'svelte';
 
   let scrollContainer;
   let selectedItem = 'all';
+  let animationFrameId;
+  let isDragging = false;
 
   // Dynamically count projects per tag
   $: projectsPerTag = Object.entries(portfolioTags).reduce((acc, [tag, id]) => {
@@ -17,8 +19,23 @@
     ? portfolioData
     : portfolioData.filter(item => item.tags.includes(portfolioTags[selectedItem]));
 
+
+  function continuousScroll() {
+    if (!isDragging) {
+      scrollContainer.scrollLeft += 1; // speed
+      
+      // Reset scroll position to create an infinite loop effect
+      if (scrollContainer.scrollLeft >= scrollContainer.scrollWidth - window.innerWidth) {
+        scrollContainer.scrollLeft = 0;
+      }
+    }
+
+    animationFrameId = requestAnimationFrame(continuousScroll);
+  }
+
   onMount(() => { 
     enableDragging(scrollContainer);
+    animationFrameId = requestAnimationFrame(continuousScroll); // Start scrolling
   });
 
   // Accepts a tag name, updates selectedItem
@@ -61,7 +78,7 @@
       style="cursor: url(https://cdn.custom-cursor.com/db/cursor/32/NASA_Cursor.png) , default !important"
       >
   {#each displayedItems as item}
-    <div class="flex-shrink-0 w-[18em] min-h-[13em] shadow-lg rounded-3xl overflow-hidden">
+    <div class="flex-shrink-0 w-[18em] min-h-[13em] shadow-lg rounded-3xl overflow-hidden rotate-rtl">
     <!-- <div class="flex-shrink-0 w-3/6 sm:w-3/5 md:w-2/5 lg:w-1/3 xl:w-1/4 shadow-lg rounded-3xl overflow-hidden"> -->
       <img src={item.image} alt={item.description} class="min-w-full min-h-full object-cover rounded-2xl" />
     </div>
@@ -88,4 +105,7 @@
     -ms-overflow-style: none; 
     scrollbar-width: none;
   }
+
+
+
 </style>
