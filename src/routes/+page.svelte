@@ -1,8 +1,6 @@
 <!-- jzro homepage -->
 <!-- +page.svelte -->
-
 <script>
-  // import { scrollStore } from '$lib/grav/scrollStore.js';
   
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -29,6 +27,7 @@
   let currentDeliverableIndex = 0;
   let visibleDeliverable = deliverables[currentDeliverableIndex];
 
+  let y = 0;
 
   onMount(() => {
     const interval = setInterval(() => {
@@ -46,14 +45,16 @@
 
 <!-- -------------------------------------------------- -->
 
+<svelte:window bind:scrollY={y} />
+
 
 <ScreenSizeDebug />
 
 <Controls />
 
-<Nav />
+<Nav {y} />
 
-
+<!-- <h1 class="absolute bottom-12 right-0 text-2xl">{y}</h1> -->
 <!-- scroll % -->
 
 <div class="scroll-display opacity-20 fixed bottom-0 right-0 m-4 p-2 bg-gray-700 text-white rounded-lg">
@@ -123,7 +124,7 @@
 
   <div class="w-full md:w-2/5"> <!-- left -->
     <h3 class="text-xl mb-3">
-      jzro translate to aerospace 10+ years of tech industry experience writing microcopy,
+      jzro translate to aerospace 10+ years of tech startup experience writing microcopy,
       designing digital products, and even running our own design app for writers.</h3>
     
     <a href="https:pipewriter.io" class="text-md my-4 font-mono text-blue-700 hover:font-underline">

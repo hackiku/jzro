@@ -1,10 +1,10 @@
 <!-- $lib/Nav.svelte -->
 <script>
-  export let y;
-  
+  // import { scrollStore } from '$lib/grav/scrollStore.js';
+  import { onMount } from 'svelte';
   let isOpen = false;
-
-  $: navbarState = y > 100 ? 'hidden' : 'visible';
+  let lastScrollY = 0; //cant use window.scrollY in svelte, gives error 500
+  let navbarPosition = 'top-4';
 
   const navItems = [
     { href: '/hero', label: 'hero' },
@@ -15,18 +15,43 @@
 
   const toggleMenu = () => {
     isOpen = !isOpen;
+    console.log("Menu toggled, isOpen:", isOpen);
   };
+
+  onMount(() => {
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+
+      if (scrollY > lastScrollY) {
+        // Scrolling down
+        navbarPosition = '-top-full';
+      } else {
+        // Scrolling up
+        navbarPosition = 'top-4';
+      }
+      lastScrollY = scrollY; // Update the last scroll position
+    };
+
+    window.addEventListener('scroll', handleScroll);
+
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape' && isOpen) {
+        toggleMenu();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('keydown', handleKeyDown);
+    };
+  });
 </script>
 
-<svelte:window bind:scrollY={y} />
-
-<div class={`fixed rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6 transition-all duration-700 ease-in-out`}
-  style="visibility: {navbarState};">
-
-<!-- <div class={`fixed ${navbarPosition} rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6 transition-all duration-700 ease-in-out`}> -->
+<div class={`fixed ${navbarPosition} rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6 transition-all duration-700 ease-in-out`}>
   <header class="flex flex-col py-4 lg:flex-row lg:items-center">
     <div class="flex justify-between">
-      <a href="/" class="font-mono hover:text-[#F4191D] shrink-0">🚁 jzro {y}</a>
+      <a href="/" class="font-mono hover:text-[#F4191D] shrink-0">🚁 jzro</a>
       <button class="lg:hidden" on:click={toggleMenu}>
         <span class="sr-only">{isOpen ? 'Close menu' : 'Open menu'}</span>
         {#if isOpen}
