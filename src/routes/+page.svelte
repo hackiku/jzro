@@ -69,7 +69,7 @@
   
     <div class="text-center px-4 mb-8 -mt-[14vh]">
       <h1 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h1>
-      <p class="text-2xl">User experience engineered to <br >make products fly.</p>  
+      <p class="text-2xl">User experience writing & design <br> that makes products fly.</p>  
     </div>
     
     <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
@@ -105,13 +105,15 @@
 
 </section>
 
-
+<div class="py-24">
+  <Testimonials />
+</div>
 
 <!------------------------ PIPEWRITER ------------------------>
 
 
 <section class="relative flex flex-col items-center md:flex-row
-  py-20 px-8 md:px-44 space-x-12 ">
+  py-20 px-8 md:px-44 space-x-12">
     
   <div class="w-4/5 sm:w-3/5">
     <!-- <h3 class="text-xl font-mono text-gray-600">Pipewriter: Google Docs Wireframes</h3> -->
@@ -119,6 +121,7 @@
   </div>
   
   
+
   <div class="w-full md:w-2/5"> <!-- left -->
     <p class="text-md font-mono mb-4">Product design /</p>
     <h3 class="text-xl mb-2">Prototypes are wholesome: every idea's first real shot at life. I'm kinda twice obsessed.</h3>
@@ -149,7 +152,7 @@
 <section class="relative md:px-44 py-12">
 
   <div class="">
-    <Testimonials />
+    <!-- <Testimonials /> -->
   </div>
   
   <div class="max-w-xs">
@@ -211,11 +214,11 @@
   <div class="flex flex-wrap items-center">
      <!-- left -->
     <div class="w-full md:w-1/2 p-4">
+      
       <h2 class="text-4xl mb-3">I'm Ivan 👋</h2>
-      <p class="text-md mb-4"
-      >Oye, Dusters. I'm a looongtime tech copywriter midlife-crisising into aerospace engineer, pilot, and HTML programmer.</p>
-      <p class="text-md mb-4"
-      >Im doing it because space exploration is the OG and we should make more of it happen.</p>
+      <p class="text-md mb-4"> <!-- DEVELOPERS DEVELOPERS DEVELOPERS -->
+        Oye, Dusters. I'm a looongtime tech copywriter midlife-crisising into aerospace engineer, pilot, and HTML programmer.</p> 
+      <p class="text-md mb-4">Im doing it because space exploration is the OG and we should make more of it happen.</p>
       <p class="text-md mb-4"
       >If you feel this way too, maybe we can test in prod together and <span class="text-white">design a human-centered space race.</span></p>
     </div> 

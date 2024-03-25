@@ -87,15 +87,16 @@
 </div>
 
 <!-- tags -->
-
 <div class="flex absolute bottom-56 flex-wrap max-w-md justify-start items-start">
   {#each Object.keys(portfolioTags) as tag}
-    <span class="text-md font-mono text-gray-500 hover:text-white cursor-pointer"
+    <span class="text-md font-mono text-gray-500 hover:text-white cursor-pointer
+          {selectedItem === tag ? 'text-white' : 'text-gray-500'}"
           on:click={() => setSelectedItem(tag)}>
        {tag} {selectedItem === tag ? `(${projectsPerTag[tag]})` : ''} /&nbsp;
     </span>
   {/each}
 </div>
+
 
 
 <style>

@@ -21,10 +21,12 @@ export let resultsData = [
 
 export let portfolioTags = {
   'all': 1,
-  'web copy': 2,
-  'landing page': 3,
-  'UX writing': 4,
-  'product design': 5
+  'web': 2,
+  'landing': 3,
+  'devtools': 5,
+  'UI/UX': 6,
+  'wireframes': 4,
+  'product': 7,
 };
 
 export let portfolioData = [
