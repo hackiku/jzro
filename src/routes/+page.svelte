@@ -27,6 +27,8 @@
   let currentDeliverableIndex = 0;
   let visibleDeliverable = deliverables[currentDeliverableIndex];
 
+  let isExpanded = false; // product design blahblah
+
   let y = 0;
 
   onMount(() => {
@@ -118,15 +120,21 @@
   
   
   <div class="w-full md:w-2/5"> <!-- left -->
-    <p class="text-md font-mono mb-4">/ Product design /</p>
-    <h3 class="text-xl mb-3">
-    <h3 class="text-xl mb-3">Prototypes are wholesome. They're the first real shot at life any idea gets.</h3>
-      I prototype digital products for people, and run have built a wireframing app to make it easier for websites.
-      </h3>
-      
-      <p>
-        Prototypes are wholesome. They're the first real shot at life any idea gets.
-        I'm trying to take the best from tech into aerospace.</p>
+    <p class="text-md font-mono mb-4">Product design /</p>
+    <h3 class="text-xl mb-2">Prototypes are wholesome: every idea's first real shot at life. I'm kinda twice obsessed.</h3>
+      {#if isExpanded} <!-- Conditionally render the rest of the text -->
+        <h3 class="text-xl mb-2">I prototype digital products for people, and have built a wireframing app to make it easier for websites.</h3>
+        <p>
+          Prototypes are wholesome. They're the first real shot at life any idea gets.
+          I'm trying to take the best from tech into aerospace. 
+        </p>
+      {/if}
+    
+
+    <button class="text-sm my-4 font-mono text-blue-700 hover:underline" on:click={() => isExpanded = !isExpanded}>
+      {isExpanded ? 'Read Less -' : 'Read More +'}
+    </button>
+  
     
     <!-- <a href="https:pipewriter.io" class="text-md my-4 font-mono text-blue-700 hover:font-underline">
       Pipewriter: Wireframing App in Google Docs →</a> -->
