@@ -19,12 +19,13 @@ export let resultsData = [
   },
 ];
 
-export let workTags = [
-  {
-    tag: 'website copy',
-    name: 'All',
-  },
-];
+export let portfolioTags = {
+  all: 1,
+  'web copy': 2,
+  'landing page': 3,
+  'UX writing': 4,
+  'product design': 5
+};
 
 export let portfolioData = [
   {
@@ -34,7 +35,7 @@ export let portfolioData = [
     link: 'https://uploadcare.com',
     result: null,
     award: null,
-    tags: ['website copy', 'landing page copy'],
+    tags: [2, 3], // 'web copy', 'landing page copy'
   },
   {
     id: 'omicron',
@@ -42,7 +43,8 @@ export let portfolioData = [
     description: 'Innovative web design for Omicron project',
     link: 'https://www.awwwards.com/sites/omicron-blockchain-solution',
     result: null,
-    award: 'Awwwards Honors'
+    award: 'Awwwards Honors',
+    tags: [2, 4, 5], // 'web copy', 'Wireframes', 'Branding'
   },
   {
     id: 'wordagents',
@@ -51,7 +53,7 @@ export let portfolioData = [
     link: 'https://wordagents.com',
     result: 'conversion',
     award: null,
-    tags: ['website copy', 'landing page UX'],
+    tags: [2, 3], // 'web copy', 'landing page UX'
   },
   {
     id: 'flowmyfigma',
@@ -59,6 +61,7 @@ export let portfolioData = [
     description: 'Award-winning Figma to Webflow service & process',
     link: 'https://www.awwwards.com/sites/omicron-blockchain-solution',
     result: null,
-    award: 'Awwwards Honors'
+    award: 'Awwwards Honors',
+    tags: [5, 2, 4], // 'Figma', 'Product design', 'Copywriting'
   },
 ];

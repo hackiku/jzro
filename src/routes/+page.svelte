@@ -3,6 +3,7 @@
 
 <script>
   // import { scrollStore } from '$lib/grav/scrollStore.js';
+  
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
 
@@ -28,10 +29,11 @@
   let currentDeliverableIndex = 0;
   let visibleDeliverable = deliverables[currentDeliverableIndex];
 
+
   onMount(() => {
     const interval = setInterval(() => {
       currentDeliverableIndex = (currentDeliverableIndex + 1) % deliverables.length;
-      visibleDeliverable = deliverables[currentDeliverableIndex]; // Trigger transition
+      visibleDeliverable = deliverables[currentDeliverableIndex];
     }, 2500);
 
     return () => {
@@ -83,14 +85,14 @@
 </section>
 
 <!------------------------ 2. WORK ------------------------>
-<section class="relative py-12 h-[75vh]">
+<section class="relative py-12 h-[100vh]">
   
  <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
  <div class="flex flex-wrap mx-auto md:max-w-3xl items-center px-8">
     <div class="w-full"> 
       <p class="text-md font-mono mb-4">Copywriting & UI/UX</p>
       
-      <h2 class="text-4xl mb-3">Words and user flows<br>that sell more of your <br>
+      <h2 class="text-3xl mb-3">Words and user flows<br>that sell more of your <br>
         <span transition:fade={{ duration: 500 }} class="text-[#1ABCFE] glowing-text">
           {visibleDeliverable}
         </span>
@@ -105,6 +107,8 @@
 
   
   <div class="absolute bottom-0 w-full">
+    
+
     <Portfolio />
     <!-- <Testimonials /> -->
   </div>
@@ -121,16 +125,15 @@
   py-16 px-8 md:px-44 space-x-12 ">
     
   <div class="w-4/5 sm:w-3/5">
-    <h3 class="text-2xl font-mono text-gray-600">Pipewriter: wireframes for writers</h3>
+    <h3 class="text-xl font-mono text-gray-600">Pipewriter: Wireframes for Writers</h3>
     <PipewriterDemo />
   </div>
 
   <div class="w-full md:w-2/5"> <!-- left -->
     <h3 class="text-xl mb-3">
-      The tech industry has its share of design trickery that we could use in aerospace.
-      jzro is all about bridging that gap.</h3>
+      jzro brings 10+ years of top-notch writing and design for software startups to the world of aerospace.
+      We even have an app for designing 10x in Google Docs.</h3>
     
-      <h3>As a 10+ yr copywriter, I built an app to write website wireframes in Google Docs.</h3>
     <p class="text-md my-4 font-mono text-blue-700">Explore Pipewriter →</p>
   </div> 
 
@@ -170,22 +173,20 @@
       <p class="text-md font-mono mb-4">Code + Engineering</p>
       <h2 class="text-4xl mb-3">Aerospacey Interfaces </h2>
     </div> 
-  </div>
     <CodePortfolio />
+  </div>
 </section>
 
 
 
 
+<div class="h-6 bg-gradient-to-t from-darkBg to-lighterBg py-8 flex justify-center items-center"></div>
 
-<div class="h-6 bg-gradient-to-b from-lighterBg to-darkBg mt-8 py-8 flex justify-center items-center"></div>
-
-<!-- --------------------------------------------- -->
-
+<!-- ----------------------- github ----------------------- -->
 
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
-    <div class="w-full md:w-1/2 p-4"> <!-- left -->
+    <div class="w-full md:w-1/2 p-4"> 
       <h3 class="text-xl mb-3">Day job aside, I *really* like building engineery apps. They ain't smart as a 🛰️ DART, but sure are more fun than Fortran</h3>
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
     </div> 

@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   let isOpen = false;
   let lastScrollY = 0;
-  let navVisible = true; // Start with nav visible
+  let navVisible = true;
 
   const navItems = [
     { href: '/hero', label: 'hero' },
@@ -20,7 +20,7 @@
   onMount(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      navVisible = scrollY < lastScrollY; // Nav is visible when scrolling up
+      navVisible = scrollY < lastScrollY;
       lastScrollY = scrollY;
     };
 

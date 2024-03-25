@@ -1,11 +1,32 @@
 <!-- lib/portfolio/Portfolio.svelte -->
 <script>
-  import { portfolioData } from '$lib/portfolio/portfolioData.js';
+  import { portfolioData, portfolioTags } from '$lib/portfolio/portfolioData.js';
   import { onMount } from 'svelte';
 
   let scrollContainer;
+  // Default to showing 'all' items
+  let selectedItem = 'all';
 
-  // Function to enable dragging
+  // Dynamically count projects per tag
+  $: projectsPerTag = Object.entries(portfolioTags).reduce((acc, [tag, id]) => {
+    acc[tag] = portfolioData.filter(item => item.tags.includes(id)).length;
+    return acc;
+  }, {});
+
+  // Filter displayedItems based on selectedItem
+  $: displayedItems = selectedItem === 'all'
+    ? portfolioData
+    : portfolioData.filter(item => item.tags.includes(portfolioTags[selectedItem]));
+
+  onMount(() => { 
+    enableDragging(scrollContainer);
+  });
+
+  // Accepts a tag name, updates selectedItem
+  function setSelectedItem(tagName) {
+    selectedItem = tagName;
+  }
+
   function enableDragging(element) {
     let isDown = false;
     let startX;
@@ -29,32 +50,34 @@
       if (!isDown) return;
       e.preventDefault();
       const x = e.pageX - element.offsetLeft;
-      const walk = (x - startX) * 3; //scroll-fast
+      const walk = (x - startX) * 3;
       element.scrollLeft = scrollLeft - walk;
     });
   }
-
-  onMount(() => {
-    enableDragging(scrollContainer);
-  });
 </script>
 
-  <div class="border border-dashed border-gray-800
-    flex items-center max-w-full"
-    style="cursor: url(https://cdn.custom-cursor.com/db/cursor/32/NASA_Cursor.png) , default !important"
-    >
-    <div class="w-full relative">
+<!-- Tags display section -->
+<div class="flex mx-auto p-4 mb-6 items-center justify-center
+  select-none bg-gray-900 rounded-full cursor-pointer
+  bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md
+  px-6 transition-all duration-300 ease-in-out">
+  {#each Object.keys(portfolioTags) as tag}
+    <span class="text-sm text-gray-500 hover:text-white mr-4 cursor-pointer"
+          on:click={() => setSelectedItem(tag)}>
+      {tag}
+      {selectedItem === tag ? ` (${projectsPerTag[tag]})` : ''}
+    </span>
+  {/each}
+</div>
 
-      <div class="flex overflow-x-auto space-x-8 scrollbar-hide" bind:this={scrollContainer}>
-        {#each portfolioData as item}
-          <div class="flex-shrink-0 w-4/6 sm:w-3/5 md:w-2/5 lg:w-1/3 xl:w-1/4 bg-cover bg-center shadow-lg rounded-3xl overflow-hidden">
-            <img src={item.image} alt={item.description} class="min-w-full min-h-full object-cover" />
-            <p>{item.tags}</p>
-          </div>
-        {/each}
-      </div>
+<!-- Projects display section -->
+<div class="flex overflow-x-auto space-x-8 scrollbar-hide" bind:this={scrollContainer}>
+  {#each displayedItems as item}
+    <div class="flex-shrink-0 w-5/6 sm:w-3/5 md:w-2/5 lg:w-1/3 xl:w-1/4 shadow-lg rounded-3xl overflow-hidden">
+      <img src={item.image} alt={item.description} class="min-w-full min-h-full object-cover rounded-2xl" />
     </div>
-  </div>
+  {/each}
+</div>
 
 <style>
   .scrollbar-hide::-webkit-scrollbar {
