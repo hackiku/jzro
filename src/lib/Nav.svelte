@@ -5,7 +5,6 @@
   let navbarTop = 0; // This will hold the navbar's top value
   let isOpen = false;
 
-  // Calculate the navbar's top value based on scroll direction
   $: {
     if (y > lastY) {
       // Scrolling down, move navbar up beyond the viewport's top

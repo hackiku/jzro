@@ -7,6 +7,7 @@
   //ui
   import Nav from '$lib/Nav.svelte';
   import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
+  import Footer from '$lib/ui/Footer.svelte';
   // proof
   import Logos from '$lib/portfolio/Logos.svelte';
   import Portfolio from '$lib/portfolio/Portfolio.svelte';
@@ -241,29 +242,18 @@
 
 </main>
 <!-------------------------- footer -------------------------->
-
-<footer class="relative text-center flex justify-center items-end h-[100px]"> <!-- Adjust the height and padding as necessary -->
-  <p class="z-10 text-darkBg text-xs">Copyalright © 2024 Ivan Karaman | Privacy | Terms</p>
-  <img src="assets/footer.svg" alt="" class="w-full h-full absolute z-0 top-2 left-0">
-</footer>
+<Footer />
 
 <style>
 
 /* Disable dragging for all images */
 img {
   -webkit-user-drag: none;
-  user-drag: none;
+  /* user-drag: none; */
   user-select: none;
   pointer-events: none;
 }
 
-/* Prevent text selection globally */
-body {
-  -webkit-user-select: none; /* Safari */
-  -moz-user-select: none; /* Firefox */
-  -ms-user-select: none; /* IE10+/Edge */
-  user-select: none; /* Standard */
-}
 
   section {
     @apply border border-dashed border-gray-900;

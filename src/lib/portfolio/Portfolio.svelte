@@ -68,7 +68,6 @@
   {/each}
 </div>
 
-
 <!-- tags -->
 
 <div class="flex absolute bottom-56 flex-wrap max-w-md justify-start items-start">
@@ -83,7 +82,7 @@
 
 <style>
   .scrollbar-hide::-webkit-scrollbar {
-    display: none;
+  display: none;
   }
   .scrollbar-hide {
     -ms-overflow-style: none; 
