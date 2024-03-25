@@ -250,15 +250,6 @@
 
 <style>
 
-/* Disable dragging for all images */
-img {
-  -webkit-user-drag: none;
-  /* user-drag: none; */
-  user-select: none;
-  pointer-events: none;
-}
-
-
   section {
     @apply border border-dashed border-gray-900;
   }
