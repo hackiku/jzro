@@ -3,7 +3,7 @@
   import { onMount } from 'svelte';
   let isOpen = false;
   let lastScrollY = 0;
-  let navVisible = true;
+  let navbarPosition = 'top-4'; // Initial navbar position, making it visible at the start
 
   const navItems = [
     { href: '/hero', label: 'hero' },
@@ -20,8 +20,15 @@
   onMount(() => {
     const handleScroll = () => {
       const scrollY = window.scrollY;
-      navVisible = scrollY < lastScrollY;
-      lastScrollY = scrollY;
+
+      if (scrollY > lastScrollY) {
+        // Scrolling down
+        navbarPosition = '-top-full'; // Moves navbar out of view
+      } else {
+        // Scrolling up
+        navbarPosition = 'top-4'; // Brings navbar back into view
+      }
+      lastScrollY = scrollY; // Update the last scroll position
     };
 
     window.addEventListener('scroll', handleScroll);
@@ -40,21 +47,11 @@
   });
 </script>
 
-<div class={`fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50
-  z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw]
-  px-6 ${navVisible ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
-
-  <!-- <div class="fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50
-  backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6"> -->
-  
-  <header class="flex flex-col py-4 
-    lg:flex-row lg:items-center ">
-    
+<div class={`fixed ${navbarPosition} rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6 transition-all duration-700 ease-in-out`}>
+  <header class="flex flex-col py-4 lg:flex-row lg:items-center">
     <div class="flex justify-between">
-      <a href="/" class="font-mono hover:text-[#F4191D] shrink-0">
-        🚁 jzro</a>
-
-        <button class="lg:hidden" on:click={toggleMenu}>
+      <a href="/" class="font-mono hover:text-[#F4191D] shrink-0">🚁 jzro</a>
+      <button class="lg:hidden" on:click={toggleMenu}>
         <span class="sr-only">{isOpen ? 'Close menu' : 'Open menu'}</span>
         {#if isOpen}
           <!-- Close icon -->
@@ -70,11 +67,8 @@
       </button>
     </div>
     
-    <nav class={`${isOpen ? 'flex' : 'hidden'} flex-col gap-6
-      lg:flex lg:flex-row lg:w-full`}>
-
-      <ul class="flex flex-col mt-6 
-        lg:mt-0 lg:flex-row lg:flex-grow lg:justify-end lg:space-x-6">
+    <nav class={`${isOpen ? 'flex' : 'hidden'} flex-col gap-6 lg:flex lg:flex-row lg:w-full`}>
+      <ul class="flex flex-col mt-6 lg:mt-0 lg:flex-row lg:flex-grow lg:justify-end lg:space-x-6">
         {#each navItems as { href, label }}
           <li class="w-100 border-b border-gray-800 lg:border-none">
             <a href={href} class="block py-2 text-gray-600 hover:text-[#F4191D]" on:click={toggleMenu}>
@@ -85,6 +79,5 @@
       </ul>
       <button class="px-6 py-2 rounded-full bg-[#F4191D]">say hi 👋</button>
     </nav>
-
   </header>
 </div>

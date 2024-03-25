@@ -103,13 +103,8 @@
       </h2>
 
     </div> 
-    <!-- <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> -->
   
     <Portfolio />
-  <!-- <div class="absolute bottom-0 w-screen"> -->
-
-    <!-- <Testimonials /> -->
-  <!-- </div> -->
 
 </section>
 
@@ -118,21 +113,21 @@
 <!------------------------ PIPEWRITER ------------------------>
 
 
-
 <section class="relative flex flex-col items-center md:flex-row
-  py-16 px-8 md:px-44 space-x-12 ">
+  py-20 px-8 md:px-44 space-x-12 ">
     
   <div class="w-4/5 sm:w-3/5">
-    <h3 class="text-xl font-mono text-gray-600">Pipewriter: Wireframes for Writers</h3>
+    <!-- <h3 class="text-xl font-mono text-gray-600">Pipewriter: Google Docs Wireframes</h3> -->
     <PipewriterDemo />
   </div>
 
   <div class="w-full md:w-2/5"> <!-- left -->
     <h3 class="text-xl mb-3">
-      jzro brings 10+ years of top-notch writing and design for software startups to the world of aerospace.
-      We even have an app for designing 10x in Google Docs.</h3>
+      jzro translate to aerospace 10+ years of tech industry experience writing microcopy,
+      designing digital products, and even running our own design app for writers.</h3>
     
-    <p class="text-md my-4 font-mono text-blue-700">Explore Pipewriter →</p>
+    <a href="https:pipewriter.io" class="text-md my-4 font-mono text-blue-700 hover:font-underline">
+      Pipewriter: Wireframing App in Google Docs →</a>
   </div> 
 
 

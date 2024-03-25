@@ -1,4 +1,4 @@
-// scrollStore.js
+// lib/scrollStore.js
 import { writable } from 'svelte/store';
 
 // Store for the scroll position

@@ -55,17 +55,6 @@
   }
 </script>
 
-<!-- tags -->
-
-<div class="flex absolute bottom-56 flex-wrap max-w-md justify-start items-start">
-    {#each Object.keys(portfolioTags) as tag}
-      <span class="text-md font-mono text-gray-500 hover:text-white cursor-pointer"
-            on:click={() => setSelectedItem(tag)}>
-         {tag} {selectedItem === tag ? `(${projectsPerTag[tag]})` : ''} /&nbsp;
-      </span>
-    {/each}
-  <!-- </div> -->
-</div>
   
 <!-- projects slider -->
 <div class="flex absolute left-0 bottom-0 overflow-x-auto space-x-12 scrollbar-hide w-screen" bind:this={scrollContainer}
@@ -78,6 +67,19 @@
     </div>
   {/each}
 </div>
+
+
+<!-- tags -->
+
+<div class="flex absolute bottom-56 flex-wrap max-w-md justify-start items-start">
+  {#each Object.keys(portfolioTags) as tag}
+    <span class="text-md font-mono text-gray-500 hover:text-white cursor-pointer"
+          on:click={() => setSelectedItem(tag)}>
+       {tag} {selectedItem === tag ? `(${projectsPerTag[tag]})` : ''} /&nbsp;
+    </span>
+  {/each}
+</div>
+
 
 <style>
   .scrollbar-hide::-webkit-scrollbar {
