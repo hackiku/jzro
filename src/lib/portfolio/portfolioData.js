@@ -28,28 +28,37 @@ export let workTags = [
 
 export let portfolioData = [
   {
-    id: 'wordagents',
-    image: 'portfolio/omicron-hero.png',
-    description: 'Oldtime SEO content agency website copy',
-    link: 'https://wordagents.com',
-    result: 'conversion',
+    id: 'uploadcare',
+    image: 'portfolio/uploadcare-flex.png',
+    description: 'Landing pages & websites for leading devtool',
+    link: 'https://uploadcare.com',
+    result: null,
     award: null,
     tags: ['website copy', 'landing page copy'],
   },
   {
-    id: 'uploadcare',
-    image: 'portfolio/uploadcare-ui.png',
-    description: 'Landing pages & websites for leading devtool',
-    link: 'https://uploadcare.com',
+    id: 'omicron',
+    image: 'portfolio/omicron-mood.png',
+    description: 'Innovative web design for Omicron project',
+    link: 'https://www.awwwards.com/sites/omicron-blockchain-solution',
     result: null,
-    award: null
+    award: 'Awwwards Honors'
   },
   {
-    id: 'omicron',
-    image: 'portfolio/omicron-ui.png',
-    description: 'Innovative web design for Omicron project',
-    link: 'https://omicron.example.com',
+    id: 'wordagents',
+    image: 'portfolio/wordagents-ui.png',
+    description: 'Oldtime SEO content agency website copy',
+    link: 'https://wordagents.com',
+    result: 'conversion',
+    award: null,
+    tags: ['website copy', 'landing page UX'],
+  },
+  {
+    id: 'flowmyfigma',
+    image: 'portfolio/flowmyfigma.png',
+    description: 'Award-winning Figma to Webflow service & process',
+    link: 'https://www.awwwards.com/sites/omicron-blockchain-solution',
     result: null,
-    award: 'awwwards honors'
+    award: 'Awwwards Honors'
   },
 ];

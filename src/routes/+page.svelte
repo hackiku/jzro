@@ -121,12 +121,17 @@
   py-16 px-8 md:px-44 space-x-12 ">
     
   <div class="w-4/5 sm:w-3/5">
+    <h3 class="text-2xl font-mono text-gray-600">Pipewriter: wireframes for writers</h3>
     <PipewriterDemo />
   </div>
 
   <div class="w-full md:w-2/5"> <!-- left -->
-    <h3 class="text-xl mb-3">8+ years tech copywriter, on a mission to bring SaaS design to aerospace. My product Pipewriter is for writers to draw wireframes in Google Docs</h3>
-    <p class="text-md mb-4 font-mono text-blue-700">Explore Pipewriter →</p>
+    <h3 class="text-xl mb-3">
+      The tech industry has its share of design trickery that we could use in aerospace.
+      jzro is all about bridging that gap.</h3>
+    
+      <h3>As a 10+ yr copywriter, I built an app to write website wireframes in Google Docs.</h3>
+    <p class="text-md my-4 font-mono text-blue-700">Explore Pipewriter →</p>
   </div> 
 
 
@@ -166,8 +171,11 @@
       <h2 class="text-4xl mb-3">Aerospacey Interfaces </h2>
     </div> 
   </div>
-  <CodePortfolio />
+    <CodePortfolio />
 </section>
+
+
+
 
 
 <div class="h-6 bg-gradient-to-b from-lighterBg to-darkBg mt-8 py-8 flex justify-center items-center"></div>
@@ -178,7 +186,7 @@
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> <!-- left -->
-      <h3 class="text-xl mb-3">For fun, school and profit, I also *really* like building engineery apps that ain't smart as a DART 🛰️ but sure are more fun than Fortran</h3>
+      <h3 class="text-xl mb-3">Day job aside, I *really* like building engineery apps. They ain't smart as a 🛰️ DART, but sure are more fun than Fortran</h3>
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
@@ -249,6 +257,22 @@
 </footer>
 
 <style>
+
+/* Disable dragging for all images */
+img {
+  -webkit-user-drag: none;
+  user-drag: none;
+  user-select: none;
+  pointer-events: none;
+}
+
+/* Prevent text selection globally */
+body {
+  -webkit-user-select: none; /* Safari */
+  -moz-user-select: none; /* Firefox */
+  -ms-user-select: none; /* IE10+/Edge */
+  user-select: none; /* Standard */
+}
 
   section {
     @apply border border-dashed border-gray-900;

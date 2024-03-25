@@ -40,7 +40,9 @@
   });
 </script>
 
-<div class={`fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6 ${navVisible ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
+<div class={`fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50
+  z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw]
+  px-6 ${navVisible ? 'block' : 'hidden'} transition-all duration-300 ease-in-out`}>
 
   <!-- <div class="fixed top-4 rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50
   backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6"> -->
