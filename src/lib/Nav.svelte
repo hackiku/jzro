@@ -1,14 +1,15 @@
 <!-- $lib/Nav.svelte -->
 <script>
   export let y;
-  let lastY = 0; // Initialize lastY for comparison
-  let navbarTop = 0; // This will hold the navbar's top value
+  let lastY = 0;
+  let navbarTop = 0; 
   let isOpen = false;
 
   $: {
     if (y > lastY) {
       // Scrolling down, move navbar up beyond the viewport's top
       navbarTop = '-5%';
+      isOpen = false;
     } else {
       navbarTop = '1em';
     }
@@ -30,7 +31,7 @@
 
 <!-- <svelte:window bind:scrollY={y} /> -->
 
-<div class={`fixed top-0 inset-x-0 transition-all duration-300 ease-in-out ${isOpen ? 'mt-4' : ''} rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6`} style="top: {navbarTop};">
+<div class={`fixed top-0 inset-x-0 transition-all duration-300 ease-in-out ${isOpen ? 'mt-2' : ''} rounded-3xl lg:rounded-full bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md inset-x-[6vw] sm:inset-x-[12vw] md:inset-x-[20vw] px-6`} style="top: {navbarTop};">
   <header class="flex flex-col py-4 lg:flex-row lg:items-center">
 
 

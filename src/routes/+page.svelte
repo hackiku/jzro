@@ -92,9 +92,9 @@
  <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
  <div class="flex flex-wrap mx-auto md:max-w-3xl items-center px-8">
     <div class="w-full"> 
-      <p class="text-md font-mono mb-4">Copywriting & UI/UX</p>
+      <p class="text-md font-mono mb-4">Web Copy & Design</p>
       
-      <h2 class="text-3xl mb-3">Words and user flows<br>that sell more of your <br>
+      <h2 class="text-3xl mb-3">Words and flows<br>to sell more of your<br>
         <span transition:fade={{ duration: 500 }} class="text-[#1ABCFE] glowing-text">
           {visibleDeliverable}
         </span>
@@ -118,14 +118,16 @@
     <!-- <h3 class="text-xl font-mono text-gray-600">Pipewriter: Google Docs Wireframes</h3> -->
     <PipewriterDemo />
   </div>
-
+  
+  
   <div class="w-full md:w-2/5"> <!-- left -->
+    <p class="text-md font-mono mb-4">Product design</p>
     <h3 class="text-xl mb-3">
       jzro translate to aerospace 10+ years of tech startup experience writing microcopy,
       designing digital products, and even running our own design app for writers.</h3>
     
-    <a href="https:pipewriter.io" class="text-md my-4 font-mono text-blue-700 hover:font-underline">
-      Pipewriter: Wireframing App in Google Docs →</a>
+    <!-- <a href="https:pipewriter.io" class="text-md my-4 font-mono text-blue-700 hover:font-underline">
+      Pipewriter: Wireframing App in Google Docs →</a> -->
   </div> 
 
 
@@ -178,7 +180,8 @@
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> 
-      <h3 class="text-xl mb-3">Day job aside, I *really* like building engineery apps. They ain't smart as a 🛰️ DART, but sure are more fun than Fortran</h3>
+      <h3 class="text-xl mb-3">Day job aside, I *really* dig developing engineery apps for space and aviation.
+        They ain't smart as a 🛰️ DART, but sure are more fun than Fortran</h3>
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
