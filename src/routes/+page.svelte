@@ -50,7 +50,7 @@
 
 <ScreenSizeDebug />
 
-<Controls />
+<Controls {y}/>
 
 <Nav {y} />
 

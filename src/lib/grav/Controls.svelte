@@ -2,14 +2,30 @@
 <!-- /grav/Controls.svelte -->
 
 <script>
-  
   import physicsStore from '$lib/grav/physicsStore.js'; // new
-
   import { onDestroy } from 'svelte';
 
-  let localVelocity;
+  export let y;
+  let lastY = 0;
+  let isOpen = false;
 
-  // Subscribe to the physics store and update localVelocity accordingly
+  let localVelocity = 0;
+  // let OPEN = false;
+  let HIDDEN = '-10%';
+  let VISIBLE = '1em';
+  let controlsBottom = '';
+
+  $: {
+    if (y > lastY) {
+      controlsBottom = HIDDEN;
+      isOpen = false;
+    } else {
+      controlsBottom = VISIBLE;
+    }
+    lastY = y;
+  }
+
+  // subscribe to physics store
   const unsubscribe = physicsStore.subscribe(($physicsStore) => {
     localVelocity = $physicsStore.velocity;
   });
@@ -24,20 +40,34 @@
     physicsStore.setVelocity(localVelocity);
   }
 
-  // Clean up the subscription when the component is destroyed
   onDestroy(() => {
     unsubscribe();
   });
+
+  // --------------- hide controls ---------------
+  function showControls() {
+    controlsBottom = VISIBLE; 
+  }
+
+  function hideControls() {
+    controlsBottom = HIDDEN;
+  }
+
+
 </script>
 
-<div class="z-50 fixed bottom-6 mx-auto p-4 rounded-full backdrop-blur-md
-  bg-gray-500 bg-opacity-10 opacity-10 hover:opacity-100 flex justify-center items-center
-  w-3/4 sm:w-2/5 lg:w-1/4 xl:w-1/5 inset-x-10">
+<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------- -->
 
-<!-- <div class="z-50 fixed p-4 bottom-6 rounded-full backdrop-blur-md
-  inset-x-12 flex justify-center items-center bg-gray-500 bg-opacity-10
-  opacity-10 hover:opacity-100"> -->
-  
+
+<!-- svelte-ignore a11y-interactive-supports-focus -->
+<div class="z-50 fixed bottom-6 mx-auto p-4 rounded-full backdrop-blur-md
+  bg-gray-500 bg-opacity-10 opacity-60 hover:opacity-100 flex justify-center items-center
+  w-3/4 sm:w-2/5 lg:w-1/4 xl:w-1/5 inset-x-10"
+  style="bottom: {controlsBottom};"
+  on:mouseover={showControls} on:mouseout={hideControls} on:focus={showControls} on:blur={showControls}
+  role="button">
+
   <button class="text-5xl mr-6 hover:bg-red-500 rounded-full" on:click={launchRocket}>💥</button>
   
   <!-- velocity container -->
@@ -48,12 +78,16 @@
       <p>v = <span class="velocity">{localVelocity}</span> km/s</p>
     </div>
     
-    <!-- slider -->
+    <!-- v slider -->
     <input type="range" min="1" max="100" value={localVelocity}
       class="slider w-full" id="velocitySlider"
       on:input={handleVelocityChange} />
   </div>
 </div>
+
+<!-- ---------------------------------------------- -->
+<!-- ---------------------------------------------- -->
+
 
 <style>
   .velocity {
