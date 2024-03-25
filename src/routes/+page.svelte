@@ -85,7 +85,7 @@
 </section>
 
 <!------------------------ 2. WORK ------------------------>
-<section class="relative py-12 h-[100vh]">
+<section class="relative py-12 h-[85vh]">
   
  <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
  <div class="flex flex-wrap mx-auto md:max-w-3xl items-center px-8">

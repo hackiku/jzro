@@ -4,7 +4,6 @@
   import { onMount } from 'svelte';
 
   let scrollContainer;
-  // Default to showing 'all' items
   let selectedItem = 'all';
 
   // Dynamically count projects per tag
@@ -57,17 +56,15 @@
 </script>
 
 <!-- Tags display section -->
-<div class="flex mx-auto p-4 mb-6 items-center justify-center
-  select-none bg-gray-900 rounded-full cursor-pointer
-  bg-gray-900 bg-opacity-50 z-50 backdrop-blur-md
-  px-6 transition-all duration-300 ease-in-out">
-  {#each Object.keys(portfolioTags) as tag}
-    <span class="text-sm text-gray-500 hover:text-white mr-4 cursor-pointer"
-          on:click={() => setSelectedItem(tag)}>
-      {tag}
-      {selectedItem === tag ? ` (${projectsPerTag[tag]})` : ''}
-    </span>
-  {/each}
+<div class="flex flex-wrap mx-auto md:max-w-3xl px-8 mb-6 items-start justify-start">
+  <!-- <div class="flex flex-wrap gap-2 py-2 items-center justify-center bg-gray-900 rounded-full cursor-pointer bg-opacity-50 z-50 backdrop-blur-md px-4"> -->
+    {#each Object.keys(portfolioTags) as tag}
+      <span class="text-md font-mono text-gray-500 hover:text-white cursor-pointer"
+            on:click={() => setSelectedItem(tag)}>
+         {tag} {selectedItem === tag ? `(${projectsPerTag[tag]})` : ''} /&nbsp;
+      </span>
+    {/each}
+  <!-- </div> -->
 </div>
 
 <!-- Projects display section -->

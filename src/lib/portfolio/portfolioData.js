@@ -20,7 +20,7 @@ export let resultsData = [
 ];
 
 export let portfolioTags = {
-  all: 1,
+  'all': 1,
   'web copy': 2,
   'landing page': 3,
   'UX writing': 4,
