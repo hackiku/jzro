@@ -85,8 +85,12 @@
 </section>
 
 <!------------------------ 2. WORK ------------------------>
-<section class="relative py-12 h-[85vh]">
+<section class="relative py-12 h-[80vh]">
   
+  <div class="absolute right-[15vw] top-52 md:top-[18vh]">
+    <Planet id="work" color="#1ABCFE" label="for work"/>
+  </div>
+
  <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
  <div class="flex flex-wrap mx-auto md:max-w-3xl items-center px-8">
     <div class="w-full"> 
@@ -100,18 +104,12 @@
 
     </div> 
     <!-- <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> -->
-    <div class="absolute right-[15vw] top-52 md:top-[18vh]">
-      <Planet id="work" color="#1ABCFE" label="for work"/>
-    </div>
-  </div>
-
   
-  <div class="absolute bottom-0 w-full">
-    
-
     <Portfolio />
+  <!-- <div class="absolute bottom-0 w-screen"> -->
+
     <!-- <Testimonials /> -->
-  </div>
+  <!-- </div> -->
 
 </section>
 

@@ -55,9 +55,9 @@
   }
 </script>
 
-<!-- Tags display section -->
-<div class="flex flex-wrap mx-auto md:max-w-3xl px-8 mb-6 items-start justify-start">
-  <!-- <div class="flex flex-wrap gap-2 py-2 items-center justify-center bg-gray-900 rounded-full cursor-pointer bg-opacity-50 z-50 backdrop-blur-md px-4"> -->
+<!-- tags -->
+
+<div class="flex absolute bottom-56 flex-wrap max-w-md justify-start items-start">
     {#each Object.keys(portfolioTags) as tag}
       <span class="text-md font-mono text-gray-500 hover:text-white cursor-pointer"
             on:click={() => setSelectedItem(tag)}>
@@ -66,11 +66,14 @@
     {/each}
   <!-- </div> -->
 </div>
-
-<!-- Projects display section -->
-<div class="flex overflow-x-auto space-x-8 scrollbar-hide" bind:this={scrollContainer}>
+  
+<!-- projects slider -->
+<div class="flex absolute left-0 bottom-0 overflow-x-auto space-x-12 scrollbar-hide w-screen" bind:this={scrollContainer}
+      style="cursor: url(https://cdn.custom-cursor.com/db/cursor/32/NASA_Cursor.png) , default !important"
+      >
   {#each displayedItems as item}
-    <div class="flex-shrink-0 w-5/6 sm:w-3/5 md:w-2/5 lg:w-1/3 xl:w-1/4 shadow-lg rounded-3xl overflow-hidden">
+    <div class="flex-shrink-0 w-[18em] min-h-[13em] shadow-lg rounded-3xl overflow-hidden">
+    <!-- <div class="flex-shrink-0 w-3/6 sm:w-3/5 md:w-2/5 lg:w-1/3 xl:w-1/4 shadow-lg rounded-3xl overflow-hidden"> -->
       <img src={item.image} alt={item.description} class="min-w-full min-h-full object-cover rounded-2xl" />
     </div>
   {/each}
