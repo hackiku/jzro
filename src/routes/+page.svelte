@@ -233,16 +233,20 @@
 
 
 <!-------------------------- jzro -------------------------->
-<div class="flex flex-row justify-center mt-8 mb-10">
+<section class="flex flex-row justify-center mt-8 mb-44">
 	<div class="flex flex-col justify-start">
     <p class="font-mono text-xs mb-3">47 hours ago</p>
     <p class="text-2xl font-mono text-white"><span class="red">JZRO</span> 03<span class="red">2151</span>Z 26004KT CLEAR <span class="red">-6</span>/-14 Q<span class="red">127</span></p>
   </div>
-</div>
+</section>
 
 </main>
 <!-------------------------- footer -------------------------->
 <Footer />
+
+
+
+
 
 <style>
 
