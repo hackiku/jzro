@@ -1,6 +1,7 @@
 <!-- $lib/ui/ScreenSizeDebug.svelte -->
 <script>
   import { dev } from '$app/environment';
+  export let y; // scroll position
   /**
    * NOTE: If you like using this for debugging purposes
    * it's good to display it on dev environment only
@@ -18,4 +19,9 @@
     <div class="hidden xl:block 2xl:hidden">xl</div>
     <div class="hidden 2xl:block">2xl</div>
   </div>
+
+  <div class="scroll-display opacity-60 fixed right-2 m-4 p-2 bg-gray-700 text-white text-sm rounded-lg">
+    {+y.toFixed(2)}
+  </div>
+
 {/if}

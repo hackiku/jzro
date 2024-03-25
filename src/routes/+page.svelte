@@ -23,7 +23,7 @@
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
   import Coin from '$lib/Coin.svelte';
 
-  let deliverables = ['SaaS & B2B', 'space tech', 'agency gigs', ];
+  let deliverables = ['software', 'space tech', 'agency gigs', 'lawyer camarilla', 'LK-99 shipment'];
   let currentDeliverableIndex = 0;
   let visibleDeliverable = deliverables[currentDeliverableIndex];
 
@@ -47,16 +47,13 @@
 
 <svelte:window bind:scrollY={y} />
 
-
-<ScreenSizeDebug />
+<ScreenSizeDebug {y}/>
 
 <Controls {y}/>
 
 <Nav {y} />
 
-<div class="scroll-display opacity-60 fixed bottom-0 right-0 m-4 p-2 bg-gray-700 text-white rounded-lg">
-  {y}
-</div>
+
 
 
 <!-- <GravityLauncher /> -->
@@ -92,9 +89,9 @@
  <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
  <div class="flex flex-wrap mx-auto md:max-w-3xl items-center px-8">
     <div class="w-full"> 
-      <p class="text-md font-mono mb-4">Web Copy & Design</p>
+      <p class="text-md font-mono mb-4">Copywriting + Design</p>
       
-      <h2 class="text-3xl mb-3">Words and flows<br>to sell more of your<br>
+      <h2 class="text-3xl mb-3">Words and user flows<br>to sell more of your<br>
         <span transition:fade={{ duration: 500 }} class="text-[#1ABCFE] glowing-text">
           {visibleDeliverable}
         </span>
@@ -121,10 +118,16 @@
   
   
   <div class="w-full md:w-2/5"> <!-- left -->
-    <p class="text-md font-mono mb-4">Product design</p>
+    <p class="text-md font-mono mb-4">/ Product design /</p>
     <h3 class="text-xl mb-3">
-      jzro translate to aerospace 10+ years of tech startup experience writing microcopy,
-      designing digital products, and even running our own design app for writers.</h3>
+      Prototypes are wholesome. They're the first real shot at life any idea gets.
+      And I'm kinda doubly obsessed.
+      </h3>
+      
+      <p>
+      The main shtick is website copy that converts, in a wireframe format that makes design easy.
+      Made an app for it, too, to do it in Google Docs.
+    into aerospace</p>
     
     <!-- <a href="https:pipewriter.io" class="text-md my-4 font-mono text-blue-700 hover:font-underline">
       Pipewriter: Wireframing App in Google Docs →</a> -->
@@ -165,6 +168,7 @@
     <div class="w-full md:w-1/2 p-4"> <!-- right -->
       <p class="text-md font-mono mb-4">Code + Engineering</p>
       <h2 class="text-4xl mb-3">Aerospacey Interfaces </h2>
+      <p class="text-md font-mono mb-4">no such thing as too much right rudder</p>
     </div> 
     <CodePortfolio />
   </div>
@@ -180,9 +184,9 @@
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> 
-      <h3 class="text-xl mb-3">Day job aside, I *really* dig developing engineery apps for space and aviation.
+      <h3 class="text-xl mb-3">Day jobbing aside, I *really* dig developing engineery apps for space and aviation.
         They ain't smart as a 🛰️ DART, but sure are more fun than Fortran</h3>
-      <p class="text-md mb-4 font-mono text-blue-700">Hire me to code →</p>
+      <p class="text-md mb-4 font-mono text-blue-700">Hire me to code ?</p>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
       <Planet id="github" color="#F1F1F1" label="GitHub"/>
@@ -202,11 +206,11 @@
     <div class="w-full md:w-1/2 p-4">
       <h2 class="text-4xl mb-3">I'm Ivan 👋</h2>
       <p class="text-md mb-4"
-      >Oye, Dusters. I'm a longtime tech copywriter midlife-crisising into aerospace engineer, pilot, and HTML programmer.</p>
+      >Oye, Dusters. I'm a looongtime tech copywriter midlife-crisising into aerospace engineer, pilot, and HTML programmer.</p>
       <p class="text-md mb-4"
       >Im doing it because space exploration is the OG and we should make more of it happen.</p>
       <p class="text-md mb-4"
-      >If you feel this way too, maybe we can test in prod together and design a more human-centered space race.</p>
+      >If you feel this way too, maybe we can test in prod together and <span class="text-white">design a human-centered space race.</span></p>
     </div> 
     <!-- left -->
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->

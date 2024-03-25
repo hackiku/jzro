@@ -7,18 +7,18 @@
 
   export let y;
   let lastY = 0;
-  let isOpen = false;
+  let isVisible = false;
 
   let localVelocity = 0;
   // let OPEN = false;
-  let HIDDEN = '-10%';
+  let HIDDEN = '-80vw';
   let VISIBLE = '1em';
   let controlsBottom = '';
 
   $: {
     if (y > lastY) {
       controlsBottom = HIDDEN;
-      isOpen = false;
+      isVisible = false;
     } else {
       controlsBottom = VISIBLE;
     }
@@ -47,6 +47,7 @@
   // --------------- hide controls ---------------
   function showControls() {
     controlsBottom = VISIBLE; 
+    
   }
 
   function hideControls() {
@@ -59,9 +60,17 @@
 <!-- ---------------------------------------------- -->
 <!-- ---------------------------------------------- -->
 
+  {#if isVisible === false}
+    <div class="fixed bottom-0 h-1 mx-auto z-50
+       bg-[#1ABCFE] bg-opacity-20 glowing-bottom
+      w-3/4 sm:w-2/5 lg:w-1/4 xl:w-1/5 inset-x-10"
+      >
+    </div>
+  {/if}
 
+  
 <!-- svelte-ignore a11y-interactive-supports-focus -->
-<div class="z-50 fixed bottom-6 mx-auto p-4 rounded-full backdrop-blur-md
+<div class="z-50 fixed mx-auto py-4 rounded-full backdrop-blur-md transition-all duration-500 ease-in-out
   bg-gray-500 bg-opacity-10 opacity-60 hover:opacity-100 flex justify-center items-center
   w-3/4 sm:w-2/5 lg:w-1/4 xl:w-1/5 inset-x-10"
   style="bottom: {controlsBottom};"
@@ -85,6 +94,7 @@
   </div>
 </div>
 
+
 <!-- ---------------------------------------------- -->
 <!-- ---------------------------------------------- -->
 
@@ -93,4 +103,16 @@
   .velocity {
     color: #FF3D00;
   }
+
+  .glowing-bottom {
+    /* @apply transition-all duration-1000 ease-in-out; */
+    transition: box-shadow 0.5s ease-in-out, color 0.3s ease-in-out;
+    box-shadow : 0 0 1em #1ABCFE;
+  }
+  .glowing-bottom:hover {
+    box-shadow: 0 0 0.8em #1ABCFE;
+  }
+
 </style>
+
+

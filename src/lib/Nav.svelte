@@ -8,7 +8,7 @@
   $: {
     if (y > lastY) {
       // Scrolling down, move navbar up beyond the viewport's top
-      navbarTop = '-5%';
+      navbarTop = '-50%';
       isOpen = false;
     } else {
       navbarTop = '1em';
