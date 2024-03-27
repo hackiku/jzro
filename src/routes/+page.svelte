@@ -1,4 +1,3 @@
-
 <script>
   
   import { onMount } from 'svelte';
@@ -27,7 +26,7 @@
   let currentDeliverableIndex = 0;
   let visibleDeliverable = deliverables[currentDeliverableIndex];
 
-  let isExpanded = false; // product design blahblah
+  let isExpanded = false; // product design read more expander
 
   let y = 0;
 
@@ -128,7 +127,7 @@
     <p class="text-md font-mono mb-4">Product design /</p>
     <h3 class="text-xl mb-2">Prototypes are wholesome: they're the first real shot at life any idea gets.
       I prototype digital products, and love building apps for 10x'ing the process. Like
-      <a href="https://pipewriter.io" target="blank" class="text-bold underline hover:opacity-80">Pipewriter</a>,
+      <a href="https://pipewriter.io" target="_blank" class="text-bold underline hover:opacity-80">Pipewriter</a>,
       my wireframing app for writers.</h3>
       {#if isExpanded} <!-- Conditionally render the rest of the text -->
         <p>
@@ -255,13 +254,28 @@
 
 <!-------------------------- jzro -------------------------->
 <!-- https://mars.nasa.gov/mars2020/mission/weather/ -->
-<section class="flex flex-row justify-center mt-8 mb-44">
+<section class="flex flex-col mt-44 mx-44">
 	<div class="flex flex-col justify-start">
-    <p class="font-mono text-xs mb-3">March 18, 2024 • Sol 1094</p>
-    <p class="text-2xl font-mono text-white"><span class="red">JZRO</span> <span class="red">03</span>2151Z 26004KT CLEAR <span class="red">-22</span>/-77 Q<span class="red">0073</span></p>
+    <p class="font-mono text-xs mb-3">March 24, 2024 / Sol 1100</p>
+    <p class="text-2xl font-mono text-white">
+      <span class="red">JZRO</span>
+      <span class="red">24</span>2151Z
+      260<span class="red">07KT</span>
+      CLEAR <span class="red">-13</span>/-76
+      Q<span class="red">0073</span></p>
   </div>
+      <div class="flex flex-wrap">
+        <p class="font-mono text-sm mt-6">
+          The Ingenuity helicopter earned Mars ICAO: JZRO – the first and only airport code outside of Earth.
+          It doesn't get more 'aero+space' than that.</p>
+          <p class="font-mono text-sm mt-2">
+          This is a METAR report generated for Jezero Crater, where Ingenuity flew.
+          Sleep tight, brave flying angel 💔</p>
 
-  
+          <!-- <a href="https://www.space.com/perseverance-rover-mars-weather-report" target="_blank" class="underline hover:opacity-80">
+            Perseverance data</a> -->
+      </div>
+
 </section>
 
 </main>
