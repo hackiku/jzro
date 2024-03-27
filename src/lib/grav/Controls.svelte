@@ -46,7 +46,7 @@
 
   // --------------- hide controls ---------------
   function showControls() {
-    controlsBottom = VISIBLE; 
+    controlsBottom = VISIBLE;
     
   }
 
