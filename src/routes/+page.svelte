@@ -7,6 +7,7 @@
   import Nav from '$lib/Nav.svelte';
   import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
   import Footer from '$lib/ui/Footer.svelte';
+  // import Jzro from '$lib/Jzro.svelte';
   // proof
   import Logos from '$lib/portfolio/Logos.svelte';
   import Portfolio from '$lib/portfolio/Portfolio.svelte';
@@ -254,7 +255,9 @@
 
 <!-------------------------- jzro -------------------------->
 <!-- https://mars.nasa.gov/mars2020/mission/weather/ -->
-<section class="flex flex-col mt-44 mx-44">
+<!-- <section class="flex flex-col mt-44 mx-44"> -->
+  <section class="px-8 md:px-44 xl:px-72 py-12">
+
 	<div class="flex flex-col justify-start">
     <p class="font-mono text-xs mb-3">March 24, 2024 / Sol 1100</p>
     <p class="text-2xl font-mono text-white">
@@ -289,7 +292,7 @@
 <style>
 
   section {
-    @apply border border-dashed border-gray-900;
+    /* @apply border border-dashed border-gray-900; */
   }
 
   .red {
