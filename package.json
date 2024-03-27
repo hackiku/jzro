@@ -23,6 +23,10 @@
 	},
 	"type": "module",
 	"dependencies": {
-		"gsap": "^3.12.5"
+		"@scrapingant/scrapingant-client": "^0.2.1",
+		"cheerio": "^1.0.0-rc.12",
+		"gsap": "^3.12.5",
+		"jsdom": "^24.0.0",
+		"node-fetch": "^3.3.2"
 	}
 }

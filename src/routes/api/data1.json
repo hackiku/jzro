@@ -1,0 +1,68 @@
+[
+  {
+    date: '',
+    sol: '',
+    temperatureMaxF: '',
+    temperatureMinF: '',
+    temperatureMaxC: 'NaN',
+    temperatureMinC: 'NaN',
+    pressure: '',
+    sunrise: '',
+    sunset: ''
+  },
+  {
+    date: 'March 18, 2024',
+    sol: '1094',
+    temperatureMaxF: '-8°F',
+    temperatureMinF: '-107°F',
+    temperatureMaxC: '-22.2',
+    temperatureMinC: '-77.2',
+    pressure: '726.7',
+    sunrise: '05:49:02',
+    sunset: '17:05:50'
+  },
+  {
+    date: 'March 17, 2024',
+    sol: '1093',
+    temperatureMaxF: '-8°F',
+    temperatureMinF: '-107°F',
+    temperatureMaxC: '-22.2',
+    temperatureMinC: '-77.2',
+    pressure: '726.2',
+    sunrise: '05:48:23',
+    sunset: '17:05:50'
+  },
+  {
+    date: 'March 16, 2024',
+    sol: '1092',
+    temperatureMaxF: '-7°F',
+    temperatureMinF: '-111°F',
+    temperatureMaxC: '-21.7',
+    temperatureMinC: '-79.4',
+    pressure: '731.7',
+    sunrise: '05:47:45',
+    sunset: '17:05:50'
+  },
+  {
+    date: 'March 15, 2024',
+    sol: '1091',
+    temperatureMaxF: '-11°F',
+    temperatureMinF: '-111°F',
+    temperatureMaxC: '-23.9',
+    temperatureMinC: '-79.4',
+    pressure: '731.1',
+    sunrise: '05:47:08',
+    sunset: '17:05:51'
+  },
+  {
+    date: 'March 14, 2024',
+    sol: '1090',
+    temperatureMaxF: '-10°F',
+    temperatureMinF: '-109°F',
+    temperatureMaxC: '-23.3',
+    temperatureMinC: '-78.3',
+    pressure: '731.3',
+    sunrise: '05:46:30',
+    sunset: '17:05:52'
+  }
+]

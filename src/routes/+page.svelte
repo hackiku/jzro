@@ -23,7 +23,7 @@
   import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
   import Coin from '$lib/Coin.svelte';
 
-  let deliverables = ['software', 'space tech', 'agency gigs', 'lawyer camarilla', 'LK-99 shipment'];
+  let deliverables = ['software', 'space tech', 'agency gigs', 'SaaS B2B', 'LK-99 shipment', 'right rudder'];
   let currentDeliverableIndex = 0;
   let visibleDeliverable = deliverables[currentDeliverableIndex];
 
@@ -55,6 +55,8 @@
 
 <Nav {y} />
 
+
+<GravityLauncher />
 
 
 
@@ -124,12 +126,14 @@
 
   <div class="w-full md:w-2/5"> <!-- left -->
     <p class="text-md font-mono mb-4">Product design /</p>
-    <h3 class="text-xl mb-2">Prototypes are wholesome: every idea's first real shot at life. I'm kinda twice obsessed.</h3>
+    <h3 class="text-xl mb-2">Prototypes are wholesome: they're the first real shot at life any idea gets.
+      I prototype digital products, and love building apps for 10x'ing the process. Like
+      <a href="https://pipewriter.io" target="blank" class="text-bold underline hover:opacity-80">Pipewriter</a>,
+      my wireframing app for writers.</h3>
       {#if isExpanded} <!-- Conditionally render the rest of the text -->
-        <h3 class="text-xl mb-2">I prototype digital products for people, and have built a wireframing app to make it easier for websites.</h3>
         <p>
-          Prototypes are wholesome. They're the first real shot at life any idea gets.
-          I'm trying to take the best from tech into aerospace. 
+          The mission here at jzro is to bring the best product design and rapid prototyping
+          from the tech industry to the new generation of aerospace startups.
         </p>
       {/if}
     
@@ -178,7 +182,7 @@
     <div class="w-full md:w-1/2 p-4"> <!-- right -->
       <p class="text-md font-mono mb-4">Code + Engineering</p>
       <h2 class="text-4xl mb-3">Aerospacey Interfaces </h2>
-      <p class="text-md font-mono mb-4">no such thing as too much right rudder</p>
+      <!-- <p class="text-md font-mono mb-4">no such thing as too much right rudder</p> -->
     </div> 
     <CodePortfolio />
   </div>
@@ -194,12 +198,12 @@
 <section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> 
-      <h3 class="text-xl mb-3">Day jobbing aside, I *really* dig developing engineery apps for space and aviation.
-        They ain't smart as a 🛰️ DART, but sure are more fun than Fortran</h3>
+      <h3 class="text-xl mb-3">Day jobbing aside, I *really* dig developing engineery apps for space and aviation.</h3>
+        <h3 class="text-xl mb-3">They ain't smart as a 🛰️ DART, but sure are more fun than Fortran</h3>
       <p class="text-md mb-4 font-mono text-blue-700">Hire me to code ?</p>
     </div> 
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
-      <Planet id="github" color="#F1F1F1" label="GitHub"/>
+      <Planet id="github" color="#969696" label="GitHub"/> <!-- #F1F1F1 -->
     </div>
   </div>
 </section>
@@ -250,11 +254,14 @@
 
 
 <!-------------------------- jzro -------------------------->
+<!-- https://mars.nasa.gov/mars2020/mission/weather/ -->
 <section class="flex flex-row justify-center mt-8 mb-44">
 	<div class="flex flex-col justify-start">
-    <p class="font-mono text-xs mb-3">47 hours ago</p>
-    <p class="text-2xl font-mono text-white"><span class="red">JZRO</span> 03<span class="red">2151</span>Z 26004KT CLEAR <span class="red">-6</span>/-14 Q<span class="red">127</span></p>
+    <p class="font-mono text-xs mb-3">March 18, 2024 • Sol 1094</p>
+    <p class="text-2xl font-mono text-white"><span class="red">JZRO</span> <span class="red">03</span>2151Z 26004KT CLEAR <span class="red">-22</span>/-77 Q<span class="red">0073</span></p>
   </div>
+
+  
 </section>
 
 </main>

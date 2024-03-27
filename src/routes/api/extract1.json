@@ -1,0 +1,146 @@
+{
+  content: '<!DOCTYPE html><html lang="en" class=" webkit chrome mac js"><head>\n' +
+    '<title>Perseverance Mars Weather at Jezero Crater - NASA Mars</title>\n' +
+    '<link rel="stylesheet" href="/layout/css/general/footer.css" type="text/css"><link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180">\n' +
+    '<link href="/favicon-32x32.png" rel="icon" sizes="32x32" type="image/png">\n' +
+    '<link href="/favicon-16x16.png" rel="icon" sizes="16x16" type="image/png">\n' +
+    '<link href="/manifest.json" rel="manifest">\n' +
+    '<meta http-equiv="X-UA-Compatible" content="IE=edge">\n' +
+    '<meta content="#000000" name="theme-color">\n' +
+    '<meta charset="UTF-8">\n' +
+    '<meta property="og:title" content="Perseverance Mars Weather at Jezero Crater - NASA">\n' +
+    '<meta name="creator" content="mars.nasa.gov">\n' +
+    '<meta name="author" content="mars.nasa.gov">\n' +
+    '<meta name="keywords" content="NASA, Mars, Perseverance, rover, 2020, mission, astrobiology, life, human, exploration">\n' +
+    '<meta name="description" content="Perseverance is taking regular weather measurements at Jezero Crater, in the Isidis Planitia region of Mars’ northern hemisphere.">\n' +
+    '<meta property="og:description" content="Perseverance is taking regular weather measurements at Jezero Crater, in the Isidis Planitia region of Mars’ northern hemisphere.">\n' +
+    '<meta name="twitter:title" content="Perseverance Mars Weather at Jezero Crater - NASA">\n' +
+    '<meta name="twitter:description" content="Perseverance is taking regular weather measurements at Jezero Crater, in the Isidis Planitia region of Mars’ northern hemisphere.">\n' +
+    '<meta name="twitter:card" content="summary_large_image">\n' +
+    '<meta property="og:image" content="https://mars.nasa.gov/layout/mars2020/images/mars_perseverance_weather-web.jpg">\n' +
+    '<meta name="twitter:image" content="https://mars.nasa.gov/layout/mars2020/images/mars_perseverance_weather-web.jpg">\n' +
+    '<meta property="og:url" content="https://mars.nasa.gov/mars2020/mission/weather/">\n' +
+    '<link rel="canonical" href="https://mars.nasa.gov/mars2020/mission/weather/">\n' +
+    '<meta name="viewport" content="width=device-width, initial-scale=1">\n' +
+    '<meta name="google-site-verification" content="24YTv3DMgPjuCosK3yyc8RX9chB0AzhIxGajBBxbwMU">\n' +
+    '<script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-ZWR0867TZG&amp;cx=c&amp;_slc=1"></script><script type="text/javascript" async="" src="https://www.googletagmanager.com/gtag/js?id=G-LNW7Y3ZY56&amp;cx=c&amp;_slc=1"></script><script async="" src="https://www.google-analytics.com/analytics.js"></script><script>var addthis_share = {title : "Perseverance Mars Weather at Jezero Crater - NASA"}</script>\n' +
+    '<script id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=JPL-Mars-MEPJPL&amp;pua=UA-9453474-9,UA-118212757-11&amp;dclink=true&amp;sp=searchbox&amp;exts=tif,tiff,wav" type="text/javascript"></script><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CSLL4ZEK4L"></script>\n' +
+    '<!--//end-->\n' +
+    '<!--Metadata: new-->\n' +
+    '<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>\n' +
+    '<link rel="stylesheet" href="/layout/css/font/fontawesome-5.12.0/css/all.min.css">\n' +
+    '<script src="/js/stickynav/jquery.sticky.min.js?v1.0.4"></script>\n' +
+    '<script>\n' +
+    'jQuery(document).ready(function ($) {\n' +
+    "$('li#navMarsTabs_sub').bind('touchstart touchend', function (e) {\n" +
+    'e.preventDefault();\n' +
+    "$(this).toggleClass('hover_effect');\n" +
+    '});\n' +
+    'stickNav();\n' +
+    'function stickNav() {\n' +
+    '$("#top_marsBanner").sticky({ topSpacing: 0 });\n' +
+    "$('#top_marsBanner').on('sticky-start', function () {\n" +
+    '});\n' +
+    "$('#top_marsBanner').on('sticky-end', function () {\n" +
+    `$(".is-sticky").css('height', 'auto');\n` +
+    '});\n' +
+    '}\n' +
+    'function unstickNav() {\n' +
+    '$("#top_marsBanner").unstick();\n' +
+    '}\n' +
+    'window.addEventListener("orientationchange", function () {\n' +
+    'if (window.innerHeight > window.innerWidth) {\n' +
+    'unstickNav();\n' +
+    '} else {\n' +
+    'stickNav();\n' +
+    '}\n' +
+    '}, false);\n' +
+    '});\n' +
+    '</script>\n' +
+    '<script defer="" src="/js/scrollTo/jquery.scrollTo.min.js"></script>\n' +
+    '<script defer="" src="/js/general/layout/selectbrowsercss.js"></script>\n' +
+    '<script defer="" id="_fed_an_ua_tag" src="https://dap.digitalgov.gov/Universal-Federated-Analytics-Min.js?agency=NASA&amp;subagency=JPL-Mars-MARS2020&amp;pua=UA-9453474-9&amp;dclink=true"></script>\n' +
+    '<link rel="stylesheet" href="/layout/css/general/sitenav.css" type="text/css">\n' +
+    '<link rel="stylesheet" href="/layout/css/general/sitegeneral_new.min.css" type="text/css">\n' +
+    '<link rel="stylesheet" media="screen and (max-width: 600px)" href="/layout/css/general/sitegeneral-mobile.css">\n' +
+    '<link rel="stylesheet" href="/layout/general/css/marstheme.css" type="text/css">\n' +
+    '<link rel="stylesheet" href="/layout/mars2020/css/sitecustom-new.css" type="text/css">\n' +
+    '<link rel="stylesheet" href="/layout/mars2020/css/sitecustom-responsive.css" type="text/css">\n' +
+    '<meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><script type="text/javascript" src="https://www.googletagmanager.com/gtag/js?id=G-CSLL4ZEK4L"></script><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"><meta http-equiv="origin-trial" content="AymqwRC7u88Y4JPvfIF2F37QKylC04248hLCdJAsh8xgOfe/dVJPV3XS3wLFca1ZMVOtnBfVjaCMTVudWM//5g4AAAB7eyJvcmlnaW4iOiJodHRwczovL3d3dy5nb29nbGV0YWdtYW5hZ2VyLmNvbTo0NDMiLCJmZWF0dXJlIjoiUHJpdmFjeVNhbmRib3hBZHNBUElzIiwiZXhwaXJ5IjoxNjk1MTY3OTk5LCJpc1RoaXJkUGFydHkiOnRydWV9"></head>\n' +
+    '<body id="mars2020">\n' +
+    '<div id="contentBox">\n' +
+    '<div id="content">\n' +
+    '<div id="contentBlueOuter_contentPage">\n' +
+    '<div id="top_marsBanner-sticky-wrapper" class="sticky-wrapper" style="height: 117.062px;"><div id="top_marsBanner" class="page-Default" role="navigation">\n' +
+    '<a class="skip-main visuallyhidden" href="#pageContent" tabindex="-1">Skip to main content</a>\n' +
+    '<div class="maxWidthCenter search-div">\n' +
+    '<div id="navMars" class="mission-6">\n' +
+    '<div id="navMarsIcons">\n' +
+    '<div class="menuButton"></div>\n' +
+    '</div>\n' +
+    '</div>\n' +
+    '</div>\n' +
+    '<div class="bannerHome">\n' +
+    '<div class="nasalogo"><a href="https://nasa.gov"><img src="/layout/mars2020/images/logo_nasa@2x.png" style="width:65px" alt="NASA Logo"></a></div>\n' +
+    '<div class="mission">\n' +
+    '<a class="smd_title" href="https://science.nasa.gov" target="_blank"><img src="/layout/general/images/NASA_Science_header_text.png" alt="NASA Science"></a>\n' +
+    '<a class="site_title" href="/mars2020/">Mars</a>\n' +
+    '<a class="subsite_title" href="/mars2020/">\n' +
+    '<span class="subsite_subtitle block txt2020">2020 Mission</span>\n' +
+    '<span class="subsite_subtitle block txtRover">Perseverance Rover</span>\n' +
+    '</a>\n' +
+    '</div>\n' +
+    '</div>\n' +
+    '<div id="topSiteNavBox">\n' +
+    '<script>\n' +
+    'jQuery(document).ready(function($) {\n' +
+    "$('li#navMarsTabs_sub').bind('touchstart touchend', function(e) {\n" +
+    'e.preventDefault();\n' +
+    "$(this).toggleClass('hover_effect');\n" +
+    '});\n' +
+    '});\n' +
+    '</script>\n' +
+    '<div id="navMarsTabs" class="subtabmenu fontMontserrat">\n' +
+    '<div id="lnk_mission" class="navMarsTabs_sub"><div class="arrow_box"><span class="arrow"></span></div>\n' +
+    '<a href="/mars2020/mission/" class="toplevel">mission</a>\n' +
+    '<ul class="submenu">\n' +
+    '<li><a href="/mars2020/mission/overview/" title="Mission Overview">Overview</a></li>\n' +
+    '<li><a href="/mars2020/mission/science/" title="Science">Science</a></li>\n' +
+    '<li><a href="https://mars.nasa.gov/mars-rock-samples/" title="Perseverance Rover Mars Rock Samples">Mars Rock Samples</a></li>\n' +
+    '<li><a href="/mars2020/mission/weather/" title="Perseverance Mars Weather at Jezero Crater">Mars Weather</a></li>\n' +
+    '<li><a href="/mars2020/mission/where-is-the-rover/" title="Location Map for Perseverance Rover">Where is Perseverance?</a></li>\n' +
+    '<li><a href="https://mars.nasa.gov/mars2020/surface-experience/" title="Explore with Perseverance">Explore with Perseverance</a></li>\n' +
+    '<li><a href="../../../../../../mars2020/mission/science/landing-site/" title="Landing Site">Landing Site</a></li>\n' +
+    '<li><a href="/mars2020/mission/team/" title="Perseverance Mission Team">Mission Team</a></li>\n' +
+    '<li><a href="/mars2020/mission/faq/" title="Frequently Asked Questions">FAQs</a></li>\n' +
+    '</ul>\n' +
+    '<div class="gradient_line"></div></div>\n' +
+    '<div id="lnk_timeline" class="navMarsTabs_sub"><div class="arrow_box"><span class="arrow"></span></div>\n' +
+    '<a href="/mars2020/timeline/" class="toplevel">timeline</a>\n' +
+    '<ul class="submenu">\n' +
+    '<li><a href="/mars2020/timeline/overview/" title="Overview">Overview</a></li>\n' +
+    '<li><a href="/mars2020/timeline/prelaunch/" title="Pre-Launch">Pre-Launch</a></li>\n' +
+    '<li><a href="/mars2020/timeline/launch/" title="Launch">Launch</a></li>\n' +
+    '<li><a href="/mars2020/timeline/cruise/" title="Trip to Mars">Cruise</a></li>\n' +
+    '<li><a href="/mars2020/timeline/landing/" title="Landing Toolkit: Perseverance Rover">Landing</a></li>\n' +
+    '<li><a href="/mars2020/timeline/surface-operations/" title="Surface Operations for Perseverance">Surface Operations</a></li>\n' +
+    '</ul>\n' +
+    '<div class="gradient_line"></div></div>\n' +
+    '<div id="lnk_spacecraft" class="navMarsTabs_sub"><div class="arrow_box"><span class="arrow"></span></div>\n' +
+    '<a href="/mars2020/spacecraft/" class="toplevel">spacecraft</a>\n' +
+    '<ul class="submenu">\n' +
+    '<li><a href="/mars2020/spacecraft/overview/" title="Mars 2020 Spacecraft">Overview</a></li>\n' +
+    '<li><a href="/mars2020/spacecraft/rover/" title="Learn About the Rover">Rover</a></li>\n' +
+    '<li><a href="/mars2020/spacecraft/instruments/" title="Instruments">Instruments</a></li>\n' +
+    '<li><a href="/mars2020/spacecraft/launch-vehicle/" title="Launch Vehicle">Rocket</a></li>\n' +
+    '</ul>\n' +
+    '<div class="gradient_line"></div></div>\n' +
+    '<div id="lnk_news" class="navMarsTabs_sub"><div class="arrow_box"><span class="arrow"></span></div>\n' +
+    '<a href="/mars2020/news/" class="toplevel">news</a>\n' +
+    '<ul class="submenu">\n' +
+    '<li><a href="../../../../../../../mars2020/news/" title="News on the Perseverance Rover">News</a></li>\n' +
+    '<li><a href="/mars2020/news/newsroom/" title="Newsroom">Newsroom</a></li>\n' +
+    '<li><a href="/mars2020/'... 23345 more characters,
+  cookies: '_ga=GA1.1.674008548.1711413083;_ga_CSLL4ZEK4L=GS1.1.1711413083.1.0.1711413083.0.0.0;_ga=GA1.3.674008548.1711413083;_gid=GA1.3.2126424673.1711413083;_gat_GSA_ENOR0=1;_gat_GSA_ENOR1=1;_gat_GSA_ENOR2=1;_ga_LNW7Y3ZY56=GS1.3.1711413083.1.1.1711413083.60.0.0;_ga_ZWR0867TZG=GS1.3.1711413083.1.1.1711413083.0.0.0',
+  status_code: 200
+}

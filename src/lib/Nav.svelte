@@ -17,10 +17,10 @@
   }
 
   const navItems = [
-    { href: '/hero', label: 'hero' },
-    { href: '/fiddle', label: 'fiddle' },
-    { href: '/cta', label: 'cta' },
-    { href: '/mars-metar', label: 'mars' },
+    // { href: '/hero', label: 'hero' },
+    // { href: '/fiddle', label: 'fiddle' },
+    { href: '/boing', label: 'boing' },
+    { href: '/mars-metar', label: 'metar' },
   ];
 
   const toggleMenu = () => {
