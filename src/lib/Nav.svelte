@@ -1,6 +1,6 @@
 <!-- $lib/Nav.svelte -->
 <script>
-  import { dev } from '$app/env';
+  import { dev } from '$app/environment';
   export let y;
   let lastY = 0;
   let navbarTop = 0; 
