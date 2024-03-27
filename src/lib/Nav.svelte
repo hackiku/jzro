@@ -1,5 +1,6 @@
 <!-- $lib/Nav.svelte -->
 <script>
+  import { dev } from '$app/env';
   export let y;
   let lastY = 0;
   let navbarTop = 0; 
@@ -36,7 +37,10 @@
 
 
     <div class="flex justify-between">
-      <a href="/" class="font-mono hover:text-[#F4191D] shrink-0">🚁 jzro {y}</a>
+      <a href="/" class="font-mono hover:text-[#F4191D] shrink-0">🚁 jzro</a>
+      {#if dev}
+        <p class="text-xs ml-3 mt-1 px">{y}</p>
+      {/if}
       <button class="lg:hidden" on:click={toggleMenu}>
         <span class="sr-only">{isOpen ? 'Close menu' : 'Open menu'}</span>
         {#if isOpen}
