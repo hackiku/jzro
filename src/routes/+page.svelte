@@ -1,5 +1,5 @@
 <script>
-  
+
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
 
@@ -59,8 +59,6 @@
 <GravityLauncher />
 
 
-
-<!-- <GravityLauncher /> -->
 
 <main>
 
@@ -122,7 +120,6 @@
     <PipewriterDemo />
   </div>
   
-  
 
   <div class="w-full md:w-2/5"> <!-- left -->
     <p class="text-md font-mono mb-4">Product design /</p>
@@ -173,8 +170,7 @@
 
 <!------------------------ FUN ------------------------>
 
-<section class="
-  bg-lighterBg py-8 px-8 md:px-8 h-screen">
+<section class="bg-lighterBg py-8 px-8 md:px-8">
   <div class="flex flex-wrap max-w-3xl mx-auto items-center">
     <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
       <Planet id="fun" color="#540087" label="for fun"/>
@@ -184,18 +180,20 @@
       <h2 class="text-4xl mb-3">Aerospacey Interfaces </h2>
       <!-- <p class="text-md font-mono mb-4">no such thing as too much right rudder</p> -->
     </div> 
-    <CodePortfolio />
   </div>
+  
+  <div class="my-20">
+      <CodePortfolio />
+  </div>
+
 </section>
-
-
 
 
 <div class="h-6 bg-gradient-to-t from-darkBg to-lighterBg py-8 flex justify-center items-center"></div>
 
 <!-- ----------------------- github ----------------------- -->
 
-<section class="mt-20 py-8 px-8 md:px-8 max-w-2xl mx-auto">
+<section class="px-8 md:px-8 max-w-2xl mx-auto">
   <div class="flex flex-wrap items-center">
     <div class="w-full md:w-1/2 p-4"> 
       <h3 class="text-xl mb-3">Day jobbing aside, I *really* dig developing engineery apps for space and aviation.</h3>
@@ -269,14 +267,16 @@
   </div>
       <div class="flex flex-wrap">
         <p class="font-mono text-sm mt-6">
-          The Ingenuity helicopter earned Mars ICAO: JZRO – the first and only airport code outside of Earth.
+          The Ingenuity helicopter earned Mars ICAO: JZRO, the only official airport code outside of Earth.
           It doesn't get more 'aero+space' than that.</p>
           <p class="font-mono text-sm mt-2">
-          This is a METAR report generated for Jezero Crater, where Ingenuity flew.
+          This is a METAR report generated with
+          <a href="https://www.space.com/perseverance-rover-mars-weather-report" target="_blank"
+          class="underline hover:text-white">
+            Perseverance data</a>
+          for the Jezero Crater, where Ingenuity flew 72 times.
           Sleep tight, brave flying angel 💔</p>
 
-          <!-- <a href="https://www.space.com/perseverance-rover-mars-weather-report" target="_blank" class="underline hover:opacity-80">
-            Perseverance data</a> -->
       </div>
 
 </section>

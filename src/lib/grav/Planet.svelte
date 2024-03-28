@@ -75,7 +75,7 @@
                 <div class="text-xs text-gray-600">for hire</div>
               </div>
 
-              <h3 class="text-4xl mb-2">Hey 👋</h3>
+              <h3 class="text-4xl mb-2">Hi let's fly 👋</h3>
               <a href="mailto:ivan@pipewriter.io" class="text-xl underline mb-4">ivan@pipewriter.io</a>
             </div>
             <div class="w-full flex justify-center">
