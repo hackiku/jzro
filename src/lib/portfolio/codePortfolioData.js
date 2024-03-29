@@ -39,7 +39,7 @@ export let codePortfolioData = [
     id: 3,
     title: "OnShape Dark Mode for macOS",
     logo: 'portfolio/tool-icons/onshape.svg',
-    image: 'portfolio/mars-weather-portfolio.png',
+    image: 'portfolio/onshape-darkmode.png',
     description: 'OnShape dark mode macOS app created using Nativefier for a seamless design experience',
     link: 'https://www.youtube.com/watch?v=qEKsYfCBQoY',
     tools: ['Onshape', 'Nativefier', 'MacOS']
