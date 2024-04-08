@@ -90,5 +90,5 @@
   </section>
   
 </main>
-<Footer />
 
+<Footer />

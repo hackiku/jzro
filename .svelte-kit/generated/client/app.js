@@ -10,20 +10,22 @@ export const nodes = [
 	() => import('./nodes/6'),
 	() => import('./nodes/7'),
 	() => import('./nodes/8'),
-	() => import('./nodes/9')
+	() => import('./nodes/9'),
+	() => import('./nodes/10')
 ];
 
 export const server_loads = [];
 
 export const dictionary = {
 		"/": [2],
-		"/boing-relative-dashed-ok": [4],
-		"/boing": [3],
-		"/cta": [5],
-		"/fiddle": [6],
-		"/hero": [7],
-		"/mars-metar": [8],
-		"/yt": [9]
+		"/boing-relative-dashed-ok": [6],
+		"/boing": [5],
+		"/(random)/chords": [3],
+		"/cta": [7],
+		"/fiddle": [8],
+		"/hero": [9],
+		"/mars-metar": [10],
+		"/(random)/yt": [4]
 	};
 
 export const hooks = {
