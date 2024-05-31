@@ -43,12 +43,10 @@
   ];
 
   export let y = 0;
-  export let verticalSpacing = '30vh'; // Adjustable vertical spacing
-  export let scrollMultiplier = 0.2; // Dummy multiplier for speed vs scroll
-  export let jiggleAmount = 10; // Amount for jiggle effect
+  export let scrollMultiplier = 1; 
+  export let jiggleAmount = 10;
 
-  $: totalHeight = 1400
-  // $: totalHeight = sections.length * parseInt(verticalSpacing) + window.innerHeight;
+  $: totalHeight = 3000
   $: updateScrollDepth(y, totalHeight);
 
   onMount(() => {
@@ -60,7 +58,6 @@
   }
 
   function animateBalls() {
-    // Jiggle effect
     balls.forEach(ball => {
       gsap.to(`#ball-${ball.id}`, {
         x: `+=${Math.random() * jiggleAmount - jiggleAmount / 2}`,
@@ -83,7 +80,7 @@
     });
 
     balls.forEach((ball, index) => {
-      const delay = index * 0.4; // 40% delay between balls
+      const delay = index * 0.4;
       tl.to(`#ball-${ball.id}`, {
         backgroundColor: 'blue',
         duration: 1,
@@ -116,7 +113,6 @@
 
     tl.to('.tooltip', { opacity: 1, duration: 1 }, "<");
 
-    // Lines connecting balls
     gsap.to('.line', {
       opacity: 1,
       duration: 2,
@@ -128,7 +124,6 @@
       }
     });
 
-    // Final stage - change labels and enlarge balls
     tl.to('.ball', {
       width: '+=20',
       height: '+=20',
@@ -146,41 +141,14 @@
   }
 </script>
 
-<style>
-  .animation-section {
-    @apply sticky top-0 flex-1 flex justify-center items-center overflow-hidden;
-  }
-  .animation-container {
-    @apply relative w-full h-full;
-  }
-  .ball {
-    @apply absolute rounded-full bg-white flex justify-center items-center;
-  }
-  .lock-icon {
-    @apply opacity-0;
-  }
-  .tooltip {
-    @apply absolute bg-gray-700 text-white text-sm rounded-md p-2 shadow-lg;
-  }
-  .line {
-    @apply absolute bg-gray-400 opacity-0;
-  }
-</style>
-
 <svelte:window bind:scrollY={y} />
 
-<!--  debug -->
-<p class="fixed top-0 left-0 p-4 bg-gray-900 bg-opacity-60 text-gray-700">
-  {y}/{totalHeight}
-</p>
-
-
-
-<main class="flex w-screen text-2xl">
-  <section class="flex-1 p-8 space-y-72">
+<main class="flex flex-col md:flex-row w-screen text-2xl">
+  <!-- Content Section -->
+  <section class="flex-1 overflow-y-auto px-6 md:pl-16 space-y-72 w-full md:w-[50vw]">
     {#each sections as { text, span, extra }}
-      <div class="flex flex-col items-start justify-between p-20" style="margin-top: {verticalSpacing}">
-        <p class="text-2xl mb-4">
+      <div class="flex flex-col items-start justify-center h-screen">
+        <p class="text-2xl mb-4 mt-[50vh]">
           <span class="text-blue-500">{span}</span> {text}
         </p>
         {#if extra}
@@ -198,28 +166,42 @@
       </div>
     {/each}
   </section>
-  <section class="animation-section">
-    <div class="animation-container relative">
-      {#each balls as ball}
-        <div id="ball-{ball.id}" class={`ball ${ball.size}`} style="top: {ball.y}px; left: {ball.x}px;">
-          <div class="lock-icon">🔒</div>
+
+  <!-- Animation Section -->
+  <section class="animation-section fixed md:sticky top-0 md:top-0 md:right-0 h-[50vh] md:h-full w-full md:w-[50vw] overflow-hidden z-10 flex items-center justify-center">
+    <div class="animation-container flex pt-20 justify-center items-center relative w-full h-full">      {#each balls as ball}
+        <div id="ball-{ball.id}" class={`ball ${ball.size} absolute rounded-full bg-white flex justify-center items-center`} style="top: {ball.y}px; left: {ball.x}px;">
+          <div class="lock-icon opacity-0">🔒</div>
           <div class="relative">
-            <div class="tooltip" style="left: 50%; transform: translateX(-50%); bottom: 150%;">{ball.label}</div>
+            <div class="tooltip absolute bg-gray-700 text-white text-sm rounded-md p-2 shadow-lg" style="left: 50%; transform: translateX(-50%); bottom: 150%;">{ball.label}</div>
           </div>
         </div>
       {/each}
       {#each models as model}
-        <div id="model-{model.id}" class="ball w-12 h-12 bg-blue-500" style="top: {model.y}px; left: {model.x}px; opacity: 0;">
+        <div id="model-{model.id}" class="ball w-12 h-12 bg-blue-500 absolute rounded-full flex justify-center items-center" style="top: {model.y}px; left: {model.x}px; opacity: 0;">
           <div class="relative">
-            <div class="tooltip" style="left: 50%; transform: translateX(-50%); bottom: 150%;">{model.label}</div>
+            <div class="tooltip absolute bg-gray-700 text-white text-sm rounded-md p-2 shadow-lg" style="left: 50%; transform: translateX(-50%); bottom: 150%;">{model.label}</div>
           </div>
         </div>
       {/each}
-      <!-- Add lines connecting the balls -->
-      <div class="line" style="top: 175px; left: 125px; height: 50px;"></div>
-      <div class="line" style="top: 125px; left: 150px; width: 100px;"></div>
-      <div class="line" style="top: 225px; left: 250px; height: 75px;"></div>
+      <div class="line absolute bg-gray-400 opacity-0" style="top: 175px; left: 125px; height: 50px;"></div>
+      <div class="line absolute bg-gray-400 opacity-0" style="top: 125px; left: 150px; width: 100px;"></div>
+      <div class="line absolute bg-gray-400 opacity-0" style="top: 225px; left: 250px; height: 75px;"></div>
     </div>
   </section>
+
+  <p class="fixed top-0 left-0 p-4 bg-gray-700 text-white">{y}/{totalHeight}</p>
 </main>
 
+<style>
+  .animation-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #09050E;
+    z-index: -1;
+  }
+</style>
