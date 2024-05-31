@@ -12,7 +12,8 @@ export const nodes = [
 	() => import('./nodes/8'),
 	() => import('./nodes/9'),
 	() => import('./nodes/10'),
-	() => import('./nodes/11')
+	() => import('./nodes/11'),
+	() => import('./nodes/12')
 ];
 
 export const server_loads = [];
@@ -23,10 +24,11 @@ export const dictionary = {
 		"/boing": [5],
 		"/(random)/chords": [3],
 		"/cta": [7],
-		"/fiddle": [8],
-		"/hero": [9],
-		"/mars-metar": [10],
-		"/theta": [11],
+		"/fhe": [8],
+		"/fiddle": [9],
+		"/hero": [10],
+		"/mars-metar": [11],
+		"/theta": [12],
 		"/(random)/yt": [4]
 	};
 
