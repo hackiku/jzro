@@ -19,9 +19,45 @@
       { id: 4, label: 'Patient intake LLM', x: 400, y: 350 },
   ];
 
+  const sections = [
+      {
+          text: 'Data owners sell smart contracts to access confidential data sets: the ones AI needs to train on to level up',
+          span: 'Data owners',
+          extra: ''
+      },
+      {
+          text: 'Your data is encrypted on the blockchain and will never be decrypted again. From now on, only AI can use it.',
+          span: 'encrypted on the blockchain',
+          extra: `<div>
+                    <p class="text-blue-400">FHE</p>
+                    <p>Fully Homomorphic Encryption</p>
+                  </div>`
+      },
+      {
+          text: 'GPU owners power the open market and infrastructure to store, encrypt, transfer, and run the models.',
+          span: 'GPU owners',
+          extra: '<button class="text-white px-4 py-2 border border-white rounded-xl">Read Whitepaper</button>'
+      },
+      {
+          text: 'AI developers deploy the very models, with prime quality private data the community keeps safe. No BigCo. required.',
+          span: 'AI developers',
+          extra: '<button class="bg-blue-500 text-white px-4 py-2 rounded">Join Community</button>'
+      }
+  ];
+
+  export let y = 0;
+  export let verticalSpacing = '70vh'; // Adjustable vertical spacing
+
+  $: totalHeight = sections.length * parseInt(verticalSpacing);
+  $: updateScrollDepth(y, totalHeight);
+
   onMount(() => {
       animateBalls();
   });
+
+  function updateScrollDepth(y, totalHeight) {
+      console.log(`Scroll Depth: ${y}/${totalHeight}`);
+  }
 
   function animateBalls() {
       // Initial giggling animation
@@ -62,63 +98,33 @@
 
 <style>
   .animation-section {
-      position: sticky;
-      top: 0;
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      @apply sticky top-0 flex-1 flex justify-center items-center overflow-hidden;
   }
   .animation-container {
-      position: relative;
-      width: 100%;
-      height: 100%;
+      @apply relative w-full h-full;
   }
   .ball {
-      position: absolute;
-      border-radius: 50%;
-      width: 50px;
-      height: 50px;
-      background-color: white;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      overflow: hidden;
+      @apply absolute rounded-full w-12 h-12 bg-white flex justify-center items-center overflow-hidden;
   }
   .lock-icon {
-      opacity: 0;
+      @apply opacity-0;
   }
 </style>
 
-<main class="flex h-screen w-screen text-2xl">
-  <section class="flex-1 overflow-y-auto p-8 space-y-72">
-    <div class="flex flex-col items-center justify-between mt-[40vh]">
-        <p class="text-xl">
-              <span class="text-blue-400">Data owners</span> sell smart contracts to access confidential data sets: the ones AI needs to train on to level up
-          </p>
+<svelte:window bind:scrollY={y} />
+
+<main class="flex w-screen text-2xl">
+  <section class="flex-1 p-8" style="scroll-padding-top: 70vh;">
+    {#each sections as { text, span, extra }}
+      <div class="flex flex-col items-center justify-between p-20" style="margin-top: {verticalSpacing}">
+        <p class="text-2xl">
+          <span class="text-blue-500">{span}</span> {text}
+        </p>
+        {#if extra}
+          <div innerHTML={extra}></div>
+        {/if}
       </div>
-      <div class="flex flex-ro2 items-center justify-between">
-          <p class="text-xl">
-              Your data is <span class="text-blue-400">encrypted on the blockchain</span> and will never be decrypted again. From now on, only AI can use it.
-          </p>
-          <div>
-              <p class="text-blue-400">FHE</p>
-              <p>Fully Homomorphic Encryption</p>
-          </div>
-      </div>
-      <div class="flex flex-col items-start justify-between">
-          <p class="text-xl">
-              <span class="text-blue-400">GPU owners</span> power the open market and infrastructure to store, encrypt, transfer, and run the models.
-          </p>
-          <button class="text-white px-4 py-2 border border-white rounded-xl">Read Whitepaper</button>
-      </div>
-      <div class="flex items-center justify-between">
-          <p class="text-xl">
-              <span class="text-blue-400">AI developers</span> deploy the very models, with prime quality private data the community keeps safe. No BigCo. required.
-          </p>
-          <button class="bg-blue-500 text-white px-4 py-2 rounded">Join Community</button>
-      </div>
+    {/each}
   </section>
   <section class="animation-section">
       <div class="animation-container">
@@ -135,4 +141,5 @@
           {/each}
       </div>
   </section>
+  <p class="fixed top-0 left-0 p-4 bg-gray-700 text-white">{y}/{totalHeight}</p>
 </main>
