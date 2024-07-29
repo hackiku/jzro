@@ -13,7 +13,8 @@ export const nodes = [
 	() => import('./nodes/9'),
 	() => import('./nodes/10'),
 	() => import('./nodes/11'),
-	() => import('./nodes/12')
+	() => import('./nodes/12'),
+	() => import('./nodes/13')
 ];
 
 export const server_loads = [];
@@ -27,8 +28,9 @@ export const dictionary = {
 		"/fhe": [8],
 		"/fiddle": [9],
 		"/hero": [10],
-		"/mars-metar": [11],
-		"/theta": [12],
+		"/lens-distort": [11],
+		"/mars-metar": [12],
+		"/theta": [13],
 		"/(random)/yt": [4]
 	};
 

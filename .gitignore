@@ -1,5 +1,6 @@
 node_modules/
 .env
 fiddle/
+project/
 .vercel
 notes.md

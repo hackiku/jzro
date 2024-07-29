@@ -177,7 +177,7 @@
     </div>
     <div class="w-full md:w-1/2 p-4"> <!-- right -->
       <p class="text-md font-mono mb-4">Code + Engineering</p>
-      <h2 class="text-4xl mb-3">Aerospacey Interfaces </h2>
+      <h2 class="text-4xl mb-3">Aerospace Interfaces </h2>
       <!-- <p class="text-md font-mono mb-4">no such thing as too much right rudder</p> -->
     </div> 
   </div>
