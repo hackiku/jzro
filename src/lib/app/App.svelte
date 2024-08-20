@@ -4,37 +4,36 @@
   import { Canvas } from '@threlte/core'
   import Scene from './Scene.svelte'
   import Controls from './Controls.svelte'
+  import Nav from './Nav.svelte'
+  import Menu from './Menu.svelte'
+  import Launch from './Launch.svelte'
+  import Model from './Model.svelte'
 </script>
 
-<Canvas>
-	<Scene />
-</Canvas>
+<div class="relative w-screen h-screen overflow-hidden text-white bg-gradient-to-b from-[#0d1320] to-[#080c15]">
+  <Canvas>
+    <Scene />
+  </Canvas>
 
-<Controls localVelocity={44}/>
+  <Nav />
+  <Menu />
 
-<div class="absolute top-12 left-0 m-10 flex flex-col items-start space-y-2 text-white">
-	<h1 class="text-3xl font-bold">Aerospace UX</h1>
-	<p>Code & design that makes products fly.</p>
-	<!-- <button class="px-4 py-2 bg-[#fe3d00] hover:bg-blue-700 text-white font-bold">Learn More</button> -->
+  <div class="absolute bottom-10 left-10 w-1/3 h-1/3">
+    <Model />
+  </div>
+
+  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
+    <Launch />
+  </div>
+
+  <div class="absolute bottom-10 right-10">
+    <Controls />
+  </div>
 </div>
-
-<div class="description">
-	<p>
-		<strong>Click and drag</strong> to rotate the camera.
-	</p>
-	<p>
-		<strong>Hover</strong> over the sphere to scale it up.
-	</p>
-</div>
-
 
 <style>
-  div.description {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    /* z-index: 10; */
-    color: #fe3d00;
+  :global(body) {
+    margin: 0;
+    overflow: hidden;
   }
-
 </style>

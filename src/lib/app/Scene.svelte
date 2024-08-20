@@ -1,4 +1,4 @@
-<!-- src/lib/jzro/Scene.svelte -->
+<!-- src/lib/app/Scene.svelte -->
 
 <script lang="ts">
   import { T, useFrame, useLoader } from '@threlte/core';
