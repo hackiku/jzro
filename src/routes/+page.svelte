@@ -1,324 +1,57 @@
-<script>
+<!-- routes/+page.svelte -->
 
-  import { onMount } from 'svelte';
-  import { fade } from 'svelte/transition';
-
-  //ui
-  import Nav from '$lib/Nav.svelte';
-  import ScreenSizeDebug from '$lib/ui/ScreenSizeDebug.svelte';
-  import Footer from '$lib/ui/Footer.svelte';
-  // import Jzro from '$lib/Jzro.svelte';
-  // proof
-  import Logos from '$lib/portfolio/Logos.svelte';
-  import Portfolio from '$lib/portfolio/Portfolio.svelte';
-  import PipewriterDemo from '$lib/portfolio/PipewriterDemo.svelte';
-
-  import CodePortfolio from '$lib/portfolio/CodePortfolio.svelte';
-  import Testimonials from '$lib/portfolio/Testimonials.svelte';
-
-  // grav
-  import Controls from '$lib/grav/Controls.svelte';
-  import Planet from '$lib/grav/Planet.svelte';
-  
-  import GravityLauncher from '$lib/grav/GravityLauncher.svelte';
-  import Coin from '$lib/Coin.svelte';
-
-  let deliverables = ['software', 'space tech', 'agency gigs', 'SaaS B2B', 'LK-99 shipment', 'right rudder'];
-  let currentDeliverableIndex = 0;
-  let visibleDeliverable = deliverables[currentDeliverableIndex];
-
-  let isExpanded = false; // product design read more expander
-
-  let y = 0;
-
-  onMount(() => {
-    const interval = setInterval(() => {
-      currentDeliverableIndex = (currentDeliverableIndex + 1) % deliverables.length;
-      visibleDeliverable = deliverables[currentDeliverableIndex];
-    }, 2500);
-
-    return () => {
-      clearInterval(interval);
-    };
-  });
-
-
+<script lang="ts">
+  import App from '$lib/app/App.svelte';
 </script>
 
-<!-- -------------------------------------------------- -->
-
-<svelte:window bind:scrollY={y} />
-
-<ScreenSizeDebug {y}/>
-
-<Controls {y}/>
-
-<Nav {y} />
-
-
-<GravityLauncher />
-
-
-
-<main>
-
-<!-- --------------------- 1. HERO --------------------- -->
-
-<section class="relative flex flex-col justify-center items-center h-screen">
-    
-  
-    <div class="text-center px-4 mb-8 -mt-[14vh]">
-      <h1 class="text-5xl sm:text-6xl xl:text-7xl mb-4">Aerospace UX</h1>
-      <p class="text-2xl">User experience writing & design <br> that makes products fly.</p>  
-    </div>
-    
-    <Planet id="cta" color="#F4191D" label="Fly me to Orbit" />
-  
-  <!-- logos, centered within hero -->
-  <div class="absolute bottom-0 my-20 max-w-xl
-    sm:my-32 lg:max-w-2xl ">
-    <Logos />
+<div class="app-container">
+  <div class="navbar">
+    <h1>jzro</h1>
+    <nav>
+      <!-- <a href="#">Home</a> -->
+      <a href="#">About</a>
+      <a href="#">Contact</a>
+    </nav>
+		<div>12312313123</div>
   </div>
-</section>
-
-<!------------------------ 2. WORK ------------------------>
-<section class="relative py-12 h-[80vh]">
-  
-  <div class="absolute right-[15vw] top-52 md:top-[18vh]">
-    <Planet id="work" color="#1ABCFE" label="for work"/>
-  </div>
-
- <!-- <div class="flex flex-wrap max-w-3xl mx-auto items-center"> -->
- <div class="flex flex-wrap mx-auto md:max-w-3xl items-center px-8">
-    <div class="w-full"> 
-      <p class="text-md font-mono mb-4">Copywriting + Design</p>
-      
-      <h2 class="text-3xl mb-3">Words and user flows<br>to sell more of your<br>
-        <span transition:fade={{ duration: 500 }} class="text-[#1ABCFE] glowing-text">
-          {visibleDeliverable}
-        </span>
-      </h2>
-
-    </div> 
-  
-    <Portfolio />
-
-</section>
-
-<div class="py-24">
-  <Testimonials />
+	<App />
 </div>
-
-<!------------------------ PIPEWRITER ------------------------>
-
-
-<section class="relative flex flex-col items-center md:flex-row
-  py-20 px-8 md:px-44 space-x-12">
-    
-  <div class="w-4/5 sm:w-3/5">
-    <!-- <h3 class="text-xl font-mono text-gray-600">Pipewriter: Google Docs Wireframes</h3> -->
-    <PipewriterDemo />
-  </div>
-  
-
-  <div class="w-full md:w-2/5"> <!-- left -->
-    <p class="text-md font-mono mb-4">Product design /</p>
-    <h3 class="text-xl mb-2">Prototypes are wholesome: they're the first real shot at life any idea gets.
-      I prototype digital products, and love building apps for 10x'ing the process. Like
-      <a href="https://pipewriter.io" target="_blank" class="text-bold underline hover:opacity-80">Pipewriter</a>,
-      my wireframing app for writers.</h3>
-      {#if isExpanded} <!-- Conditionally render the rest of the text -->
-        <p>
-          The mission here at jzro is to bring the best product design and rapid prototyping
-          from the tech industry to the new generation of aerospace startups.
-        </p>
-      {/if}
-    
-
-    <button class="text-sm my-4 font-mono text-blue-700 hover:underline" on:click={() => isExpanded = !isExpanded}>
-      {isExpanded ? 'Read Less -' : 'Read More +'}
-    </button>
-  
-    
-    <!-- <a href="https:pipewriter.io" class="text-md my-4 font-mono text-blue-700 hover:font-underline">
-      Pipewriter: Wireframing App in Google Docs →</a> -->
-  </div> 
-
-
-</section>
-
-
-<!------------------------ TESTIMONIALS ------------------------>
-
-<section class="relative md:px-44 py-12">
-
-  <div class="">
-    <!-- <Testimonials /> -->
-  </div>
-  
-  <div class="max-w-xs">
-    <img class="h-20" src="grav/asteroid.png" alt="">  
-    <!-- <Coin /> -->
-  </div>
-
-  <!-- gradient -->
-  
-  <div class="absolute bottom-0 left-0 w-full h-16
-    z-0 bg-gradient-to-b from-darkBg to-lighterBg"></div>
-
-</section>
-
-<!------------------------ FUN ------------------------>
-
-<section class="bg-lighterBg py-8 px-8 md:px-8">
-  <div class="flex flex-wrap max-w-3xl mx-auto items-center">
-    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
-      <Planet id="fun" color="#540087" label="for fun"/>
-    </div>
-    <div class="w-full md:w-1/2 p-4"> <!-- right -->
-      <p class="text-md font-mono mb-4">Code + Engineering</p>
-      <h2 class="text-4xl mb-3">Aerospacey Interfaces </h2>
-      <!-- <p class="text-md font-mono mb-4">no such thing as too much right rudder</p> -->
-    </div> 
-  </div>
-  
-  <div class="my-20">
-      <CodePortfolio />
-  </div>
-
-</section>
-
-
-<div class="h-6 bg-gradient-to-t from-darkBg to-lighterBg py-8 flex justify-center items-center"></div>
-
-<!-- ----------------------- github ----------------------- -->
-
-<section class="px-8 md:px-8 max-w-2xl mx-auto">
-  <div class="flex flex-wrap items-center">
-    <div class="w-full md:w-1/2 p-4"> 
-      <h3 class="text-xl mb-3">Day jobbing aside, I *really* dig developing engineery apps for space and aviation.</h3>
-        <h3 class="text-xl mb-3">They ain't smart as a 🛰️ DART, but sure are more fun than Fortran</h3>
-      <p class="text-md mb-4 font-mono text-blue-700">Hire me to code ?</p>
-    </div> 
-    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2">
-      <Planet id="github" color="#969696" label="GitHub"/> <!-- #F1F1F1 -->
-    </div>
-  </div>
-</section>
-
-<div class="flex w-auto max-w-xl mx-auto justify-center">
-  <img class="h-40" src="grav/dangerous-go-alone.png" alt="">  
-  <!-- <Coin /> -->
-</div>
-
-<!------------------------ about ------------------------>
-<section class="mt-20 py-8 px-8 md:px-8 max-w-3xl mx-auto">
-  <div class="flex flex-wrap items-center">
-     <!-- left -->
-    <div class="w-full md:w-1/2 p-4">
-      
-      <h2 class="text-4xl mb-3">I'm Ivan 👋</h2>
-      <p class="text-md mb-4"> <!-- DEVELOPERS DEVELOPERS DEVELOPERS -->
-        Oye, Dusters. I'm a looongtime tech copywriter midlife-crisising into aerospace engineer, pilot, and HTML programmer.</p> 
-      <p class="text-md mb-4">Im doing it because space exploration is the OG and we should make more of it happen.</p>
-      <p class="text-md mb-4"
-      >If you feel this way too, maybe we can test in prod together and <span class="text-white">design a human-centered space race.</span></p>
-    </div> 
-    <!-- left -->
-    <div class="w-full mt-20 -mb-8 p-8 md:w-1/2"> <!-- right -->
-      <div class="h-40 w-40 opacity-40 bg-slate-600"></div>
-    </div>
-  </div>
-</section>
-
-
-<!-------------------------- cta -------------------------->
-<section class="flex flex-col md:flex-row justify-center items-center mx-auto
-  py-12 h-screen max-w-3xl">
-  <!-- Memes Images -->
-  <div class="flex relative flex-col w-full md:w-1/2
-    items-center md:items-end space-y-4">
-    <img src="memes/hello-friend.png" alt="Hello Friend Meme" 
-    class="absolute bottom-0 transform rotate-[15deg]">
-    <img src="memes/choppa.png" alt="Get to the Choppa Meme" 
-    class="absolute top-0 transform scale-75 rotate-[-15deg]">
-  </div>
-
-  <div class="flex justify-center p-12 items-center w-full md:w-1/2">
-    <Planet id="contact" color="#1B0087" label="say hi"/>
-  </div>
-  <!-- Contact Form inside Planet SVG -->
-</section>
-
-
-<!-------------------------- jzro -------------------------->
-<!-- https://mars.nasa.gov/mars2020/mission/weather/ -->
-<!-- <section class="flex flex-col mt-44 mx-44"> -->
-  <section class="px-8 md:px-44 xl:px-72 py-12">
-
-	<div class="flex flex-col justify-start">
-    <p class="font-mono text-xs mb-3">March 24, 2024 / Sol 1100</p>
-    <p class="text-2xl font-mono text-white">
-      <span class="red">JZRO</span>
-      <span class="red">24</span>2151Z
-      260<span class="red">07KT</span>
-      CLEAR <span class="red">-13</span>/-76
-      Q<span class="red">0073</span></p>
-  </div>
-      <div class="flex flex-wrap">
-        <p class="font-mono text-sm mt-6">
-          The Ingenuity helicopter earned Mars ICAO: JZRO, the only official airport code outside of Earth.
-          It doesn't get more 'aero+space' than that.</p>
-          <p class="font-mono text-sm mt-2">
-          This is a METAR report generated with
-          <a href="https://www.space.com/perseverance-rover-mars-weather-report" target="_blank"
-          class="underline hover:text-white">
-            Perseverance data</a>
-          for the Jezero Crater, where Ingenuity flew 72 times.
-          Sleep tight, brave flying angel 💔</p>
-
-      </div>
-
-</section>
-
-</main>
-<!-------------------------- footer -------------------------->
-<Footer />
-
-
-
 
 
 <style>
-
-  section {
-    /* @apply border border-dashed border-gray-900; */
+  body {
+    margin: 0;
+    /* overflow: hidden; */
   }
 
-  .red {
-    color: #F21D26;
+  .app-container {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    background: rgb(13, 19, 32);
+    background: linear-gradient(180deg, rgba(13, 19, 32, 1) 0%, rgba(8, 12, 21, 1) 100%);
   }
 
-  .scroll-display {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
+  .navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.5);
     color: white;
-    padding: 10px;
-    border-radius: 5px;
-    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 
-  
-  .glowing-text {
-    /* @apply transition-all duration-1000 ease-in-out; */
-    transition: text-shadow 0.5s ease-in-out, color 0.3s ease-in-out;
-    text-shadow: 0 0 8px #1ABCFE;
+  .navbar h1 {
+    margin: 0;
   }
-  .glowing-text:hover {
-    text-shadow: 0 0 0.8em #1ABCFE;
+
+  .navbar nav a {
+    margin-left: 1rem;
+    color: white;
+    text-decoration: none;
   }
 </style>
-
-
