@@ -18,16 +18,18 @@
   <Nav />
   <Menu />
 
-  <div class="absolute bottom-10 left-10 w-1/3 h-1/3">
-    <Model />
-  </div>
+  <div class="absolute bottom-0 left-0 right-0 flex justify-between items-end p-4 md:p-8">
+    <div class="w-1/5 h-1/5 min-w-[100px]">
+      <Model />
+    </div>
 
-  <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2">
-    <Launch />
-  </div>
+    <div class="flex-grow flex justify-center items-end mx-4">
+      <Launch />
+    </div>
 
-  <div class="absolute bottom-10 right-10">
-    <Controls />
+    <div class="w-auto min-w-[200px]">
+      <Controls />
+    </div>
   </div>
 </div>
 
