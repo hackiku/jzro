@@ -1,15 +1,7 @@
 // $lib/stores/launchStore.ts
 
-import { writable } from 'svelte/store';
+import { writable } from "svelte/store";
 
-function createLaunchStore() {
-	const { subscribe, set, update } = writable(false);
-
-	return {
-		subscribe,
-		launch: () => set(true),
-		reset: () => set(false)
-	};
-}
-
-export const isLaunched = createLaunchStore();
+export const isLaunched = writable(false);
+export const launchDirection = writable({ x: 0, y: 1, z: 0 });
+export const launchVelocity = writable(5);
