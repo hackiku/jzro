@@ -1,4 +1,8 @@
 <!-- $lib/app/App.svelte -->
+<!-- 
+This component serves as the main layout for the application.
+It includes the 3D canvas, navigation, menu, and control elements.
+-->
 
 <script lang="ts">
   import { Canvas } from '@threlte/core'
@@ -19,7 +23,7 @@
   <Menu />
 
   <div class="absolute bottom-0 left-0 right-0 flex justify-between items-end p-4 md:p-8">
-    <div class="w-1/5 h-1/5 min-w-[100px]">
+    <div class="w-1/3 h-1/3 min-w-[200px] max-w-[300px]">
       <Model />
     </div>
 
