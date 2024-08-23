@@ -20,7 +20,7 @@
     launchVelocity.set(value);
   }
 
-  let dirX = 0, dirY = 1, dirZ = 0;
+  let dirX = 0.6, dirY = 0.8, dirZ = 0.7;
   $: $launchDirection = { x: dirX, y: dirY, z: dirZ };
 </script>
 
