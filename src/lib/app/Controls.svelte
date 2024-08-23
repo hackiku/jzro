@@ -1,5 +1,6 @@
 <!-- src/lib/app/Controls.svelte -->
 
+
 <script>
   import { spring } from 'svelte/motion';
   import Equation from './Equation.svelte';
@@ -19,13 +20,13 @@
   }
 </script>
 
-<div class="p-6 w-58">
-  <div class="flex flex-col space-y-4">
-    <div class="flex justify-center items-center h-16">
+<div class="p-4 w-full max-w-[250px]">
+  <div class="flex flex-col space-y-2">
+    <div class="flex justify-center items-center h-12">
       <Equation velocity={displayedValue} />
     </div>
     <div class="relative">
-      <div class="w-full h-4 bg-transparent border border-white rounded-full overflow-hidden">
+      <div class="w-full h-3 bg-transparent border border-white rounded-full overflow-hidden">
         <div 
           class="h-full bg-purple-600 transition-all duration-100 ease-out" 
           style="width: {displayedValue}%;"
@@ -37,7 +38,7 @@
         max="100" 
         bind:value={localVelocity}
         on:input={handleVelocityChange}
-        class="absolute top-0 left-0 w-full h-4 opacity-0 cursor-pointer" 
+        class="absolute top-0 left-0 w-full h-3 opacity-0 cursor-pointer" 
       />
     </div>
   </div>
@@ -47,8 +48,8 @@
   input[type="range"]::-webkit-slider-thumb {
     -webkit-appearance: none;
     appearance: none;
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: #F3201D;
     cursor: pointer;
@@ -56,8 +57,8 @@
   }
 
   input[type="range"]::-moz-range-thumb {
-    width: 20px;
-    height: 20px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
     background: #F3201D;
     cursor: pointer;
