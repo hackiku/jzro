@@ -4,33 +4,46 @@
   import { T, useFrame } from '@threlte/core';
   import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
   import { writable } from 'svelte/store';
+  import { selectedModel } from '$lib/stores/modelStore';
+  import { isLaunched } from '$lib/stores/launchStore';
   import WING from './models/WING.svelte'
   import Virus from './models/Virus.svelte'
   import Ribs from './models/Ribs.svelte'
 
-  // Define the time variable to control the orbit
   let time = writable(0);
+  let modelPosition = { x: -7, y: 2.8, z: -9 };
 
   useFrame((_, delta) => {
-    // Update the time variable
     time.update(n => n + delta);
+    if ($isLaunched) {
+      modelPosition.y += delta * 5; // Adjust the speed as needed
+      if (modelPosition.y > 20) {
+        isLaunched.reset();
+        modelPosition.y = 2.8;
+      }
+    }
   });
 
-  // Calculate the position of the orbiting sphere based on time
   $: orbitPosition = [
-    2 * Math.cos($time) + 0, // X position
-    1.2,                    // Y position (constant)
-    2 * Math.sin($time) - 1.75  // Z position
+    2 * Math.cos($time) + 0,
+    1.2,
+    2 * Math.sin($time) - 1.75
   ];
+
+  const models = {
+    WING,
+    Virus,
+    Ribs
+  };
 </script>
 
 <T.PerspectiveCamera
   makeDefault
-  position={[-10, 10, 10]}
+  position={[-22, 10, -20]}
   fov={15}
 >
   <OrbitControls
-    autoRotate
+    autoRotate={false}
     enableZoom={true}
     enableDamping
     autoRotateSpeed={0.5}
@@ -57,17 +70,9 @@
   <T.MeshStandardMaterial color="#F85122" />
 </T.Mesh>
 
-<!-- Virus model -->
-<Virus
-  position={[3, 1, -1]}
+<!-- Dynamic model loading -->
+<svelte:component this={models[$selectedModel]}
+  position={[modelPosition.x, modelPosition.y, modelPosition.z]}
   scale={0.2}
   rotation={[0, $time, 0]}
 />
-
-<!-- Ribs model -->
-<Ribs
-  position={[-3, 1, -1]}
-  scale={0.2}
-  rotation={[0, -$time * 0.5, 0]}
-/>
-
