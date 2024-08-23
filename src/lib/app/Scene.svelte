@@ -1,17 +1,15 @@
 <!-- src/lib/app/Scene.svelte -->
 
 <script lang="ts">
-  import { T, useFrame, useLoader } from '@threlte/core';
+  import { T, useFrame } from '@threlte/core';
   import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
   import { writable } from 'svelte/store';
-  import Model from './models/WING.svelte'
   import WING from './models/WING.svelte'
-	// import { rk4 } from '$lib/jzro/orbitalMech.ts';
+  import Virus from './models/Virus.svelte'
+  import Ribs from './models/Ribs.svelte'
 
   // Define the time variable to control the orbit
   let time = writable(0);
-	
-	// const gltf = useLoader(GLTFLoader).load('models/WING.gltf')
 
   useFrame((_, delta) => {
     // Update the time variable
@@ -47,25 +45,29 @@
 
 <ContactShadows scale={10} blur={2} far={2.5} opacity={0.5} />
 
-<!-- planet -->
+<!-- Planet -->
 <T.Mesh position={[0, 1.2, -1.75]}>
-	<T.SphereGeometry args={[1, 32, 32]} />
-	<T.MeshStandardMaterial color="#0059BA" />
+  <T.SphereGeometry args={[1, 32, 32]} />
+  <T.MeshStandardMaterial color="#0059BA" />
 </T.Mesh>
 
-<!-- satellite -->
+<!-- Orbiting satellite -->
 <T.Mesh position={orbitPosition}>
   <T.SphereGeometry args={[0.3, 32, 32]} />
   <T.MeshStandardMaterial color="#F85122" />
 </T.Mesh>
 
-
-<WING
-  position.x={2}
-  scale={2}
+<!-- Virus model -->
+<Virus
+  position={[3, 1, -1]}
+  scale={0.2}
+  rotation={[0, $time, 0]}
 />
 
-<Model
-  position.x={2}
-  scale={1}
+<!-- Ribs model -->
+<Ribs
+  position={[-3, 1, -1]}
+  scale={0.2}
+  rotation={[0, -$time * 0.5, 0]}
 />
+
