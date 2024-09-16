@@ -17,8 +17,8 @@
   {#if !launched}
     <div class="absolute top-20 left-10 right-10 text-white" transition:fade>
       <h1 class="text-2xl md:text-3xl lg:text-4xl uppercase font-thin mb-2 opacity-80">Aerospace UX</h1>
-      <p class="text-lg md:text-xl lg:text-2xl opacity-60">Code that makes</p>
-      <p class="text-lg md:text-xl lg:text-2xl opacity-60">products fly</p>
+      <p class="font-thin text-md md:text-lg lg:text-2xl opacity-60">Code & design make</p>
+      <p class="font-thin text-md md:text-lg lg:text-2xl opacity-60">products fly</p>
     </div>
   {/if}
 </div>

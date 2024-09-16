@@ -31,6 +31,7 @@ declare module '$env/static/private' {
 	export const TERM_PROGRAM: string;
 	export const NODE: string;
 	export const INIT_CWD: string;
+	export const ANDROID_HOME: string;
 	export const TERM: string;
 	export const SHELL: string;
 	export const TMPDIR: string;
@@ -141,6 +142,7 @@ declare module '$env/dynamic/private' {
 		TERM_PROGRAM: string;
 		NODE: string;
 		INIT_CWD: string;
+		ANDROID_HOME: string;
 		TERM: string;
 		SHELL: string;
 		TMPDIR: string;
