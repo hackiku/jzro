@@ -1,5 +1,5 @@
-
 <!-- $lib/app/Model.svelte -->
+
 <script lang="ts">
   import * as Popover from "$lib/components/ui/popover";
   import { selectedModel } from '$lib/stores/modelStore';

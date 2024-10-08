@@ -1,8 +1,4 @@
 <!-- $lib/app/App.svelte -->
-<!-- 
-This component serves as the main layout for the application.
-It includes the 3D canvas, navigation, menu, and control elements.
--->
 
 <script lang="ts">
   import { Canvas } from '@threlte/core'
@@ -12,10 +8,14 @@ It includes the 3D canvas, navigation, menu, and control elements.
   import Menu from './Menu.svelte'
   import Launch from './Launch.svelte'
   import Model from './Model.svelte'
+	// gui
+  import LaunchGUI from './gui/LaunchGUI.svelte'
+	import ModelGUI from './gui/ModelGUI.svelte'
 </script>
 
 <div class="relative w-screen h-screen overflow-hidden text-white bg-gradient-to-b from-[#0d1320] to-[#080c15]">
-  <Canvas>
+  
+	<Canvas>
     <Scene />
   </Canvas>
 
@@ -23,12 +23,13 @@ It includes the 3D canvas, navigation, menu, and control elements.
   <Menu />
 
   <div class="absolute bottom-0 left-0 right-0 flex justify-between items-end p-4 md:p-8">
-    <div class="w-1/3 h-1/3 min-w-[200px] max-w-[300px]">
-      <Model />
+    <div class="w-1/3 h-1/3 min-w-[200px] max-w-[3em]">
+      <ModelGUI />
     </div>
 
     <div class="flex-grow flex justify-center items-end mx-4">
-      <Launch />
+      <!-- <Launch /> -->
+      <LaunchGUI />
     </div>
 
     <div class="w-auto min-w-[200px]">
