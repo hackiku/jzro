@@ -1,19 +1,20 @@
 <!-- routes/menu/+page.svelte -->
 
 <script lang="ts">
-  import MenuLayout from '$lib/menu/MenuLayout.svelte';
   import Nav from '$lib/components/Nav.svelte';
-  import SideMenu from '$lib/menu/SideMenu.svelte';
-  import ContentCard from '$lib/menu/ContentCard.svelte';
-  import { writable } from 'svelte/store';
-
-  const activeCard = writable('');
+  import Content from '$lib/menu/Content.svelte';
+  import { isMenuOpen } from '$lib/stores/menuStore';
 </script>
 
-<div class="relative w-screen h-screen bg-gray-900 text-white">
+<div class="relative w-screen h-screen bg-gray-900 text-white overflow-hidden">
   <Nav />
-  <MenuLayout>
-    <SideMenu {activeCard} />
-    <ContentCard {activeCard} />
-  </MenuLayout>
+  
+  <main class="pt-20 px-4 h-full overflow-y-auto">
+    {#if $isMenuOpen}
+      <Content />
+    {:else}
+      <h1 class="text-4xl mb-4">Welcome to the Menu Test Page</h1>
+      <p>Click the menu icon to explore different sections.</p>
+    {/if}
+  </main>
 </div>
