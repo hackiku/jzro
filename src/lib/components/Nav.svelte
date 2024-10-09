@@ -1,18 +1,44 @@
-<!-- $lib/app/Nav.svelte -->
+<!-- $lib/components/Nav.svelte -->
 
 <script lang="ts">
-  let isMenuOpen = false;
+  import { onMount } from 'svelte';
+  import { Menu } from 'lucide-svelte';
+  import Jzro from '$lib/components/Jzro.svelte';
 
-  function toggleMenu() {
-    isMenuOpen = !isMenuOpen;
+  let isJzroOpen = false;
+  let navElement: HTMLElement;
+
+  function toggleJzro() {
+    isJzroOpen = !isJzroOpen;
   }
+
+  function handleClickOutside(event: MouseEvent) {
+    if (isJzroOpen && navElement && !navElement.contains(event.target as Node)) {
+      isJzroOpen = false;
+    }
+  }
+
+  onMount(() => {
+    document.addEventListener('click', handleClickOutside);
+    return () => {
+      document.removeEventListener('click', handleClickOutside);
+    };
+  });
 </script>
 
-<nav class="absolute top-0 left-0 w-full p-4 flex justify-between items-center z-50">
-  <a href="/" class="text-[#F3201D] text-xl font-medium hover:underline">jzro</a>
-  <button on:click={toggleMenu} class="text-white">
-    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path>
-    </svg>
+<nav bind:this={navElement} class="fixed top-0 left-0 w-full p-4 flex justify-between items-start z-50">
+  <div class="relative">
+    <button
+      on:click={toggleJzro}
+      class="text-[#F3201D] text-2xl font-medium hover:underline"
+    >
+      {isJzroOpen ? 'Close' : 'jzro'}
+    </button>
+
+    <Jzro isOpen={isJzroOpen} />
+  </div>
+
+  <button on:click class="text-white p-2">
+    <Menu size={32} />
   </button>
 </nav>

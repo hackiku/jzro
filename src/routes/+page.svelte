@@ -1,6 +1,8 @@
 <!-- routes/+page.svelte -->
 
 <script lang="ts">
+  // import Nav from '$lib/app/Nav.svelte'
+  import Nav from '$lib/components/Nav.svelte'
   import App from '$lib/app/App.svelte';
   import { isLaunched } from '$lib/app/launchStore';
   import { fade } from 'svelte/transition';
@@ -13,6 +15,8 @@
 
 <div class="relative w-screen h-screen">
   <App />
+
+	<Nav />
   
   <!-- {#if !launched} -->
   {#if $isLaunched}

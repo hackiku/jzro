@@ -1,7 +1,8 @@
 <!-- routes/menu/+page.svelte -->
+
 <script lang="ts">
   import MenuLayout from '$lib/menu/MenuLayout.svelte';
-  import Nav from '$lib/menu/Nav.svelte';
+  import Nav from '$lib/components/Nav.svelte';
   import SideMenu from '$lib/menu/SideMenu.svelte';
   import ContentCard from '$lib/menu/ContentCard.svelte';
   import { writable } from 'svelte/store';

@@ -1,4 +1,5 @@
 <!-- src/lib/app/gui/ModelGUI.svelte -->
+
 <script lang="ts">
   import { Slider } from "$lib/components/ui/slider";
   import { selectedModel } from '$lib/stores/modelStore';

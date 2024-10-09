@@ -4,7 +4,6 @@
   import { Canvas } from '@threlte/core'
   import Scene from './Scene.svelte'
   import Controls from './Controls.svelte'
-  import Nav from './Nav.svelte'
   import Menu from './Menu.svelte'
   import Launch from './Launch.svelte'
   import Model from './Model.svelte'
@@ -19,7 +18,6 @@
     <Scene />
   </Canvas>
 
-  <Nav />
   <Menu />
 
   <div class="absolute bottom-0 left-0 right-0 flex justify-between items-end p-4 md:p-8">
