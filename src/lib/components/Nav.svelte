@@ -26,7 +26,7 @@
   });
 </script>
 
-<nav bind:this={navElement} class="fixed top-0 left-0 w-full p-4 flex justify-between items-start z-50">
+<nav bind:this={navElement} class="fixed top-0 left-0 w-full px-4 md:px-12 lg:px-20 py-4 flex justify-between items-start z-50">
   <div class="relative">
     <button
       on:click={toggleJzro}
