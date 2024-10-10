@@ -102,7 +102,7 @@
 
 <!-- Planet -->
 <T.Mesh position={planetPosition}>
-  <T.SphereGeometry args={[1, 32, 32]} />
+  <T.SphereGeometry args={[1, 2, 32]} />
   <T.MeshStandardMaterial color="#0059BA" />
 </T.Mesh>
 
