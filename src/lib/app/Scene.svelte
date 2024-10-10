@@ -4,9 +4,9 @@
   import { T, useFrame } from '@threlte/core';
   import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
   import { writable } from 'svelte/store';
-  import { isLaunched, launchDirection, launchVelocity } from '$lib/stores/launchStore';
+  import { isLaunched, launchDirection, launchVelocity, launchTime } from '$lib/stores/launchStore';
   import { selectedModel } from '$lib/stores/modelStore';
-  import { SpacePhysicsSystem, type PhysicsObject } from './physics/spacePhysics';
+  import { SimpleTrajectorySystem } from './physics/simpleTrajectory';
   import WING from './models/WING.svelte';
   import Virus from './models/Virus.svelte';
   import Ribs from './models/Ribs.svelte';
@@ -15,61 +15,39 @@
   let time = writable(0);
   let debugInfo = '';
 
-  const physicsSystem = new SpacePhysicsSystem();
+  const trajectorySystem = new SimpleTrajectorySystem();
 
-  // Set up initial positions and velocities
+  // Set up initial positions
   const planetPosition = new Vector3(0, 1.2, -1.75);
   const modelPosition = new Vector3(-7, 2.8, -9);
-  const cubePosition = new Vector3(3, 4, -3);
 
-  // Add objects to the physics system
-  physicsSystem.addObject({
-    position: planetPosition,
-    velocity: new Vector3(0, 0, 0),
-    mass: 5000,
-    radius: 1,
-    isActive: true
-  });
-
-  const modelObject: PhysicsObject = {
-    position: modelPosition,
-    velocity: new Vector3(0, 0, 0),
-    mass: 1000,
-    radius: 0.2,
-    isActive: false
-  };
-  physicsSystem.addObject(modelObject);
-
-  const cubeObject: PhysicsObject = {
-    position: cubePosition,
-    velocity: new Vector3(0, 0, -1),
-    mass: 500,
-    radius: 0.5,
-    isActive: true
-  };
-  physicsSystem.addObject(cubeObject);
+  // Add objects to the trajectory system
+  trajectorySystem.setPlanet(planetPosition, 1);
+  const modelObject = trajectorySystem.addObject(modelPosition, 0.2);
 
   useFrame((_, delta) => {
     time.update(n => n + delta);
-    physicsSystem.update(delta);
-    debugInfo = physicsSystem.getDebugInfo();
+    if ($isLaunched) {
+      trajectorySystem.update(delta);
+      debugInfo = trajectorySystem.getDebugInfo();
+    }
   });
 
   $: {
     if ($isLaunched) {
-      modelObject.velocity.set(
+      const launchVelocityVector = new Vector3(
         $launchDirection.x * $launchVelocity,
         $launchDirection.y * $launchVelocity,
         $launchDirection.z * $launchVelocity
       );
-      physicsSystem.setObjectActive(1, true);
+      trajectorySystem.launchObject(modelObject, launchVelocityVector);
     }
   }
 
-  $: orbitPosition = [
-    2 * Math.cos($time) + 0,
-    1.2,
-    2 * Math.sin($time) - 1.75
+  $: satellitePosition = [
+    2 * Math.cos($time * 0.5) + planetPosition.x,
+    planetPosition.y,
+    2 * Math.sin($time * 0.5) + planetPosition.z
   ];
 
   const models = {
@@ -102,12 +80,12 @@
 
 <!-- Planet -->
 <T.Mesh position={planetPosition}>
-  <T.SphereGeometry args={[1, 2, 32]} />
+  <T.SphereGeometry args={[1, 32, 32]} />
   <T.MeshStandardMaterial color="#0059BA" />
 </T.Mesh>
 
 <!-- Satellite -->
-<T.Mesh position={orbitPosition}>
+<T.Mesh position={satellitePosition}>
   <T.SphereGeometry args={[0.3, 32, 32]} />
   <T.MeshStandardMaterial color="#F85122" />
 </T.Mesh>
@@ -120,12 +98,6 @@
 >
   <T.MeshStandardMaterial color="#FFFFFF" opacity={$isLaunched ? 1 : 0.5} transparent={true} />
 </svelte:component>
-
-<!-- Cube -->
-<T.Mesh position={[cubeObject.position.x, cubeObject.position.y, cubeObject.position.z]}>
-  <T.BoxGeometry args={[1, 1, 1]} />
-  <T.MeshStandardMaterial color="#F85122" />
-</T.Mesh>
 
 <!-- Debug info -->
 <div class="absolute top-0 left-0 text-white text-xs p-2 bg-black bg-opacity-50">

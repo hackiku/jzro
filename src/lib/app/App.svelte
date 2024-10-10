@@ -3,7 +3,6 @@
 <script lang="ts">
   import { Canvas } from '@threlte/core'
   import Scene from './Scene.svelte'
-  import Model from './Model.svelte'
   import LaunchControl from './LaunchControl.svelte'
   import ModelGUI from './gui/ModelGUI.svelte'
 </script>
@@ -23,9 +22,6 @@
       <LaunchControl />
     </div>
 
-    <div class="w-auto min-w-[200px]">
-      <!-- <Controls /> -->
-    </div>
   </div>
 </div>
 
