@@ -10,7 +10,7 @@
 {#if $isMenuOpen}
 <!-- class="absolute top-full right-0 mt-2 bg-gray-900 border border-gray-800 rounded-lg p-4 shadow-lg" -->
   <div
-	  class="absolute top-1/2 right-full mt-3 mr-2 bg-gray-900 border border-gray-800 rounded-lg p-2 shadow-lg transform -translate-y-1/2"
+	  class="absolute top-1/2 right-full mr-2 bg-gray-900 border border-gray-800 rounded-lg p-2 shadow-lg transform -translate-y-1/2"
 
     transition:fly={{ x: 20, duration: 300 }}
   >
@@ -18,7 +18,7 @@
       {#each menuItems as item}
         <button
           on:click={() => setActiveTab(item.toLowerCase())}
-          class="px-6 py-3 rounded-lg transition-colors duration-200 text-white text-xl"
+          class="px-4 py-2 rounded-lg transition-colors duration-200 text-white text-lg"
           class:bg-gray-800={$activeTab === item.toLowerCase()}
         >
           {item}

@@ -4,12 +4,12 @@
   import { T, useFrame } from '@threlte/core';
   import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
   import { writable } from 'svelte/store';
-  import { selectedModel } from '$lib/stores/modelStore';
   import { isLaunched, launchDirection, launchVelocity } from '$lib/stores/launchStore';
-  import { SpacePhysicsSystem, type PhysicsObject } from '$lib/app/physics/spacePhysics';
-  import WING from './models/WING.svelte'
-  import Virus from './models/Virus.svelte'
-  import Ribs from './models/Ribs.svelte'
+  import { selectedModel } from '$lib/stores/modelStore';
+  import { SpacePhysicsSystem, type PhysicsObject } from './physics/spacePhysics';
+  import WING from './models/WING.svelte';
+  import Virus from './models/Virus.svelte';
+  import Ribs from './models/Ribs.svelte';
   import { Vector3 } from 'three';
 
   let time = writable(0);
@@ -26,7 +26,7 @@
   physicsSystem.addObject({
     position: planetPosition,
     velocity: new Vector3(0, 0, 0),
-    mass: 5000, // Keeping the existing mass
+    mass: 5000,
     radius: 1,
     isActive: true
   });
@@ -42,7 +42,7 @@
 
   const cubeObject: PhysicsObject = {
     position: cubePosition,
-    velocity: new Vector3(0, 0, -1), // Small initial velocity
+    velocity: new Vector3(0, 0, -1),
     mass: 500,
     radius: 0.5,
     isActive: true
@@ -62,7 +62,7 @@
         $launchDirection.y * $launchVelocity,
         $launchDirection.z * $launchVelocity
       );
-      physicsSystem.setObjectActive(1, true); // Activate the model object
+      physicsSystem.setObjectActive(1, true);
     }
   }
 
@@ -107,10 +107,9 @@
 </T.Mesh>
 
 <!-- Satellite -->
-
 <T.Mesh position={orbitPosition}>
-	<T.SphereGeometry args={[0.3, 32, 32]} />
-	<T.MeshStandardMaterial color="#F85122" />
+  <T.SphereGeometry args={[0.3, 32, 32]} />
+  <T.MeshStandardMaterial color="#F85122" />
 </T.Mesh>
 
 <!-- Model loading -->

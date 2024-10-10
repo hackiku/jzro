@@ -37,13 +37,13 @@
   });
 </script>
 
-<nav bind:this={navElement} class="fixed top-0 left-0 w-full px-4 py-2 flex justify-between items-center z-50">
+<nav bind:this={navElement} class="fixed top-0 left-0 w-full px-4 sm:px-10 sm:px-16 py-6 flex justify-between items-center z-50">
   <div class="relative">
     <button
       on:click={toggleJzro}
       class="text-[#F3201D] text-2xl font-medium hover:underline h-12 flex items-center"
     >
-      {isJzroOpen ? 'Close' : 'jzro'}
+      {isJzroOpen ? '×' : 'jzro'}
     </button>
 
     <Jzro isOpen={isJzroOpen} />

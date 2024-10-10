@@ -8,6 +8,6 @@ export const launchDirection = writable({ x: 1, y: 0, z: 0 });
 export const launchVelocity = writable(1);
 
 export function resetLaunch() {
-	isLaunched.set(false);
-	launchTime.set(0);
+  isLaunched.set(false);
+  launchTime.set(0);
 }
