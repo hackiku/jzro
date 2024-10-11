@@ -12,7 +12,7 @@
     transition:fly={{ y: -20, duration: 300 }}
   >
     <h2 class="text-2xl font-mono mb-3">JZRO 242151Z 26007KT CLEAR -13/-76 Q0073</h2>
-    <p class="text-sm text-gray-400 mb-3">March 24, 2024 / Sol 1100</p>
+    <p class="text-sm text-gray-400 mb-3">March 24, 2024 / Sol 11007</p>
     <p class="text-base mb-6 text-gray-400">
       The Ingenuity helicopter earned Mars ICAO: JZRO, the only official airport code outside
       of Earth. This is the most recent weather report on Mars, Jezero crater, based on NASA data. It doesn't get more 'aero+space' than that. Rest in peace wingy angel 💔

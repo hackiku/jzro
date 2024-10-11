@@ -4,7 +4,7 @@
   import { T, useFrame } from '@threlte/core';
   import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
   import { writable } from 'svelte/store';
-  import { isLaunched, launchDirection, launchVelocity, launchTime } from '$lib/stores/launchStore';
+  import { isLaunched, launchDirection, launchVelocity } from '$lib/stores/launchStore';
   import { selectedModel } from '$lib/stores/modelStore';
   import { SimpleTrajectorySystem } from './physics/simpleTrajectory';
   import WING from './models/WING.svelte';
@@ -79,7 +79,7 @@
 <ContactShadows scale={10} blur={2} far={2.5} opacity={0.5} />
 
 <!-- Planet -->
-<T.Mesh position={planetPosition}>
+<T.Mesh position={[planetPosition.x, planetPosition.y, planetPosition.z]}>
   <T.SphereGeometry args={[1, 32, 32]} />
   <T.MeshStandardMaterial color="#0059BA" />
 </T.Mesh>
