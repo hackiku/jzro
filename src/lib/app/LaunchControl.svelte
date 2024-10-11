@@ -3,6 +3,7 @@
 <script lang="ts">
   import { Play, Pause, RotateCcw } from 'lucide-svelte';
   import { isLaunched, launchTime, resetLaunch } from '$lib/stores/launchStore';
+  import { isPaused } from '$lib/stores/orbitStore';
   import { onMount } from 'svelte';
   import { fade, fly } from 'svelte/transition';
 
@@ -15,18 +16,29 @@
   });
 
   function toggleLaunch() {
-    isLaunched.update(value => !value);
-    if ($isLaunched) {
-      intervalId = setInterval(() => {
-        launchTime.update(t => t + 10);
-      }, 10);
+    if (!$isLaunched) {
+      isLaunched.set(true);
+      isPaused.set(false);
+      startTimer();
     } else {
-      clearInterval(intervalId);
+      isPaused.update(value => !value);
+      if ($isPaused) {
+        clearInterval(intervalId);
+      } else {
+        startTimer();
+      }
     }
+  }
+
+  function startTimer() {
+    intervalId = setInterval(() => {
+      launchTime.update(t => t + 10);
+    }, 10);
   }
 
   function handleReset() {
     resetLaunch();
+    isPaused.set(false);
     if (intervalId) clearInterval(intervalId);
   }
 
@@ -47,12 +59,12 @@
       on:click={toggleLaunch} 
       class="flex items-center justify-center gap-2 w-32 px-6 py-2 border border-red-600 text-red-600 rounded-full hover:bg-red-600 hover:text-white transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50"
     >
-      {#if $isLaunched}
+      {#if $isLaunched && !$isPaused}
         <Pause size={20} />
         <span class="font-semibold">Pause</span>
       {:else}
         <Play size={20} />
-        <span class="font-semibold">Launch</span>
+        <span class="font-semibold">{$isLaunched ? 'Resume' : 'Launch'}</span>
       {/if}
     </button>
     <button

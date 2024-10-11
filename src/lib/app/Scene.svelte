@@ -5,7 +5,7 @@
   import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
   import { writable } from 'svelte/store';
   import { isLaunched, launchTime, launchDirection, launchVelocity, resetLaunch } from '$lib/stores/launchStore';
-  import { orbitPosition, orbitVelocity, orbitStartTime, isOrbiting, startOrbit, resetOrbit } from '$lib/stores/orbitStore';
+  import { orbitPosition, orbitVelocity, orbitStartTime, isOrbiting, startOrbit, resetOrbit, isPaused } from '$lib/stores/orbitStore';
   import { selectedModel } from '$lib/stores/modelStore';
   import WING from './models/WING.svelte';
   import Virus from './models/Virus.svelte';
@@ -13,6 +13,7 @@
   import { Vector3 } from 'three';
 
   let time = writable(0);
+  let pausedTime = 0;
 
   // Set up initial positions
   const planetPosition = new Vector3(0, 1.2, -1.75);
@@ -34,16 +35,20 @@
   }
 
   useFrame((_, delta) => {
-    time.update(n => n + delta);
-    if ($isOrbiting) {
-      const elapsedTime = $time - $orbitStartTime;
-      const newPosition = updateOrbitPosition(elapsedTime);
-      orbitPosition.set(newPosition);
+    if (!$isPaused) {
+      time.update(n => n + delta);
+      if ($isOrbiting) {
+        const elapsedTime = $time - $orbitStartTime;
+        const newPosition = updateOrbitPosition(elapsedTime);
+        orbitPosition.set(newPosition);
+      }
+    } else {
+      pausedTime += delta;
     }
   });
 
   $: {
-    if ($isLaunched && !$isOrbiting) {
+    if ($isLaunched && !$isOrbiting && !$isPaused) {
       const launchVelocityVector = new Vector3(
         $launchDirection.x * $launchVelocity,
         $launchDirection.y * $launchVelocity,
@@ -54,9 +59,9 @@
   }
 
   $: satellitePosition = [
-    2 * Math.cos($time * 0.5) + planetPosition.x,
+    2 * Math.cos(($isPaused ? pausedTime : $time) * 0.5) + planetPosition.x,
     planetPosition.y,
-    2 * Math.sin($time * 0.5) + planetPosition.z
+    2 * Math.sin(($isPaused ? pausedTime : $time) * 0.5) + planetPosition.z
   ];
 
   const models = {
@@ -70,6 +75,8 @@
     resetLaunch();
     resetOrbit();
     orbitPosition.set(modelInitialPosition);
+    time.set(0);
+    pausedTime = 0;
   }
 
   // Subscribe to isLaunched to trigger reset when it becomes false
@@ -106,7 +113,7 @@
   this={models[$selectedModel]}
   position={[$orbitPosition.x, $orbitPosition.y, $orbitPosition.z]}
   scale={0.2}
-  rotation={[0, $isOrbiting ? $time : 0, 0]}
+  rotation={[0, $isOrbiting && !$isPaused ? $time : 0, 0]}
 >
   <T.MeshStandardMaterial color="#FFFFFF" opacity={$isOrbiting ? 1 : 0.5} transparent={true} />
 </svelte:component>
