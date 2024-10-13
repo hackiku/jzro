@@ -1,56 +1,39 @@
 <!-- src/lib/app/hud/ModelHUD.svelte -->
 
 <script lang="ts">
-  import { selectedModel } from '$lib/stores/modelStore';
-  import { onMount } from 'svelte';
-  import { ChevronUp } from 'lucide-svelte';
+  import { selectedModel, autoRotate } from '$lib/stores/modelStore';
 
-  const models = ['Cat', 'Virus', 'Ribs'];
+  const models = ['Virus', 'Cat', 'Ribs'];
 
-  let isOpen = false;
-
-  function selectModel(model: string) {
-    selectedModel.set(model);
-    isOpen = false;
+  function handleModelChange(event: Event) {
+    selectedModel.set((event.target as HTMLSelectElement).value);
   }
-
-  function toggleDropdown() {
-    isOpen = !isOpen;
-  }
-
-  onMount(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (isOpen && !event.target.closest('.dropdown')) {
-        isOpen = false;
-      }
-    };
-
-    document.addEventListener('click', handleClickOutside);
-
-    return () => {
-      document.removeEventListener('click', handleClickOutside);
-    };
-  });
 </script>
 
-<div class="dropdown w-full relative">
-  <button
-    on:click={toggleDropdown}
-    class="w-full flex items-center justify-between px-4 py-2 text-sm font-medium text-gray-300 bg-transparent border border-gray-700 rounded-md hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-900 focus:ring-white"
+<div class="w-full p-4 border border-gray-700 rounded-xl">
+  <label for="model-select" class="block text-sm font-medium text-gray-400 mb-2">
+    Select Model
+  </label>
+  <select
+    id="model-select"
+    class="bg-gray-700 text-white rounded-md p-2 w-full"
+    on:change={handleModelChange}
   >
-    <span>{$selectedModel}</span>
-    <ChevronUp size={20} class="ml-2" />
-  </button>
-  {#if isOpen}
-    <div class="absolute z-10 w-full bottom-full mb-1 bg-gray-900 border border-gray-700 rounded-md shadow-lg">
-      {#each models as model}
-        <button
-          on:click={() => selectModel(model)}
-          class="block w-full text-left px-4 py-2 text-sm text-gray-300 hover:bg-gray-800 focus:outline-none"
-        >
-          {model}
-        </button>
-      {/each}
-    </div>
-  {/if}
+    {#each models as model}
+      <option value={model} selected={$selectedModel === model}>
+        {model}
+      </option>
+    {/each}
+  </select>
+
+  <div class="mt-4">
+    <label class="flex items-center space-x-2">
+      <input
+        type="checkbox"
+        bind:checked={$autoRotate}
+        class="form-checkbox text-blue-600"
+      />
+      <span class="text-sm text-gray-400">Auto-rotate</span>
+    </label>
+  </div>
 </div>

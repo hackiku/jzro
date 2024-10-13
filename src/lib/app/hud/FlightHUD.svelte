@@ -2,7 +2,9 @@
 
 <script lang="ts">
   import { Slider } from "$lib/components/ui/slider";
-  import { launchDirection, launchVelocity } from '$lib/stores/launchStore';
+  import { launchDirection, launchVelocity, isLaunched } from '$lib/stores/launchStore';
+  import { orbitPosition, orbitVelocity } from '$lib/stores/orbitStore';
+  import { planetRadius } from '$lib/app/physics/constants';
 
   let dirX = 0, dirY = 0, dirZ = 0;
 
@@ -15,6 +17,9 @@
   function updateDirection(axis: 'x' | 'y' | 'z', value: number) {
     launchDirection.update(dir => ({ ...dir, [axis]: value }));
   }
+
+  $: speed = $isLaunched ? $orbitVelocity.length().toFixed(2) : '0.00';
+  $: altitude = ($orbitPosition.length() - planetRadius).toFixed(2);
 </script>
 
 <div class="w-full flex flex-col items-start justify-end p-4 border border-gray-700 rounded-xl space-y-4">
@@ -38,5 +43,16 @@
   <div class="w-full mb-4">
     <label for="velocity" class="text-gray-400 text-xs block mb-1">Velocity: {$launchVelocity.toFixed(2)} km/s</label>
     <Slider id="velocity" min={0} max={20} step={0.1} value={[$launchVelocity]} onValueChange={([value]) => launchVelocity.set(value)} class="h-1 [&_[role=slider]]:bg-white [&_[role=slider]]:border-white [&_.bg-primary]:bg-white" />
+  </div>
+
+  <div class="w-full space-y-2">
+    <div class="flex justify-between">
+      <span class="text-gray-400">Speed:</span>
+      <span>{speed} km/s</span>
+    </div>
+    <div class="flex justify-between">
+      <span class="text-gray-400">Altitude:</span>
+      <span>{altitude} km</span>
+    </div>
   </div>
 </div>

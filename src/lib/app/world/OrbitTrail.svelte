@@ -1,12 +1,13 @@
-<!-- lib/app/world/OrbitTrail.svelte -->
+<!-- src/lib/app/world/OrbitTrail.svelte -->
 
 <script lang="ts">
   import { T } from '@threlte/core';
-  import { LineBasicMaterial, BufferGeometry, Float32BufferAttribute } from 'three';
+  import { LineBasicMaterial, BufferGeometry, Float32BufferAttribute, Color } from 'three';
   import { writable, derived } from 'svelte/store';
 
   export let maxPoints = 1000;
   export let fadeOut = true;
+  export let color = "#FFFFFF";
 
   const points = writable([]);
   const geometry = derived(points, $points => {
@@ -21,8 +22,12 @@
       return [...p, [x, y, z]];
     });
   }
+
+  export function reset() {
+    points.set([]);
+  }
+
+  $: material = new LineBasicMaterial({ color: new Color(color), vertexColors: fadeOut });
 </script>
 
-<T.Line geometry={$geometry}>
-  <T.LineBasicMaterial color="#FFFFFF" vertexColors={fadeOut} />
-</T.Line>
+<T.Line geometry={$geometry} {material} />

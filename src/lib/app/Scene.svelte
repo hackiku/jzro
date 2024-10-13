@@ -4,50 +4,74 @@
   import { T, useFrame } from '@threlte/core';
   import { ContactShadows, Grid, OrbitControls } from '@threlte/extras';
   import { writable } from 'svelte/store';
-  import { isLaunched, launchTime, launchDirection, launchVelocity, resetLaunch } from '$lib/stores/launchStore';
-  import { orbitPosition, orbitVelocity, orbitStartTime, isOrbiting, startOrbit, resetOrbit, isPaused } from '$lib/stores/orbitStore';
+  import { onMount } from 'svelte';
   import { Vector3 } from 'three';
-
-	import ModelLoader from './models/ModelLoader.svelte';
+  import { isLaunched, launchTime, launchDirection, launchVelocity, resetLaunch } from '$lib/stores/launchStore';
+  import { orbitPosition, orbitVelocity, isOrbiting, startOrbit, resetOrbit, isPaused } from '$lib/stores/orbitStore';
+  import { selectedModel, autoRotate } from '$lib/stores/modelStore';
+  import ModelLoader from './models/ModelLoader.svelte';
   import OrbitTrail from './world/OrbitTrail.svelte';
-
+  import { SimpleTrajectorySystem } from '$lib/app/physics/simpleTrajectory';
 
   let time = writable(0);
-  let pausedTime = 0;
+  let orbitTrail;
 
-	let orbitTrail;
-
-  // Set up initial positions
   const planetPosition = new Vector3(0, 1.2, -1.75);
   const modelInitialPosition = new Vector3(-7, 2.8, -9);
+  const planetRadius = 1;
 
-  // Initialize orbit position with the initial model position
+  const trajectorySystem = new SimpleTrajectorySystem(planetPosition, planetRadius);
+
   orbitPosition.set(modelInitialPosition);
 
-  function updateOrbitPosition(elapsedTime: number) {
-    const radius = 10;
+  function updateSatellitePosition(t: number) {
+    const radius = 2;
     const speed = 0.5;
-    const height = 5;
-    
-    const x = planetPosition.x + radius * Math.cos(elapsedTime * speed);
-    const y = planetPosition.y + height * Math.sin(elapsedTime * speed * 2);
-    const z = planetPosition.z + radius * Math.sin(elapsedTime * speed);
-
-    return new Vector3(x, y, z);
+    return new Vector3(
+      planetPosition.x + radius * Math.cos(t * speed),
+      planetPosition.y,
+      planetPosition.z + radius * Math.sin(t * speed)
+    );
   }
+
+  let satellitePosition = updateSatellitePosition(0);
 
   useFrame((_, delta) => {
     if (!$isPaused) {
-      time.update(n => n + delta);
-      if ($isOrbiting) {
-        const elapsedTime = $time - $orbitStartTime;
-        const newPosition = updateOrbitPosition(elapsedTime);
-        orbitPosition.set(newPosition);
+      time.update(t => t + delta);
+    }
+
+    satellitePosition = updateSatellitePosition($time);
+
+    if ($isLaunched && !$isPaused) {
+      const elapsedTime = ($time - $launchTime) / 1000; // Convert to seconds
+      const newPosition = trajectorySystem.updatePosition(elapsedTime);
+      orbitPosition.set(newPosition);
+      if (orbitTrail && orbitTrail.addPoint) {
+        orbitTrail.addPoint(newPosition.x, newPosition.y, newPosition.z);
       }
-    } else {
-      pausedTime += delta;
     }
   });
+
+  function handleReset() {
+    resetLaunch();
+    resetOrbit();
+    orbitPosition.set(modelInitialPosition);
+    time.set(0);
+    if (orbitTrail && orbitTrail.reset) {
+      orbitTrail.reset();
+    }
+  }
+
+  onMount(() => {
+    if (!$isLaunched) {
+      handleReset();
+    }
+  });
+
+  $: if (!$isLaunched) {
+    handleReset();
+  }
 
   $: {
     if ($isLaunched && !$isOrbiting && !$isPaused) {
@@ -57,27 +81,8 @@
         $launchDirection.z * $launchVelocity
       );
       startOrbit(modelInitialPosition, launchVelocityVector, $time);
+      trajectorySystem.startTrajectory(modelInitialPosition, launchVelocityVector);
     }
-  }
-
-  $: satellitePosition = [
-    2 * Math.cos(($isPaused ? pausedTime : $time) * 0.5) + planetPosition.x,
-    planetPosition.y,
-    2 * Math.sin(($isPaused ? pausedTime : $time) * 0.5) + planetPosition.z
-  ];
-
-  // Reset function
-  function handleReset() {
-    resetLaunch();
-    resetOrbit();
-    orbitPosition.set(modelInitialPosition);
-    time.set(0);
-    pausedTime = 0;
-  }
-
-  // Subscribe to isLaunched to trigger reset when it becomes false
-  $: if (!$isLaunched) {
-    handleReset();
   }
 </script>
 
@@ -103,21 +108,23 @@
 
 <!-- Planet -->
 <T.Mesh position={[planetPosition.x, planetPosition.y, planetPosition.z]}>
-  <T.SphereGeometry args={[1, 32, 32]} />
+  <T.SphereGeometry args={[planetRadius, 32, 32]} />
   <T.MeshStandardMaterial color="#0059BA" />
 </T.Mesh>
 
 <!-- Satellite -->
-<T.Mesh position={satellitePosition}>
+<T.Mesh position={[satellitePosition.x, satellitePosition.y, satellitePosition.z]}>
   <T.SphereGeometry args={[0.3, 32, 32]} />
   <T.MeshStandardMaterial color="#F85122" />
 </T.Mesh>
 
-<!-- Model loading -->
+<!-- Launched Object -->
 <ModelLoader 
   position={[$orbitPosition.x, $orbitPosition.y, $orbitPosition.z]}
+  rotation={[0, $autoRotate ? $time : 0, 0]}
   scale={0.2}
-  rotation={[0, $isOrbiting && !$isPaused ? $time : 0, 0]}
 >
-  <T.MeshStandardMaterial color="#FFFFFF" opacity={$isOrbiting ? 1 : 0.5} transparent={true} />
+  <T.MeshStandardMaterial color="#FFFFFF" opacity={$isLaunched ? 1 : 0.5} transparent={true} />
 </ModelLoader>
+
+<OrbitTrail bind:this={orbitTrail} maxPoints={500} fadeOut={true} color="#4169E1" />
