@@ -6,11 +6,8 @@
   import { writable } from 'svelte/store';
   import { isLaunched, launchTime, launchDirection, launchVelocity, resetLaunch } from '$lib/stores/launchStore';
   import { orbitPosition, orbitVelocity, orbitStartTime, isOrbiting, startOrbit, resetOrbit, isPaused } from '$lib/stores/orbitStore';
-  import { selectedModel } from '$lib/stores/modelStore';
-  import WING from './models/WING.svelte';
-  import Virus from './models/Virus.svelte';
-  import Ribs from './models/Ribs.svelte';
   import { Vector3 } from 'three';
+  import ModelLoader from './models/ModelLoader.svelte';
 
   let time = writable(0);
   let pausedTime = 0;
@@ -64,12 +61,6 @@
     2 * Math.sin(($isPaused ? pausedTime : $time) * 0.5) + planetPosition.z
   ];
 
-  const models = {
-    WING,
-    Virus,
-    Ribs
-  };
-
   // Reset function
   function handleReset() {
     resetLaunch();
@@ -96,7 +87,6 @@
   position.y={-0.01} 
   cellColor="#6b7280" 
   sectionColor="#6b7280" 
-   
   sectionThickness={1} 
   fadeDistance={220}
   cellSize={2}
@@ -119,11 +109,10 @@
 </T.Mesh>
 
 <!-- Model loading -->
-<svelte:component 
-  this={models[$selectedModel]}
+<ModelLoader 
   position={[$orbitPosition.x, $orbitPosition.y, $orbitPosition.z]}
   scale={0.2}
   rotation={[0, $isOrbiting && !$isPaused ? $time : 0, 0]}
 >
   <T.MeshStandardMaterial color="#FFFFFF" opacity={$isOrbiting ? 1 : 0.5} transparent={true} />
-</svelte:component>
+</ModelLoader>

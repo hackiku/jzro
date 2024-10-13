@@ -5,7 +5,7 @@
   import { onMount } from 'svelte';
   import { ChevronUp } from 'lucide-svelte';
 
-  const models = ['WING', 'Virus', 'Ribs'];
+  const models = ['Cat', 'Virus', 'Ribs'];
 
   let isOpen = false;
 
