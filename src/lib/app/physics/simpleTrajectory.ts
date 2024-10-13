@@ -1,36 +1,41 @@
 // src/lib/physics/simpleTrajectory.ts
 
 import { Vector3 } from 'three';
+import { PLANET_RADIUS, ORBITAL_RADIUS } from '$lib/app/physics/constants';
 
 export class SimpleTrajectorySystem {
-	private initialPosition: Vector3;
-	private initialVelocity: Vector3;
-	private gravity: number = 9.8;
+	private a: number; // Semi-major axis
+	private e: number; // Eccentricity
 	private planetPosition: Vector3;
-	private planetRadius: number;
 
-	constructor(planetPosition: Vector3, planetRadius: number) {
+	constructor(planetPosition: Vector3) {
 		this.planetPosition = planetPosition;
-		this.planetRadius = planetRadius;
+		this.a = 0;
+		this.e = 0;
 	}
 
 	startTrajectory(position: Vector3, velocity: Vector3) {
-		this.initialPosition = position.clone();
-		this.initialVelocity = velocity.clone();
+		const r = position.distanceTo(this.planetPosition);
+		const v = velocity.length();
+
+		// Approximate orbital elements
+		this.a = (r + ORBITAL_RADIUS) / 2; // Simple approximation
+		this.e = (ORBITAL_RADIUS - r) / (ORBITAL_RADIUS + r); // Simple approximation
 	}
 
 	updatePosition(elapsedTime: number): Vector3 {
-		const x = this.initialPosition.x + this.initialVelocity.x * elapsedTime;
-		const y = this.initialPosition.y + this.initialVelocity.y * elapsedTime - 0.5 * this.gravity * elapsedTime * elapsedTime;
-		const z = this.initialPosition.z + this.initialVelocity.z * elapsedTime;
+		const period = 2 * Math.PI * Math.sqrt(this.a * this.a * this.a / PLANET_RADIUS);
+		const meanAnomaly = (2 * Math.PI * elapsedTime) / period;
 
-		const newPosition = new Vector3(x, y, z);
+		// Approximating true anomaly with mean anomaly for simplicity
+		const trueAnomaly = meanAnomaly;
 
-		// Check for collision with the planet
-		if (newPosition.distanceTo(this.planetPosition) < this.planetRadius) {
-			return this.planetPosition.clone().add(new Vector3(this.planetRadius, 0, 0));
-		}
+		const distance = this.a * (1 - this.e * this.e) / (1 + this.e * Math.cos(trueAnomaly));
 
-		return newPosition;
+		const x = this.planetPosition.x + distance * Math.cos(trueAnomaly);
+		const z = this.planetPosition.z + distance * Math.sin(trueAnomaly);
+		const y = this.planetPosition.y; // Assuming orbit is in the XZ plane for simplicity
+
+		return new Vector3(x, y, z);
 	}
 }

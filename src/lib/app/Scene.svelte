@@ -12,25 +12,24 @@
   import ModelLoader from './models/ModelLoader.svelte';
   import OrbitTrail from './world/OrbitTrail.svelte';
   import { SimpleTrajectorySystem } from '$lib/app/physics/simpleTrajectory';
+  import { PLANET_RADIUS, ORBITAL_RADIUS } from '$lib/app/physics/constants';
 
   let time = writable(0);
   let orbitTrail;
 
   const planetPosition = new Vector3(0, 1.2, -1.75);
   const modelInitialPosition = new Vector3(-7, 2.8, -9);
-  const planetRadius = 1;
 
-  const trajectorySystem = new SimpleTrajectorySystem(planetPosition, planetRadius);
+  const trajectorySystem = new SimpleTrajectorySystem(planetPosition);
 
   orbitPosition.set(modelInitialPosition);
 
   function updateSatellitePosition(t: number) {
-    const radius = 2;
     const speed = 0.5;
     return new Vector3(
-      planetPosition.x + radius * Math.cos(t * speed),
+      planetPosition.x + ORBITAL_RADIUS * Math.cos(t * speed),
       planetPosition.y,
-      planetPosition.z + radius * Math.sin(t * speed)
+      planetPosition.z + ORBITAL_RADIUS * Math.sin(t * speed)
     );
   }
 
@@ -108,7 +107,7 @@
 
 <!-- Planet -->
 <T.Mesh position={[planetPosition.x, planetPosition.y, planetPosition.z]}>
-  <T.SphereGeometry args={[planetRadius, 32, 32]} />
+  <T.SphereGeometry args={[PLANET_RADIUS, 32, 32]} />
   <T.MeshStandardMaterial color="#0059BA" />
 </T.Mesh>
 

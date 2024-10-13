@@ -4,7 +4,7 @@
   import { Slider } from "$lib/components/ui/slider";
   import { launchDirection, launchVelocity, isLaunched } from '$lib/stores/launchStore';
   import { orbitPosition, orbitVelocity } from '$lib/stores/orbitStore';
-  import { planetRadius } from '$lib/app/physics/constants';
+  import { PLANET_RADIUS } from '$lib/app/physics/constants';
 
   let dirX = 0, dirY = 0, dirZ = 0;
 
@@ -19,7 +19,7 @@
   }
 
   $: speed = $isLaunched ? $orbitVelocity.length().toFixed(2) : '0.00';
-  $: altitude = ($orbitPosition.length() - planetRadius).toFixed(2);
+  $: altitude = Math.max(0, ($orbitPosition.length() - PLANET_RADIUS)).toFixed(2);
 </script>
 
 <div class="w-full flex flex-col items-start justify-end p-4 border border-gray-700 rounded-xl space-y-4">
