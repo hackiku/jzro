@@ -1,5 +1,9 @@
 <!-- routes/+page.svelte -->
 
+<svelte:head>
+	<title>jzro | Aerospace UX & Software</title>
+	<meta name="description" content="Human-centered design & code for the space race. Websites, apps, avionics and hard-tech engineering for aero+space startups and enterprises." />
+</svelte:head>
 
 <script lang="ts">
   import Nav from '$lib/components/Nav.svelte'
@@ -15,9 +19,9 @@
   
   {#if !$isLaunched}
     <div class="absolute top-24 left-4 sm:left-16 right-10 text-white" transition:fade>
-      <h1 class="text-2xl md:text-3xl lg:text-4xl uppercase font-thin mb-2 opacity-80">Aerospace UX</h1>
-      <p class="font-thin text-md md:text-lg lg:text-2xl opacity-60">Code & design make</p>
-      <p class="font-thin text-md md:text-lg lg:text-2xl opacity-60">products fly</p>
+      <h1 class="text-4xl md:text-5xl lg:text-5xl uppercase font-thin mb-2 opacity-80">Aerospace UX</h1>
+      <p class="font-thin text-xl md:text-2xl lg:text-2xl opacity-60">Code & design make</p>
+      <p class="font-thin text-xl md:text-2xl lg:text-2xl opacity-60">products fly</p>
     </div>
   {/if}
 </div>

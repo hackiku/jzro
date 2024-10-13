@@ -92,7 +92,17 @@
 <T.DirectionalLight intensity={0.8} position={[5, 10, 0]} />
 <T.AmbientLight intensity={0.2} />
 
-<Grid position.y={-0.001} cellColor="#ffffff" sectionColor="#ffffff" sectionThickness={0} fadeDistance={75} cellSize={2} />
+<Grid 
+  position.y={-0.01} 
+  cellColor="#6b7280" 
+  sectionColor="#6b7280" 
+   
+  sectionThickness={1} 
+  fadeDistance={220}
+  cellSize={2}
+  sectionSize={10}
+  infiniteGrid={true}
+/>
 
 <ContactShadows scale={10} blur={2} far={2.5} opacity={0.5} />
 
