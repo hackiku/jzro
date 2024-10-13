@@ -7,10 +7,15 @@
   import { isLaunched, launchTime, launchDirection, launchVelocity, resetLaunch } from '$lib/stores/launchStore';
   import { orbitPosition, orbitVelocity, orbitStartTime, isOrbiting, startOrbit, resetOrbit, isPaused } from '$lib/stores/orbitStore';
   import { Vector3 } from 'three';
-  import ModelLoader from './models/ModelLoader.svelte';
+
+	import ModelLoader from './models/ModelLoader.svelte';
+  import OrbitTrail from './world/OrbitTrail.svelte';
+
 
   let time = writable(0);
   let pausedTime = 0;
+
+	let orbitTrail;
 
   // Set up initial positions
   const planetPosition = new Vector3(0, 1.2, -1.75);
