@@ -5,12 +5,17 @@
   import { Card } from "$lib/components/ui/card";
   import { Tooltip, TooltipContent, TooltipTrigger } from "$lib/components/ui/tooltip";
   import PricingTable from "$lib/services/chute-repack/PricingTable.svelte";
+  import Nav from "$lib/components/Nav.svelte";
+  import Footer from "$lib/components/Footer.svelte";
+
 </script>
 
 <svelte:head>
   <title>Chute Repack Service | jzro</title>
   <meta name="description" content="Redesign your landing pages for better conversion with jzro's Chute Repack service." />
 </svelte:head>
+
+<Nav />
 
 <div class="min-h-screen flex flex-col bg-gradient-to-b from-[#0d1320] to-[#080c15] text-white">
   <main class="flex-grow container mx-auto px-4 py-8">
@@ -94,3 +99,5 @@
 
   </main>
 </div>
+
+<!-- <Footer /> -->
