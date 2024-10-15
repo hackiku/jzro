@@ -35,12 +35,7 @@
       </div>
     </section>
 
-    <!-- Rest of your sections -->
 
-    <section class="py-12">
-      <h3 class="text-2xl font-bold mb-4">Pricing</h3>
-      <PricingTable />
-    </section>
 
 <section class="py-12 relative">
   <div class="absolute right-0 top-0 w-1/3 transform rotate-15">

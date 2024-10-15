@@ -3,7 +3,8 @@
 	"/": [],
 	"/(random)/boing": [],
 	"/(services)/chute-repack": [],
-	"/(services)/chute-repack/[client]": [],
+	"/(services)/chute-repack/clients": [],
+	"/(services)/chute-repack/clients/phasefour.io": [],
 	"/menu": [],
 	"/work": [],
 	"/work/[projects]": []

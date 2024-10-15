@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/(services)/chute-repack/+page.svelte";
+export { default as component } from "../../../../src/routes/(random)/boing/+page.svelte";

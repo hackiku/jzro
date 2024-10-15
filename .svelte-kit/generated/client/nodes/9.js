@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/menu/+page.svelte";
+export { default as component } from "../../../../src/routes/(services)/chute-repack/clients/phasefour.io/+page.svelte";

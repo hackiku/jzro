@@ -12,19 +12,20 @@ export const nodes = [
 	() => import('./nodes/8'),
 	() => import('./nodes/9'),
 	() => import('./nodes/10'),
-	() => import('./nodes/11')
+	() => import('./nodes/11'),
+	() => import('./nodes/12')
 ];
 
 export const server_loads = [];
 
 export const dictionary = {
-		"/": [5],
-		"/(random)/boing": [6],
-		"/(services)/chute-repack": [7,[2]],
-		"/(services)/chute-repack/[client]": [8,[2]],
-		"/menu": [9,[3]],
-		"/work": [10,[4]],
-		"/work/[projects]": [11,[4]]
+		"/": [6],
+		"/(random)/boing": [7],
+		"/(services)/chute-repack": [8,[2]],
+		"/(services)/chute-repack/clients/phasefour.io": [9,[2,3]],
+		"/menu": [10,[4]],
+		"/work": [11,[5]],
+		"/work/[projects]": [12,[5]]
 	};
 
 export const hooks = {
