@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/chute-repack/gui/+layout.svelte";
+export { default as component } from "../../../../src/routes/menu/+layout.svelte";

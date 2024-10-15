@@ -4,7 +4,7 @@
   import { Button } from "$lib/components/ui/button";
   import { Card } from "$lib/components/ui/card";
   import { Tooltip, TooltipContent, TooltipTrigger } from "$lib/components/ui/tooltip";
-  import PricingTable from "$lib/services/chute-repack/PricingTable.svelte";
+  import PricingTable from "$lib/chute-repack/PricingTable.svelte";
   import Nav from "$lib/components/Nav.svelte";
   import Footer from "$lib/components/Footer.svelte";
 
@@ -101,3 +101,9 @@
 </div>
 
 <!-- <Footer /> -->
+
+<style>
+	p {
+		@apply text-gray-600;
+	}
+</style>
