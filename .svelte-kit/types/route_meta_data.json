@@ -1,8 +1,9 @@
 {
 	"/": [],
-	"/boing-relative-dashed-ok": [],
-	"/boing": [],
-	"/hero": [],
-	"/mars-metar": [],
-	"/menu": []
+	"/(random)/boing": [],
+	"/(services)/chute-repack": [],
+	"/(services)/chute-repack/[client]": [],
+	"/menu": [],
+	"/work": [],
+	"/work/[projects]": []
 }

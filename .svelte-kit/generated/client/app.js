@@ -9,18 +9,21 @@ export const nodes = [
 	() => import('./nodes/5'),
 	() => import('./nodes/6'),
 	() => import('./nodes/7'),
-	() => import('./nodes/8')
+	() => import('./nodes/8'),
+	() => import('./nodes/9'),
+	() => import('./nodes/10')
 ];
 
 export const server_loads = [];
 
 export const dictionary = {
-		"/": [3],
-		"/boing-relative-dashed-ok": [5],
-		"/boing": [4],
-		"/hero": [6],
-		"/mars-metar": [7],
-		"/menu": [8,[2]]
+		"/": [4],
+		"/(random)/boing": [5],
+		"/(services)/chute-repack": [6],
+		"/(services)/chute-repack/[client]": [7],
+		"/menu": [8,[2]],
+		"/work": [9,[3]],
+		"/work/[projects]": [10,[3]]
 	};
 
 export const hooks = {

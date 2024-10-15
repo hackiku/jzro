@@ -12,7 +12,7 @@
   import ModelLoader from './models/ModelLoader.svelte';
   import OrbitTrail from './world/OrbitTrail.svelte';
   import { SimpleTrajectorySystem } from '$lib/app/physics/simpleTrajectory';
-  import { PLANET_RADIUS, ORBITAL_RADIUS } from '$lib/app/physics/constants';
+  import { PLANET_RADIUS, ORBITAL_RADIUS, VELOCITY_FACTOR } from '$lib/app/physics/constants';
 
   let time = writable(0);
   let orbitTrail;
@@ -74,13 +74,14 @@
 
   $: {
     if ($isLaunched && !$isOrbiting && !$isPaused) {
+      const orbitSpeed = Math.sqrt(PLANET_RADIUS / ORBITAL_RADIUS) * VELOCITY_FACTOR;
       const launchVelocityVector = new Vector3(
-        $launchDirection.x * $launchVelocity,
-        $launchDirection.y * $launchVelocity,
-        $launchDirection.z * $launchVelocity
+        $launchDirection.x * $launchVelocity * orbitSpeed,
+        $launchDirection.y * $launchVelocity * orbitSpeed,
+        $launchDirection.z * $launchVelocity * orbitSpeed
       );
-      startOrbit(modelInitialPosition, launchVelocityVector, $time);
-      trajectorySystem.startTrajectory(modelInitialPosition, launchVelocityVector);
+      startOrbit($orbitPosition, launchVelocityVector, $time);
+      trajectorySystem.startTrajectory($orbitPosition, launchVelocityVector);
     }
   }
 </script>

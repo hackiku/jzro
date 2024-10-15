@@ -34,7 +34,7 @@ export class SimpleTrajectorySystem {
 
 		const x = this.planetPosition.x + distance * Math.cos(trueAnomaly);
 		const z = this.planetPosition.z + distance * Math.sin(trueAnomaly);
-		const y = this.planetPosition.y; // Assuming orbit is in the XZ plane for simplicity
+		const y = this.planetPosition.y; 
 
 		return new Vector3(x, y, z);
 	}
