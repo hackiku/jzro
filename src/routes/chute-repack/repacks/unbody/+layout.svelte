@@ -1,4 +1,4 @@
-<!-- src/routes/chute-repack/repacks/phasefour.io/+layout.svelte -->
+<!-- src/routes/chute-repack/repacks/unbody/+layout.svelte -->
 
 <script lang="ts">
   import BeforeAfter from '$lib/chute-repack/BeforeAfter.svelte';

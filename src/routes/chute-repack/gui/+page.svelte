@@ -5,7 +5,7 @@
   import { Textarea } from "$lib/components/ui/textarea";
   import { Card, CardContent, CardHeader, CardTitle } from "$lib/components/ui/card";
   import { onMount } from 'svelte';
-  import { analyze, improve } from '$lib/chute-repack/utils/analyzer';
+  import { analyze, improve } from '$lib/chute-repack/scripts/analyzer';
   import { saveWebsite, getWebsites, getMasterPrompt, setMasterPrompt } from '$lib/chute-repack/data/db';
 
   let url = '';

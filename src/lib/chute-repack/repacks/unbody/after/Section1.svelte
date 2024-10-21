@@ -10,10 +10,9 @@
       <div class="text-4xl md:text-5xl text-left md:tracking-[0.96px] tracking-[0.8px] md:leading-[115%] leading-[130%] font-semibold py-8 md:py-0 flex flex-col">
         <span>Data Bedrock for</span>
         <span><span class="Hero_gradientText__KaLro">AI-Native</span> Apps</span>
-        <span>in One <span class="Hero_gradientText__KaLro">API</span></span>
       </div>
       <p class="text-gray-600 text-base hidden md:block py-6 max-w-lg">
-        Data is king, AI is just the messenger. Build apps with AI-native data with a dead simple single GraphQL interface.
+        Data is king, AI is just the messenger. Build apps with AI-native data with <span class="Hero_gradientText__KaLro font-bold">one API</span> and a dead simple single GraphQL interface.
       </p>
       <div class="md:flex w-full justify-center md:justify-start">
         <div class="flex space-x-4">

@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/boing-relative-dashed-ok/+page.svelte";
+export { default as component } from "../../../../src/routes/chute-repack/repacks/unbody/+layout.svelte";

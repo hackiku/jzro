@@ -1,13 +1,10 @@
 <!-- src/lib/chute-repack/repacks/unbody/Section3.svelte -->
 
-<script>
-  // Import statements would go here
-</script>
 
 <section class="relative" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:3rem;padding-bottom:3rem">
   <div class="text-center" style="width:100%;display:flex;flex-direction:column;align-items:center;gap:1rem">
     <h2 class="text-3xl pt-3 font-semibold text-center">
-      Watch how Unbody works!
+      See Unbody in Action
     </h2>
     <p class="text-paraghraph_gray text-base leading-6 text-center max-w-2xl">
       Choose your AI, connect your data, and build with ease.

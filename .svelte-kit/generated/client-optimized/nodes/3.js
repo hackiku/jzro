@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/boing/+page.svelte";
+export { default as component } from "../../../../src/routes/chute-repack/repacks/phasefour.io/+layout.svelte";
