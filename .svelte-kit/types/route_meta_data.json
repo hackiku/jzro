@@ -3,8 +3,9 @@
 	"/": [],
 	"/(random)/boing": [],
 	"/chute-repack": [],
-	"/chute-repack/clients/phasefour.io": [],
 	"/chute-repack/gui": [],
+	"/chute-repack/repacks/phasefour.io": [],
+	"/chute-repack/repacks/unbody": [],
 	"/menu": [],
 	"/work": [],
 	"/work/[projects]": []

@@ -1,1 +1,1 @@
-export { default as component } from "../../../../src/routes/work/+page.svelte";
+export { default as component } from "../../../../src/routes/chute-repack/repacks/unbody/+page.svelte";

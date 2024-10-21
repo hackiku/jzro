@@ -1,0 +1,277 @@
+nbody
+Use Cases
+Showcase
+Pricing
+Live demo
+Docs
+Blog
+
+Search
+⌘K
+Book a call
+Dashboard
+Any Data,
+Any AI,
+One API,
+One Line of Code
+AI is just a tech, the value is in data. Applying AI to your data is complex and expensive. Unbody simplifies entire AI development pipeline with a single API, the only API you need to build AI-Native Apps.
+
+Get started
+Try live demo
+Telegram-dummy
+Finder-dummy
+Slack
+Notion
+Discord
+Drive
+Calander
+Dropbox
+Github
+Gmail
+Finder
+Telegram
+Slack
+Telegram-dummy
+Finder-dummy
+Slack
+Notion
+Discord
+Drive
+Calander
+Dropbox
+Github
+Gmail
+Finder
+Telegram
+Slack
+Telegram-dummy
+Finder-dummy
+Slack
+Notion
+Discord
+Drive
+Calander
+Dropbox
+Github
+Gmail
+Finder
+Telegram
+Slack
+Telegram-dummy
+Finder-dummy
+Slack
+Notion
+Discord
+Drive
+Calander
+Dropbox
+Github
+Gmail
+Finder
+Telegram
+Slack
+OpenAI
+Cohere
+anthropic
+Weaviate
+Mistral
+Hugging Face
+Gemini
+PyTorch
+Mux
+Imgix
+OpenAI
+Cohere
+anthropic
+Weaviate
+Mistral
+Hugging Face
+Gemini
+PyTorch
+Mux
+Imgix
+OpenAI
+Cohere
+anthropic
+Weaviate
+Mistral
+Hugging Face
+Gemini
+PyTorch
+Mux
+Imgix
+OpenAI
+Cohere
+anthropic
+Weaviate
+Mistral
+Hugging Face
+Gemini
+PyTorch
+Mux
+Imgix
+unbody
+     .spreads
+     .similar.image(
+     .limit(...)
+     .generate.fromOne(...)
+What you can build with Unbody?
+Unbody is a platform that allows you to build AI-powered applications with ease. From chatbots to generative search, from data analysis to content generation, Unbody has you covered.
+
+Get started
+Private A.I. Assistant
+Private A.I. Assistant
+Build a private AI assistant that can help you with your daily tasks, from scheduling to data analysis.
+
+AI-native Content API
+AI-native Content API
+Directly integrate Unbody with your existing content tools like Google Docs and Notion. Manage, enhance, and deploy content from a single API without ever moving your data.
+
+Content Generation Automation
+Content Generation Automation
+Unbody simplifies the content creation process by leveraging AI to automatically generate, optimize, and enhance digital content across various formats. Streamline your workflows and maintain high content quality with minimal manual input.
+
+Intelligent Search Engines
+Intelligent Search Engines
+Unbody enables you to develop intelligent search engines that interpret and respond to natural human language. Create search systems that seamlessly handle text, images, and other media to provide comprehensive, multimodal results.
+
+Why you should use Unbody?
+You do not need to be an AI expert to build AI-powered applications. Unbody abstracts the complexity of AI and provides you with a simple interface to build AI applications.
+
+Get started
+750x faster development
+750x faster development
+Unbody reduces the development from 300hrs on average to 4 minutes. This means you can build AI applications in days instead of months.
+
+Flexible AI engine choice
+Flexible AI engine choice
+Providing over 7 different AI models, we surpass the usual OpenAI wrappers.
+
+For every developer
+For every developer
+Designed for non-AI engineers with a near-zero learning-curve
+
+Watch how Unbody works!
+Choose your AI, connect your data, and build with ease.
+
+Get started
+What people are saying about Unbody
+We are proud to have received positive feedback from our users. Here are some of the reviews we have received.
+
+Get started
+avatar
+Arya Mazahery
+Co-founder & CEO @ PanocularAI
+"Unbody is a creative product for the current complex AI solutions. The comprehensive set of feature makes it a unique product on the market in its domain."
+
+P
+
+Product Hunt, April 25
+
+avatar
+Hernani Fernandes
+Senior Software Developer @ Xebia
+"Definitely the best tool to easily implement my new product using several resources at a fast pace without any pain. Great documentation and an excellent JavaScript client. It helped me take an old idea off the shelf and put it into practice. So far, I've loved it."
+
+P
+
+Product Hunt, April 25
+
+avatar
+Eleftheria Batsou
+CM @ Crab Nebula Dev
+"Unbody is a game-changer for simplifying AI integration. Excited to see how Unbody will grow 🚀🚀"
+
+P
+
+Product Hunt, April 25
+
+avatar
+Parsa Hashemi
+Engineering at ThinkOn
+"Smooth setup! Connects easily to data sources like Google Drive and then you can dive straight into interacting with your data using GraphQL Playground."
+
+P
+
+Product Hunt, April 26
+
+Live Demo
+Try out Unbody with our live demo. You can generate text, search for information, and more.
+
+Get started
+AI Model
+Source Types
+Use Case
+
+search
+
+generative
+
+filter
+
+RAG
+Method
+
+Inputs
+
+-
+// Unbody Client
+
+-
+// Inputs
+const response = await unbody.get
+							 .googleDoc
+							 .search.about(query)
+							 .exec();
+console.log(response);
+API Response
+No response yet
+Your data, your AI choice.
+We support a wide range of AI models, from the most popular to the most niche. So you are not dependent on a single provider such as OpenAI or GPT-3.
+
+Get started
+Modular AI
+Your data, from anywhere in any formats.
+Your private data should live where it is, and we make sure it stays that way. We have a wide range of connectors from Google Drive to Micrsoft Sharepoint, from Slack to Discord or even your local file system. Same time we support a wide range of data formats, from text to audio, from PDFs to videos.
+
+Get started
+Unbody integrations
+One API endpoint, one line of code, endless ideas.
+A.I. is complex, but using it shouldn't be. That's why we made it as simple as possible. With Unbody, a generative search or a making a private chatbot is as simple as a single line of code. We offer the AI functionalities over a graphQL API or even easier with our SDKs.
+
+Get started
+Learn more
+unbody.get.googleDocs
+          .search
+          .about("Financial reports")
+          .generate("create a summary of all these docs", ["text", "title"])
+          .exec();
+
+unbody.get.subtitleEntry
+          .ask("Wht is our main strategy for Feb2023?", ["text"])
+          .exec();
+
+Last updated on July 10, 2024
+Unbody
+hello@unbody.io
+COMPANY
+About
+Join Us
+Pricing
+Solutions
+Xbody
+FAQ
+Terms
+Privacy
+CONTACT
+LinkedIn
+X
+Github
+Youtube
+Discord
+—
+Sales
+RESOURCES
+Documentation
+Blog
+©Unbody 2024
