@@ -1,4 +1,4 @@
-<!-- src/lib/chute-repack/clients/unbody/Before.svelte -->
+<!-- src/lib/chute-repack/repacks/unbody/Before.svelte -->
 
 <script lang="ts"> 
 	import Section1 from  "./before/Section1.svelte";
