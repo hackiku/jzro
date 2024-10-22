@@ -1,11 +1,10 @@
 <!-- src/lib/content/work/WorkCard.svelte -->
-
 <script lang="ts">
   import { scale } from 'svelte/transition';
   import { goto } from '$app/navigation';
-  import type { Project } from './data/types';
+  import type { EnrichedProject } from './data/projectUtils';
   
-  export let project: Project;
+  export let project: EnrichedProject;
   let isHovered = false;
   
   function navigateToProject() {
@@ -22,7 +21,7 @@
   on:click={navigateToProject}
 >
   <img 
-    src={project.image} 
+    src={project.moneyshot} 
     alt={project.title}
     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
   />

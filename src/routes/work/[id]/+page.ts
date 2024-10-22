@@ -3,21 +3,23 @@
 import { error } from '@sveltejs/kit';
 import type { PageLoad } from './$types';
 import { projects } from '$lib/content/work/data/workData';
+import { enrichProjectData } from '$lib/content/work/data/projectUtils';
 
-export const load: PageLoad = ({ params }) => {
-	const currentIndex = projects.findIndex(p => p.id === params.id);
+export const load = ({ params }) => {
+	const project = projects.find(p => p.id === params.id);
 
-	if (currentIndex === -1) {
+	if (!project) {
 		throw error(404, {
 			message: 'Project not found'
 		});
 	}
 
-	const currentProject = projects[currentIndex];
-	const nextProject = projects[(currentIndex + 1) % projects.length];
+	const enrichedProject = enrichProjectData(project);
+	const nextProject = projects[(projects.indexOf(project) + 1) % projects.length];
+	const enrichedNextProject = enrichProjectData(nextProject);
 
 	return {
-		project: currentProject,
-		nextProject
+		project: enrichedProject,
+		nextProject: enrichedNextProject
 	};
 };

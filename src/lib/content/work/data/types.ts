@@ -6,6 +6,40 @@ export interface Tool {
 	url?: string;
 }
 
+export interface ProjectContent {
+	problem?: string;
+	solution?: string;
+	results?: string;
+}
+
+export interface Project {
+	id: string;
+	title: string;
+	description: string;
+	longDescription: string;
+	categories: string[];
+	tools: string[];
+	problem?: string;
+	solution?: string;
+	results?: string;
+	keyFeatures: string[];
+	liveUrl?: string;
+	githubUrl?: string;
+}
+
+// Default fallbacks for all optional fields
+export const DEFAULT_PROJECT: Partial<Project> = {
+	problem: "Houston, we have a problem that needs solving...",
+	solution: "Through careful engineering and design thinking...",
+	results: "The project achieved significant improvements...",
+	description: "A groundbreaking project pushing the boundaries of aerospace technology.",
+	categories: ["Aerospace", "Development"],
+	tools: ["figma", "svelte"],
+	liveUrl: undefined,
+	githubUrl: undefined
+};
+
+
 export const tools: Record<string, Tool> = {
 	figma: {
 		name: "Figma",
@@ -32,18 +66,3 @@ export const tools: Record<string, Tool> = {
 	}
 };
 
-export interface Project {
-	id: string;
-	title: string;
-	description: string;
-	categories: string[];
-	image: string;
-	keyFeatures: string[];
-	tools: string[];
-	liveUrl?: string;
-	githubUrl?: string;
-	assets?: {
-		screenshots: string[];
-		videos?: string[];
-	};
-}
