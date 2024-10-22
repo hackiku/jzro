@@ -2,10 +2,26 @@
 <script lang="ts">
   import { scale } from 'svelte/transition';
   import { goto } from '$app/navigation';
-  import type { EnrichedProject } from './data/projectUtils';
+  import type { Project } from './data/types';
   
-  export let project: EnrichedProject;
+  export let project: Project;
   let isHovered = false;
+  
+  // Direct mapping for quick deployment
+  const projectImages: Record<string, string> = {
+    'wingy': '/work/projects/wingy/moneyshot.png',
+    '6pack-avionics': '/work/projects/6pack-avionics/moneyshot.jpg',
+    'omicron-blockchain': '/work/projects/omicron-blockchain/moneyshot.png',
+    'pipewriter': '/work/projects/pipewriter/moneyshot.png',
+    'uploadcare': '/work/projects/uploadcare/moneyshot.png',
+    'wordagents': '/work/projects/wordagents/moneyshot.png',
+    'redocly': '/work/projects/redocly/moneyshot.jpg',
+    'flowmyfigma': '/work/projects/flowmyfigma/moneyshot.png',
+    // 'spacefomo': '/work/projects/spacefomo/moneyshot.png'
+  };
+
+  // Get image with fallback
+  $: imagePath = projectImages[project.id] || '/work/onshape-darkmode.png';
   
   function navigateToProject() {
     goto(`/work/${project.id}`);
@@ -21,7 +37,7 @@
   on:click={navigateToProject}
 >
   <img 
-    src={project.moneyshot} 
+    src={imagePath}
     alt={project.title}
     class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
   />
