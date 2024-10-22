@@ -1,7 +1,3 @@
-
-
-<!-- src/routes/work/+page.svelte -->
-
 <!-- src/routes/work/+page.svelte -->
 <script lang="ts">
   import PortfolioPiece from "$lib/content/work/PortfolioPiece.svelte";
@@ -14,7 +10,7 @@
 
 <svelte:head>
   <title>Work | jzro</title>
-  <meta name="description" content="Redesign your landing pages for better conversion with jzro's Chute Repack service." />
+  <meta name="description" content="Product design for aerospace and SaaS startups. Check out our UX, code and other work. " />
 </svelte:head>
 
 <Nav />
@@ -30,7 +26,6 @@
 
 
     <section class="py-12">
-      <h2 class="text-3xl font-bold mb-6">Products</h2>
       <div class="space-y-12">
         {#each projects as project}
           <PortfolioPiece {project} />

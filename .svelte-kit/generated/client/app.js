@@ -30,7 +30,7 @@ export const dictionary = {
 		"/chute-repack/repacks/unbody": [12,[4]],
 		"/menu": [13,[5]],
 		"/work": [14,[6]],
-		"/work/[projects]": [15,[6]]
+		"/work/[id]": [15,[6]]
 	};
 
 export const hooks = {

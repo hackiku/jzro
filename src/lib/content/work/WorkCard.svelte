@@ -1,25 +1,38 @@
 <!-- src/lib/content/work/WorkCard.svelte -->
 
 <script lang="ts">
-  import type { Project } from "./data/workData";
+  import { scale } from 'svelte/transition';
+  import { goto } from '$app/navigation';
+  import type { Project } from './data/types';
   
   export let project: Project;
+  let isHovered = false;
+  
+  function navigateToProject() {
+    goto(`/work/${project.id}`);
+  }
 </script>
 
-<div class="flex flex-col md:flex-row">
-  <div class="w-full md:w-1/2 pr-4">
-    <img 
-      src={project.image || '/work/headshots/heasdhot-placeholder.png'} 
-      alt={project.title} 
-      class="w-full h-auto rounded-lg"
-    />
-  </div>
-  <div class="w-full md:w-1/2 mt-4 md:mt-0">
-    <h3 class="text-xl font-semibold mb-2">Key Features</h3>
-    <ul class="list-disc list-inside text-gray-400">
-      {#each project.keyFeatures as feature}
-        <li>{feature}</li>
-      {/each}
-    </ul>
-  </div>
+<!-- svelte-ignore a11y-click-events-have-key-events -->
+<!-- svelte-ignore a11y-no-static-element-interactions -->
+<div
+  class="relative overflow-hidden rounded-lg cursor-pointer group"
+  on:mouseenter={() => isHovered = true}
+  on:mouseleave={() => isHovered = false}
+  on:click={navigateToProject}
+>
+  <img 
+    src={project.image} 
+    alt={project.title}
+    class="w-full aspect-video object-cover transition-transform duration-500 group-hover:scale-105"
+  />
+  
+  {#if isHovered}
+    <div 
+      class="absolute inset-0 bg-black/60 flex items-center justify-center"
+      transition:scale={{ duration: 200, start: 0.95 }}
+    >
+      <h3 class="text-2xl font-light text-white">{project.title}</h3>
+    </div>
+  {/if}
 </div>

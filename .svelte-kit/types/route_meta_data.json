@@ -8,5 +8,7 @@
 	"/chute-repack/repacks/unbody": [],
 	"/menu": [],
 	"/work": [],
-	"/work/[projects]": []
+	"/work/[id]": [
+		"src/routes/work/[id]/+page.ts"
+	]
 }
