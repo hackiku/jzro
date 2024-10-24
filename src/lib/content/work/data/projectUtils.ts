@@ -51,10 +51,10 @@ export function enrichProjectData(project: Project): EnrichedProject {
 	const assets = getProjectAssets(project.id);
 	return {
 		...project,
-		image: assets.moneyshot, // For hero section
+		image: assets.moneyshot,
 		assets: {
 			moneyshot: assets.moneyshot,
-			gallery: [assets.moneyshot, ...assets.gallery] // Include moneyshot in gallery
+			gallery: [assets.moneyshot, ...assets.gallery]
 		}
 	};
 }
