@@ -1,3 +1,1 @@
-import * as universal from "../../../../src/routes/work/[id]/+page.ts";
-export { universal };
-export { default as component } from "../../../../src/routes/work/[id]/+page.svelte";
+export { default as component } from "../../../../src/routes/chute-repack/repacks/unbody/+page.svelte";

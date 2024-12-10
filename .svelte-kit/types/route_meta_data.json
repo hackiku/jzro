@@ -4,8 +4,12 @@
 	"/(random)/boing": [],
 	"/chute-repack": [],
 	"/chute-repack/gui": [],
+	"/chute-repack/repacks": [
+		"src/routes/chute-repack/repacks/+page.server.ts"
+	],
 	"/chute-repack/repacks/phasefour.io": [],
 	"/chute-repack/repacks/unbody": [],
+	"/chute-repack/repacks/[slug]": [],
 	"/menu": [],
 	"/work": [],
 	"/work/[id]": [

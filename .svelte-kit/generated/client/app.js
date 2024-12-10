@@ -16,21 +16,26 @@ export const nodes = [
 	() => import('./nodes/12'),
 	() => import('./nodes/13'),
 	() => import('./nodes/14'),
-	() => import('./nodes/15')
+	() => import('./nodes/15'),
+	() => import('./nodes/16'),
+	() => import('./nodes/17'),
+	() => import('./nodes/18')
 ];
 
 export const server_loads = [];
 
 export const dictionary = {
-		"/": [7],
-		"/(random)/boing": [8],
-		"/chute-repack": [9],
-		"/chute-repack/gui": [10],
-		"/chute-repack/repacks/phasefour.io": [11,[3]],
-		"/chute-repack/repacks/unbody": [12,[4]],
-		"/menu": [13,[5]],
-		"/work": [14,[6]],
-		"/work/[id]": [15,[6]]
+		"/": [8],
+		"/(random)/boing": [9],
+		"/chute-repack": [10],
+		"/chute-repack/gui": [11],
+		"/chute-repack/repacks": [~12],
+		"/chute-repack/repacks/phasefour.io": [14,[4]],
+		"/chute-repack/repacks/unbody": [15,[5]],
+		"/chute-repack/repacks/[slug]": [13,[3]],
+		"/menu": [16,[6]],
+		"/work": [17,[7]],
+		"/work/[id]": [18,[7]]
 	};
 
 export const hooks = {
