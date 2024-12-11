@@ -16,8 +16,10 @@
   <!-- Content -->
   <div class="p-6">
 		
-		<div class="mb-4">
+		<div class="mb-4 flex justify-between">
+			<h2 class="text-2xl font-bold">{project.title}</h2>
 			<Pills categories={project.categories} interactive={false} />
+
 		</div>
 		
 		<WorkCard {project} />
@@ -26,7 +28,7 @@
     <!-- Title, Description, and Tools -->
     <div class="mt-6 space-y-6 lg:space-y-0 lg:flex lg:justify-between lg:items-start lg:gap-8">
       <div class="space-y-2">
-        <h2 class="text-2xl font-bold">{project.title}</h2>
+        <!-- <h2 class="text-2xl font-bold">{project.title}</h2> -->
         <p class="text-gray-400">{project.description}</p>
       </div>
       

@@ -1,6 +1,5 @@
-// src/lib/features/work/stores/portfolioStore.ts
-import { writable, derived } from 'svelte/store';
-import type { Project } from '../data/types';
+// src/lib/content/work/stores/portfolioStore.ts
+import { writable } from 'svelte/store';
 
 export type PortfolioCategory = 'Product' | 'Writing' | 'Aerospace' | 'Dev' | 'All';
 
@@ -11,7 +10,7 @@ interface PortfolioState {
 }
 
 function createPortfolioStore() {
-	const { subscribe, set, update } = writable<PortfolioState>({
+	const { subscribe, update } = writable<PortfolioState>({
 		selectedCategory: 'All',
 		isFixed: false,
 		scrollY: 0
@@ -22,9 +21,12 @@ function createPortfolioStore() {
 		setCategory: (category: PortfolioCategory) =>
 			update(state => ({ ...state, selectedCategory: category })),
 		updateScroll: (y: number) =>
-			update(state => ({ ...state, scrollY: y, isFixed: y > 200 }))
+			update(state => ({
+				...state,
+				scrollY: y,
+				isFixed: y > 300 // Adjust this value based on when you want it to stick
+			}))
 	};
 }
 
 export const portfolioStore = createPortfolioStore();
-

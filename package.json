@@ -39,6 +39,7 @@
 		"node-fetch": "^3.3.2",
 		"tailwind-merge": "^2.5.2",
 		"tailwind-variants": "^0.2.1",
-		"three": "^0.167.1"
+		"three": "^0.167.1",
+		"vercel": "^39.2.0"
 	}
 }

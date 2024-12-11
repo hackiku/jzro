@@ -1,13 +1,12 @@
 <!-- src/routes/work/+page.svelte -->
 <script lang="ts">
   import { Button } from '$lib/components/ui/button';
-	import { portfolioStore } from '$lib/content/work/stores/portfolioStore';
+  import { portfolioStore } from '$lib/content/work/stores/portfolioStore';
   import { projects } from '$lib/content/work/data/workData';
   import PortfolioFilter from '$lib/content/work/components/PortfolioFilter.svelte';
   import Nav from '$lib/components/Nav.svelte';
   import { scale } from 'svelte/transition';
-	import PortfolioPiece from '$lib/content/work/PortfolioPiece.svelte';
-
+  import PortfolioPiece from '$lib/content/work/PortfolioPiece.svelte';
 
   $: filteredProjects = $portfolioStore.selectedCategory === 'All'
     ? projects
@@ -25,6 +24,7 @@
     </section>
 
     <PortfolioFilter />
+
 
     <section class="py-12">
       <div class="space-y-12">

@@ -1,8 +1,6 @@
-<!-- src/lib/features/work/components/PortfolioFilter.svelte -->
-
+<!-- src/lib/content/work/components/PortfolioFilter.svelte -->
 <script lang="ts">
   import { portfolioStore, type PortfolioCategory } from '../stores/portfolioStore';
-  import { scale } from 'svelte/transition';
   
   const categories: Record<PortfolioCategory, string> = {
     'Product': 'Product design A-Z for my own products',
@@ -14,12 +12,8 @@
   
   $: tabs = Object.entries(categories) as [PortfolioCategory, string][];
   
-  function selectTab(category: PortfolioCategory) {
-    portfolioStore.setCategory(category);
-  }
-
-  // Handle scroll position
   let y: number;
+
   $: if (typeof y !== 'undefined') {
     portfolioStore.updateScroll(y);
   }
@@ -27,33 +21,35 @@
 
 <svelte:window bind:scrollY={y}/>
 
-<div class:fixed={$portfolioStore.isFixed} 
-     class="w-full z-30 transition-all duration-300 ease-in-out
-            {$portfolioStore.isFixed ? 'bg-gray-900/80 backdrop-blur-md py-4' : 'py-2'}">
-  <div class="container mx-auto px-4 md:px-16">
+<div class="{$portfolioStore.isFixed ? 'fixed top-0 left-0 right-0' : ''} w-full z-30">
+  <div class="container mx-auto px-4 md:px-16 py-4 
+              {$portfolioStore.isFixed ? 'bg-gray-900/80 backdrop-blur-md' : ''}">
     <div class="flex gap-4 overflow-x-auto items-center">
       {#each tabs.filter(([cat]) => cat !== 'All') as [category, description]}
         <button 
-          class="px-4 py-2 rounded-full transition-all whitespace-nowrap
+          class="px-4 py-2 rounded-full transition-colors whitespace-nowrap
                  {$portfolioStore.selectedCategory === category 
                    ? 'bg-white text-gray-800' 
                    : 'bg-gray-800 text-white hover:bg-gray-700'}"
-          on:click={() => selectTab(category)}
+          on:click={() => portfolioStore.setCategory(category)}
         >
           {category}
         </button>
       {/each}
       
-      <!-- All button with outline style -->
       <button 
-        class="px-4 py-2 rounded-full transition-all ml-auto
+        class="px-4 py-2 rounded-full transition-colors ml-auto whitespace-nowrap
                {$portfolioStore.selectedCategory === 'All'
                  ? 'bg-white text-gray-800'
                  : 'border border-white text-white hover:bg-gray-800'}"
-        on:click={() => selectTab('All')}
+        on:click={() => portfolioStore.setCategory('All')}
       >
         All
       </button>
     </div>
   </div>
 </div>
+
+{#if $portfolioStore.isFixed}
+  <div class="h-16"></div>
+{/if}
